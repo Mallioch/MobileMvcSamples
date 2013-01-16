@@ -8,7 +8,7 @@ namespace MobileMvcSamples.Controllers
 {
     public class ResponsiveNavigationController : Controller
     {
-        public ActionResult Index()
+        public ActionResult NavMovedToBottom()
         {
             return View();
         }

@@ -1,0 +1,165 @@
+﻿@{
+    ViewBag.Title = "NavMovedToBottom";
+}
+<style type="text/css">
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+}
+
+div, span, li
+{
+  font-family: Helvetica;
+}
+
+#content
+{
+    max-width: 960px;
+    margin: 0 auto;
+    outline: solid 1px #000;
+    overflow: auto;
+}
+
+header {
+  border-bottom: solid 1px#EEE ;
+}
+
+nav
+{
+    clear: both;
+}
+
+
+nav ul
+{
+    background-color: #000;
+    overflow: auto;
+}
+
+li
+{
+    border-right: solid 1px #777;
+    float: left;
+    list-style-type: none;
+    padding: 3px 5px;
+    width: 100px;
+}
+
+li a
+{
+    color: #FFF;
+    text-decoration: none;
+}
+
+#primary
+{
+    float: left;
+    padding: 2%;
+    width: 62.66666%;
+}
+
+#sidebar
+{
+    background-color: #EEE;
+    float: left;
+    padding: 2%;
+    width: 29.33333%
+}
+
+#menuLink {
+  background-color: #000;
+  color: #FFF;
+  display: block;
+  min-height: 35px;
+  padding: 15px 15px 0 0;
+  text-align: right;
+  text-decoration: none;
+}
+
+#navBottom, #menuLink {
+  display: none;
+}
+
+@@media screen and (max-width: 500px)
+{
+    #navTop
+    {
+        display: none;
+    }
+
+    #menuLink {
+      display: block;
+    }
+    
+    #navBottom
+    {
+        display: block;
+    }
+
+    li
+    {
+        border-bottom: solid 1px #555;
+        float: none;
+        padding: 10px 0;
+        text-align: center;
+        width: auto;
+    }
+    
+    li a {
+      display: block;
+      height: 100%;
+    }
+}
+
+</style>
+
+<div id="content">
+    <a id="menuLink" href="#menu">Menu</a>
+    <header>
+        <h1>Responsive Navigation</h1>
+    </header>
+    <nav id="navTop">
+        <ul>
+            <li><a href="#">First Link</a></li>
+            <li><a href="#">Second Link</a></li>
+            <li><a href="#">Third Link</a></li>
+        </ul>
+    </nav>
+    <div id="primary">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tincidunt elementum ligula a sagittis. 
+            Pellentesque semper erat in augue semper tristique. Aliquam at mauris et massa commodo varius. Suspendisse 
+            tempor, diam quis pellentesque placerat, tellus dolor hendrerit arcu, quis luctus arcu nulla nec dui. Sed 
+            accumsan dui quis massa malesuada ullamcorper. Pellentesque urna nulla, rutrum et aliquam eu, volutpat id 
+            nisi. Nam non libero pulvinar magna dignissim porta. Fusce eu libero tellus, et pulvinar nulla. Suspendisse 
+            porttitor placerat scelerisque. Integer rutrum orci id sapien semper ut porta dui pellentesque. In eu eros 
+            quis nulla scelerisque tristique.</p>
+    </div>
+    <div id="sidebar">
+        <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc imperdiet 
+            lacinia diam, eu semper urna facilisis vel. Vestibulum sollicitudin, elit non pretium volutpat, dui elit 
+            placerat odio, id ornare libero diam luctus est. Integer magna ligula, feugiat vel dictum id, dignissim at 
+            eros. Phasellus lobortis libero vel arcu gravida posuere. Nulla facilisi.</p>
+    </div>
+    <nav id="navBottom">
+        <a name="menu"></a>
+        <ul>
+            <li><a href="#">First Link</a></li>
+            <li><a href="#">Second Link</a></li>
+            <li><a href="#">Third Link</a></li>
+        </ul>
+    </nav>
+
+</div>
