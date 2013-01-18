@@ -1,6 +1,7 @@
 ﻿@{
-    ViewBag.Title = "Navigation moved to the bottom on smaller screens #2";
+    ViewBag.Title = "Nav To Select";
 }
+
 <style type="text/css">
 
 html, body, div, span, applet, object, iframe,
@@ -32,22 +33,17 @@ div, span, li {
 }
 
 header {
-  border-bottom: solid 1px #EEE;
-  margin-top: 30px;
+  border-bottom: solid 1px#EEE ;
   padding: 15px;
 }
 
 nav {
   background-color: #000;
   clear: both;
-  position: absolute;
-  top: 0;
-  width: 100%;
 }
 
 nav ul {
   overflow: auto;
-  padding-left: 15px;
 }
 
 li {
@@ -61,6 +57,10 @@ li {
 li a {
   color: #FFF;
   text-decoration: none;
+}
+
+#selectNav {
+  display: none;
 }
 
 #primary {
@@ -86,40 +86,18 @@ li a {
   text-decoration: none;
 }
 
-#menuLink {
-  display: none;
-}
-
 @@media screen and (max-width: 500px) {
+  #navTop {
+    padding: 5px;
+  }
 
-  #menuLink {
+  #navTop ul {
+    display: none;
+  }
+
+  #selectNav {
     display: block;
-  }
-
-  header {
-    margin-top: 0;
-  }
-
-  nav {
-    position: static;
-    top: auto;
-  }
-
-  nav ul {
-    padding-left: 0;
-  }
-
-  li {
-    border-bottom: solid 1px #555;
-    float: none;
-    padding: 10px 0;
-    text-align: center;
-    width: auto;
-  }
-  
-  li a {
-    display: block;
-    height: 100%;
+    width: 100%;
   }
 
   #primary, #sidebar {
@@ -131,10 +109,17 @@ li a {
 </style>
 
 <div id="content">
-  <a id="menuLink" href="#menu">Menu</a>
   <header>
     <h1>Responsive Navigation</h1>
   </header>
+  <nav id="navTop">
+    <ul>
+      <li><a href="http://google.com">First Link</a></li>
+      <li><a href="http://yahoo.com">Second Link</a></li>
+      <li><a href="http://msn.com">Third Link</a></li>
+    </ul>
+    <select id="selectNav"></select>
+  </nav>
   <div id="primary">
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tincidunt elementum ligula a sagittis. 
       Pellentesque semper erat in augue semper tristique. Aliquam at mauris et massa commodo varius. Suspendisse 
@@ -150,13 +135,27 @@ li a {
       placerat odio, id ornare libero diam luctus est. Integer magna ligula, feugiat vel dictum id, dignissim at 
       eros. Phasellus lobortis libero vel arcu gravida posuere. Nulla facilisi.</p>
   </div>
-  <nav>
-    <a name="menu"></a>
-    <ul>
-      <li><a href="#">First Link</a></li>
-      <li><a href="#">Second Link</a></li>
-      <li><a href="#">Third Link</a></li>
-    </ul>
-  </nav>
 
 </div>
+
+<script type="text/ecmascript">
+  $(document).ready(function () {
+
+    var nav = $('#selectNav');
+    $('nav li a').each(function (i) {
+
+      var anchor = $(this);
+
+      var option = $('<option />', {
+        value: anchor.attr('href'),
+        text: anchor.text()
+      });
+      
+      nav.append(option);
+    });
+
+    nav.change(function () {
+      window.location = $(this).find("option:selected").val();
+    });
+  });
+</script>

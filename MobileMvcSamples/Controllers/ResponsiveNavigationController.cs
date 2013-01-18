@@ -17,5 +17,10 @@ namespace MobileMvcSamples.Controllers
         {
             return View();
         }
+
+        public ActionResult NavToSelect()
+        {
+            return View();
+        }
     }
 }
