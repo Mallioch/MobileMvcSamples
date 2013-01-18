@@ -13,5 +13,9 @@ namespace MobileMvcSamples.Controllers
             return View();
         }
 
+        public ActionResult NavMovedToBottomNoRepeatedMenu()
+        {
+            return View();
+        }
     }
 }

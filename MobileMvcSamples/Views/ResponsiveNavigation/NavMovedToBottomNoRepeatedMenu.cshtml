@@ -32,18 +32,22 @@ div, span, li {
 }
 
 header {
-  border-bottom: solid 1px#EEE ;
+  border-bottom: solid 1px #EEE;
+  margin-top: 30px;
   padding: 15px;
 }
 
 nav {
   clear: both;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
-
 
 nav ul {
   background-color: #000;
   overflow: auto;
+  padding-left: 15px;
 }
 
 li {
@@ -82,21 +86,23 @@ li a {
   text-decoration: none;
 }
 
-#navBottom, #menuLink {
+#menuLink {
   display: none;
 }
 
 @@media screen and (max-width: 500px) {
-  #navTop {
-    display: none;
-  }
 
   #menuLink {
     display: block;
   }
-  
-  #navBottom {
-    display: block;
+
+  header {
+    margin-top: 0;
+  }
+
+  nav {
+    position: static;
+    top: auto;
   }
 
   li {
@@ -125,13 +131,6 @@ li a {
   <header>
     <h1>Responsive Navigation</h1>
   </header>
-  <nav id="navTop">
-    <ul>
-      <li><a href="#">First Link</a></li>
-      <li><a href="#">Second Link</a></li>
-      <li><a href="#">Third Link</a></li>
-    </ul>
-  </nav>
   <div id="primary">
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tincidunt elementum ligula a sagittis. 
       Pellentesque semper erat in augue semper tristique. Aliquam at mauris et massa commodo varius. Suspendisse 
@@ -147,7 +146,7 @@ li a {
       placerat odio, id ornare libero diam luctus est. Integer magna ligula, feugiat vel dictum id, dignissim at 
       eros. Phasellus lobortis libero vel arcu gravida posuere. Nulla facilisi.</p>
   </div>
-  <nav id="navBottom">
+  <nav>
     <a name="menu"></a>
     <ul>
       <li><a href="#">First Link</a></li>
