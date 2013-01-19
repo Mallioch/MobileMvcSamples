@@ -39,11 +39,8 @@ header {
 nav {
   background-color: #000;
   clear: both;
-}
-
-
-nav ul {
   overflow: auto;
+  padding-left: 15px;
 }
 
 li {
@@ -75,7 +72,6 @@ li a {
 #menuLink {
   background-color: #000;
   color: #FFF;
-  display: block;
   min-height: 35px;
   padding: 15px 15px 0 0;
   text-align: right;
@@ -87,6 +83,10 @@ li a {
 }
 
 @@media screen and (max-width: 500px) {
+  nav {
+    padding: 0;
+  }
+
   #navTop {
     display: none;
   }
