@@ -112,14 +112,14 @@ li a {
   <header>
     <h1>Responsive Navigation</h1>
   </header>
-  <nav id="navTop">
-    <ul>
-      <li><a href="http://google.com">First Link</a></li>
-      <li><a href="http://yahoo.com">Second Link</a></li>
-      <li><a href="http://msn.com">Third Link</a></li>
-    </ul>
-    <select id="selectNav"></select>
-  </nav>
+<nav id="navTop">
+  <ul>
+    <li><a href="#">First Link</a></li>
+    <li><a href="#">Second Link</a></li>
+    <li><a href="#">Third Link</a></li>
+  </ul>
+  <select id="selectNav"></select>
+</nav>
   <div id="primary">
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tincidunt elementum ligula a sagittis. 
       Pellentesque semper erat in augue semper tristique. Aliquam at mauris et massa commodo varius. Suspendisse 
@@ -142,7 +142,7 @@ li a {
   $(document).ready(function () {
 
     var nav = $('#selectNav');
-    $('nav li a').each(function (i) {
+    $('nav li a').each(function () {
 
       var anchor = $(this);
 
