@@ -25,7 +25,7 @@ div, span, li {
   font-family: Helvetica;
 }
 
-#content {
+#pageWrapper {
   max-width: 960px;
   margin: 0 auto;
   outline: solid 1px #000;
@@ -83,8 +83,9 @@ li a {
 }
 
 @@media screen and (max-width: 500px) {
-  body {
-    overflow: hidden;
+  .contentWrapper {
+    overflow: auto;
+    position: relative;
   }
 
   #menuLink {
@@ -93,10 +94,14 @@ li a {
   
   nav {
     display: none;
-    padding: 5px;
+    padding: 0;
   }
 
   nav ul {
+  }
+
+  #content {
+    height: 100%;
   }
 
   .primary, .sidebar {
@@ -104,9 +109,11 @@ li a {
   }
 
   .active {
-    /*float: left;*/
-    width: 80%;
-    display: block;
+    height: 100%;
+    width: 50%;
+    display: inline-block;
+    top: 0;
+    vertical-align: top;
   }
 
   .inactive {
@@ -114,9 +121,12 @@ li a {
     float: left !important;
     width: 20% !important;
       */
-    position: absolute;
-    left: 80%;
-    width: 94%;
+    display: inline-block;
+    height: 100%;
+    position: relative;
+    width: 45%;
+    top: 0;
+    height: 100%;
   }
 
   .active li {
@@ -129,33 +139,35 @@ li a {
 
 </style>
 
-<div id="content">
+<div id="pageWrapper">
   <a id="menuLink" href="#menu">Menu</a>
   <header>
     <h1>Responsive Navigation</h1>
   </header>
-  <nav>
-    <ul>
-      <li><a href="http://google.com">First Link</a></li>
-      <li><a href="http://yahoo.com">Second Link</a></li>
-      <li><a href="http://msn.com">Third Link</a></li>
-    </ul>
-  </nav>
-  <div class="textBodyWrapper">
-    <div class="primary">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tincidunt elementum ligula a sagittis. 
-        Pellentesque semper erat in augue semper tristique. Aliquam at mauris et massa commodo varius. Suspendisse 
-        tempor, diam quis pellentesque placerat, tellus dolor hendrerit arcu, quis luctus arcu nulla nec dui. Sed 
-        accumsan dui quis massa malesuada ullamcorper. Pellentesque urna nulla, rutrum et aliquam eu, volutpat id 
-        nisi. Nam non libero pulvinar magna dignissim porta. Fusce eu libero tellus, et pulvinar nulla. Suspendisse 
-        porttitor placerat scelerisque. Integer rutrum orci id sapien semper ut porta dui pellentesque. In eu eros 
-        quis nulla scelerisque tristique.</p>
-    </div>
-    <div class="sidebar">
-      <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc imperdiet 
-        lacinia diam, eu semper urna facilisis vel. Vestibulum sollicitudin, elit non pretium volutpat, dui elit 
-        placerat odio, id ornare libero diam luctus est. Integer magna ligula, feugiat vel dictum id, dignissim at 
-        eros. Phasellus lobortis libero vel arcu gravida posuere. Nulla facilisi.</p>
+  <div class="contentWrapper">
+    <nav>
+      <ul>
+        <li><a href="#">First Link</a></li>
+        <li><a href="#">Second Link</a></li>
+        <li><a href="#">Third Link</a></li>
+      </ul>
+    </nav>
+    <div id="content">
+      <div class="primary">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tincidunt elementum ligula a sagittis. 
+          Pellentesque semper erat in augue semper tristique. Aliquam at mauris et massa commodo varius. Suspendisse 
+          tempor, diam quis pellentesque placerat, tellus dolor hendrerit arcu, quis luctus arcu nulla nec dui. Sed 
+          accumsan dui quis massa malesuada ullamcorper. Pellentesque urna nulla, rutrum et aliquam eu, volutpat id 
+          nisi. Nam non libero pulvinar magna dignissim porta. Fusce eu libero tellus, et pulvinar nulla. Suspendisse 
+          porttitor placerat scelerisque. Integer rutrum orci id sapien semper ut porta dui pellentesque. In eu eros 
+          quis nulla scelerisque tristique.</p>
+      </div>
+      <div class="sidebar">
+        <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc imperdiet 
+          lacinia diam, eu semper urna facilisis vel. Vestibulum sollicitudin, elit non pretium volutpat, dui elit 
+          placerat odio, id ornare libero diam luctus est. Integer magna ligula, feugiat vel dictum id, dignissim at 
+          eros. Phasellus lobortis libero vel arcu gravida posuere. Nulla facilisi.</p>
+      </div>
     </div>
   </div>
 
@@ -165,7 +177,7 @@ li a {
   $(document).ready(function () {
     $('#menuLink').click(function () {
       $('nav').toggleClass('active');
-      $('.textBodyWrapper').toggleClass('inactive');
+      $('#content').toggleClass('inactive');
     });
   });
 </script>
