@@ -83,6 +83,10 @@ li a {
 }
 
 @@media screen and (max-width: 500px) {
+  body {
+    overflow: hidden;
+  }
+
   #menuLink {
     display: block;
   }
@@ -96,19 +100,23 @@ li a {
   }
 
   .primary, .sidebar {
-    float: none;
     width: 94%;
   }
 
   .active {
-    float: left;
-    width: 75%;
+    /*float: left;*/
+    width: 80%;
     display: block;
   }
 
   .inactive {
+    /*
     float: left !important;
     width: 20% !important;
+      */
+    position: absolute;
+    left: 80%;
+    width: 94%;
   }
 
   .active li {
