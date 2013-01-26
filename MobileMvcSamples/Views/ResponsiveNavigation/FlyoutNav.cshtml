@@ -26,10 +26,10 @@ div, span, li {
 }
 
 #pageWrapper {
-  max-width: 960px;
   margin: 0 auto;
   outline: solid 1px #000;
-  overflow: auto;
+  overflow: hidden;
+  width: 100%;
 }
 
 header {
@@ -77,17 +77,11 @@ li a {
   color: #FFF;
   display: none;
   min-height: 35px;
-  padding: 15px 15px 0 0;
-  text-align: right;
+  padding: 15px 0 0 15px;
   text-decoration: none;
 }
 
 @@media screen and (max-width: 500px) {
-  .contentWrapper {
-    overflow: auto;
-    position: relative;
-  }
-
   #menuLink {
     display: block;
   }
@@ -97,17 +91,10 @@ li a {
     padding: 0;
   }
 
-  nav ul {
-  }
-
-  #content {
-    height: 100%;
-  }
-
   .primary, .sidebar {
     width: 94%;
   }
-
+  /*
   .active {
     height: 100%;
     width: 50%;
@@ -117,10 +104,7 @@ li a {
   }
 
   .inactive {
-    /*
-    float: left !important;
-    width: 20% !important;
-      */
+
     display: inline-block;
     height: 100%;
     position: relative;
@@ -134,25 +118,94 @@ li a {
     margin: 0;
     padding: 0;
     width: 100%;
+  }*/
+
+  /*
+  .contentWrapper {
+    height: 100%;
+    overflow: auto;
+    position: relative;
   }
+
+  .content {
+    height: 100%;
+  }
+
+  .navOpen nav {
+    display: block;
+    float: left;
+    position: absolute;
+    width: 50%;
+  }
+
+  .navOpen li {
+    border: none;
+    margin: 0;
+    padding: 15px 0px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .navOpen .content {
+    float: left;
+    outline: solid 1px green;
+    margin-left: 50%;
+    float: left;
+    width: 100%;
+  }
+
+    */
+    .navOpen nav {
+      display: block;
+      left: 0;
+      position: absolute;
+      width: 250px;
+      -ms-transform: translateX(-250px);
+      -webkit-transform: translateX(-250px);
+      transform: translateX(-250px);
+    }
+
+    .navOpen li {
+      border: none;
+      margin: 0;
+      padding: 15px 0px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .navOpen {
+      -ms-transform: translateX(250px);
+      -webkit-transform: translateX(250px);
+      transform: translateX(250px);
+      -ms-transition: all 500ms ease;
+      -webkit-transition: all 500ms ease;
+      transition: all 500ms ease;
+  }
+
 }
 
 </style>
 
 <div id="pageWrapper">
-  <a id="menuLink" href="#menu">Menu</a>
-  <header>
-    <h1>Responsive Navigation</h1>
-  </header>
   <div class="contentWrapper">
+    <a id="menuLink" href="#menu">Menu</a>
+    <header>
+      <h1>Responsive Navigation</h1>
+    </header>
     <nav>
       <ul>
         <li><a href="#">First Link</a></li>
         <li><a href="#">Second Link</a></li>
         <li><a href="#">Third Link</a></li>
+        <li><a href="#">Fourth Link</a></li>
+        <li><a href="#">Fifth Link</a></li>
+        <li><a href="#">Sixth Link</a></li>
+        <li><a href="#">Seventh Link</a></li>
+        <li><a href="#">Eighth Link</a></li>
+        <li><a href="#">Ninth Link</a></li>
       </ul>
     </nav>
-    <div id="content">
+    <div class="content">
       <div class="primary">
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tincidunt elementum ligula a sagittis. 
           Pellentesque semper erat in augue semper tristique. Aliquam at mauris et massa commodo varius. Suspendisse 
@@ -169,6 +222,7 @@ li a {
           eros. Phasellus lobortis libero vel arcu gravida posuere. Nulla facilisi.</p>
       </div>
     </div>
+    <div style="clear: both;">&nbsp;</div>
   </div>
 
 </div>
@@ -176,8 +230,7 @@ li a {
 <script type="text/ecmascript">
   $(document).ready(function () {
     $('#menuLink').click(function () {
-      $('nav').toggleClass('active');
-      $('#content').toggleClass('inactive');
+      $('.contentWrapper').toggleClass('navOpen');
     });
   });
 </script>
