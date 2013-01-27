@@ -59,15 +59,16 @@ li a {
   text-decoration: none;
 }
 
-#primary {
+.primary {
   float: left;
   padding: 3%;
   width: 60.66666%;
 }
 
-#sidebar {
+.sidebar {
   background-color: #EEE;
   float: left;
+  height: 100%;
   padding: 3%;
   width: 27.33333%
 }
@@ -76,14 +77,32 @@ li a {
   background-color: #000;
   color: #FFF;
   display: none;
-  min-height: 35px;
-  padding: 15px 0 0 15px;
+  min-height: 25px;
+  padding: 5px 0 5px 10px;
   text-decoration: none;
 }
 
 @@media screen and (max-width: 500px) {
   #menuLink {
     display: block;
+  }
+
+  .menuBarGroup {
+    border: solid 1px #111;
+    background-color: #333;
+    border-radius: 5px;
+    display: block;
+    overflow: auto;
+    padding: 8px 8px 4px 8px;
+    width: 19px;
+  }
+
+  .menuBar {
+    background-color: #FFF;
+    display: block;
+    height: 3px;
+    margin-bottom: 4px;
+    width: 19px;
   }
   
   nav {
@@ -92,94 +111,40 @@ li a {
   }
 
   .primary, .sidebar {
+    padding: 4%;
     width: 94%;
-  }
-  /*
-  .active {
-    height: 100%;
-    width: 50%;
-    display: inline-block;
-    top: 0;
-    vertical-align: top;
-  }
-
-  .inactive {
-
-    display: inline-block;
-    height: 100%;
-    position: relative;
-    width: 45%;
-    top: 0;
-    height: 100%;
-  }
-
-  .active li {
-    border: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-  }*/
-
-  /*
-  .contentWrapper {
-    height: 100%;
-    overflow: auto;
-    position: relative;
-  }
-
-  .content {
-    height: 100%;
   }
 
   .navOpen nav {
     display: block;
-    float: left;
+    left: 0;
     position: absolute;
-    width: 50%;
+    top: 0;
+    width: 250px;
+    -ms-transform: translateX(-250px);
+    -webkit-transform: translateX(-250px);
+    transform: translateX(-250px);
+  }
+
+  .navOpen nav ul {
+    margin-top: 45px;
   }
 
   .navOpen li {
     border: none;
     margin: 0;
-    padding: 15px 0px;
-    width: 100%;
+    padding: 15px 5%;
     overflow: hidden;
+    width: 90%;
   }
 
-  .navOpen .content {
-    float: left;
-    outline: solid 1px green;
-    margin-left: 50%;
-    float: left;
-    width: 100%;
-  }
-
-    */
-    .navOpen nav {
-      display: block;
-      left: 0;
-      position: absolute;
-      width: 250px;
-      -ms-transform: translateX(-250px);
-      -webkit-transform: translateX(-250px);
-      transform: translateX(-250px);
-    }
-
-    .navOpen li {
-      border: none;
-      margin: 0;
-      padding: 15px 0px;
-      width: 100%;
-      overflow: hidden;
-    }
-
-    .navOpen {
-      -ms-transform: translateX(250px);
-      -webkit-transform: translateX(250px);
-      transform: translateX(250px);
-      -ms-transition: all 500ms ease;
-      -webkit-transition: all 500ms ease;
-      transition: all 500ms ease;
+  .navOpen {
+    -ms-transform: translateX(250px);
+    -webkit-transform: translateX(250px);
+    transform: translateX(250px);
+    -ms-transition: all 500ms ease;
+    -webkit-transition: all 500ms ease;
+    transition: all 500ms ease;
   }
 
 }
@@ -188,7 +153,13 @@ li a {
 
 <div id="pageWrapper">
   <div class="contentWrapper">
-    <a id="menuLink" href="#menu">Menu</a>
+    <a id="menuLink" href="#menu">
+      <span class="menuBarGroup">
+        <span class="menuBar"></span>
+        <span class="menuBar"></span>
+        <span class="menuBar"></span>
+      </span>
+    </a>
     <header>
       <h1>Responsive Navigation</h1>
     </header>
@@ -222,7 +193,6 @@ li a {
           eros. Phasellus lobortis libero vel arcu gravida posuere. Nulla facilisi.</p>
       </div>
     </div>
-    <div style="clear: both;">&nbsp;</div>
   </div>
 
 </div>

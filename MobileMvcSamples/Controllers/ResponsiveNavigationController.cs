@@ -27,5 +27,10 @@ namespace MobileMvcSamples.Controllers
         {
             return View();
         }
+
+        public ActionResult AccordianNav()
+        {
+            return View();
+        }
     }
 }
