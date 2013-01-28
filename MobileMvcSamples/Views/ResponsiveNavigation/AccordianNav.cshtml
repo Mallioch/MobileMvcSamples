@@ -58,17 +58,16 @@ li a {
 }
 
 #primary {
-  border-top: solid 1px#EEE ;
   clear: both;
   float: left;
   padding: 3%;
   width: 60.66666%;
 }
 
-#sidebar {
+#secondary {
   background-color: #EEE;
   float: left;
-  padding: 0;
+  padding: 3%;
   width: 27.33333%
 }
 
@@ -87,6 +86,7 @@ li a {
 @@media screen and (max-width: 500px) {
   h1 {
     float: left;
+    font-size: 1.5em;
     margin-bottom: 15px;
     max-width: 80%;
   }
@@ -98,6 +98,7 @@ li a {
   }
 
   .menuBarGroup {
+    background-color: #eee;
     border: solid 1px #ccc;
     border-radius: 5px;
     display: block;
@@ -114,19 +115,6 @@ li a {
     width: 19px;
   }
 
-  li {
-    border-bottom: solid 1px #555;
-    float: none;
-    padding: 10px 0;
-    text-align: center;
-    width: auto;
-  }
-  
-  li a {
-    display: block;
-    height: 100%;
-  }
-
   nav {
     height: 0;
     overflow: hidden;
@@ -141,9 +129,30 @@ li a {
     max-height:400px;
   }
 
-  #primary, #sidebar {
+  li {
+    border-bottom: solid 1px #555;
+    float: none;
+    padding: 10px 0;
+    text-align: center;
+    width: auto;
+  }
+  
+  li a {
+    display: block;
+    height: 100%;
+  }
+
+  #primary, #secondary {
     float: none;
     width: 94%;
+  }
+
+  #primary {
+    border-top: solid 2px #000 ;
+  }
+
+  #secondary {
+    border-top: solid 1px #CCC;
   }
 }
 
@@ -187,7 +196,6 @@ li a {
 <script type="text/ecmascript">
   $(document).ready(function () {
     $('#menuLink').click(function () {
-      $('#content').toggleClass('navOpen');
       $('nav').toggleClass('open');
     });
   });
