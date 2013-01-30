@@ -117,16 +117,18 @@ li a {
 
   nav {
     height: 0;
-    overflow: hidden;
     padding-left: 0;
+    overflow: hidden;
     -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -o-transition: all .5s ease;
     transition: all .5s ease;
   }
 
   nav.open {
     height: auto;
-    min-height:40px;
-    max-height:400px;
+    min-height: 110px;
+    max-height: 150px;
   }
 
   li {
