@@ -83,90 +83,9 @@ li a {
   padding: 5px 0 5px 10px;
   text-decoration: none;
 }
-
-@@media screen and (max-width: 500px) {
-  #menuLink {
-    display: block;
-  }
-
-  .menuBarGroup {
-    border: solid 1px #111;
-    background-color: #333;
-    border-radius: 5px;
-    display: block;
-    overflow: auto;
-    padding: 8px 8px 4px 8px;
-    width: 19px;
-  }
-
-  .menuBar {
-    background-color: #FFF;
-    display: block;
-    height: 3px;
-    margin-bottom: 4px;
-    width: 19px;
-  }
-  
-  nav {
-    display: none;
-    height: 100%;
-    padding: 0;
-    overflow: hidden;
-  }
-
-  .primary, .sidebar {
-    padding: 4%;
-    width: 94%;
-  }
-
-  .open nav {
-    display: block;
-    left: -70%;
-    position: absolute;
-    top: 0;
-    width: 70%;
-    padding-top: 50px;
-    -ms-transform: translateX(-250px);
-    -webkit-transform: translateX(-250px);
-    transform: translateX(-250px);
-  }
-
-  .open nav ul {
-    margin-top: 45px;
-    height: 100%;
-  }
-
-  .open li {
-    display: block;
-    border: none;
-    margin: 0;
-    padding: 15px 5%;
-    overflow: hidden;
-    width: 90%;
-  }
-
-  #pageWrapper {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-  }
-
-  .open .contentWrapper {
-    left: 70%;
-    height: 100%;
-    position: relative;
-    width: 100%;
-    -ms-transform: translateX(250px);
-    -webkit-transform: translateX(250px);
-    transform: translateX(250px);
-    -ms-transition: all 500ms ease;
-    -webkit-transition: all 500ms ease;
-    transition: all 500ms ease;
-  }
-
-}
     */
 
+/* With working CSS Transforms...except for Android
 @@media screen and (max-width: 500px) {
   body {
     overflow: hidden;
@@ -213,10 +132,6 @@ li a {
   }
 
   .open nav {
-    /*
-    left: 0;
-    position: absolute;
-      */
     -ms-transform: translate(-100%);
     -webkit-transform: translate(-100%);
     transform: translate(-100%);
@@ -233,6 +148,71 @@ li a {
     transform: translateX(70%);
   }
 }
+  */
+
+@@media screen and (max-width: 500px) {
+  body {
+    overflow: hidden;
+  }
+
+  .dude {
+    overflow: hidden;
+  }
+
+  .menuBarGroup {
+    border: solid 1px #111;
+    background-color: #333;
+    border-radius: 5px;
+    display: block;
+    overflow: auto;
+    padding: 8px 8px 4px 8px;
+    width: 19px;
+  }
+
+  .menuBar {
+    background-color: #FFF;
+    display: block;
+    height: 3px;
+    margin-bottom: 4px;
+    width: 19px;
+  }
+
+  nav {
+    background-color: #000;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    -ms-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    -webkit-transition: -webkit-transform .5s ease;
+    transition: transform .5s ease;
+    width: 70%;
+  }
+
+  nav a {
+    color: #FFF;
+    text-decoration: none;
+  }
+
+  .open nav {
+    -ms-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+
+  .contentWrapper {
+    -webkit-transition: -webkit-transform .5s ease;
+    transition: transform .5s ease;
+  }
+
+  .open .contentWrapper {
+    -ms-transform: translateX(70%);
+    -webkit-transform: translateX(70%);
+    transform: translateX(70%);
+  }
+}
+
 
 </style>
 
