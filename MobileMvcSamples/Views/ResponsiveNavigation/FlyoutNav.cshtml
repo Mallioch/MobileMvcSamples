@@ -150,6 +150,7 @@ li a {
 }
   */
 
+/* Uses 3d transforms. Fixes Android issue but breaks IE9/Win 7.5
 @@media screen and (max-width: 1100px) {
   body {
     overflow: hidden;
@@ -210,6 +211,63 @@ li a {
     -ms-transform: translate3d(70%, 0, 0);
     -webkit-transform: translate3d(70%, 0, 0);
     transform: translate3d(70%, 0, 0);
+  }
+}
+  */
+
+@@media screen and (max-width: 1100px) {
+
+  .dude {
+    overflow-x: hidden;
+  }
+
+  .menuBarGroup {
+    border: solid 1px #111;
+    background-color: #333;
+    border-radius: 5px;
+    display: block;
+    overflow: auto;
+    padding: 8px 8px 4px 8px;
+    width: 19px;
+  }
+
+  .menuBar {
+    background-color: #FFF;
+    display: block;
+    height: 3px;
+    margin-bottom: 4px;
+    width: 19px;
+  }
+
+  nav {
+    background-color: #000;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -70%;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+    width: 70%;
+  }
+
+  nav a {
+    color: #FFF;
+    text-decoration: none;
+  }
+
+  .open nav {
+    left: -70%;
+  }
+
+  .contentWrapper {
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+    position: relative;
+    left: 0;
+  }
+
+  .open .contentWrapper {
+    left: 70%;
   }
 }
 
