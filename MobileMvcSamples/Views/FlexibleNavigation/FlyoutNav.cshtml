@@ -1,0 +1,199 @@
+﻿@{
+    ViewBag.Title = "NavFlyout";
+}
+
+<style type="text/css">
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+}
+
+div, span, li {
+  font-family: Helvetica;
+}
+
+header {
+  border-bottom: solid 1px#EEE ;
+  padding: 15px;
+}
+
+nav {
+  background-color: #000;
+  clear: both;
+}
+
+nav ul {
+  overflow: auto; /* keep the menu from collapsing because the list items are floated */
+}
+
+li {
+  border-right: solid 1px #777;
+  float: left;
+  list-style-type: none;
+  padding: 3px 5px;
+  width: 100px;
+}
+
+li a {
+  color: #FFF;
+  text-decoration: none;
+}
+
+.primary {
+  float: left;
+  padding: 3%;
+  width: 60.66666%;
+}
+
+.secondary {
+  background-color: #EEE;
+  float: left;
+  height: 100%;
+  padding: 3%;
+  width: 27.33333%
+}
+
+#menuLink {
+  background-color: #000;
+  color: #FFF;
+  display: none;
+  min-height: 25px;
+  padding: 5px 0 5px 10px;
+  text-decoration: none;
+}
+
+@@media screen and (max-width: 400px) {
+
+  .pageWrapper {
+    overflow-x: hidden;
+  }
+
+  .primary, .secondary {
+    float: none;
+    padding: 4%;
+    width: 92%;
+  }
+
+  #menuLink {
+    display: block;
+  }
+
+  .menuBarGroup {
+    border: solid 1px #111;
+    background-color: #333;
+    border-radius: 5px;
+    display: block;
+    overflow: auto;
+    padding: 8px 8px 4px 8px;
+    width: 19px;
+  }
+
+  .menuBar {
+    background-color: #FFF;
+    display: block;
+    height: 3px;
+    margin-bottom: 4px;
+    width: 19px;
+  }
+
+  nav {
+    background-color: #000;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -70%;
+    width: 70%;
+  }
+
+  nav ul {
+    margin-top: 45px;
+  }
+
+  nav li {
+    border-right: none;
+    border-bottom: solid 1px #777;
+    border-top: solid 1px #777;
+    float: none;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .contentWrapper {
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    transition: all .5s ease;
+    position: relative;
+  }
+
+  .open .contentWrapper {
+    left: 70%;
+  }
+}
+
+
+</style>
+
+<div class="pageWrapper">
+
+  <div class="contentWrapper">
+    <div id="menuLink">
+      <span class="menuBarGroup">
+        <span class="menuBar"></span>
+        <span class="menuBar"></span>
+        <span class="menuBar"></span>
+      </span>
+    </div>
+    <header>
+      <h1>Responsive Navigation</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="#">First Link</a></li>
+        <li><a href="#">Second Link</a></li>
+        <li><a href="#">Third Link</a></li>
+      </ul>
+    </nav>
+    <div class="content">
+      <div class="primary">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tincidunt elementum ligula a sagittis. 
+          Pellentesque semper erat in augue semper tristique. Aliquam at mauris et massa commodo varius. Suspendisse 
+          tempor, diam quis pellentesque placerat, tellus dolor hendrerit arcu, quis luctus arcu nulla nec dui. Sed 
+          accumsan dui quis massa malesuada ullamcorper. Pellentesque urna nulla, rutrum et aliquam eu, volutpat id 
+          nisi. Nam non libero pulvinar magna dignissim porta. Fusce eu libero tellus, et pulvinar nulla. Suspendisse 
+          porttitor placerat scelerisque. Integer rutrum orci id sapien semper ut porta dui pellentesque. In eu eros 
+          quis nulla scelerisque tristique.</p>
+      </div>
+      <div class="secondary">
+        <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc imperdiet 
+          lacinia diam, eu semper urna facilisis vel. Vestibulum sollicitudin, elit non pretium volutpat, dui elit 
+          placerat odio, id ornare libero diam luctus est. Integer magna ligula, feugiat vel dictum id, dignissim at 
+          eros. Phasellus lobortis libero vel arcu gravida posuere. Nulla facilisi.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<script type="text/ecmascript">
+  $(document).ready(function () {
+    $('#menuLink').click(function () {
+      $('body').toggleClass('open');
+    });
+  });
+</script>
