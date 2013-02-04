@@ -105,7 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ResponsiveNavigationController.cs" />
+    <Compile Include="Controllers\FlexibleNavigationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -145,22 +145,22 @@
     <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\ResponsiveNavigation\NavMovedToBottom.cshtml" />
+    <Content Include="Views\FlexibleNavigation\NavMovedToBottom.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\ResponsiveNavigation\_Layout.cshtml" />
+    <Content Include="Views\FlexibleNavigation\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\ResponsiveNavigation\NavMovedToBottomNoRepeatedMenu.cshtml" />
+    <Content Include="Views\FlexibleNavigation\NavMovedToBottomNoRepeatedMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\ResponsiveNavigation\NavToSelect.cshtml" />
+    <Content Include="Views\FlexibleNavigation\NavToSelect.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\ResponsiveNavigation\FlyoutNav.cshtml" />
+    <Content Include="Views\FlexibleNavigation\FlyoutNav.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\ResponsiveNavigation\AccordianNav.cshtml" />
+    <Content Include="Views\FlexibleNavigation\AccordianNav.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
