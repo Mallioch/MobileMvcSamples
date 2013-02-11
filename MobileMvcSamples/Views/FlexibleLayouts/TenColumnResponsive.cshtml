@@ -1,0 +1,157 @@
+﻿@{
+    ViewBag.Title = "TenColumnResponsive";
+}
+
+<style type="text/css">
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+}
+
+div, span, li {
+  font-family: Helvetica;
+}
+
+.header {
+  background-color: #000;
+  color: #FFF;
+  margin: 0 0 20px 0;
+  padding: 20px 0;
+}
+
+.header h1 {
+  text-align: center;
+}
+
+.item {
+  border: solid 1px #777;
+  border-radius: 5px;
+  float: left;
+  margin: 5px 5% 5px 5%;
+  max-width: 90%;
+  overflow: hidden;
+  text-align: center;
+}
+
+.item img {
+  margin-top: 2.5%;
+  max-width: 95%;
+}
+
+.item p {
+  min-height: 3em;
+  text-align: center;
+  font-size: .9em;
+}
+
+.footer {
+  background-color: #000;
+  clear: both;
+  color: #FFF;
+  padding: 20px 0;
+  text-align: center;
+}
+
+@@media screen and (min-width: 400px) {
+  .item {
+    max-width: 22.5%;
+    margin: 5px 1%;
+  }
+}
+
+@@media screen and (min-width: 500px) {
+  .item {
+    max-width: 18.5%;
+    margin: 5px .5%;
+  }
+}
+
+@@media screen and (min-width: 800px) {
+  .item {
+    max-width: 9.2%;
+    margin: 5px .25%;
+  }
+}
+
+
+</style>
+
+
+
+<div class="header">
+  <h1>Things I Enjoy</h1>
+</div>
+<div class="items">
+  <div class="item">
+    <img src="~/content/images/marvel_500.jpg" />
+    <p>Marvel</p>
+  </div>
+  <div class="item">
+    <img src="~/content/images/cod_500.jpg" />
+    <p>Call of Duty</p>
+  </div>
+  <div class="item">
+    <img src="~/content/images/bacon_500.jpg" />
+    <p>Bacon</p>
+  </div>
+  <div class="item">
+    <img src="~/content/images/avengers_500.jpg" />
+    <p>Avengers</p>
+  </div>
+  <div class="item">
+    <img src="~/content/images/css_500.jpg" />
+    <p>CSS</p>
+  </div>
+  <div class="item">
+    <img src="~/content/images/DandD_500.jpg" />
+    <p>D&D</p>
+  </div>
+  <div class="item">
+    <img src="~/content/images/dice_500.jpg" />
+    <p>Dice</p>
+  </div>
+  <div class="item">
+    <img src="~/content/images/dragonlance_500.jpg" />
+    <p>Dragonlance</p>
+  </div>
+  <div class="item">
+    <img src="~/content/images/greek_500.jpg" />
+    <p>Greek</p>
+  </div>
+  <div class="item">
+    <img src="~/content/images/hogan_500.jpg" />
+    <p>Julk Hogan</p>
+  </div>
+  <div class="item">
+    <img src="~/content/images/lolwut_500.jpg" />
+    <p>Lol wut</p>
+  </div>
+  <div class="item">
+    <img src="~/content/images/mitt_500.jpg" />
+    <p>Tiny Face Mitt</p>
+  </div>
+  <div class="item">
+    <img src="~/content/images/noooooo_500.jpg" />
+    <p>Noooooo!</p>
+  </div>
+  <div class="item">
+    <img src="~/content/images/ready_500.jpg" />
+    <p>Ready Player One</p>
+  </div>
+</div>
+<div class="footer">
+  &copy; Eric Sowell, 2013
+</div>

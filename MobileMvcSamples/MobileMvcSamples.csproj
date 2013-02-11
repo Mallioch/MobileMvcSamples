@@ -104,6 +104,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\FlexibleLayoutsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\FlexibleNavigationController.cs" />
     <Compile Include="Global.asax.cs">
@@ -115,6 +116,62 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="content\images\avengers_100.jpg" />
+    <Content Include="content\images\avengers_200.jpg" />
+    <Content Include="content\images\avengers_300.jpg" />
+    <Content Include="content\images\avengers_500.jpg" />
+    <Content Include="content\images\bacon_100.jpg" />
+    <Content Include="content\images\bacon_200.jpg" />
+    <Content Include="content\images\bacon_300.jpg" />
+    <Content Include="content\images\bacon_500.jpg" />
+    <Content Include="content\images\cod_100.jpg" />
+    <Content Include="content\images\cod_200.jpg" />
+    <Content Include="content\images\cod_300.jpg" />
+    <Content Include="content\images\cod_500.jpg" />
+    <Content Include="content\images\css_100.jpg" />
+    <Content Include="content\images\css_200.jpg" />
+    <Content Include="content\images\css_300.jpg" />
+    <Content Include="content\images\css_500.jpg" />
+    <Content Include="content\images\DandD_100.jpg" />
+    <Content Include="content\images\DandD_200.jpg" />
+    <Content Include="content\images\DandD_300.jpg" />
+    <Content Include="content\images\DandD_500.jpg" />
+    <Content Include="content\images\dice_100.jpg" />
+    <Content Include="content\images\dice_200.jpg" />
+    <Content Include="content\images\dice_300.jpg" />
+    <Content Include="content\images\dice_500.jpg" />
+    <Content Include="content\images\dragonlance_100.jpg" />
+    <Content Include="content\images\dragonlance_200.jpg" />
+    <Content Include="content\images\dragonlance_300.jpg" />
+    <Content Include="content\images\dragonlance_500.jpg" />
+    <Content Include="content\images\greek_100.jpg" />
+    <Content Include="content\images\greek_200.jpg" />
+    <Content Include="content\images\greek_300.jpg" />
+    <Content Include="content\images\greek_500.jpg" />
+    <Content Include="content\images\hogan_100.jpg" />
+    <Content Include="content\images\hogan_200.jpg" />
+    <Content Include="content\images\hogan_300.jpg" />
+    <Content Include="content\images\hogan_500.jpg" />
+    <Content Include="content\images\lolwut_100.jpg" />
+    <Content Include="content\images\lolwut_200.jpg" />
+    <Content Include="content\images\lolwut_300.jpg" />
+    <Content Include="content\images\lolwut_500.jpg" />
+    <Content Include="content\images\marvel_100.jpg" />
+    <Content Include="content\images\marvel_200.jpg" />
+    <Content Include="content\images\marvel_300.jpg" />
+    <Content Include="content\images\marvel_500.jpg" />
+    <Content Include="content\images\mitt_100.jpg" />
+    <Content Include="content\images\mitt_200.jpg" />
+    <Content Include="content\images\mitt_300.jpg" />
+    <Content Include="content\images\mitt_500.jpg" />
+    <Content Include="content\images\noooooo_100.jpg" />
+    <Content Include="content\images\noooooo_200.jpg" />
+    <Content Include="content\images\noooooo_300.jpg" />
+    <Content Include="content\images\noooooo_500.jpg" />
+    <Content Include="content\images\ready_100.jpg" />
+    <Content Include="content\images\ready_200.jpg" />
+    <Content Include="content\images\ready_300.jpg" />
+    <Content Include="content\images\ready_500.jpg" />
     <Content Include="content\jquery-1-9-0.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -161,6 +218,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\FlexibleNavigation\AccordianNav.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexibleLayouts\ThreeColumnLayoutNoMargin.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexibleLayouts\ThreeColumnLayoutWithSomeMargin.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexibleLayouts\ThreeColumnResponsive.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexibleLayouts\ThreeColumnResponsiveWithBordersBroken.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexibleLayouts\ThreeColumnResponsiveWithBorders.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexibleLayouts\TenColumnResponsive.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
