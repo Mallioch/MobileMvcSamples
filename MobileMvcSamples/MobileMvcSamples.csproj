@@ -118,8 +118,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Content Include="content\frootable\footable-0.1.css" />
-    <Content Include="content\frootable\footable-0.1.js" />
+    <Content Include="content\footable\footable-0.1.css" />
+    <Content Include="content\footable\footable-0.1.js" />
     <Content Include="content\images\avengers_100.jpg" />
     <Content Include="content\images\avengers_200.jpg" />
     <Content Include="content\images\avengers_300.jpg" />
@@ -176,11 +176,11 @@
     <Content Include="content\images\ready_200.jpg" />
     <Content Include="content\images\ready_300.jpg" />
     <Content Include="content\images\ready_500.jpg" />
-    <Content Include="content\frootable\img\down.png" />
-    <Content Include="content\frootable\img\minus.png" />
-    <Content Include="content\frootable\img\plus.png" />
-    <Content Include="content\frootable\img\sorting_sprite.png" />
-    <Content Include="content\frootable\img\up.png" />
+    <Content Include="content\footable\img\down.png" />
+    <Content Include="content\footable\img\minus.png" />
+    <Content Include="content\footable\img\plus.png" />
+    <Content Include="content\footable\img\sorting_sprite.png" />
+    <Content Include="content\footable\img\up.png" />
     <Content Include="content\jquery-1-9-0.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">
