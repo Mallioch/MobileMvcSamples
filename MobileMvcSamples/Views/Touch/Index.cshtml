@@ -1,0 +1,104 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+.touch-box {
+  border: solid 1px #000;
+}
+</style>
+
+<h2>Touch</h2>
+
+<p>The click event is handled well universally.</p>
+<canvas class="touch-box" id="click" width="320" height="100">&nbsp</canvas>
+<script>
+  function clickEvent() {
+    register('#click', 'click', true);
+  }
+</script>
+
+
+<p>Mouse events are emulated, like mousedown, mousemove and mouseup. So these will still fire on mobile devices
+  that don't use mice.
+</p>
+<canvas class="touch-box" id="mousy" width="320" height="100">&nbsp</canvas>
+<script>
+  function mouseEvents() {
+    register('#mousy', 'mousedown');
+    register('#mousy', 'mousemove');
+    register('#mousy', 'mouseup');
+  }
+</script>
+
+<p>Testing the onscroll event.</p>
+<canvas class="touch-box" id="onscroll" width="320" height="100">&nbsp</canvas>
+<script>
+  function onscrollEvent() {
+    register('#onscroll', 'onscroll', 'scrolling');
+  }
+</script>
+
+<p>Testing mouseover void(0) fix.</p>
+<canvas class="touch-box" id="void-fix" width="320" height="100">&nbsp</canvas>
+<script>
+  function mouseover() {
+    register('#void-fix', 'mouseover');
+    register('#void-fix', 'mouseout');
+    $('#void-fix').click(function () { void (0) });
+  }
+</script>
+
+
+
+<p>Testing touch* events</p>
+<canvas class="touch-box" id="touch-events" width="320" height="100">&nbsp</canvas>
+<script>
+  function mouseover() {
+    register('#touch-events', 'touchstart');
+    register('#touch-events', 'touchend');
+    register('#touch-events', 'touchmove');
+  }
+</script>
+
+
+<p>Testing gesture* events</p>
+<canvas class="touch-box" id="gesture-events" width="320" height="100">&nbsp</canvas>
+<script>
+  function mouseover() {
+    register('#gesture-events', 'gesturestart');
+    register('#gesture-events', 'gesturechange');
+    register('#gesture-events', 'gestureend');
+  }
+</script>
+
+<script>
+
+  window.onload = function () {
+    clickEvent();
+    mouseEvents();
+    onscrollEvent();
+    mouseover();
+  }
+
+  function register(selector, event, preventDefault) {
+    $(selector).on(event, function (evt) {
+      console.log('event', evt);
+
+      if (preventDefault)
+        evt.preventDefault();
+
+      var target = $(this).get(0);
+      var c = target.getContext('2d');
+      c.beginPath();
+      c.fillStyle = '#F00';
+      c.arc(evt.offsetX, evt.offsetY, 30, 0, Math.PI * 2);
+      c.fill();
+
+      setTimeout(function () {
+        c.clearRect(0, 0, target.width, target.height);
+      }, 1000);
+    });
+
+  }
+</script>

@@ -104,9 +104,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\FlexibleContentController.cs" />
     <Compile Include="Controllers\FlexibleLayoutsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\FlexibleNavigationController.cs" />
+    <Compile Include="Controllers\TouchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -174,7 +176,9 @@
     <Content Include="content\images\ready_500.jpg" />
     <Content Include="content\jquery-1-9-0.js" />
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -236,6 +240,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\FlexibleLayouts\TenColumnResponsive.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexibleLayouts\TwoColumnResponsive.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexibleContent\Table.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexibleContent\TableWithZurbResponsiveTables.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexibleContent\TableDetablified.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexibleContent\TableDetablified2.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Touch\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -33,9 +33,10 @@ namespace MobileMvcSamples.Controllers
             return View();
         }
 
-
-
-
+        public ActionResult TwoColumnResponsive()
+        {
+            return View();
+        }
 
         public ActionResult TenColumnResponsive()
         {

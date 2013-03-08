@@ -1,0 +1,170 @@
+﻿@{
+    ViewBag.Title = "Table";
+}
+
+<style type="text/css">
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+div, span, li, td {
+  font-family: Helvetica;
+}
+
+td {
+  border: solid 1px #CCC;
+  padding: 3px 8px;
+}
+
+thead td {
+  background-color: #777;
+  border: solid 1px #000;
+  color: #FFF;
+}
+
+@@media screen and (max-width: 500px) {
+
+  td:first-child {
+    background-color: #777;
+    color: #FFF;
+  }
+
+  td, tr {
+    display: block;
+  }
+
+  tr:nth-of-type(odd) {
+    background-color: #eee;
+  }
+
+  thead {
+    display: none;
+  }
+
+  td {
+    padding-left: 50%;
+    position: relative;
+  }
+
+  td:before {
+    position: absolute;
+    left: 0;
+    padding-left: 10px;
+  }
+
+  td:nth-of-type(1):before { content: 'Page'; }
+	td:nth-of-type(2):before { content: 'Feb 1'; }
+	td:nth-of-type(3):before { content: 'Feb 2'; }
+	td:nth-of-type(4):before { content: 'Feb 3'; }
+	td:nth-of-type(5):before { content: 'Feb 4'; }
+	td:nth-of-type(6):before { content: 'Feb 5'; }
+	td:nth-of-type(7):before { content: 'Feb 6'; }
+	td:nth-of-type(8):before { content: 'Feb 7'; }
+	td:nth-of-type(9):before { content: 'Feb 8'; }
+	td:nth-of-type(10):before { content: 'Feb 9'; }
+	td:nth-of-type(11):before { content: 'Feb 10'; }
+	td:nth-of-type(12):before { content: 'Total'; }
+	td:nth-of-type(13):before { content: 'Max'; }
+	td:nth-of-type(14):before { content: 'Min'; }
+	td:nth-of-type(15):before { content: 'Avg'; }
+}
+
+</style>
+
+<p>This technique flattens out the table and uses CSS to provide the content. The primary negative to this
+  approach is that the CSS has your content in it, which will not work in many situations. I first saw this
+  <a href="http://css-tricks.com/examples/ResponsiveTables/responsive.php">technique on CSS Tricks</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <td>Page</td>
+      <td>Feb 1</td>
+      <td>Feb 2</td>
+      <td>Feb 3</td>
+      <td>Feb 4</td>
+      <td>Feb 5</td>
+      <td>Feb 6</td>
+      <td>Feb 7</td>
+      <td>Feb 8</td>
+      <td>Feb 9</td>
+      <td>Feb 10</td>
+      <td>Total</td>
+      <td>Max</td>
+      <td>Min</td>
+      <td>Avg</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Serving static files from Node.js</td>
+      <td>101</td>
+      <td>68</td>
+      <td>61</td>
+      <td>111</td>
+      <td>122</td>
+      <td>131</td>
+      <td>104</td>
+      <td>84</td>
+      <td>55</td>
+      <td>70</td>
+      <td>907</td>
+      <td>131</td>
+      <td>55</td>
+      <td>90.7</td>
+    </tr>
+    <tr>
+      <td>Using the Selenium web driver</td>
+      <td>22</td>
+      <td>3</td>
+      <td>9</td>
+      <td>23</td>
+      <td>22</td>
+      <td>28</td>
+      <td>31</td>
+      <td>25</td>
+      <td>7</td>
+      <td>6</td>
+      <td>176</td>
+      <td>28</td>
+      <td>3</td>
+      <td>17.6</td>
+    </tr>
+    <tr>
+      <td>StructureMap and ASP.NET MVC - Getting Started</td>
+      <td>6</td>
+      <td>3</td>
+      <td>2</td>
+      <td>7</td>
+      <td>4</td>
+      <td>15</td>
+      <td>12</td>
+      <td>13</td>
+      <td>6</td>
+      <td>5</td>
+      <td>73</td>
+      <td>15</td>
+      <td>2</td>
+      <td>7.3</td>
+    </tr>
+  </tbody>
+</table>

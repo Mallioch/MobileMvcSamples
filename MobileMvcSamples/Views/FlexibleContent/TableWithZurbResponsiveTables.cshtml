@@ -1,0 +1,250 @@
+﻿@{
+    ViewBag.Title = "Table with Zurb Responsive Tables";
+}
+
+<style type="text/css">
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+div, span, li, td {
+  font-family: Helvetica;
+}
+
+td {
+  border: solid 1px #CCC;
+  padding: 3px 8px;
+}
+
+thead td {
+  background-color: #777;
+  border: solid 1px #000;
+  color: #FFF;
+}
+
+</style>
+
+
+<p>This table is responsive. It uses the Zurb responsive tables trick.</p>
+
+<table class="responsive">
+  <thead>
+    <tr>
+      <td>Page</td>
+      <td>Feb 1</td>
+      <td>Feb 2</td>
+      <td>Feb 3</td>
+      <td>Feb 4</td>
+      <td>Feb 5</td>
+      <td>Feb 6</td>
+      <td>Feb 7</td>
+      <td>Feb 8</td>
+      <td>Feb 9</td>
+      <td>Feb 10</td>
+      <td>Total</td>
+      <td>Max</td>
+      <td>Min</td>
+      <td>Avg</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Serving static files from Node.js</td>
+      <td>101</td>
+      <td>68</td>
+      <td>61</td>
+      <td>111</td>
+      <td>122</td>
+      <td>131</td>
+      <td>104</td>
+      <td>84</td>
+      <td>55</td>
+      <td>70</td>
+      <td>907</td>
+      <td>131</td>
+      <td>55</td>
+      <td>90.7</td>
+    </tr>
+    <tr>
+      <td>Using the Selenium web driver</td>
+      <td>22</td>
+      <td>3</td>
+      <td>9</td>
+      <td>23</td>
+      <td>22</td>
+      <td>28</td>
+      <td>31</td>
+      <td>25</td>
+      <td>7</td>
+      <td>6</td>
+      <td>176</td>
+      <td>28</td>
+      <td>3</td>
+      <td>17.6</td>
+    </tr>
+    <tr>
+      <td>StructureMap and ASP.NET MVC - Getting Started</td>
+      <td>6</td>
+      <td>3</td>
+      <td>2</td>
+      <td>7</td>
+      <td>4</td>
+      <td>15</td>
+      <td>12</td>
+      <td>13</td>
+      <td>6</td>
+      <td>5</td>
+      <td>73</td>
+      <td>15</td>
+      <td>2</td>
+      <td>7.3</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- Zurb Code -->
+
+<script type="text/javascript">
+
+  $(document).ready(function () {
+    var switched = false;
+    var updateTables = function () {
+      console.log('update tables called');
+
+      if (($(window).width() < 767) && !switched) {
+        switched = true;
+        $("table.responsive").each(function (i, element) {
+          splitTable($(element));
+        });
+        return true;
+      }
+      else if (switched && ($(window).width() > 767)) {
+        switched = false;
+        $("table.responsive").each(function (i, element) {
+          unsplitTable($(element));
+        });
+      }
+    };
+
+    $(window).load(updateTables);
+    $(window).bind("resize", updateTables);
+
+
+    function splitTable(original) {
+      original.wrap("<div class='table-wrapper' />");
+
+      var copy = original.clone();
+      copy.find("td:not(:first-child), th:not(:first-child)").css("display", "none");
+      copy.removeClass("responsive");
+
+      original.closest(".table-wrapper").append(copy);
+      copy.wrap("<div class='pinned' />");
+      original.wrap("<div class='scrollable' />");
+
+      setCellHeights(original, copy);
+    }
+
+    function unsplitTable(original) {
+      original.closest(".table-wrapper").find(".pinned").remove();
+      original.unwrap();
+      original.unwrap();
+    }
+
+    function setCellHeights(original, copy) {
+      var tr = original.find('tr'),
+          tr_copy = copy.find('tr'),
+          heights = [];
+
+      tr.each(function (index) {
+        var self = $(this),
+            tx = self.find('th, td');
+
+        tx.each(function () {
+          var height = $(this).outerHeight(true);
+          heights[index] = heights[index] || 0;
+          if (height > heights[index]) heights[index] = height;
+        });
+
+      });
+
+      tr_copy.each(function (index) {
+        $(this).height(heights[index]);
+      });
+    }
+
+  });
+</script>
+
+<style type="text/css">
+/* Foundation v2.1.4 http://foundation.zurb.com */
+/* Artfully masterminded by ZURB  */
+
+/* -------------------------------------------------- 
+   Table of Contents
+-----------------------------------------------------
+:: Shared Styles
+:: Page Name 1
+:: Page Name 2
+*/
+
+
+/* -----------------------------------------
+   Shared Styles
+----------------------------------------- */
+
+table th { font-weight: bold; }
+table td, table th { padding: 9px 10px; text-align: left; }
+
+/* Mobile */
+@@media only screen and (max-width: 767px) {
+	
+	table.responsive { margin-bottom: 0; }
+	
+	.pinned { position: absolute; left: 0; top: 0; background: #fff; width: 35%; overflow: hidden; overflow-x: scroll; border-right: 1px solid #ccc; border-left: 1px solid #ccc; }
+	.pinned table { border-right: none; border-left: none; width: 100%; }
+	.pinned table th, .pinned table td { white-space: nowrap; }
+	.pinned td:last-child { border-bottom: 0; }
+	
+	div.table-wrapper { position: relative; margin-bottom: 20px; overflow: hidden; border-right: 1px solid #ccc; }
+	div.table-wrapper div.scrollable table { margin-left: 35%; }
+	div.table-wrapper div.scrollable { overflow: scroll; overflow-y: hidden; }	
+	
+	table.responsive td, table.responsive th { position: relative; white-space: nowrap; overflow: hidden; }
+	table.responsive th:first-child, table.responsive td:first-child, table.responsive td:first-child, table.responsive.pinned td { display: none; }
+	
+}
+
+/* -----------------------------------------
+   Page Name 1
+----------------------------------------- */
+
+
+
+
+/* -----------------------------------------
+   Page Name 2
+----------------------------------------- */
+
+
+
+</style>
