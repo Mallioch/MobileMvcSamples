@@ -32,5 +32,10 @@ namespace MobileMvcSamples.Controllers
         {
             return View();
         }
+
+        public ActionResult ScrollingTable()
+        {
+            return View();
+        }
     }
 }
