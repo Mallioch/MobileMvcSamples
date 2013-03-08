@@ -37,5 +37,10 @@ namespace MobileMvcSamples.Controllers
         {
             return View();
         }
+
+        public ActionResult FooTable()
+        {
+            return View();
+        }
     }
 }

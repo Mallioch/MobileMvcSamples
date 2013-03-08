@@ -1,0 +1,113 @@
+﻿@{
+    ViewBag.Title = "FooTable";
+}
+
+<style type="text/css">
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+}
+
+</style>
+
+<script src="/content/footable/footable-0.1.js"></script>
+<link href="/content/footable/footable-0.1.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+
+  $(document).ready(function () {
+    $('table').footable();
+  });
+
+</script>
+
+<p>This table is made flexible using <a href="http://themergency.com/footable/">FooTable</a>, a jQuery plugin
+  that changes tables for smaller devices.</p>
+
+<table class="footable">
+  <thead>
+    <tr>
+      <th data-class="expand">Page</th>
+      <th data-hide="phone,tablet">Feb 1</th>
+      <th data-hide="phone,tablet">Feb 2</th>
+      <th data-hide="phone,tablet">Feb 3</th>
+      <th data-hide="phone,tablet">Feb 4</th>
+      <th data-hide="phone,tablet">Feb 5</th>
+      <th data-hide="phone,tablet">Feb 6</th>
+      <th data-hide="phone,tablet">Feb 7</th>
+      <th data-hide="phone,tablet">Feb 8</th>
+      <th data-hide="phone,tablet">Feb 9</th>
+      <th data-hide="phone,tablet">Feb 10</th>
+      <th>Total</th>
+      <th data-hide="phone,tablet">Max</th>
+      <th data-hide="phone,tablet">Min</th>
+      <th>Avg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Serving static files from Node.js</td>
+      <td>101</td>
+      <td>68</td>
+      <td>61</td>
+      <td>111</td>
+      <td>122</td>
+      <td>131</td>
+      <td>104</td>
+      <td>84</td>
+      <td>55</td>
+      <td>70</td>
+      <td>907</td>
+      <td>131</td>
+      <td>55</td>
+      <td>90.7</td>
+    </tr>
+    <tr>
+      <td>Using the Selenium web driver</td>
+      <td>22</td>
+      <td>3</td>
+      <td>9</td>
+      <td>23</td>
+      <td>22</td>
+      <td>28</td>
+      <td>31</td>
+      <td>25</td>
+      <td>7</td>
+      <td>6</td>
+      <td>176</td>
+      <td>28</td>
+      <td>3</td>
+      <td>17.6</td>
+    </tr>
+    <tr>
+      <td>StructureMap and ASP.NET MVC - Getting Started</td>
+      <td>6</td>
+      <td>3</td>
+      <td>2</td>
+      <td>7</td>
+      <td>4</td>
+      <td>15</td>
+      <td>12</td>
+      <td>13</td>
+      <td>6</td>
+      <td>5</td>
+      <td>73</td>
+      <td>15</td>
+      <td>2</td>
+      <td>7.3</td>
+    </tr>
+  </tbody>
+</table>
