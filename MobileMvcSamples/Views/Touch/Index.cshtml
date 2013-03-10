@@ -5,6 +5,7 @@
 <style>
 .touch-box {
   border: solid 1px #000;
+  position: relative;
 }
 </style>
 
@@ -13,9 +14,14 @@
 <p>The click event is handled well universally.</p>
 <canvas class="touch-box" id="click" width="250" height="100">&nbsp</canvas>
 <script>
-  function clickEvent() {
-    register('#click', 'click', true);
-  }
+  
+  (function () {
+    var canvas = document.getElementById('click');
+    canvas.addEventListener('click', function (evt) {
+      drawSpotOnCanvas(canvas, canvas.relMouseCoords(evt));
+    });
+  })();
+
 </script>
 
 
@@ -24,13 +30,25 @@
 </p>
 <canvas class="touch-box" id="mousy" width="250" height="100">&nbsp</canvas>
 <script>
-  function mouseEvents() {
-    register('#mousy', 'mousedown');
-    register('#mousy', 'mousemove');
-    register('#mousy', 'mouseup');
-  }
+
+  (function () {
+    var canvas = document.getElementById('mousy');
+    canvas.addEventListener('mousedown', function (evt) {
+      drawSpotOnCanvas(canvas, canvas.relMouseCoords(evt), '#0F0');
+    });
+
+    canvas.addEventListener('mousemove', function (evt) {
+      drawSpotOnCanvas(canvas, canvas.relMouseCoords(evt), '#F00');
+    });
+
+    canvas.addEventListener('mouseup', function (evt) {
+      drawSpotOnCanvas(canvas, canvas.relMouseCoords(evt), '#00F');
+    });
+
+  })();
 </script>
 
+<!--
 <p>Testing the onscroll event.</p>
 <canvas class="touch-box" id="onscroll" width="250" height="100">&nbsp</canvas>
 <script>
@@ -38,27 +56,28 @@
     register('#onscroll', 'onscroll', 'scrolling');
   }
 </script>
-
-<p>Testing mouseover void(0) fix.</p>
-<canvas class="touch-box" id="void-fix" width="250" height="100">&nbsp</canvas>
-<script>
-  function mouseover() {
-    register('#void-fix', 'mouseover');
-    register('#void-fix', 'mouseout');
-    $('#void-fix').click(function () { void (0) });
-  }
-</script>
-
-
+-->
 
 <p>Testing touch* events</p>
 <canvas class="touch-box" id="touch-events" width="250" height="100">&nbsp</canvas>
 <script>
-  function touchStartEvents() {
-    register('#touch-events', 'touchstart');
-    register('#touch-events', 'touchend');
-    register('#touch-events', 'touchmove');
-  }
+
+  (function () {
+    var canvas = document.getElementById('touch-events');
+    canvas.addEventListener('touchstart', function (evt) {
+      drawSpotOnCanvas(canvas, canvas.relMouseCoords(evt), '#0F0');
+    });
+
+    canvas.addEventListener('touchmove', function (evt) {
+      drawSpotOnCanvas(canvas, canvas.relMouseCoords(evt), '#F00');
+    });
+
+    canvas.addEventListener('touchend', function (evt) {
+      drawSpotOnCanvas(canvas, canvas.relMouseCoords(evt), '#00F');
+    });
+  })();
+
+
 </script>
 
 
@@ -75,10 +94,16 @@
 <p>Testing mouseenter/mouseleave events. This may be IE proprietary.</p>
 <canvas class="touch-box" id="mouseenter-events" width="250" height="100">&nbsp</canvas>
 <script>
-  function mouseEnterEvents() {
-    register('#mouseenter-events', 'mouseenter');
-    register('#mouseenter-events', 'mouseleave');
-  }
+  (function () {
+    var canvas = document.getElementById('mouseenter-events');
+    canvas.addEventListener('mouseenter', function (evt) {
+      drawSpotOnCanvas(canvas, evt.offsetX, evt.offsetY, '#0F0');
+    });
+
+    canvas.addEventListener('mouseleave', function (evt) {
+      drawSpotOnCanvas(canvas, evt.offsetX, evt.offsetY, '#00F');
+    });
+  })();
 </script>
 
 
@@ -90,13 +115,7 @@
 <script>
 
   window.onload = function () {
-    clickEvent();
-    mouseEvents();
-    onscrollEvent();
-    mouseover();
-    touchStartEvents();
     gestureEvents();
-    mouseEnterEvents();
   }
 
   function register(selector, event, preventDefault) {
@@ -121,4 +140,38 @@
     });
 
   }
+
+  function drawSpotOnCanvas(canvas, pos, color) {
+    var c = canvas.getContext('2d');
+    c.beginPath();
+    c.fillStyle = color || '#F00';
+    c.arc(pos.x, pos.y, 30, 0, Math.PI * 2);
+    c.fill();
+
+    setTimeout(function () {
+      c.clearRect(0, 0, canvas.width, canvas.height);
+    }, 3000);
+  }
+
+  //Found this nifty function here: http://stackoverflow.com/questions/55677/how-do-i-get-the-coordinates-of-a-mouse-click-on-a-canvas-element
+  function relMouseCoords(event) {
+    var totalOffsetX = 0;
+    var totalOffsetY = 0;
+    var canvasX = 0;
+    var canvasY = 0;
+    var currentElement = this;
+
+    do {
+      totalOffsetX += currentElement.offsetLeft - currentElement.scrollLeft;
+      totalOffsetY += currentElement.offsetTop - currentElement.scrollTop;
+    }
+    while (currentElement = currentElement.offsetParent)
+
+    canvasX = event.pageX - totalOffsetX;
+    canvasY = event.pageY - totalOffsetY;
+
+    return { x: canvasX, y: canvasY }
+  }
+
+  HTMLCanvasElement.prototype.relMouseCoords = relMouseCoords;
 </script>
