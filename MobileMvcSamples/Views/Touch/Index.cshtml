@@ -97,11 +97,11 @@
   (function () {
     var canvas = document.getElementById('mouseenter-events');
     canvas.addEventListener('mouseenter', function (evt) {
-      drawSpotOnCanvas(canvas, evt.offsetX, evt.offsetY, '#0F0');
+      drawSpotOnCanvas(canvas, canvas.relMouseCoords(evt), '#0F0');
     });
 
     canvas.addEventListener('mouseleave', function (evt) {
-      drawSpotOnCanvas(canvas, evt.offsetX, evt.offsetY, '#00F');
+      drawSpotOnCanvas(canvas, canvas.relMouseCoords(evt), '#00F');
     });
   })();
 </script>
