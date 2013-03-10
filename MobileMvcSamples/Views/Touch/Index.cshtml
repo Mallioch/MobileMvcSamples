@@ -72,6 +72,21 @@
   }
 </script>
 
+<p>Testing mouseenter/mouseleave events. This may be IE proprietary.</p>
+<canvas class="touch-box" id="mouseenter-events" width="250" height="100">&nbsp</canvas>
+<script>
+  function mouseover() {
+    register('#mouseenter-events', 'mouseenter');
+    register('#mouseenter-events', 'mouseleave');
+  }
+</script>
+
+
+<hr />
+<div id="touch-log">
+
+</div>
+
 <script>
 
   window.onload = function () {
@@ -84,6 +99,8 @@
   function register(selector, event, preventDefault) {
     $(selector).on(event, function (evt) {
       console.log('event', evt);
+
+      $('#touch-log').html($('#touch-log').html() + '<br />' + evt.type);
 
       if (preventDefault)
         evt.preventDefault();
