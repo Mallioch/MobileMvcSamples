@@ -11,7 +11,7 @@
 <h2>Touch</h2>
 
 <p>The click event is handled well universally.</p>
-<canvas class="touch-box" id="click" width="320" height="100">&nbsp</canvas>
+<canvas class="touch-box" id="click" width="250" height="100">&nbsp</canvas>
 <script>
   function clickEvent() {
     register('#click', 'click', true);
@@ -22,7 +22,7 @@
 <p>Mouse events are emulated, like mousedown, mousemove and mouseup. So these will still fire on mobile devices
   that don't use mice.
 </p>
-<canvas class="touch-box" id="mousy" width="320" height="100">&nbsp</canvas>
+<canvas class="touch-box" id="mousy" width="250" height="100">&nbsp</canvas>
 <script>
   function mouseEvents() {
     register('#mousy', 'mousedown');
@@ -32,7 +32,7 @@
 </script>
 
 <p>Testing the onscroll event.</p>
-<canvas class="touch-box" id="onscroll" width="320" height="100">&nbsp</canvas>
+<canvas class="touch-box" id="onscroll" width="250" height="100">&nbsp</canvas>
 <script>
   function onscrollEvent() {
     register('#onscroll', 'onscroll', 'scrolling');
@@ -40,7 +40,7 @@
 </script>
 
 <p>Testing mouseover void(0) fix.</p>
-<canvas class="touch-box" id="void-fix" width="320" height="100">&nbsp</canvas>
+<canvas class="touch-box" id="void-fix" width="250" height="100">&nbsp</canvas>
 <script>
   function mouseover() {
     register('#void-fix', 'mouseover');
@@ -52,7 +52,7 @@
 
 
 <p>Testing touch* events</p>
-<canvas class="touch-box" id="touch-events" width="320" height="100">&nbsp</canvas>
+<canvas class="touch-box" id="touch-events" width="250" height="100">&nbsp</canvas>
 <script>
   function mouseover() {
     register('#touch-events', 'touchstart');
@@ -63,7 +63,7 @@
 
 
 <p>Testing gesture* events</p>
-<canvas class="touch-box" id="gesture-events" width="320" height="100">&nbsp</canvas>
+<canvas class="touch-box" id="gesture-events" width="250" height="100">&nbsp</canvas>
 <script>
   function mouseover() {
     register('#gesture-events', 'gesturestart');
