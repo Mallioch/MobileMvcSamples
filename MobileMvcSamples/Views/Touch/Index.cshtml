@@ -54,7 +54,7 @@
 <p>Testing touch* events</p>
 <canvas class="touch-box" id="touch-events" width="250" height="100">&nbsp</canvas>
 <script>
-  function mouseover() {
+  function touchStartEvents() {
     register('#touch-events', 'touchstart');
     register('#touch-events', 'touchend');
     register('#touch-events', 'touchmove');
@@ -65,7 +65,7 @@
 <p>Testing gesture* events</p>
 <canvas class="touch-box" id="gesture-events" width="250" height="100">&nbsp</canvas>
 <script>
-  function mouseover() {
+  function gestureEvents() {
     register('#gesture-events', 'gesturestart');
     register('#gesture-events', 'gesturechange');
     register('#gesture-events', 'gestureend');
@@ -75,7 +75,7 @@
 <p>Testing mouseenter/mouseleave events. This may be IE proprietary.</p>
 <canvas class="touch-box" id="mouseenter-events" width="250" height="100">&nbsp</canvas>
 <script>
-  function mouseover() {
+  function mouseEnterEvents() {
     register('#mouseenter-events', 'mouseenter');
     register('#mouseenter-events', 'mouseleave');
   }
@@ -94,6 +94,9 @@
     mouseEvents();
     onscrollEvent();
     mouseover();
+    touchStartEvents();
+    gestureEvents();
+    mouseEnterEvents();
   }
 
   function register(selector, event, preventDefault) {
