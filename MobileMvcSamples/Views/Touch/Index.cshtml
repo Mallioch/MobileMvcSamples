@@ -18,6 +18,7 @@
   (function () {
     var canvas = document.getElementById('click');
     canvas.addEventListener('click', function (evt) {
+      evt.preventDefault();
       drawSpotOnCanvas(canvas, canvas.relMouseCoords(evt));
     });
   })();
@@ -34,14 +35,17 @@
   (function () {
     var canvas = document.getElementById('mousy');
     canvas.addEventListener('mousedown', function (evt) {
+      evt.preventDefault();
       drawSpotOnCanvas(canvas, canvas.relMouseCoords(evt), '#0F0');
     });
 
     canvas.addEventListener('mousemove', function (evt) {
+      evt.preventDefault();
       drawSpotOnCanvas(canvas, canvas.relMouseCoords(evt), '#F00');
     });
 
     canvas.addEventListener('mouseup', function (evt) {
+      evt.preventDefault();
       drawSpotOnCanvas(canvas, canvas.relMouseCoords(evt), '#00F');
     });
 
@@ -65,14 +69,17 @@
   (function () {
     var canvas = document.getElementById('touch-events');
     canvas.addEventListener('touchstart', function (evt) {
+      evt.preventDefault();
       drawSpotOnCanvas(canvas, canvas.relMouseCoords(evt), '#0F0');
     });
 
     canvas.addEventListener('touchmove', function (evt) {
+      evt.preventDefault();
       drawSpotOnCanvas(canvas, canvas.relMouseCoords(evt), '#F00');
     });
 
     canvas.addEventListener('touchend', function (evt) {
+      evt.preventDefault();
       drawSpotOnCanvas(canvas, canvas.relMouseCoords(evt), '#00F');
     });
   })();
@@ -97,10 +104,12 @@
   (function () {
     var canvas = document.getElementById('mouseenter-events');
     canvas.addEventListener('mouseenter', function (evt) {
+      evt.preventDefault();
       drawSpotOnCanvas(canvas, canvas.relMouseCoords(evt), '#0F0');
     });
 
     canvas.addEventListener('mouseleave', function (evt) {
+      evt.preventDefault();
       drawSpotOnCanvas(canvas, canvas.relMouseCoords(evt), '#00F');
     });
   })();
