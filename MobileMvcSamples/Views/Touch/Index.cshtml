@@ -7,12 +7,25 @@
   border: solid 1px #000;
   position: relative;
 }
+
+  h2 {
+    border-top: solid 2px #000;
+    margin-top: 25px;
+    padding-top: 10px;
+    font-family: sans-serif;
+  }
 </style>
 
-<h2>Touch</h2>
+<h1>Basic Touch Apis</h1>
 
-<p>The click event is handled well universally.</p>
-<canvas class="touch-box" id="click" width="250" height="100">&nbsp</canvas>
+
+<h2>click</h2>
+<p>The click event, the same one we have been using for years for desktop browsers, is handled well universally
+  on mobile devices. The only drawback is that on most mobile browsers there is a 300ms delay on the click event.
+</p>
+<p><strong>Supported By:</strong> iOS</p>
+<p><strong>Not Supported By:</strong> none</p>
+<canvas class="touch-box" id="click" width="250" height="200">&nbsp</canvas>
 <script>
   
   (function () {
@@ -26,10 +39,13 @@
 </script>
 
 
+<h2>mousedown, mousemove, mouseup</h2>
 <p>Mouse events are emulated, like mousedown, mousemove and mouseup. So these will still fire on mobile devices
   that don't use mice.
 </p>
-<canvas class="touch-box" id="mousy" width="250" height="100">&nbsp</canvas>
+<p><strong>Supported By:</strong> </p>
+<p><strong>Not Supported By:</strong> </p>
+<canvas class="touch-box" id="mousy" width="250" height="200">&nbsp</canvas>
 <script>
 
   (function () {
@@ -54,7 +70,7 @@
 
 <!--
 <p>Testing the onscroll event.</p>
-<canvas class="touch-box" id="onscroll" width="250" height="100">&nbsp</canvas>
+<canvas class="touch-box" id="onscroll" width="250" height="200">&nbsp</canvas>
 <script>
   function onscrollEvent() {
     register('#onscroll', 'onscroll', 'scrolling');
@@ -62,8 +78,11 @@
 </script>
 -->
 
+<h2>touchstart, touchmove, touchend</h2>
 <p>Testing touch* events</p>
-<canvas class="touch-box" id="touch-events" width="250" height="100">&nbsp</canvas>
+<p><strong>Supported By:</strong> </p>
+<p><strong>Not Supported By:</strong> </p>
+<canvas class="touch-box" id="touch-events" width="250" height="200">&nbsp</canvas>
 <script>
 
   (function () {
@@ -88,8 +107,13 @@
 </script>
 
 
+<h2>gesturestart, gesturechange, gestureend</h2>
 <p>Testing gesture* events</p>
-<canvas class="touch-box" id="gesture-events" width="250" height="100">&nbsp</canvas>
+
+<p><strong>Supported By:</strong> </p>
+<p><strong>Not Supported By:</strong> </p>
+
+<canvas class="touch-box" id="gesture-events" width="250" height="200">&nbsp</canvas>
 <script>
   function gestureEvents() {
     register('#gesture-events', 'gesturestart');
@@ -98,8 +122,12 @@
   }
 </script>
 
+<h2>mouseenter, mouseleave</h2>
 <p>Testing mouseenter/mouseleave events. This may be IE proprietary.</p>
-<canvas class="touch-box" id="mouseenter-events" width="250" height="100">&nbsp</canvas>
+<p><strong>Supported By:</strong> </p>
+<p><strong>Not Supported By:</strong> </p>
+
+<canvas class="touch-box" id="mouseenter-events" width="250" height="200">&nbsp</canvas>
 <script>
   (function () {
     var canvas = document.getElementById('mouseenter-events');
