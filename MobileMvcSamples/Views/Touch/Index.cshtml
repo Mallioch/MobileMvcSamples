@@ -18,12 +18,19 @@
 
 <h1>Basic Touch Apis</h1>
 
+<p>These are the device and browser combinations tested:</p>
+
+<ul>
+  <li>iPad - iOS 6.1/Safari</li>
+  <li>S3[chr] - Galaxy S3/Chrome</li>
+  <li>S3[def] - Galaxy S3/Default browser</li>
+</ul>
 
 <h2>click</h2>
 <p>The click event, the same one we have been using for years for desktop browsers, is handled well universally
   on mobile devices. The only drawback is that on most mobile browsers there is a 300ms delay on the click event.
 </p>
-<p><strong>Supported By:</strong> iOS</p>
+<p><strong>Supported By:</strong> iPad, S3[chr]</p>
 <p><strong>Not Supported By:</strong> none</p>
 <canvas class="touch-box" id="click" width="250" height="200">&nbsp</canvas>
 <script>
@@ -192,22 +199,31 @@
 
   //Found this nifty function here: http://stackoverflow.com/questions/55677/how-do-i-get-the-coordinates-of-a-mouse-click-on-a-canvas-element
   function relMouseCoords(event) {
-    var totalOffsetX = 0;
-    var totalOffsetY = 0;
-    var canvasX = 0;
-    var canvasY = 0;
-    var currentElement = this;
 
-    do {
-      totalOffsetX += currentElement.offsetLeft - currentElement.scrollLeft;
-      totalOffsetY += currentElement.offsetTop - currentElement.scrollTop;
+    console.log('ua', navigator.userAgent);
+
+    if (navigator.userAgent.indexOf('Firefox') == -1) {
+      return { x: event.offsetX, y: event.offsetY };
     }
-    while (currentElement = currentElement.offsetParent)
+    else {
 
-    canvasX = event.pageX - totalOffsetX;
-    canvasY = event.pageY - totalOffsetY;
+      var totalOffsetX = 0;
+      var totalOffsetY = 0;
+      var canvasX = 0;
+      var canvasY = 0;
+      var currentElement = this;
 
-    return { x: canvasX, y: canvasY }
+      do {
+        totalOffsetX += currentElement.offsetLeft - currentElement.scrollLeft;
+        totalOffsetY += currentElement.offsetTop - currentElement.scrollTop;
+      }
+      while (currentElement = currentElement.offsetParent)
+
+      canvasX = event.pageX - totalOffsetX;
+      canvasY = event.pageY - totalOffsetY;
+
+      return { x: canvasX, y: canvasY }
+    }
   }
 
   HTMLCanvasElement.prototype.relMouseCoords = relMouseCoords;
