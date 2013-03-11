@@ -198,12 +198,12 @@
   }
 
   //Found this nifty function here: http://stackoverflow.com/questions/55677/how-do-i-get-the-coordinates-of-a-mouse-click-on-a-canvas-element
-  function relMouseCoords(event) {
+  function relMouseCoords(evt) {
 
-    console.log('ua', navigator.userAgent);
+    console.log('evt', evt);
 
     if (navigator.userAgent.indexOf('Firefox') == -1) {
-      return { x: event.offsetX, y: event.offsetY };
+      return { x: evt.offsetX, y: evt.offsetY };
     }
     else {
 
@@ -219,8 +219,8 @@
       }
       while (currentElement = currentElement.offsetParent)
 
-      canvasX = event.pageX - totalOffsetX;
-      canvasY = event.pageY - totalOffsetY;
+      canvasX = evt.pageX - totalOffsetX;
+      canvasY = evt.pageY - totalOffsetY;
 
       return { x: canvasX, y: canvasY }
     }
