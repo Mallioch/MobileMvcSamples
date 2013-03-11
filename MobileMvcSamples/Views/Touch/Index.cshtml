@@ -5,7 +5,6 @@
 <style>
 .touch-box {
   border: solid 1px #000;
-  position: relative;
 }
 
   h2 {
@@ -14,6 +13,38 @@
     padding-top: 10px;
     font-family: sans-serif;
   }
+
+  #touch-display {
+    background-color: rgba(200, 200, 200, .9);
+    border: solid 1px #000;
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 100px;
+  }
+
+  #touch-display .mouse-event, #touch-display .touch-event {
+    display: none;
+  }
+
+  #touch-display ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  #touch-display li {
+    font-size: .8em;
+    font-weight: bold;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  #touch-display div {
+    font-weight: normal;
+  }
+
 </style>
 
 <h1>Basic Touch Apis</h1>
@@ -156,6 +187,58 @@
 
 </div>
 
+<div id="touch-display">
+  <div class="mouse-event">
+    <h3>Mouse Event</h3>
+
+    <ul>
+      <li>clientX/clientY<div class="client"></div></li>
+      <li>layerX/layerY<div class="layer"></div></li>
+      <li>offsetX/offsetY <div class="offset"></div></li>
+      <li>pageX/pageY<div class="page"></div></li>
+      <li>screenX/screenY<div class="screen"></div></li>
+      <li>x/y<div class="pos"></div></li>
+    </ul>
+  </div>
+  <div class="touch-event">
+    <h3>Touch Events</h3>
+  </div>
+</div>
+
+<h2>Event Notes</h2>
+
+<p>Mouse Event</p>
+<ul>
+  <li>clientX/clientY (relative to the window)
+    <ul>
+      <li>iOS - from edge of actual screen</li>
+    </ul>
+  </li>
+  <li>layerX/layerY
+    <ul>
+      <li>iOS - matches offset*</li>
+    </ul>
+  </li>
+  <li>offsetX/offsetY (relative to padding box)</li>
+  <li>pageX/pageY (relative to the page)</li>
+  <li>screenX/screenY (relative to the screen)
+    <ul>
+      <li>iOS - seems to act more like page*</li>
+    </ul>
+  </li>
+  <li>x/y
+    <ul>
+      <li>iOS - matches client*</li>
+    </ul>
+  </li>
+</ul>
+
+<h2>TouchEvent</h2>
+
+<ul>
+  <li>iOS - layer* and page* are useless</li>
+</ul>
+
 <script>
 
   window.onload = function () {
@@ -200,7 +283,31 @@
   //Found this nifty function here: http://stackoverflow.com/questions/55677/how-do-i-get-the-coordinates-of-a-mouse-click-on-a-canvas-element
   function relMouseCoords(evt) {
 
-    console.log('evt', evt);
+    console.log('evt', evt, Object.prototype.toString.call(evt));
+
+    if (Object.prototype.toString.call(evt) == '[object MouseEvent]') {
+      console.log('mouse');
+      $('#touch-display .mouse-event').show();
+
+      $('.client').html(evt.clientX + ', ' + evt.clientY);
+      $('.layer').html(evt.layerX + ', ' + evt.layerY);
+      $('.offset').html(evt.offsetX + ', ' + evt.offsetY);
+      $('.page').html(evt.pageX + ', ' + evt.pageY);
+      $('.screen').html(evt.screenX + ', ' + evt.screenY);
+      $('.pos').html(evt.x + ', ' + evt.y);
+
+/*
+      <li>clientX/clientY<div class="client"></div></li>
+      <li>layerX/layerY<div class="layer"></div></li>
+      <li>offsetX/offsetY <div class="offset"></div></li>
+      <li>pageX/pageY<div class="page"></div></li>
+      <li>screenX/screenY<div class="screen"></div></li>
+      <li>x/y<div class="pos"></div></li>
+      */
+
+    }
+    else {
+    }
 
     if (navigator.userAgent.indexOf('Firefox') == -1) {
       return { x: evt.offsetX, y: evt.offsetY };
