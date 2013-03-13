@@ -101,7 +101,7 @@
     var canvas = document.getElementById('click');
 
     canvas.addEventListener('click', function (evt) {
-      alert('click');
+      //alert('click');
       evt.preventDefault();
       drawSpotOnCanvas(canvas, canvas.relMouseCoords(evt));
     });
@@ -331,7 +331,7 @@
 
     setTimeout(function () {
       c.clearRect(0, 0, canvas.width, canvas.height);
-    }, 3000);
+    }, 4000);
   }
 
   function getPositionFromTouch(touch) {
@@ -346,15 +346,15 @@
 
     //alert('hey');
 
-    alert(Object.prototype.toString.call(evt));
-    alert(Object.prototype.toString.call(evt) == '[object MouseEvent]');
+    //alert(Object.prototype.toString.call(evt));
+    //alert(Object.prototype.toString.call(evt) == '[object MouseEvent]');
 
     //alert('wut');
 
     if (Object.prototype.toString.call(evt) == '[object MouseEvent]') {
       $('#touch-display .mouse-event').show();
 
-      alert('coords');
+      //alert('coords');
       alert(evt.clientX + ', ' + evt.clientY
         + '|'
         + evt.layerX + ', ' + evt.layerY
