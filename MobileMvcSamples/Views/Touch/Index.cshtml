@@ -2,6 +2,19 @@
     ViewBag.Title = "Index";
 }
 
+
+<input id="foo" value="bar"/>
+
+
+<script>
+  window.onload = function () {
+    
+    var thingy = document.getElementById('foo');
+    console.log(thingy, thingy.value);
+
+  }
+</script>
+
 <style>
 .touch-box {
   border: solid 1px #000;
@@ -53,15 +66,21 @@
 
 <ul>
   <li>iPad - iOS 6.1/Safari</li>
+  <li>iPod - iOS 4.0/Safari</li>
   <li>S3[chr] - Galaxy S3/Chrome</li>
   <li>S3[def] - Galaxy S3/Default browser</li>
+  <li>LG - LG Nitro/Android 2.3.5/Default browser</li>
+  <li>Nexus[chr] - Galaxy Nexus/Android 4.1.1/Chrome</li>
+  <li>Nexus[def] - Galaxy Nexus/Android 4.1.1/Default browser</li>
+  <li>L820 - Lumia 820/Windows Phone 8/IE</li>
+  <li>BB10 - Blackberry 10</li>
 </ul>
 
 <h2>click</h2>
 <p>The click event, the same one we have been using for years for desktop browsers, is handled well universally
   on mobile devices. The only drawback is that on most mobile browsers there is a 300ms delay on the click event.
 </p>
-<p><strong>Supported By:</strong> iPad, S3[chr]</p>
+<p><strong>Supported By:</strong> iPad, iPod, S3[chr], LG[def], Nexus[chr], Nexus[def], L820, BB10</p>
 <p><strong>Not Supported By:</strong> none</p>
 <canvas class="touch-box" id="click" width="250" height="200">&nbsp</canvas>
 <script>
@@ -81,7 +100,7 @@
 <p>Mouse events are emulated, like mousedown, mousemove and mouseup. So these will still fire on mobile devices
   that don't use mice.
 </p>
-<p><strong>Supported By:</strong> </p>
+<p><strong>Supported By:</strong> iPad (partial), iPod (partial), LG[def] (partial), Nexus[chr] (partial), Nexus[def] (partial), L820 (partial), BB10</p>
 <p><strong>Not Supported By:</strong> </p>
 <canvas class="touch-box" id="mousy" width="250" height="200">&nbsp</canvas>
 <script>
@@ -118,26 +137,45 @@
 
 <h2>touchstart, touchmove, touchend</h2>
 <p>Testing touch* events</p>
-<p><strong>Supported By:</strong> </p>
+<p><strong>Supported By:</strong> LG[def] (with issues)</p>
 <p><strong>Not Supported By:</strong> </p>
 <canvas class="touch-box" id="touch-events" width="250" height="200">&nbsp</canvas>
 <script>
 
   (function () {
+
+    var i;
+
     var canvas = document.getElementById('touch-events');
     canvas.addEventListener('touchstart', function (evt) {
       evt.preventDefault();
-      drawSpotOnCanvas(canvas, canvas.relMouseCoords(evt), '#0F0');
+
+      //console.log('evt', evt);
+      //console.log(evt.touches);
+
+      for (i = 0; i < evt.touches.length; i++) {
+        drawSpotOnCanvas(canvas, getPositionFromTouch(evt.touches[i]), '#0F0');
+      }
     });
 
     canvas.addEventListener('touchmove', function (evt) {
       evt.preventDefault();
-      drawSpotOnCanvas(canvas, canvas.relMouseCoords(evt), '#F00');
+      //console.log('evt', evt);
+      //console.log(evt.touches);
+
+      for (var i = 0; i < evt.touches.length; i++) {
+        drawSpotOnCanvas(canvas, getPositionFromTouch(evt.touches[i]), '#F00');
+      }
     });
 
     canvas.addEventListener('touchend', function (evt) {
       evt.preventDefault();
-      drawSpotOnCanvas(canvas, canvas.relMouseCoords(evt), '#00F');
+
+      //console.log('evt', evt);
+      //console.log(evt.touches);
+      for (var i = 0; i < evt.touches.length; i++) {
+        drawSpotOnCanvas(canvas, getPositionFromTouch(evt.touches[i]), '#00F');
+      }
     });
   })();
 
@@ -241,9 +279,7 @@
 
 <script>
 
-  window.onload = function () {
-    gestureEvents();
-  }
+
 
   function register(selector, event, preventDefault) {
     $(selector).on(event, function (evt) {
@@ -269,6 +305,9 @@
   }
 
   function drawSpotOnCanvas(canvas, pos, color) {
+
+    console.log('drawing', pos);
+
     var c = canvas.getContext('2d');
     c.beginPath();
     c.fillStyle = color || '#F00';
@@ -278,6 +317,16 @@
     setTimeout(function () {
       c.clearRect(0, 0, canvas.width, canvas.height);
     }, 3000);
+  }
+
+  function getPositionFromTouch(touch) {
+
+    //console.log('touch page)
+
+    return {
+      y: touch.pageY - touch.target.offsetTop,
+      x: touch.pageX - touch.target.offsetLeft
+    };
   }
 
   //Found this nifty function here: http://stackoverflow.com/questions/55677/how-do-i-get-the-coordinates-of-a-mouse-click-on-a-canvas-element
@@ -295,16 +344,6 @@
       $('.page').html(evt.pageX + ', ' + evt.pageY);
       $('.screen').html(evt.screenX + ', ' + evt.screenY);
       $('.pos').html(evt.x + ', ' + evt.y);
-
-/*
-      <li>clientX/clientY<div class="client"></div></li>
-      <li>layerX/layerY<div class="layer"></div></li>
-      <li>offsetX/offsetY <div class="offset"></div></li>
-      <li>pageX/pageY<div class="page"></div></li>
-      <li>screenX/screenY<div class="screen"></div></li>
-      <li>x/y<div class="pos"></div></li>
-      */
-
     }
     else {
     }
