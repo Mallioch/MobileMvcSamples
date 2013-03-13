@@ -352,7 +352,6 @@
     //alert('wut');
 
     if (Object.prototype.toString.call(evt) == '[object MouseEvent]') {
-      console.log('mouse');
       $('#touch-display .mouse-event').show();
 
       alert('coords');
@@ -376,7 +375,6 @@
       $('.pos').html(evt.x + ', ' + evt.y);
     }
     else {
-      console.log('else');
     }
 
     if (navigator.userAgent.indexOf('Firefox') == -1) {
@@ -404,4 +402,15 @@
   }
 
   HTMLCanvasElement.prototype.relMouseCoords = relMouseCoords;
+
+
+  if (!console) {
+    window.console = {};
+  }
+
+  if (!console.log) {
+    window.console.log = function () {
+    };
+  }
+
 </script>
