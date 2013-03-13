@@ -100,11 +100,6 @@
 
     var canvas = document.getElementById('click');
 
-    alert('cool');
-
-    if (!canvas.addEventListener)
-      alert('no add event listener');
-
     canvas.addEventListener('click', function (evt) {
       alert('click');
       evt.preventDefault();
@@ -349,7 +344,11 @@
   //Found this nifty function here: http://stackoverflow.com/questions/55677/how-do-i-get-the-coordinates-of-a-mouse-click-on-a-canvas-element
   function relMouseCoords(evt) {
 
+    console.log('hey');
+
     console.log('evt', evt, Object.prototype.toString.call(evt));
+
+    console.log('wut');
 
     if (Object.prototype.toString.call(evt) == '[object MouseEvent]') {
       console.log('mouse');
