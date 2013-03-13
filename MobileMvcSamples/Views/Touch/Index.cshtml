@@ -344,11 +344,11 @@
   //Found this nifty function here: http://stackoverflow.com/questions/55677/how-do-i-get-the-coordinates-of-a-mouse-click-on-a-canvas-element
   function relMouseCoords(evt) {
 
-    console.log('hey');
+    alert('hey');
 
-    console.log('evt', evt, Object.prototype.toString.call(evt));
+    alert(Object.prototype.toString.call(evt));
 
-    console.log('wut');
+    alert('wut');
 
     if (Object.prototype.toString.call(evt) == '[object MouseEvent]') {
       console.log('mouse');
