@@ -100,10 +100,13 @@
 
     var canvas = document.getElementById('click');
 
+    alert('cool');
+
     if (!canvas.addEventListener)
-      alert('nope');
+      alert('no add event listener');
 
     canvas.addEventListener('click', function (evt) {
+      alert('click');
       evt.preventDefault();
       drawSpotOnCanvas(canvas, canvas.relMouseCoords(evt));
     });
