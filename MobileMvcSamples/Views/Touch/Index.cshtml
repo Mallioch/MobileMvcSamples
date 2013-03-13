@@ -346,7 +346,8 @@
 
     //alert('hey');
 
-    //alert(Object.prototype.toString.call(evt));
+    alert(Object.prototype.toString.call(evt));
+    alert(Object.prototype.toString.call(evt) == '[object MouseEvent]');
 
     //alert('wut');
 
@@ -375,6 +376,7 @@
       $('.pos').html(evt.x + ', ' + evt.y);
     }
     else {
+      console.log('else');
     }
 
     if (navigator.userAgent.indexOf('Firefox') == -1) {
