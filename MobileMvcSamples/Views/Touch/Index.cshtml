@@ -195,23 +195,44 @@
 
   (function () {
     var canvas = document.getElementById('gesture-events');
+    var c = canvas.getContext('2d');
     canvas.addEventListener('gesturestart', function (evt) {
       evt.preventDefault();
-
+      drawSquare(evt.scale);
       console.log('gesture start', evt);
     });
 
     canvas.addEventListener('gesturechange', function (evt) {
       evt.preventDefault();
 
+      drawSquare(evt.scale);
       console.log('gesture change', evt);
     });
 
     canvas.addEventListener('gestureend', function (evt) {
       evt.preventDefault();
 
+      drawSquare(evt.scale);
       console.log('gesture end', evt);
     });
+
+    drawSquare();
+
+    function drawSquare(scale, rotation) {
+
+      scale = scale || 1;
+      rotation = rotation || 1;
+
+      c.save();
+
+      c.scale(scale, scale);
+
+      c.fillRect(100, 75, 50, 50);
+      c.fillStyle = '#000';
+      c.fill();
+
+      c.restore();
+    }
 
   })();
 
