@@ -78,9 +78,9 @@
 <p>The click event, the same one we have been using for years for desktop browsers, is handled well universally
   on mobile devices. The only drawback is that on most mobile browsers there is a 300ms delay on the click event.
 </p>
-<p><strong>Supported By:</strong> iPad, iPod, S3[chr], LG[def], Nexus[chr], Nexus[def], L820, BB10, Win8T[chr], Win8T[def], Win8MT[def], FireHD</p>
+<p><strong>Supported By:</strong> iPad, iPod, S3[chr], LG[def], Nexus[chr], Nexus[def], L820, L900, BB10, Win8T[chr], Win8T[def], Win8MT[def], FireHD</p>
 <p><strong>Not Supported By:</strong> none</p>
-<p><strong>Dunno:</strong> L900, Win8M[chr], Win8M[def], Win8MM[def]</p>
+<p><strong>Dunno:</strong> Win8M[chr], Win8M[def], Win8MM[def]</p>
 
 <canvas class="touch-box" id="click" width="250" height="200">&nbsp</canvas>
 <script>
@@ -104,7 +104,7 @@
 <p>Mouse events are emulated, like mousedown, mousemove and mouseup. So these will still fire on mobile devices
   that don't use mice.
 </p>
-<p><strong>Supported By:</strong> iPad (partial), iPod (partial), LG[def] (partial), Nexus[chr] (partial), Nexus[def] (partial), L820 (partial), BB10,
+<p><strong>Supported By:</strong> iPad, iPod, LG[def], Nexus[chr], Nexus[def], L820, L900, BB10,
   Win8T[chr], Win8T[def], Win8MT[def], FireHD
 </p>
 <p><strong>Not Supported By:</strong> </p>
@@ -136,9 +136,9 @@
 <!-- ============================================================================================= -->
 <h2>touchstart, touchmove, touchend</h2>
 <p>Testing touch* events</p>
-<p><strong>Supported By:</strong> iPad, iPod (slow), LG (slow), Win8T[chr], FireHD</p>
+<p><strong>Supported By:</strong> iPad, iPod (slow), Nexus[chr], Nexus[def], LG (slow), Win8T[chr], FireHD</p>
 <p><strong>Not Supported By:</strong> L820, L900, Win8T[def], Win8MT[def]</p>
-<p><strong>Dunno:</strong> S3[chr], S3[def], Nexus*, Win8M[chr], Win8M[def], Win8MM[def]</p>
+<p><strong>Dunno:</strong> S3[chr], S3[def], Win8M[chr], Win8M[def], Win8MM[def]</p>
 <canvas class="touch-box" id="touch-events" width="250" height="200">&nbsp</canvas>
 <script>
 
@@ -192,20 +192,38 @@
 
 <canvas class="touch-box" id="gesture-events" width="250" height="200">&nbsp</canvas>
 <script>
-  function gestureEvents() {
-    register('#gesture-events', 'gesturestart');
-    register('#gesture-events', 'gesturechange');
-    register('#gesture-events', 'gestureend');
-  }
+
+  (function () {
+    var canvas = document.getElementById('mouseenter-events');
+    canvas.addEventListener('gesturestart', function (evt) {
+      evt.preventDefault();
+
+      console.log('gesture start', evt);
+    });
+
+    canvas.addEventListener('gesturechange', function (evt) {
+      evt.preventDefault();
+
+      console.log('gesture change', evt);
+    });
+
+    canvas.addEventListener('gestureend', function (evt) {
+      evt.preventDefault();
+
+      console.log('gesture end', evt);
+    });
+
+  })();
+
 </script>
 
 
 <!-- ============================================================================================= -->
 <h2>mouseenter, mouseleave</h2>
 <p>Testing mouseenter/mouseleave events. This may be IE proprietary.</p>
-<p><strong>Supported By:</strong> L820, Win8T[def], Win8MT[def]</p>
-<p><strong>Not Supported By:</strong> iPad, iPod, LG, BB10, Win8T[chr], FireHD</p>
-<p><strong>Dunno:</strong> S3[chr], S3[def], Nexus[chr], Nexus[def], L900, Win8M[chr], Win8M[def], Win8MM[def]</p>
+<p><strong>Supported By:</strong> L820, L900, Win8T[def], Win8MT[def]</p>
+<p><strong>Not Supported By:</strong> iPad, iPod, LG, Nexus[chr], Nexus[def], BB10, Win8T[chr], FireHD</p>
+<p><strong>Dunno:</strong> S3[chr], S3[def], Win8M[chr], Win8M[def], Win8MM[def]</p>
 
 <canvas class="touch-box" id="mouseenter-events" width="250" height="200">&nbsp</canvas>
 <script>
