@@ -220,6 +220,10 @@
 
     function drawSquare(scale, rotation) {
 
+      c.fillStyle = '#FFF';
+      c.fillRect(0, 0, 250, 200);
+      c.fill();
+
       scale = scale || 1;
       rotation = rotation || 1;
 
@@ -227,8 +231,8 @@
 
       c.scale(scale, scale);
 
-      c.fillRect(100, 75, 50, 50);
       c.fillStyle = '#000';
+      c.fillRect(100, 75, 50, 50);
       c.fill();
 
       c.restore();
