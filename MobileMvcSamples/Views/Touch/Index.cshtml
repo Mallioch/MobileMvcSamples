@@ -3,17 +3,6 @@
 }
 
 
-<input id="foo" value="bar"/>
-
-
-<script>
-  window.onload = function () {
-    
-    var thingy = document.getElementById('foo');
-    console.log(thingy, thingy.value);
-
-  }
-</script>
 
 <style>
 .touch-box {
@@ -298,7 +287,7 @@
 
   function register(selector, event, preventDefault) {
     $(selector).on(event, function (evt) {
-      console.log('event', evt);
+      //console.log('event', evt);
 
       $('#touch-log').html($('#touch-log').html() + '<br />' + evt.type);
 
@@ -321,7 +310,7 @@
 
   function drawSpotOnCanvas(canvas, pos, color) {
 
-    console.log('drawing', pos);
+    //console.log('drawing', pos);
 
     var c = canvas.getContext('2d');
     c.beginPath();
@@ -355,6 +344,7 @@
       $('#touch-display .mouse-event').show();
 
       //alert('coords');
+      /*
       alert(evt.clientX + ', ' + evt.clientY
         + '|'
         + evt.layerX + ', ' + evt.layerY
@@ -366,7 +356,7 @@
         + evt.screenX + ', ' + evt.screenY
         + '|'
         + evt.x + ', ' + evt.y);
-
+      */
       $('.client').html(evt.clientX + ', ' + evt.clientY);
       $('.layer').html(evt.layerX + ', ' + evt.layerY);
       $('.offset').html(evt.offsetX + ', ' + evt.offsetY);
