@@ -198,21 +198,21 @@
     var c = canvas.getContext('2d');
     canvas.addEventListener('gesturestart', function (evt) {
       evt.preventDefault();
-      drawSquare(evt.scale);
+      drawSquare(evt.scale, evt.rotation);
       console.log('gesture start', evt.rotation, evt);
     });
 
     canvas.addEventListener('gesturechange', function (evt) {
       evt.preventDefault();
 
-      drawSquare(evt.scale);
+      drawSquare(evt.scale, evt.rotation);
       console.log('gesture change', evt.rotation, evt);
     });
 
     canvas.addEventListener('gestureend', function (evt) {
       evt.preventDefault();
 
-      drawSquare(evt.scale);
+      drawSquare(evt.scale, evt.rotation);
       console.log('gesture end', evt.rotation, evt);
     });
 
