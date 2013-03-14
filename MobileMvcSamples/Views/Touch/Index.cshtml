@@ -216,7 +216,10 @@
       console.log('gesture end', evt.rotation, evt);
     });
 
-    drawSquare(.5);
+    drawSquare(1, 0);
+
+    var canvasWidth = 250,
+      canvasHeight = 200;
 
     function drawSquare(scale, rotation) {
 
@@ -234,7 +237,8 @@
 
       c.translate(xTranslate, yTranslate);
       c.scale(scale, scale);
-      c.rotate(rotation);
+      c.rotate(rotation * (Math.PI / 180));
+      //c.translate((canvasWidth / 2) + 500, (canvasHeight / 2) + 75);
 
       c.fillStyle = '#000';
       c.fillRect(100, 75, 50, 50);
