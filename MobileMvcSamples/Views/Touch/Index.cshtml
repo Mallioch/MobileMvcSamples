@@ -216,7 +216,7 @@
       console.log('gesture end', evt);
     });
 
-    drawSquare();
+    drawSquare(.5);
 
     function drawSquare(scale, rotation) {
 
@@ -225,11 +225,16 @@
       c.fill();
 
       scale = scale || 1;
-      rotation = rotation || 1;
+      rotation = rotation || 0;
 
       c.save();
 
+      var xTranslate = 100 * (1 - scale); //for scale
+      var yTranslate = 75 * (1 - scale); //for scale
+
+      c.translate(xTranslate, yTranslate);
       c.scale(scale, scale);
+      c.rotate(rotation);
 
       c.fillStyle = '#000';
       c.fillRect(100, 75, 50, 50);
