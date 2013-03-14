@@ -56,6 +56,7 @@
 <ul>
   <li>iPad - iOS 6.1/Safari</li>
   <li>iPod - iOS 4.0/Safari</li>
+  <li>iPhone - iOS 6.1/Safari</li>
   <li>S3[chr] - Galaxy S3/Chrome</li>
   <li>S3[def] - Galaxy S3/Default browser</li>
   <li>LG - LG Nitro/Android 2.3.5/Default browser</li>
@@ -78,7 +79,7 @@
 <p>The click event, the same one we have been using for years for desktop browsers, is handled well universally
   on mobile devices. The only drawback is that on most mobile browsers there is a 300ms delay on the click event.
 </p>
-<p><strong>Supported By:</strong> iPad, iPod, S3[chr], LG[def], Nexus[chr], Nexus[def], L820, L900, BB10, Win8T[chr], Win8T[def], Win8MT[def], FireHD</p>
+<p><strong>Supported By:</strong> iPad, iPod, iPhone, S3[chr], LG[def], Nexus[chr], Nexus[def], L820, L900, BB10, Win8T[chr], Win8T[def], Win8MT[def], FireHD</p>
 <p><strong>Not Supported By:</strong> none</p>
 <p><strong>Dunno:</strong> Win8M[chr], Win8M[def], Win8MM[def]</p>
 
@@ -104,7 +105,7 @@
 <p>Mouse events are emulated, like mousedown, mousemove and mouseup. So these will still fire on mobile devices
   that don't use mice.
 </p>
-<p><strong>Supported By:</strong> iPad, iPod, LG[def], Nexus[chr], Nexus[def], L820, L900, BB10,
+<p><strong>Supported By:</strong> iPad, iPod, iPhone, LG[def], Nexus[chr], Nexus[def], L820, L900, BB10,
   Win8T[chr], Win8T[def], Win8MT[def], FireHD
 </p>
 <p><strong>Not Supported By:</strong> </p>
@@ -136,7 +137,7 @@
 <!-- ============================================================================================= -->
 <h2>touchstart, touchmove, touchend</h2>
 <p>Testing touch* events</p>
-<p><strong>Supported By:</strong> iPad, iPod (slow), Nexus[chr], Nexus[def], LG (slow), Win8T[chr], FireHD</p>
+<p><strong>Supported By:</strong> iPad, iPod (slow), iPhone, Nexus[chr], Nexus[def], LG (slow), Win8T[chr], FireHD</p>
 <p><strong>Not Supported By:</strong> L820, L900, Win8T[def], Win8MT[def]</p>
 <p><strong>Dunno:</strong> S3[chr], S3[def], Win8M[chr], Win8M[def], Win8MM[def]</p>
 <canvas class="touch-box" id="touch-events" width="250" height="200">&nbsp</canvas>
@@ -187,8 +188,10 @@
 <h2>gesturestart, gesturechange, gestureend</h2>
 <p>Testing gesture* events</p>
 
-<p><strong>Supported By:</strong> </p>
-<p><strong>Not Supported By:</strong> </p>
+<p><strong>Supported By:</strong> iPad, iPod, iPhone</p>
+<p><strong>Not Supported By:</strong> S3[chr], S3[def], LG, Nexus[chr], Nexus[def], L820, L900, BB10, Win8T[chr], Win8T[def], Win8MT[def], Win8M[chr], Win8M[def], Win8MM[def], FireHD</p>
+
+
 
 <canvas class="touch-box" id="gesture-events" width="250" height="200">&nbsp</canvas>
 <script>
@@ -256,7 +259,7 @@
 <h2>mouseenter, mouseleave</h2>
 <p>Testing mouseenter/mouseleave events. This may be IE proprietary.</p>
 <p><strong>Supported By:</strong> L820, L900, Win8T[def], Win8MT[def]</p>
-<p><strong>Not Supported By:</strong> iPad, iPod, LG, Nexus[chr], Nexus[def], BB10, Win8T[chr], FireHD</p>
+<p><strong>Not Supported By:</strong> iPad, iPod, iPhone, LG, Nexus[chr], Nexus[def], BB10, Win8T[chr], FireHD</p>
 <p><strong>Dunno:</strong> S3[chr], S3[def], Win8M[chr], Win8M[def], Win8MM[def]</p>
 
 <canvas class="touch-box" id="mouseenter-events" width="250" height="200">&nbsp</canvas>
