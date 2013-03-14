@@ -199,21 +199,21 @@
     canvas.addEventListener('gesturestart', function (evt) {
       evt.preventDefault();
       drawSquare(evt.scale);
-      console.log('gesture start', evt);
+      console.log('gesture start', evt.rotation, evt);
     });
 
     canvas.addEventListener('gesturechange', function (evt) {
       evt.preventDefault();
 
       drawSquare(evt.scale);
-      console.log('gesture change', evt);
+      console.log('gesture change', evt.rotation, evt);
     });
 
     canvas.addEventListener('gestureend', function (evt) {
       evt.preventDefault();
 
       drawSquare(evt.scale);
-      console.log('gesture end', evt);
+      console.log('gesture end', evt.rotation, evt);
     });
 
     drawSquare(.5);
