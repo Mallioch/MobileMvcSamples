@@ -61,12 +61,14 @@
         console.log('ontouchmove is supported');
 
         carouselDiv.addEventListener('touchstart', function (evt) {
+          evt.preventDefault();
           carousel.moving = true;
           carousel.startX = carousel.lastX = evt.touches[0].pageX - carouselDiv.offsetLeft;
           //console.log('touchstart', carousel.startX);
         }, true);
 
         carouselDiv.addEventListener('touchmove', function (evt) {
+          evt.preventDefault();
           //console.log('touchmove');
           var currentLocation = evt.touches[0].pageX - carouselDiv.offsetLeft;
           //console.log(evt, evt.touches[0]);
@@ -81,6 +83,7 @@
         }, true);
 
         carouselDiv.addEventListener('touchend', function (evt) {
+          evt.preventDefault();
           //console.log('touchend', carousel.startX);
           console.log('=================================================');
           carousel.moving = false;
