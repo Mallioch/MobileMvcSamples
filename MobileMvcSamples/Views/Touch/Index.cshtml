@@ -279,6 +279,120 @@
 </script>
 
 
+<!-- ============================================================================================= -->
+<h2>MS Pointer Events</h2>
+<p>MS Pointer Events!</p>
+<p><strong>Supported By:</strong> Win8T[def], Win8MT[def]</p>
+<p><strong>Not Supported By:</strong> iPad, iPod, iPhone, S3[chr], LG[def], Nexus[chr], Nexus[def], L820, L900, BB10, FireHD, Win8T[chr]</p>
+<p><strong>Dunno:</strong> Win8M[chr], Win8M[def], Win8MM[def]</p>
+
+<canvas class="touch-box" id="ms-pointer" width="250" height="200" style="-ms-touch-action: none;">&nbsp</canvas>
+<script>
+  
+  (function () {
+
+    var canvas = document.getElementById('ms-pointer');
+
+    msPointerEvent('MSPointerDown', function(x, y) {
+		drawSpotOnCanvas(canvas, { x: x, y: y}, '#00F')
+	});
+	msPointerEvent('MSPointerMove', function(x, y) {
+		drawSpotOnCanvas(canvas, { x: x, y: y}, '#F00')
+	});
+	msPointerEvent('MSPointerUp', function(x, y) {
+		drawSpotOnCanvas(canvas, { x: x, y: y}, '#0F0')
+	});
+	msPointerEvent('MSPointerOver', function(x, y) {
+		drawSpotOnCanvas(canvas, { x: x, y: y}, '#0FF')
+	});
+	msPointerEvent('MSPointerOut', function(x, y) {
+		drawSpotOnCanvas(canvas, { x: x, y: y}, '#FF0')
+	});
+	msPointerEvent('MSPointerHover');
+
+	function msPointerEvent(eventName, func) {
+
+		canvas.addEventListener(eventName, function(evt) {
+			evt.preventDefault();
+
+			outputEvent(evt);
+			if (func)
+				func(evt.offsetX, evt.offsetY);
+		});
+
+	}
+  })();
+
+</script>
+
+
+<!-- ============================================================================================= -->
+<h2>MS Gesture Events</h2>
+<p>MS Gesture Events!</p>
+<p><strong>Supported By:</strong> Win8T[def], Win8MT[def]</p>
+<p><strong>Not Supported By:</strong> iPad, iPod, iPhone, S3[chr], LG[def], Nexus[chr], Nexus[def], L820, L900, BB10, FireHD, Win8T[chr]</p>
+<p><strong>Dunno:</strong> Win8M[chr], Win8M[def], Win8MM[def]</p>
+
+<canvas class="touch-box" id="ms-gesture" width="250" height="200" style="-ms-touch-action: none;">&nbsp</canvas>
+<script>
+  
+  (function () {
+
+    var canvas = document.getElementById('ms-gesture');
+	var gesture = new MSGesture();
+	gesture.target = canvas;
+
+	canvas.addEventListener('MSPointerDown', listen, false);
+
+	canvas.addEventListener('MSGestureStart', listen, false);
+	canvas.addEventListener('MSGestureEnd', listen, false);
+	canvas.addEventListener('MSGestureChange', listen, false);
+	canvas.addEventListener('MSIntertialStart', listen, false);
+	canvas.addEventListener('MSGestureHold', listen, false);
+	canvas.addEventListener('MSGestureDown', listen, false);
+    
+
+
+	function listen(evt) {
+		if (evt.type == 'MSPointerDown') {
+			console.log('pointer down');
+			gesture.addPointer(evt.pointerId);
+			return;
+		}
+		//outputEventVerbose(evt);
+
+		if (evt.type == 'MSGestureTap')
+			console.log('Tap');
+		if (evt.type == 'MSGestureHold')
+			console.log('Hold');
+		if (evt.type == 'MSIntertiaStart')
+			console.log('Intertia!');
+	}
+
+
+	function msPointerEvent(eventName, func) {
+
+		canvas.addEventListener(eventName, function(evt) {
+			evt.preventDefault();
+
+			outputEvent(evt);
+			if (func)
+				func(evt.offsetX, evt.offsetY);
+		});
+
+	}
+  })();
+
+</script>
+
+
+
+
+
+
+
+
+
 <hr />
 <div id="touch-log">
 
