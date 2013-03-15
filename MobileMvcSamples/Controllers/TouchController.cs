@@ -12,5 +12,10 @@ namespace MobileMvcSamples.Controllers
         {
             return View();
         }
+
+        public ActionResult Touchable()
+        {
+            return View();
+        }
     }
 }
