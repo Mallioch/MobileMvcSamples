@@ -54,6 +54,10 @@
 <script>
   (function () {
     window.onload = function () {
+      setTimeout(setup, 1000);
+    };
+
+    function setup() {
 
       var carouselDiv = document.getElementById('carousel');
       carousel.slider = document.getElementById('carousel-slider');
