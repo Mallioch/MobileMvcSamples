@@ -7,24 +7,22 @@
 <style>
   #carousel {
     border: solid 1px #000;
-    height: 50px;
+    height: 200px;
     /*margin-left: 100px;*/
     overflow: hidden;
     position: relative;
-    width: 280px;
+    width: 290px;
   }
 
   #carousel-slider {
     position: absolute;
-    width: 700px;
+    width: 4000px;
     left: 0px;
   }
 
   .carousel-item {
     float: left;
-    height: 50px;
     margin: 0 5px;
-    width: 50px;
   }
 
   html {
@@ -35,20 +33,21 @@
 
 <div id="carousel">
   <div id="carousel-slider">
-    <div class="carousel-item" style="background-color: #f00;"></div>
-    <div class="carousel-item" style="background-color: #ff6a00;"></div>
-    <div class="carousel-item" style="background-color: #4cff00;"></div>
-    <div class="carousel-item" style="background-color: #ffd800;"></div>
-    <div class="carousel-item" style="background-color: #0026ff;"></div>
-    <div class="carousel-item" style="background-color: #b200ff;"></div>
-    <div class="carousel-item" style="background-color: #ff006e;"></div>
-    <div class="carousel-item" style="background-color: #f00;"></div>
-    <div class="carousel-item" style="background-color: #ff6a00;"></div>
-    <div class="carousel-item" style="background-color: #4cff00;"></div>
-    <div class="carousel-item" style="background-color: #ffd800;"></div>
-    <div class="carousel-item" style="background-color: #0026ff;"></div>
-    <div class="carousel-item" style="background-color: #b200ff;"></div>
-    <div class="carousel-item" style="background-color: #ff006e;"></div>
+    <img class="carousel-item" src="/content/images/avengers_200.jpg" />
+    <img class="carousel-item" src="/content/images/bacon_200.jpg" />
+    <img class="carousel-item" src="/content/images/cod_200.jpg" />
+    <img class="carousel-item" src="/content/images/DandD_200.jpg" />
+    <img class="carousel-item" src="/content/images/css_200.jpg" />
+    <img class="carousel-item" src="/content/images/DandD_200.jpg" />
+    <img class="carousel-item" src="/content/images/dice_200.jpg" />
+    <img class="carousel-item" src="/content/images/dragonlance_200.jpg" />
+    <img class="carousel-item" src="/content/images/greek_200.jpg" />
+    <img class="carousel-item" src="/content/images/hogan_200.jpg" />
+    <img class="carousel-item" src="/content/images/lolwut_200.jpg" />
+    <img class="carousel-item" src="/content/images/marvel_200.jpg" />
+    <img class="carousel-item" src="/content/images/mitt_200.jpg" />
+    <img class="carousel-item" src="/content/images/noooooo_200.jpg" />
+    <img class="carousel-item" src="/content/images/ready_200.jpg" />
   </div>
 </div>
 
@@ -120,18 +119,23 @@
       }
       else {
 
+        console.log('foo');
+
         carouselDiv.addEventListener('mousedown', function (evt) {
+          evt.preventDefault();
           carousel.moving = true;
           carousel.startX = evt.pageX - carouselDiv.offsetLeft;
           //console.log('mousedown', carousel.startX);
         }, true);
 
         carouselDiv.addEventListener('mouseup', function (evt) {
+          evt.preventDefault();
           carousel.moving = false;
           //console.log('mouseup', carousel.startX);
         }, true);
 
         carouselDiv.addEventListener('mousemove', function (evt) {
+          evt.preventDefault();
           var currentLocation = evt.pageX - carouselDiv.offsetLeft;
           carousel.move(currentLocation);
         },
@@ -172,8 +176,8 @@
           carousel.current -= diff;
           console.log('diff', diff, 'carousel.current', carousel.current, 'currentX', currentX);
 
-          if (carousel.current < -380)
-            carousel.current = -380;
+          if (carousel.current < -2900)
+            carousel.current = -2900;
           if (carousel.current > 0)
             carousel.current = 0;
 
