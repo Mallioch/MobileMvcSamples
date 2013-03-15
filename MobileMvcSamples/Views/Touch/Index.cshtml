@@ -453,29 +453,36 @@
 <script>
 
 
+	function outputEvent(evt) {
+		console.log(evt.type, '{ x: ' + evt.offsetX + ', y: ' + evt.offsetY + ' }');
+	}
 
-  function register(selector, event, preventDefault) {
-    $(selector).on(event, function (evt) {
-      //console.log('event', evt);
+	function outputEventVerbose(evt) {
 
-      $('#touch-log').html($('#touch-log').html() + '<br />' + evt.type);
+		var output = '==================================================\r\n';
 
-      if (preventDefault)
-        evt.preventDefault();
+		for (var key in evt) {
 
-      var target = $(this).get(0);
-      var c = target.getContext('2d');
-      c.beginPath();
-      c.fillStyle = '#F00';
-      c.arc(evt.offsetX, evt.offsetY, 30, 0, Math.PI * 2);
-      c.fill();
+			if (isFunction(evt[key])) {
+				output += key + ': [function]\r\n';
+			}
+			else {
+				output += key + ': ' + evt[key] + '\r\n';
+			}
+		}
 
-      setTimeout(function () {
-        c.clearRect(0, 0, target.width, target.height);
-      }, 1000);
-    });
+		console.log(output);
+		console.log('==================================================\r\n');
+	}
 
-  }
+	function isFunction(object) {
+		//return object && getClass.call(object) == '[object Function]';
+		return typeof(object) == "function";
+	}
+
+
+
+
 
   function drawSpotOnCanvas(canvas, pos, color) {
 
