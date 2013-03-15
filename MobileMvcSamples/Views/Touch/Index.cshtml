@@ -91,7 +91,7 @@
     var canvas = document.getElementById('click');
 
     canvas.addEventListener('click', function (evt) {
-      //alert('click');
+      console.log(evt);
       evt.preventDefault();
       drawSpotOnCanvas(canvas, canvas.relMouseCoords(evt));
     });
@@ -336,10 +336,19 @@
 <canvas class="touch-box" id="ms-gesture" width="250" height="200" style="-ms-touch-action: none;">&nbsp</canvas>
 <script>
   
-  (function () {
+(function () {
 
-    var canvas = document.getElementById('ms-gesture');
-	var gesture = new MSGesture();
+  var canvas = document.getElementById('ms-gesture');
+
+
+  try {
+    var gesture = new MSGesture();
+  }
+  catch(exc) {
+    return;
+  }
+
+
 	gesture.target = canvas;
 
 	canvas.addEventListener('MSPointerDown', listen, false);
