@@ -1,0 +1,158 @@
+﻿@{
+    ViewBag.Title = "Touchable";
+}
+
+<h2>Touchable</h2>
+
+<style>
+  #carousel {
+    border: solid 1px #000;
+    height: 50px;
+    margin-left: 100px;
+    overflow: hidden;
+    position: relative;
+    width: 280px;
+  }
+
+  #carousel-slider {
+    position: absolute;
+    width: 700px;
+    left: 0px;
+  }
+
+  .carousel-item {
+    float: left;
+    height: 50px;
+    margin: 0 5px;
+    width: 50px;
+  }
+</style>
+
+
+<div id="carousel">
+  <div id="carousel-slider">
+    <div class="carousel-item" style="background-color: #f00;"></div>
+    <div class="carousel-item" style="background-color: #ff6a00;"></div>
+    <div class="carousel-item" style="background-color: #4cff00;"></div>
+    <div class="carousel-item" style="background-color: #ffd800;"></div>
+    <div class="carousel-item" style="background-color: #0026ff;"></div>
+    <div class="carousel-item" style="background-color: #b200ff;"></div>
+    <div class="carousel-item" style="background-color: #ff006e;"></div>
+    <div class="carousel-item" style="background-color: #f00;"></div>
+    <div class="carousel-item" style="background-color: #ff6a00;"></div>
+    <div class="carousel-item" style="background-color: #4cff00;"></div>
+    <div class="carousel-item" style="background-color: #ffd800;"></div>
+    <div class="carousel-item" style="background-color: #0026ff;"></div>
+    <div class="carousel-item" style="background-color: #b200ff;"></div>
+    <div class="carousel-item" style="background-color: #ff006e;"></div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    window.onload = function () {
+
+      var carouselDiv = document.getElementById('carousel');
+      carousel.slider = document.getElementById('carousel-slider');
+
+      console.log(carouselDiv.hasOwnProperty('ontouchmove'));
+
+      if (carouselDiv.hasOwnProperty('ontouchmove')) {
+        console.log('ontouchmove is supported');
+
+        carouselDiv.addEventListener('touchstart', function (evt) {
+          carousel.moving = true;
+          carousel.startX = carousel.lastX = evt.touches[0].pageX - carouselDiv.offsetLeft;
+          //console.log('touchstart', carousel.startX);
+        }, true);
+
+        carouselDiv.addEventListener('touchmove', function (evt) {
+          //console.log('touchmove');
+          var currentLocation = evt.touches[0].pageX - carouselDiv.offsetLeft;
+          //console.log(evt, evt.touches[0]);
+          carousel.startX = evt.touches[0].pageX - carouselDiv.offsetLeft;
+          console.log('currentLocation: ', currentLocation,
+            'carousel.slider.style.left,', carousel.slider.style.left,
+            'evt.touches[0].pageX', evt.touches[0].pageX,
+            'carouselDiv.offsetLeft', carouselDiv.offsetLeft,
+            'carousel.lastX', carousel.lastX,
+            'carousel.current: ', carousel.current);
+          carousel.move(currentLocation);
+        }, true);
+
+        carouselDiv.addEventListener('touchend', function (evt) {
+          //console.log('touchend', carousel.startX);
+          console.log('=================================================');
+          carousel.moving = false;
+
+        }, true);
+      }
+      else {
+
+        carouselDiv.addEventListener('mousedown', function (evt) {
+          carousel.moving = true;
+          carousel.startX = evt.pageX - carouselDiv.offsetLeft;
+          //console.log('mousedown', carousel.startX);
+        }, true);
+
+        carouselDiv.addEventListener('mouseup', function (evt) {
+          carousel.moving = false;
+          //console.log('mouseup', carousel.startX);
+        }, true);
+
+        carouselDiv.addEventListener('mousemove', function (evt) {
+          var currentLocation = evt.pageX - carouselDiv.offsetLeft;
+          carousel.move(currentLocation);
+        },
+        true);
+      }
+
+      /*
+      carouselDiv.addEventListener('touchmove', function (evt) {
+        evt.preventDefault();
+
+        if (evt.touches && evt.touches.length > 0) {
+          //xDisplay.innerHTML = getPositionFromTouch(evt.touches[0]).x;
+        }
+      }, true);
+      */
+
+    }
+
+    function getPositionFromTouch(touch) {
+      return {
+        y: touch.pageY - touch.target.offsetTop,
+        x: touch.pageX - touch.target.offsetLeft
+      };
+    }
+
+    var carousel = {
+      moving: false,
+      startX: 0,
+      current: 0,
+      lastX: 0,
+      slider: null,
+
+      move: function (currentX) {
+
+        if (carousel.moving) {
+
+          var diff = carousel.lastX - currentX;
+          carousel.current -= diff;
+          console.log('diff', diff, 'carousel.current', carousel.current, 'currentX', currentX);
+
+          if (carousel.current < -380)
+            carousel.current = -380;
+          if (carousel.current > 0)
+            carousel.current = 0;
+
+          this.slider.style.left = carousel.current + 'px';
+        }
+
+        carousel.lastX = currentX;
+
+      }
+    };
+
+  })();
+</script>
