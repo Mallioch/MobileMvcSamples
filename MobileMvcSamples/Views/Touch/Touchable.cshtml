@@ -26,6 +26,10 @@
     margin: 0 5px;
     width: 50px;
   }
+
+  html {
+    -ms-touch-action: none;
+  }
 </style>
 
 
@@ -69,9 +73,7 @@
 
         carouselDiv.addEventListener('touchmove', function (evt) {
           evt.preventDefault();
-          //console.log('touchmove');
           var currentLocation = evt.touches[0].pageX - carouselDiv.offsetLeft;
-          //console.log(evt, evt.touches[0]);
           carousel.startX = evt.touches[0].pageX - carouselDiv.offsetLeft;
           console.log('currentLocation: ', currentLocation,
             'carousel.slider.style.left,', carousel.slider.style.left,
@@ -89,6 +91,32 @@
           carousel.moving = false;
 
         }, true);
+      }
+      else if (window.navigator.msPointerEnabled) {
+        carouselDiv.addEventListener('MSPointerDown', function (evt) {
+          //evt.preventDefault();
+          carousel.moving = true;
+          carousel.startX = carousel.lastX = evt.pageX - carouselDiv.offsetLeft;
+        },
+        true);
+        carouselDiv.addEventListener('MSPointerMove', function (evt) {
+          var currentLocation = evt.pageX - carouselDiv.offsetLeft;
+          carousel.startX = evt.pageX - carouselDiv.offsetLeft;
+          //console.log('currentLocation: ', currentLocation,
+          //  'carousel.slider.style.left,', carousel.slider.style.left,
+          //  'evt.touches[0].pageX', evt.touches[0].pageX,
+          //  'carouselDiv.offsetLeft', carouselDiv.offsetLeft,
+          //  'carousel.lastX', carousel.lastX,
+          //  'carousel.current: ', carousel.current);
+          carousel.move(currentLocation);
+
+          //outputEventVerbose(evt);
+        },
+        true);
+        carouselDiv.addEventListener('MSPointerUp', function (evt) {
+          carousel.moving = false;
+        },
+        true);
       }
       else {
 
@@ -156,6 +184,29 @@
 
       }
     };
+
+    function outputEventVerbose(evt) {
+
+      var output = '==================================================\r\n';
+
+      for (var key in evt) {
+
+        if (isFunction(evt[key])) {
+          output += key + ': [function]\r\n';
+        }
+        else {
+          output += key + ': ' + evt[key] + '\r\n';
+        }
+      }
+
+      console.log(output);
+      console.log('==================================================\r\n');
+    }
+
+    function isFunction(object) {
+      //return object && getClass.call(object) == '[object Function]';
+      return typeof (object) == "function";
+    }
 
   })();
 </script>
