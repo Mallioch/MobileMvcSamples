@@ -62,34 +62,23 @@
       var carouselDiv = document.getElementById('carousel');
       carousel.slider = document.getElementById('carousel-slider');
 
-      console.log(carouselDiv.hasOwnProperty('ontouchmove'));
-
       if (carouselDiv.hasOwnProperty('ontouchmove')) {
-        console.log('ontouchmove is supported');
 
         carouselDiv.addEventListener('touchstart', function (evt) {
           evt.preventDefault();
           carousel.moving = true;
           carousel.startX = carousel.lastX = evt.touches[0].pageX - carouselDiv.offsetLeft;
-          //console.log('touchstart', carousel.startX);
         }, true);
 
         carouselDiv.addEventListener('touchmove', function (evt) {
           evt.preventDefault();
           var currentLocation = evt.touches[0].pageX - carouselDiv.offsetLeft;
           carousel.startX = evt.touches[0].pageX - carouselDiv.offsetLeft;
-          console.log('currentLocation: ', currentLocation,
-            'carousel.slider.style.left,', carousel.slider.style.left,
-            'evt.touches[0].pageX', evt.touches[0].pageX,
-            'carouselDiv.offsetLeft', carouselDiv.offsetLeft,
-            'carousel.lastX', carousel.lastX,
-            'carousel.current: ', carousel.current);
           carousel.move(currentLocation);
         }, true);
 
         carouselDiv.addEventListener('touchend', function (evt) {
           evt.preventDefault();
-          //console.log('touchend', carousel.startX);
           console.log('=================================================');
           carousel.moving = false;
 
@@ -97,7 +86,6 @@
       }
       else if (window.navigator.msPointerEnabled) {
         carouselDiv.addEventListener('MSPointerDown', function (evt) {
-          //evt.preventDefault();
           carousel.moving = true;
           carousel.startX = carousel.lastX = evt.pageX - carouselDiv.offsetLeft;
         },
@@ -105,15 +93,7 @@
         carouselDiv.addEventListener('MSPointerMove', function (evt) {
           var currentLocation = evt.pageX - carouselDiv.offsetLeft;
           carousel.startX = evt.pageX - carouselDiv.offsetLeft;
-          //console.log('currentLocation: ', currentLocation,
-          //  'carousel.slider.style.left,', carousel.slider.style.left,
-          //  'evt.touches[0].pageX', evt.touches[0].pageX,
-          //  'carouselDiv.offsetLeft', carouselDiv.offsetLeft,
-          //  'carousel.lastX', carousel.lastX,
-          //  'carousel.current: ', carousel.current);
           carousel.move(currentLocation);
-
-          //outputEventVerbose(evt);
         },
         true);
         carouselDiv.addEventListener('MSPointerUp', function (evt) {
@@ -123,19 +103,15 @@
       }
       else {
 
-        console.log('foo');
-
         carouselDiv.addEventListener('mousedown', function (evt) {
           evt.preventDefault();
           carousel.moving = true;
           carousel.startX = evt.pageX - carouselDiv.offsetLeft;
-          //console.log('mousedown', carousel.startX);
         }, true);
 
         carouselDiv.addEventListener('mouseup', function (evt) {
           evt.preventDefault();
           carousel.moving = false;
-          //console.log('mouseup', carousel.startX);
         }, true);
 
         carouselDiv.addEventListener('mousemove', function (evt) {
@@ -146,15 +122,6 @@
         true);
       }
 
-      /*
-      carouselDiv.addEventListener('touchmove', function (evt) {
-        evt.preventDefault();
-
-        if (evt.touches && evt.touches.length > 0) {
-          //xDisplay.innerHTML = getPositionFromTouch(evt.touches[0]).x;
-        }
-      }, true);
-      */
 
     }
 

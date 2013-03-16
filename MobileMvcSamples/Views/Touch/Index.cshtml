@@ -151,9 +151,6 @@
     canvas.addEventListener('touchstart', function (evt) {
       evt.preventDefault();
 
-      //console.log('evt', evt);
-      //console.log(evt.touches);
-
       for (i = 0; i < evt.touches.length; i++) {
         drawSpotOnCanvas(canvas, getPositionFromTouch(evt.touches[i]), '#0F0');
       }
@@ -161,8 +158,6 @@
 
     canvas.addEventListener('touchmove', function (evt) {
       evt.preventDefault();
-      //console.log('evt', evt);
-      //console.log(evt.touches);
 
       for (var i = 0; i < evt.touches.length; i++) {
         drawSpotOnCanvas(canvas, getPositionFromTouch(evt.touches[i]), '#F00');
@@ -172,8 +167,6 @@
     canvas.addEventListener('touchend', function (evt) {
       evt.preventDefault();
 
-      //console.log('evt', evt);
-      //console.log(evt.touches);
       for (var i = 0; i < evt.touches.length; i++) {
         drawSpotOnCanvas(canvas, getPositionFromTouch(evt.touches[i]), '#00F');
       }
@@ -241,7 +234,6 @@
       c.translate(xTranslate, yTranslate);
       c.scale(scale, scale);
       c.rotate(rotation * (Math.PI / 180));
-      //c.translate((canvasWidth / 2) + 500, (canvasHeight / 2) + 75);
 
       c.fillStyle = '#000';
       c.fillRect(100, 75, 50, 50);
@@ -282,8 +274,8 @@
 <!-- ============================================================================================= -->
 <h2>MS Pointer Events</h2>
 <p>MS Pointer Events!</p>
-<p><strong>Supported By:</strong> Win8T[def], Win8MT[def]</p>
-<p><strong>Not Supported By:</strong> iPad, iPod, iPhone, S3[chr], LG[def], Nexus[chr], Nexus[def], L820, L900, BB10, FireHD, Win8T[chr]</p>
+<p><strong>Supported By:</strong> Win8T[def], Win8MT[def], L820</p>
+<p><strong>Not Supported By:</strong> iPad, iPod, iPhone, S3[chr], LG[def], Nexus[chr], Nexus[def], L900, BB10, FireHD, Win8T[chr]</p>
 <p><strong>Dunno:</strong> Win8M[chr], Win8M[def], Win8MM[def]</p>
 
 <canvas class="touch-box" id="ms-pointer" width="250" height="200" style="-ms-touch-action: none;">&nbsp</canvas>
@@ -368,7 +360,6 @@
 			gesture.addPointer(evt.pointerId);
 			return;
 		}
-		//outputEventVerbose(evt);
 
 		if (evt.type == 'MSGestureTap')
 			console.log('Tap');
@@ -425,39 +416,6 @@
   </div>
 </div>
 
-<h2>Event Notes</h2>
-
-<p>Mouse Event</p>
-<ul>
-  <li>clientX/clientY (relative to the window)
-    <ul>
-      <li>iOS - from edge of actual screen</li>
-    </ul>
-  </li>
-  <li>layerX/layerY
-    <ul>
-      <li>iOS - matches offset*</li>
-    </ul>
-  </li>
-  <li>offsetX/offsetY (relative to padding box)</li>
-  <li>pageX/pageY (relative to the page)</li>
-  <li>screenX/screenY (relative to the screen)
-    <ul>
-      <li>iOS - seems to act more like page*</li>
-    </ul>
-  </li>
-  <li>x/y
-    <ul>
-      <li>iOS - matches client*</li>
-    </ul>
-  </li>
-</ul>
-
-<h2>TouchEvent</h2>
-
-<ul>
-  <li>iOS - layer* and page* are useless</li>
-</ul>
 
 <script>
 
@@ -518,30 +476,9 @@
   //Found this nifty function here: http://stackoverflow.com/questions/55677/how-do-i-get-the-coordinates-of-a-mouse-click-on-a-canvas-element
   function relMouseCoords(evt) {
 
-    //alert('hey');
-
-    //alert(Object.prototype.toString.call(evt));
-    //alert(Object.prototype.toString.call(evt) == '[object MouseEvent]');
-
-    //alert('wut');
-
     if (Object.prototype.toString.call(evt) == '[object MouseEvent]') {
       $('#touch-display .mouse-event').show();
 
-      //alert('coords');
-      /*
-      alert(evt.clientX + ', ' + evt.clientY
-        + '|'
-        + evt.layerX + ', ' + evt.layerY
-        + '|'
-        + evt.offsetX + ', ' + evt.offsetY
-        + '|'
-        + evt.pageX + ', ' + evt.pageY
-        + '|'
-        + evt.screenX + ', ' + evt.screenY
-        + '|'
-        + evt.x + ', ' + evt.y);
-      */
       $('.client').html(evt.clientX + ', ' + evt.clientY);
       $('.layer').html(evt.layerX + ', ' + evt.layerY);
       $('.offset').html(evt.offsetX + ', ' + evt.offsetY);
