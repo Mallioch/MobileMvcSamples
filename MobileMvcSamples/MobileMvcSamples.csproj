@@ -104,10 +104,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CSSLayoutBootcampController.cs" />
     <Compile Include="Controllers\FlexibleContentController.cs" />
     <Compile Include="Controllers\FlexibleLayoutsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\FlexibleNavigationController.cs" />
+    <Compile Include="Controllers\ResponsiveBasicsController.cs" />
     <Compile Include="Controllers\TouchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -183,6 +185,9 @@
     <Content Include="content\footable\img\up.png" />
     <Content Include="content\hammer.js" />
     <Content Include="content\jquery-1-9-0.js" />
+    <Content Include="content\responsivebasics\apress-logo.gif" />
+    <Content Include="content\responsivebasics\header.png" />
+    <Content Include="content\responsivebasics\style.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -281,6 +286,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Touch\Hammer.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ResponsiveBasics\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CSSLayoutBootcamp\WithoutAReset.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CSSLayoutBootcamp\WithAReset.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
