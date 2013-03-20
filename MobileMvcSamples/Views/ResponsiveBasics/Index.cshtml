@@ -359,6 +359,14 @@
         margin: 20px 0;
         width: 100%;
       }
+
+      .footer {
+        background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.6, rgb(150, 150, 150)), color-stop(0.8, rgb(100, 100, 100)));
+        background-image: -moz-linear-gradient(center bottom, rgb(150, 150, 150) 60%, rgb(100, 100, 100) 80%);
+        background-image: -ms-linear-gradient(center bottom,  rgb(150, 150, 150) 60%, rgb(100, 100, 100) 80%);
+        background-image: linear-gradient(center bottom,      rgb(150, 150, 150) 60%, rgb(100, 100, 100) 80%);      
+        padding: 20px 0 0 0;
+      }      
     }
 
     @@media screen and (max-width: 425px) {
@@ -373,10 +381,7 @@
       }
 
       .header h1 {
-        -moz-background-size: 80%;
-        -o-background-size: 80%;
-        -webkit-background-size: 80%;
-        background-size: 80%;
+        min-height: 100px;
       }
 
       .nav {
