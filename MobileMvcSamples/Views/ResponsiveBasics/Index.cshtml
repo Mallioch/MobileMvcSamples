@@ -209,7 +209,7 @@
       width: 25%;
     }
 
-    .secondary-item {
+    .secondary-item, .secondary-item-light {
       background-color: rgb(102,102,102);
       background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.80, rgb(51,51,51)), color-stop(0.99, rgb(102,102,102)));
       background-image: -moz-linear-gradient(center bottom, rgb(51,51,51) 60%, rgb(102,102,102) 99%);
@@ -240,23 +240,24 @@
       color: #88CCCC;
     }
 
-    .secondary-item.light {
+    .secondary-item-light {
+      background-color: #AAA;
       background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.6, rgb(227,227,227)), color-stop(0.8, rgb(244,244,244)));
       background-image: -moz-linear-gradient(center bottom, rgb(227,227,227) 60%, rgb(244,244,244) 80%);
       background-image: -ms-linear-gradient(center bottom, rgb(227,227,227) 60%, rgb(244,244,244) 80%);
       background-image: linear-gradient(center bottom, rgb(227,227,227) 60%, rgb(244,244,244) 80%);      
     }
 
-    .secondary-item.light h2 {
+    .secondary-item-light h2 {
       color: #000;
     }
 
-    .secondary-item.light p {
+    .secondary-item-light p {
       color: #000;
       margin: 10px 0;
     }
 
-    .secondary-item.light .more a {
+    .secondary-item-light .more a {
       background-color: #ffcc00;
       -webkit-border-radius: 4px;
       border-radius: 4px;
@@ -267,7 +268,7 @@
       padding: 5px;
     }
     
-    .secondary-item.light .more a:hover {
+    .secondary-item-light .more a:hover {
       background-color: #cc9900;
     }
     
@@ -522,7 +523,7 @@
 
       <div class="secondary">
 
-        <div class="secondary-item light">
+        <div class="secondary-item-light">
           <h2>Companion eBooks</h2>
           <p>Why limit yourself to one format? If you’ve purchased the print edition of most Apress titles then we&rsquo;re happy to offer you the eBook edition for just $10.</p> 
 	
