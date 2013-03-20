@@ -189,6 +189,7 @@
     <Content Include="content\responsivebasics\apress-logo.gif" />
     <Content Include="content\responsivebasics\footer_bg.jpg" />
     <Content Include="content\responsivebasics\header.png" />
+    <Content Include="content\responsivebasics\my-book-cover.png" />
     <Content Include="content\responsivebasics\style.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">
