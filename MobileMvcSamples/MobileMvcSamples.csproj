@@ -187,6 +187,7 @@
     <Content Include="content\hammer.js" />
     <Content Include="content\jquery-1-9-0.js" />
     <Content Include="content\responsivebasics\apress-logo.gif" />
+    <Content Include="content\responsivebasics\footer_bg.jpg" />
     <Content Include="content\responsivebasics\header.png" />
     <Content Include="content\responsivebasics\style.css" />
     <Content Include="Global.asax" />

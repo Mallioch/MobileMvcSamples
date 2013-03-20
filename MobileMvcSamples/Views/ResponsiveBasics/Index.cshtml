@@ -1,4 +1,398 @@
-﻿<body>
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>A Responsive APress</title>
+
+  <style>
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed, 
+    figure, figcaption, footer, header, hgroup, 
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+	    margin: 0;
+	    padding: 0;
+	    border: 0;
+	    font-size: 100%;
+	    font: inherit;
+	    vertical-align: baseline;
+    }
+    /* HTML5 display-role reset for older browsers */
+    article, aside, details, figcaption, figure, 
+    footer, header, hgroup, menu, nav, section {
+	    display: block;
+    }
+    body {
+	    line-height: 1;
+    }
+    ol, ul {
+	    list-style: none;
+    }
+    blockquote, q {
+	    quotes: none;
+    }
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+	    content: '';
+	    content: none;
+    }
+    table {
+	    border-collapse: collapse;
+	    border-spacing: 0;
+    }
+
+    p, a {
+      font-size: .95em;
+      line-height: 1.5em;
+    }
+
+    a {
+      color: #003366;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #990000;
+      text-decoration: underline;
+    }
+
+    h2 {
+      font-family: 'Droid Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+      font-size: 1.2em;
+    }
+
+    body {
+      background-color: #555;
+      font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+      font-size: 75%;
+    }
+
+    .header {
+      background-color: #000;
+      background: url(/content/responsivebasics/header.png) no-repeat right top,
+        -webkit-gradient(linear, left top, left bottom, color-stop(0.00, #333), color-stop(1.00, #000));
+      -webkit-border-radius: 8px;
+      border-radius: 8px;
+      margin: 0 20px 20px 20px;
+      padding: 15px 0 5px 0;
+    }
+
+    .header h1 {
+      background-image: url(/content/responsivebasics/apress-logo.gif);
+      background-repeat: no-repeat;
+      height: 80px;
+      margin: 0 0 0 10px;
+      text-indent: -9000px;
+    }
+
+    .header h2 {
+      text-indent: -9000px;
+    }
+
+    .nav {
+      border-top: solid 1px #333;
+      margin: 20px 0 20px 0;
+      padding-top: 10px;
+      overflow: hidden;
+    }
+
+    .nav li {
+      float: left;
+      margin-left: 17px;
+    }
+
+    .nav a {
+      color: #e3e3e3;
+      text-decoration: none;
+    }
+
+    .nav a:hover {
+      border-bottom: solid 1px #F00;
+      color: #fff;
+    }
+
+    .page {
+      background-color: #FFF;
+      -webkit-box-shadow: #000 0 0 30px;
+      box-shadow: #000 0 0 30px;
+      margin: 0 auto;
+      padding-top: 10px;
+      max-width: 960px;
+    }
+
+    .featured-book {
+      background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgb(227,227,227)), color-stop(0.36, rgb(255,255,255)));
+      background-image: -moz-linear-gradient(center bottom, rgb(227,227,227) 0%, rgb(255,255,255) 36%);
+      border-radius: 7px;
+      margin: 0 auto 20px auto;
+      overflow: auto;
+      width: 96%;
+    }    
+
+    .featured-book .description {
+      float: left;
+      font-size: 1.2em;
+      line-height: 2em;
+      margin: 0 2%;
+      width: 60%;
+    }
+
+    .featured-book img {
+      float: right;
+      margin-right: 20px;
+      max-width: 150px;
+    }
+
+    .featured-book .learn-more {
+      clear: both;
+      margin: 10px 10px;
+    }
+
+    .our-categories {
+      float: left;
+      padding: 0 2%;
+      width: 16%;
+    }
+
+    .our-categories ol {
+      margin-top: 15px;
+    }
+
+    .our-categories li {
+      margin: 5px 0;
+    }
+
+    .our-categories a {
+      font-size: .9em;
+    }
+
+    .products {
+      float: left;
+      padding: 0 3%;
+      width: 49%;
+    }
+
+    .product-item {
+      border-bottom: solid 1px #EEE;
+      float: left;
+      margin: 0 0 20px 0;
+      padding: 2%;
+      width: 46%;
+    }
+
+    .product-item:nth-child(odd) {
+      clear: both;
+    }
+
+    .product-item .product-name {
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .product-item .product-image {
+      float: left;
+      margin-right: 8px;
+    }
+
+    .secondary {
+      float: left;
+      width: 25%;
+    }
+
+    .secondary-item {
+      background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.80, rgb(51,51,51)), color-stop(0.99, rgb(102,102,102)));
+      background-image: -moz-linear-gradient(center bottom, rgb(51,51,51) 60%, rgb(102,102,102) 99%);
+      -webkit-border-radius: 4px;
+      border-radius: 7px;
+      margin-bottom: 20px;
+      padding: 15px 4% 20px 4%;
+      width: 84%;
+    }
+
+    .secondary-item h2 {
+      color: #ffcc00;
+      margin: 10px 0;
+    }
+
+    .secondary-item p {
+      color: #e3e3e3;
+    }
+
+    .secondary-item .more {
+      margin-top: 15px;
+      text-align: right;
+    }
+
+    .secondary-item .more a {
+      color: #88CCCC;
+    }
+
+    .secondary-item.light {
+      background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.6, rgb(227,227,227)), color-stop(0.8, rgb(244,244,244)));
+      background-image: -moz-linear-gradient(center bottom, rgb(227,227,227) 60%, rgb(244,244,244) 80%);
+    }
+
+    .secondary-item.light h2 {
+      color: #000;
+    }
+
+    .secondary-item.light p {
+      color: #000;
+      margin: 10px 0;
+    }
+
+    .secondary-item.light .more a {
+      background-color: #ffcc00;
+      -webkit-border-radius: 4px;
+      border-radius: 4px;
+      -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+      color: #000;
+      font-weight: bold;
+      padding: 5px;
+    }
+    
+    .secondary-item.light .more a:hover {
+      background-color: #cc9900;
+    }
+    
+    .footer {
+      background: url(/content/responsivebasics/footer_bg.jpg) no-repeat center top;
+      clear: both;
+      color: #FFF;
+      margin: 0 auto 0 auto;
+      padding: 180px 4% 30px 4%;
+      max-width: 954px;
+      text-align: center;
+    }
+
+    .footer > ul {
+      margin: 15px 0 0 0;
+      overflow: hidden;
+    }
+
+    .footer > ul > li {
+      color: #FFF;
+      float: left;
+      line-height: 20px;
+      width: 23%;
+    }
+
+    @@media screen and (max-width: 800px) {
+      .our-categories {
+        float: none;
+        overflow: auto;
+        padding: 10px 2% 30px 2%;
+        width: 94%;
+      }
+
+      .our-categories li {
+        float: left;
+        width: 25%;
+      }
+
+      .products {
+        clear: left;
+        padding: 0 2%;
+        width: 62.666666%;
+      }
+
+      .secondary {
+        width: 33.333333%;
+      }
+    }
+
+    @@media screen and (max-width: 600px) {
+      .featured-book .description {
+        float: none;
+        width: 96%;
+      }
+
+      .featured-book img {
+        float: none;
+      }
+
+      .our-categories li {
+        width: 50%;
+      }
+      
+      .products {
+        float: none;
+        width: 96%;
+      }
+
+      .product-item {
+        border-bottom: none;
+        border-top: solid 1px #EEE;
+        float: none;
+        width: 90%;
+      }
+
+      .secondary {
+        width: 100%;
+      }
+
+      .secondary-item {
+        -webkit-border-radius: 0;
+        border-radius: 0;
+        margin: 20px 0;
+        width: 92%;
+      }
+
+      .footer > ul > li {
+        float: none;
+        margin: 20px 0;
+        width: 100%;
+      }
+    }
+
+    @@media screen and (max-width: 425px) {
+      .page {
+        padding: 0;
+      }
+
+      .header {
+        -webkit-border-radius: 0;
+        border-radius: 0;
+        margin: 0;
+      }
+
+      .header h1 {
+        -moz-background-size: 80%;
+        -o-background-size: 80%;
+        -webkit-background-size: 80%;
+        background-size: 80%;
+      }
+
+      .nav {
+        border: none;
+        margin: 0;
+      }
+
+      .nav li {
+        border-top: solid 1px #333;
+        float: none;
+        margin: 0;
+        padding: 12px 0;
+        text-align: center;
+      }
+
+      .featured-book {
+        margin-top: 10px;
+      }      
+    }
+
+  </style>
+</head>
+<body>
   <div class="page">
     <div class="header">
       <h1>apress</h1>
@@ -7,23 +401,25 @@
       <ul class="nav">
         <li class="nav-item"><a href="/">Home</a></li>
         <li class="nav-item"><a href="/">Alpha Program</a></li>
-        <li class="nav-item"><a href="/">Springer</a></li>
-        <li class="nav-item"><a href="/">Source Code</a></li>
         <li class="nav-item"><a href="/">About Apress</a></li>
         <li class="nav-item"><a href="/">Support</a></li>
-        <li class="nav-item"><a href="/">Interact with Apress</a></li>
       </ul>
-
-      <div class="search-box">
-        <input placeholder="Search apress.com..." />
-        <button>Go</button>
-      </div>
 
     </div>
 
     <div class="main-content">
+
+      <div class="featured-book">
+        <p class="description">Have you got an idea for a great mobile site, or an existing site that you want to adapt for 
+          mobile? With Mobile ASP.NET MVC 4, learn to overcome the challenges presented by the wide range of mobile devices 
+          out there today, and give your users content designed to work for them and make the most of their devices' 
+          capabilities.</p>
+        <img src="/content/responsivebasics/my-book-cover.png" />
+        <p class="learn-more"><a href="http://www.apress.com/9781430250562">Learn More</a></p>
+      </div>
       
-      <div class="our-catgories">
+      <div class="our-categories">
+        <h2>Our Categories</h2>
         <ol>
           <li><a href="http://www.apress.com/apple-mac">Apple/Mac</a></li>
           <li><a href="http://www.apress.com/at-work">At Work</a></li>
@@ -110,53 +506,35 @@
       </div>
 
 
-      <div>
-        <div class="block">
-   
-        <h2>Companion eBooks</h2>
-  <p>Why limit yourself to one format? If you’ve purchased the print edition of most Apress titles then we&rsquo;re happy to offer you the eBook edition for just $10.</p> 
-	
-<!--		 <li><a href="">About Promotions</a></li> -->
-			<p class="centred"><a href="http://www.apress.com/companion/customer/view/" class="medium yellow button">Buy a Companion eBook</a></p>						
-		
-</div>
+      <div class="secondary">
 
-<div class="block block-ug interact">
-   
-        <h2>User Group Program</h2>
-  <p>Register your user group with Apress to take advantage of discounts on books, receive review copies, door prizes, and much, much more&hellip;</p> 
+        <div class="secondary-item light">
+          <h2>Companion eBooks</h2>
+          <p>Why limit yourself to one format? If you’ve purchased the print edition of most Apress titles then we&rsquo;re happy to offer you the eBook edition for just $10.</p> 
 	
-<p class="more"><a href="http://www.apress.com/gcalendar/">Learn More</a></p> 
-</div>
-<div class="block block-subscribe interact">
- 
-        <h2 class="icon">Newsletter<a name="newsletter-box"></a></h2>
-		   <p>Subscribe to our newsletter and receive updates on all that&rsquo;s happening with Apress. </p>
-    <form action="http://www.apress.com/newsletter/subscriber/new/" method="post" id="newsletter-validate-detail">
-        <fieldset class="block-content">
-                              
-            <div class="input-box">
-               <input name="email" type="text" id="newsletter" class="input-text required-entry validate-email" onfocus="if(this.value == 'Your email address &hellip;') { this.value = ''; }" onblur="if(this.value == '') { this.value = 'Your email address &hellip;'; }" value="Your email address &hellip;"/>
-            </div>
-	<input class="medium button gray" name="submit" type="submit" value="Subscribe" />
-         
-        </fieldset>
-    </form>
-<script type="text/javascript">
-  //<![CDATA[
-  var newsletterSubscriberFormDetail = new VarienForm('newsletter-validate-detail');
-  //]]>
-</script>
-</div>
-<div class="block block-ac interact">
-<h2>Academic Resources</h2>
-<p>Let Apress assist in the development of your academic programs and coursework.</p>
-<p class="more"><a href="/academicrequest">Learn More</a></p>
-</div><div class="block block-ug interact">
-<h2>Bulk Sales Discount</h2>
-<p>Bulk discounts apply when you buy ten or more copies of individual Apress or Friends of ED titles in either hard copy or eBook format.</p>
-<p class="more"><a href="/corporate-sales">Learn More</a></p>
-</div></div>
+  			  <p class="more"><a href="http://www.apress.com/companion/customer/view/">Buy a Companion eBook</a></p>						
+        </div>
+
+        <div class="secondary-item">
+   
+          <h2>User Group Program</h2>
+          <p>Register your user group with Apress to take advantage of discounts on books, receive review copies, door prizes, and much, much more&hellip;</p> 
+	
+          <p class="more"><a href="http://www.apress.com/gcalendar/">Learn More</a></p> 
+        </div>
+
+        <div class="secondary-item">
+          <h2>Academic Resources</h2>
+          <p>Let Apress assist in the development of your academic programs and coursework.</p>
+          <p class="more"><a href="/academicrequest">Learn More</a></p>
+        </div>
+
+        <div class="secondary-item">
+          <h2>Bulk Sales Discount</h2>
+          <p>Bulk discounts apply when you buy ten or more copies of individual Apress or Friends of ED titles in either hard copy or eBook format.</p>
+          <p class="more"><a href="/corporate-sales">Learn More</a></p>
+        </div>
+
       </div>
 
 
@@ -165,7 +543,35 @@
     </div> <!-- main-content -->
 
     <div class="footer">
-      <p>&copy; 2012, Eric Sowell</p>
-    </div>
+      <h2>Quick Links</h2>
+      <ul>
+	      <li>Interact with Us
+		      <ul>
+			      <li><a href="/contacts/">Contact Us</a></li>
+			      <li><a href="/customer-support/">Customer Support</a></li>
+			      <li><a href="/gcalendar">User Groups</a></li>
+			      <li><a href="/write-for-us/">Write For Us</a></li>
+		      </ul>
+	      </li>
+	      <li>Company Information
+		      <ul>
+			      <li><a href="/about/">About Us</a></li>
+			      <li><a href="/pressroom/">Press Room</a></li>
+		      </ul>
+	      </li>
+        <li>Trade Resources
+	        <ul>
+			      <li><a href="/sales/">Sales and Distribution</a></li>
+	        </ul>
+        </li>
+        <li>Legal
+          <ul>
+            <li><a href="/terms-conditions/">Terms &amp; Conditions</a></li>
+            <li><a href="/privacy-policy/">Privacy Policy</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- footer -->
   </div><!-- page -->
 </body>
+</html>

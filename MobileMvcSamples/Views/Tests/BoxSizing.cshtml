@@ -31,10 +31,6 @@
       width: 250px;
     }
 
-    .container {
-      display: inline-block;
-    }
-
     .content-box {
       -moz-box-sizing: content-box;
       -webkit-box-sizing: content-box;
@@ -55,19 +51,41 @@
   </style>
 </head>
 <body>
-  <div style="width: 270px; background-color: #CCC;">270 pixels wide</div>
-  <div class="container">
-    <div class="box content-box">content box</div>
-  </div>
-  <br />
-  <div style="width: 280px; background-color: #CCC;">280 pixels wide</div>
-  <div class="container">
-    <div class="box padding-box">padding box</div>
-  </div>
-  <br />
-  <div style="width: 250px; background-color: #CCC;">250 pixels wide</div>
-  <div class="container">
-    <div class="box border-box">border box</div>
-  </div>
+<style>
+
+  body {
+    padding: 20px;
+  }
+  .box {
+    border: solid 5px #000;
+    padding: 5px;
+    width: 250px;
+  }
+
+  .content-box {
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+  }
+
+  .padding-box {
+    -moz-box-sizing: padding-box;
+    -webkit-box-sizing: padding-box;
+    box-sizing: padding-box;
+  }
+
+  .border-box {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+</style>
+
+<div style="width: 270px; background-color: #CCC;">270 pixels wide</div>
+<div class="box content-box">content box</div>
+<div style="width: 260px; background-color: #CCC;">260 pixels wide</div>
+<div class="box padding-box">padding box</div>
+<div style="width: 250px; background-color: #CCC;">250 pixels wide</div>
+<div class="box border-box">border box</div>
 </body>
 </html>
