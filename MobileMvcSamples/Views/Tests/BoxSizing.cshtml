@@ -1,0 +1,91 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <title>BoxSizing</title>
+  <style>
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed, 
+    figure, figcaption, footer, header, hgroup, 
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      border: solid 5px #000;
+      padding: 5px;
+      width: 250px;
+    }
+
+    .content-box {
+      -moz-box-sizing: content-box;
+      -webkit-box-sizing: content-box;
+      box-sizing: content-box;
+    }
+
+    .padding-box {
+      -moz-box-sizing: padding-box;
+      -webkit-box-sizing: padding-box;
+      box-sizing: padding-box;
+    }
+
+    .border-box {
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+<style>
+
+  body {
+    padding: 20px;
+  }
+  .box {
+    border: solid 5px #000;
+    padding: 5px;
+    width: 250px;
+  }
+
+  .content-box {
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+  }
+
+  .padding-box {
+    -moz-box-sizing: padding-box;
+    -webkit-box-sizing: padding-box;
+    box-sizing: padding-box;
+  }
+
+  .border-box {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+</style>
+
+<div style="width: 270px; background-color: #CCC;">270 pixels wide</div>
+<div class="box content-box">content box</div>
+<div style="width: 260px; background-color: #CCC;">260 pixels wide</div>
+<div class="box padding-box">padding box</div>
+<div style="width: 250px; background-color: #CCC;">250 pixels wide</div>
+<div class="box border-box">border box</div>
+</body>
+</html>
