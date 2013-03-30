@@ -2,6 +2,16 @@
     ViewBag.Title = "Index";
 }
 
+<style>
+  ol ol li {
+    list-style-type: lower-roman;
+  }
+
+  ol ol ol li {
+    list-style-type: lower-alpha;
+  }
+</style>
+
 <h2>Contents</h2>
 
 <ol>
@@ -27,13 +37,25 @@
     </li>
   <li>Flexible Content
     <ol>
-      <li><a href="/flexiblecontent/table">Table</a></li>
-      <li><a href="/flexiblecontent/tablewithzurbresponsivetables">Table with Zurb Responsive Tables</a></li>
-      <li><a href="/flexiblecontent/tabledetablified">Table Detablified</a></li>
-      <li><a href="/flexiblecontent/tabledetablified2">Table Detablified #2</a></li>
-      <li><a href="/flexiblecontent/tabledetablified3">Table Detablified #3</a></li>
-      <li><a href="/flexiblecontent/scrollingtable">Scrolling Table</a></li>
-      <li><a href="/flexiblecontent/footable">Footable</a></li>
+      <li>Flexible text
+        <ol>
+          <li><a href="/flexiblecontent/text">Flexible text with media queries</a></li>
+          <li>Flexible text - leveraging body size</li>
+          <li>Flexible text - using rem</li>
+          <li>Flexible text - FitText</li>
+        </ol>
+      </li>
+      <li>Flexible tables
+        <ol>
+          <li><a href="/flexiblecontent/table">Table</a></li>
+          <li><a href="/flexiblecontent/tablewithzurbresponsivetables">Table with Zurb Responsive Tables</a></li>
+          <li><a href="/flexiblecontent/tabledetablified">Table Detablified</a></li>
+          <li><a href="/flexiblecontent/tabledetablified2">Table Detablified #2</a></li>
+          <li><a href="/flexiblecontent/tabledetablified3">Table Detablified #3</a></li>
+          <li><a href="/flexiblecontent/scrollingtable">Scrolling Table</a></li>
+          <li><a href="/flexiblecontent/footable">Footable</a></li>
+        </ol>
+      </li>
     </ol>
   </li>
   <li>Touch

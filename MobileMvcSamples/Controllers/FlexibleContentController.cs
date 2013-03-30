@@ -8,6 +8,13 @@ namespace MobileMvcSamples.Controllers
 {
     public class FlexibleContentController : Controller
     {
+        public ActionResult Text()
+        {
+            return View();
+        }
+
+
+
         public ActionResult Table()
         {
             return View();
