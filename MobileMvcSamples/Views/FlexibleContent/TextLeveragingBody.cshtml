@@ -6,9 +6,12 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width" />
-  <title>Text</title>
+  <title>Leveraging Body Size</title>
 
   <style>
+    body {
+    }
+
     .wrapper {
       margin: 0 auto;
       max-width: 960px;
@@ -27,22 +30,14 @@
     }
 
     @@media screen and (max-width: 500px) {
-      h1 {
-        font-size: 1.8em;
-      }
-
-      p {
-        font-size: 1.3em;
+      body {
+        font-size: 85%;
       }
     }
     
     @@media screen and (max-width: 320px) {
-      h1 {
-        font-size: 1.5em;
-      }
-
-      p {
-        font-size: 1.1em;
+      body {
+        font-size: 70%;
       }
     }
   </style>

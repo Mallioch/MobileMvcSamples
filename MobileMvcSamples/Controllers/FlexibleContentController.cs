@@ -13,6 +13,10 @@ namespace MobileMvcSamples.Controllers
             return View();
         }
 
+        public ActionResult TextLeveragingBody()
+        {
+            return View();
+        }
 
 
         public ActionResult Table()
