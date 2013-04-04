@@ -23,6 +23,10 @@ namespace MobileMvcSamples.Controllers
             return View();
         }
 
+        public ActionResult FitText()
+        {
+            return View();
+        }
 
         public ActionResult Table()
         {
