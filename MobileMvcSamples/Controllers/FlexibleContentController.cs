@@ -18,6 +18,11 @@ namespace MobileMvcSamples.Controllers
             return View();
         }
 
+        public ActionResult TextLeveragingREM()
+        {
+            return View();
+        }
+
 
         public ActionResult Table()
         {

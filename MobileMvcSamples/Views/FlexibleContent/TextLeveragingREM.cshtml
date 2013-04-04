@@ -9,8 +9,8 @@
   <title>Leveraging Body Size</title>
 
   <style>
-    body {
-      font-size: 100%;
+    html {
+      font-size: 1em;
     }
 
     .wrapper {
@@ -19,26 +19,30 @@
       padding: 10px;
     }
 
+    div {
+      font-size: 2em;
+    }
+
     h1 {
       font-family: Georgia, serif;
-      font-size: 2em;
+      font-size: 2rem;
     }
 
     p {
       font-family: monospace;
-      font-size: 1.4em;
+      font-size: 1.4rem;
       line-height: 1.5em;
     }
 
     @@media screen and (max-width: 500px) {
-      body {
-        font-size: 85%;
+      html {
+        font-size: .9em;
       }
     }
     
     @@media screen and (max-width: 320px) {
-      body {
-        font-size: 70%;
+      html {
+        font-size: .8em;
       }
     }
   </style>
