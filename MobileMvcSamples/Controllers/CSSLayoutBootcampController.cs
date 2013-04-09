@@ -17,5 +17,25 @@ namespace MobileMvcSamples.Controllers
         {
             return View();
         }
+
+        public ActionResult PageWithASidebar()
+        {
+            return View();
+        }
+
+        public ActionResult PageWithASidebarWithPadding()
+        {
+            return View();
+        }
+
+        public ActionResult PageWithASidebarWithGoodPadding()
+        {
+            return View();
+        }
+
+        public ActionResult PageWithASidebarWithFauxColumns()
+        {
+            return View();
+        }
     }
 }

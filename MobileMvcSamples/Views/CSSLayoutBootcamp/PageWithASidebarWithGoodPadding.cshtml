@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page with Sidebar with Padding</title>
+
+        <style type="text/css">
+            html, body, div, span, applet, object, iframe,
+            h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+            a, abbr, acronym, address, big, cite, code,
+            del, dfn, em, img, ins, kbd, q, s, samp,
+            small, strike, strong, sub, sup, tt, var,
+            b, u, i, center,
+            dl, dt, dd, ol, ul, li,
+            fieldset, form, label, legend,
+            table, caption, tbody, tfoot, thead, tr, th, td,
+            article, aside, canvas, details, embed, 
+            figure, figcaption, footer, header, hgroup, 
+            menu, nav, output, ruby, section, summary,
+            time, mark, audio, video {
+	            margin: 0;
+	            padding: 0;
+            }
+
+            div, span, li
+            {
+                font-family: Helvetica;
+            }
+
+            li {
+                list-style-type: none;
+            }
+
+        </style>
+
+        <script type="text/javascript">
+
+            window.onload = function () {
+
+                var pageWidth = document.getElementById('pageWidth');
+                //console.log(window.innerWidth);
+                pageWidth.innerHTML = window.innerWidth || document.body.clientWidth;
+
+                window.addEventListener('resize', function () {
+                    pageWidth.innerHTML = window.innerWidth;
+                });
+            }
+
+        </script>
+    </head>
+    <body>
+        <div>Page width: <span id="pageWidth"></span></div>
+        <br />
+
+
+
+
+
+<div id="page">
+    <div id="header">
+        Header
+    </div>
+<div id="contentWrapper">
+    <div id="sidebar">
+        <p>This is text in the sidebar. I will put enough here for there text to wrap a few times. Following are some menu options.</p>
+        <ol>
+            <li>Menu Option</li>
+            <li>Menu Option</li>
+            <li>Menu Option</li>
+        </ol>
+    </div>
+    <div id="content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sagittis, orci ut imperdiet lacinia, nisl risus rutrum orci, ut varius tortor ipsum quis nulla. Vestibulum molestie dolor sed purus vestibulum porttitor. Nullam sodales suscipit nibh, et viverra eros laoreet non. Sed ultricies ante sed lorem vestibulum pulvinar nec in odio. Vivamus malesuada facilisis dignissim. In placerat rutrum lectus, quis varius eros ultricies nec.</p>
+        <p>Fusce aliquam, justo hendrerit consectetur vestibulum, mi purus pharetra ipsum, sed gravida eros neque eget felis. Morbi fringilla magna id elit pulvinar et fermentum sapien dapibus. Etiam sollicitudin magna et sapien ornare pellentesque gravida sem laoreet. Nulla facilisi. Nullam adipiscing molestie sem at vulputate. Donec cursus blandit sapien. Duis pretium eros in lacus vulputate suscipit. Aenean tellus augue, volutpat malesuada ultrices ut, ultricies non sapien. Cras sagittis adipiscing dolor, at commodo mi condimentum eu.</p>
+    </div>
+</div>
+    <div id="footer">
+        Footer
+    </div>
+</div>
+
+<style type="text/css">
+#page {
+  width: 960px;
+}
+
+#header {
+  background-color: #bdbdbd;
+  height: 100px;
+  width: 100%;
+}
+
+#sidebar {
+  background-color: #d2d2d2;
+  float: left;
+  padding: 20px;
+  width: 160px;
+}
+
+#sidebar p {
+    font-size: .8em;
+    line-height: 1.4em;
+}
+
+#sidebar ol {
+    margin: 10px 0 0 20px;
+}
+
+#sidebar li {
+    font-size: .8em;
+    font-weight: bold;
+    list-style-type: none;
+    margin: 8px 0;
+}
+
+#content {
+  background-color: #e6e6e6;
+  float: left;
+  padding: 20px;
+  width: 720px;
+}
+
+#content p {
+    line-height: 1.4em;
+    margin: 0 0 20px 0;
+}
+
+#footer {
+  background-color: #bdbdbd;
+  clear: both;
+  height: 30px;
+  width: 100%;
+}
+
+</style>
+
+
+</body>
+</html>

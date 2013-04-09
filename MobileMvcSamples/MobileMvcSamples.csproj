@@ -313,6 +313,18 @@
   <ItemGroup>
     <Content Include="Views\FlexibleContent\FitText.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CSSLayoutBootcamp\PageWithASidebar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CSSLayoutBootcamp\PageWithASidebarWithPadding.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CSSLayoutBootcamp\PageWithASidebarWithGoodPadding.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CSSLayoutBootcamp\PageWithASidebarWithFauxColumns.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
