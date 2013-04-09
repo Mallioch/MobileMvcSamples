@@ -151,6 +151,7 @@
     <Content Include="content\images\dragonlance_200.jpg" />
     <Content Include="content\images\dragonlance_300.jpg" />
     <Content Include="content\images\dragonlance_500.jpg" />
+    <Content Include="content\images\fixed-faux-column.jpg" />
     <Content Include="content\images\greek_100.jpg" />
     <Content Include="content\images\greek_200.jpg" />
     <Content Include="content\images\greek_300.jpg" />
