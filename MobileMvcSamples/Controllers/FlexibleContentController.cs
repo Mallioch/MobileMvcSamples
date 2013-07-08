@@ -84,7 +84,7 @@ namespace MobileMvcSamples.Controllers
             return View();
         }
 
-        public ActionResult ResponsiveYouTube()
+        public ActionResult ResponsiveEmbedding()
         {
             return View();
         }

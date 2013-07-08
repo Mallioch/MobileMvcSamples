@@ -344,7 +344,7 @@
     <Content Include="Views\FlexibleContent\ResponsiveVideo.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\FlexibleContent\ResponsiveYouTube.cshtml" />
+    <Content Include="Views\FlexibleContent\ResponsiveEmbedding.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
