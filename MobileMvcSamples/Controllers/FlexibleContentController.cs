@@ -62,5 +62,31 @@ namespace MobileMvcSamples.Controllers
         {
             return View();
         }
+
+
+        public ActionResult ImageControlWithCSS()
+        {
+            return View();
+        }
+
+        public ActionResult PictureFill()
+        {
+            return View();
+        }
+
+        public ActionResult Video()
+        {
+            return View();
+        }
+
+        public ActionResult ResponsiveVideo()
+        {
+            return View();
+        }
+
+        public ActionResult ResponsiveYouTube()
+        {
+            return View();
+        }
     }
 }

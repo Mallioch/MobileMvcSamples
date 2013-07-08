@@ -131,6 +131,7 @@
     <Content Include="content\images\bacon_200.jpg" />
     <Content Include="content\images\bacon_300.jpg" />
     <Content Include="content\images\bacon_500.jpg" />
+    <Content Include="content\images\bookshelf.jpg" />
     <Content Include="content\images\cod_100.jpg" />
     <Content Include="content\images\cod_200.jpg" />
     <Content Include="content\images\cod_300.jpg" />
@@ -193,6 +194,7 @@
     <Content Include="content\responsivebasics\header.png" />
     <Content Include="content\responsivebasics\my-book-cover.png" />
     <Content Include="content\responsivebasics\style.css" />
+    <Content Include="content\video\sample-video.mp4" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -325,6 +327,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\CSSLayoutBootcamp\PageWithASidebarWithFauxColumns.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexibleContent\ImageControlWithCSS.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexibleContent\PictureFill.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexibleContent\Video.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="content\video\sample-video.ogg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexibleContent\ResponsiveVideo.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexibleContent\ResponsiveYouTube.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

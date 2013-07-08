@@ -1,0 +1,31 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <title>Image Control with CSS</title>
+
+  <style>
+    img {
+      max-width: 100%;
+    }    
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+
+    <p>This picture is 600 pixels in width but sizes flexibly within its containing HTML element
+      because it is set to 100% max-width in CSS.
+    </p>
+    <img src="~/content/images/bookshelf.jpg" />
+
+    <p>This is the easiest way to make your images flexible across various screen sizes but doesn't
+      solve the problem of sending too much image to devices that can't display them completely.
+      Wasted bandwidth is a sad thing sometimes.
+    </p>
+  </div>
+</body>
+</html>
