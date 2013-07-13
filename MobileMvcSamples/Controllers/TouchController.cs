@@ -22,5 +22,15 @@ namespace MobileMvcSamples.Controllers
         {
             return View();
         }
+
+        public ActionResult TouchableCanvasForIE()
+        {
+            return View();
+        }
+
+        public ActionResult Sandbox()
+        {
+            return View();
+        }
     }
 }

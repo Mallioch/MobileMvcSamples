@@ -1,0 +1,121 @@
+﻿@{
+    ViewBag.Title = "TouchableCanvasForIE";
+}
+
+<style>
+  body {
+    -ms-touch-action: none;
+  }
+</style>
+
+<h2>TouchableCanvasForIE</h2>
+
+<canvas id="theCanvas" style="border: solid 1px #999; -ms-touch-action: none;" width="1200" height="500">
+  <p>You don't support canvas, yo.</p>
+</canvas>
+
+
+
+
+
+<script>
+
+  var theCanvas, c, gesture;
+
+  window.onload = function () {
+    //alert('foo');
+
+    theCanvas = document.getElementById('theCanvas');
+    c = theCanvas.getContext('2d');
+
+    console.log(theCanvas, c);
+
+    theCanvas.addEventListener('MSPointerDown', function (evt) {
+      evt.preventDefault();
+      drawInput(evt.offsetX, evt.offsetY);
+      //evt.stopPropagation();
+      //outputEventVerbose(evt);
+    });
+
+    theCanvas.addEventListener('MSPointerMove', function (evt) {
+      evt.preventDefault();
+      drawInput(evt.offsetX, evt.offsetY);
+      //evt.stopPropagation();
+      outputEvent(evt);
+    });
+
+    //theCanvas.addEventListener('MSPointerUp', function (evt) {
+    //  evt.preventDefault();
+    //  //evt.stopPropagation();
+    //  outputEvent(evt);
+    //});
+
+    //theCanvas.addEventListener('MSGestureStart', function (evt) {
+    //  evt.stopPropagation();
+    //  evt.preventDefault();
+    //  outputEventVerbose(evt);
+    //});
+
+    var eventListener = function (evt) {
+      //outputEvent(evt);
+      //alert('happening');
+
+      if (evt.type == "MSPointerDown")  // add pointer on MSPointerDown event
+      {
+        gesture.addPointer(evt.pointerId);
+        return;
+      }
+    }
+
+    gesture = new MSGesture();
+    gesture.target = theCanvas;
+
+    theCanvas.addEventListener('MSGestureStart', eventListener, false);
+    theCanvas.addEventListener('MSGestureEnd', eventListener, false);
+    theCanvas.addEventListener('MSGestureChange', eventListener, false);
+    theCanvas.addEventListener('MSInteriaStart', eventListener, false);
+    theCanvas.addEventListener('MSGestureTap', eventListener, false);
+    theCanvas.addEventListener('MSGestureHold', eventListener, false);
+    theCanvas.addEventListener('MSPointerDown', eventListener, false);
+  }
+
+  function drawInput(x, y) {
+    var radius = 10;
+
+    c.beginPath();
+    c.moveTo(x, y);
+    c.fillStyle = '#F00';
+
+    c.arc(x - (radius / 2), y - (radius / 2), radius, 0, Math.PI * 2, true);
+    c.fill();
+  }
+
+  function outputEvent(evt) {
+    console.log(evt.type, ' pointerId: ', evt.pointerId, ' { x: ' + evt.offsetX + ', y: ' + evt.offsetY + ' }');
+  }
+
+  function outputEventVerbose(evt) {
+
+    var output = '==================================================\r\n';
+
+    for (var key in evt) {
+
+      if (isFunction(evt[key])) {
+        output += key + ': [function]\r\n';
+      }
+      else {
+        output += key + ': ' + evt[key] + '\r\n';
+      }
+    }
+
+    console.log(output);
+    console.log('==================================================\r\n');
+  }
+
+  function isFunction(object) {
+    //return object && getClass.call(object) == '[object Function]';
+    return typeof (object) == "function";
+  }
+
+
+</script>

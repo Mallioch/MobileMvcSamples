@@ -346,6 +346,12 @@
   <ItemGroup>
     <Content Include="Views\FlexibleContent\ResponsiveEmbedding.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Touch\TouchableCanvasForIE.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Touch\Sandbox.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
