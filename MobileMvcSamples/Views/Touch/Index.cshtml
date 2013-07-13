@@ -221,6 +221,7 @@
     var canvas = document.getElementById('touch-events');
     canvas.addEventListener('touchstart', function (evt) {
       evt.preventDefault();
+      console.log('touchstart', evt);
 
       for (i = 0; i < evt.touches.length; i++) {
         drawSpotOnCanvas(canvas, getPositionFromTouch(evt.touches[i]), '#0F0');
@@ -229,6 +230,7 @@
 
     canvas.addEventListener('touchmove', function (evt) {
       evt.preventDefault();
+      console.log('touchmove', evt);
 
       for (var i = 0; i < evt.touches.length; i++) {
         drawSpotOnCanvas(canvas, getPositionFromTouch(evt.touches[i]), '#F00');
