@@ -2,28 +2,59 @@
     ViewBag.Title = "Index";
 }
 
-
+<link rel="stylesheet" href="/content/reset.css" type="text/css" />
 
 <style>
-.touch-box {
-  border: solid 1px #000;
-}
+
+  p, .support {
+    font-family: helvetica, verdana, sans-serif;
+    line-height: 1.3em;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  .touch-box {
+    border: solid 1px #000;
+  }
+
+  h1 {
+    font-family: helvetica, verdana, sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+  }
 
   h2 {
+    background-color: #000;
     border-top: solid 2px #000;
+    color: #FFF;
     margin-top: 25px;
-    padding-top: 10px;
-    font-family: sans-serif;
+    padding: 10px;
+    font-family: helvetica, verdana, sans-serif;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+
+  ul li {
+    font-family: helvetica, verdana, sans-serif;
+    line-height: 1.3em;
+    list-style-type: disc;
+    margin-left: 25px;
   }
 
   #touch-display {
     background-color: rgba(200, 200, 200, .9);
     border: solid 1px #000;
+    display: none;
+    padding: 5px;
     position: fixed;
     right: 0;
     top: 0;
     height: 100%;
-    width: 100px;
+    width: 95px;
   }
 
   #touch-display .mouse-event, #touch-display .touch-event {
@@ -43,12 +74,47 @@
     padding: 0;
   }
 
+  #touch-display h4 {
+      margin-top: 15px;
+  }
+
   #touch-display div {
     font-weight: normal;
   }
 
+  section {
+    margin: 10px;
+  }
+
+  canvas {
+    margin-left: 20px;
+  }
+
+  .support {
+    background-color: #EEE;
+    border: solid 1px #DDD;
+    margin: 15px 0;
+    padding: 10px;
+  }
+
+  .support div {
+    display: none;
+  }
+
+  .support div.open {
+    display: block;
+  }
+
+  .toggle-mouse-event-info {
+    background-color: #EEE;
+    border: solid 1px #CCC;
+    display: inline-block;
+    padding: 10px;
+  }
+
 </style>
 
+<section>
 <h1>Basic Touch Apis</h1>
 
 <p>These are the device and browser combinations tested:</p>
@@ -74,42 +140,46 @@
   <li>FireHD - Kindle Fire HD</li>
 </ul>
 
+  <p class="toggle-mouse-event-info">Toggle Mouse Event Info</p>
+
+</section>
+
 <!-- ============================================================================================= -->
 <h2>click</h2>
-<p>The click event, the same one we have been using for years for desktop browsers, is handled well universally
-  on mobile devices. The only drawback is that on most mobile browsers there is a 300ms delay on the click event.
-</p>
-<p><strong>Supported By:</strong> iPad, iPod, iPhone, S3[chr], LG[def], Nexus[chr], Nexus[def], L820, L900, BB10, Win8T[chr], Win8T[def], Win8MT[def], FireHD</p>
-<p><strong>Not Supported By:</strong> none</p>
-<p><strong>Dunno:</strong> Win8M[chr], Win8M[def], Win8MM[def]</p>
 
-<canvas class="touch-box" id="click" width="250" height="200">&nbsp</canvas>
-<script>
+<section>
+  <p>The click event, the same one we have been using for years for desktop browsers, is handled well universally
+    on mobile devices. The only drawback is that on most mobile browsers there is a 300ms delay on the click event.
+  </p>
+  <div class="support"><strong>Supported By:</strong> <div>iPad, iPod, iPhone, S3[chr], LG[def], Nexus[chr], Nexus[def], L820, L900, BB10, Win8T[chr], Win8T[def], Win8MT[def], Win8M[chr], Win8M[def], Win8MM[def], FireHD</div></div>
+  <div class="support"><strong>Not Supported By:</strong> <div>none</div></div>
+
+  <canvas class="touch-box" id="click" width="250" height="200">&nbsp</canvas>
+  <script>
   
-  (function () {
+    (function () {
 
-    var canvas = document.getElementById('click');
+      var canvas = document.getElementById('click');
 
-    canvas.addEventListener('click', function (evt) {
-      console.log(evt);
-      evt.preventDefault();
-      drawSpotOnCanvas(canvas, canvas.relMouseCoords(evt));
-    });
-  })();
+      canvas.addEventListener('click', function (evt) {
+        console.log(evt);
+        evt.preventDefault();
+        drawSpotOnCanvas(canvas, canvas.relMouseCoords(evt));
+      });
+    })();
 
-</script>
-
+  </script>
+</section>
 
 <!-- ============================================================================================= -->
 <h2>mousedown, mousemove, mouseup</h2>
 <p>Mouse events are emulated, like mousedown, mousemove and mouseup. So these will still fire on mobile devices
   that don't use mice.
 </p>
-<p><strong>Supported By:</strong> iPad, iPod, iPhone, LG[def], Nexus[chr], Nexus[def], L820, L900, BB10,
-  Win8T[chr], Win8T[def], Win8MT[def], FireHD
-</p>
-<p><strong>Not Supported By:</strong> </p>
-<p><strong>Dunno:</strong> L900, Win8M[chr], Win8M[def], Win8MM[def]</p>
+<div class="support"><strong>Supported By:</strong> <div>iPad, iPod, iPhone, LG[def], Nexus[chr], Nexus[def], L820, L900, BB10,
+  Win8T[chr], Win8T[def], Win8MT[def], Win8M[chr], Win8M[def], Win8MM[def], FireHD</div>
+</div>
+<div class="support"><strong>Not Supported By:</strong> <div>none</div></div>
 
 <canvas class="touch-box" id="mousy" width="250" height="200">&nbsp</canvas>
 <script>
@@ -136,10 +206,11 @@
 
 <!-- ============================================================================================= -->
 <h2>touchstart, touchmove, touchend</h2>
-<p>Testing touch* events</p>
-<p><strong>Supported By:</strong> iPad, iPod (slow), iPhone, Nexus[chr], Nexus[def], LG (slow), Win8T[chr], FireHD</p>
-<p><strong>Not Supported By:</strong> L820, L900, Win8T[def], Win8MT[def]</p>
-<p><strong>Dunno:</strong> S3[chr], S3[def], Win8M[chr], Win8M[def], Win8MM[def]</p>
+
+<p>Touch* events have good support in webkit browsers and Firefox. No support in Internet Explorer.</p>
+
+<div class="support"><strong>Supported By:</strong> <div>iPad, iPod (slow), iPhone, Nexus[chr], Nexus[def], LG (slow), S3[chr], S3[def], Win8T[chr], Win8M[chr], FireHD</div></div>
+<div class="support"><strong>Not Supported By:</strong> <div>L820, L900, Win8T[def], Win8MT[def], Win8M[def], Win8MM[def]</div></div>
 <canvas class="touch-box" id="touch-events" width="250" height="200">&nbsp</canvas>
 <script>
 
@@ -181,8 +252,8 @@
 <h2>gesturestart, gesturechange, gestureend</h2>
 <p>Testing gesture* events</p>
 
-<p><strong>Supported By:</strong> iPad, iPod, iPhone</p>
-<p><strong>Not Supported By:</strong> S3[chr], S3[def], LG, Nexus[chr], Nexus[def], L820, L900, BB10, Win8T[chr], Win8T[def], Win8MT[def], Win8M[chr], Win8M[def], Win8MM[def], FireHD</p>
+<div class="support"><strong>Supported By:</strong> <div>iPad, iPod, iPhone</div></div>
+<div class="support"><strong>Not Supported By:</strong> <div>S3[chr], S3[def], LG, Nexus[chr], Nexus[def], L820, L900, BB10, Win8T[chr], Win8T[def], Win8MT[def], Win8M[chr], Win8M[def], Win8MM[def], FireHD</div></div>
 
 
 
@@ -250,9 +321,9 @@
 <!-- ============================================================================================= -->
 <h2>mouseenter, mouseleave</h2>
 <p>Testing mouseenter/mouseleave events. This may be IE proprietary.</p>
-<p><strong>Supported By:</strong> L820, L900, Win8T[def], Win8MT[def]</p>
-<p><strong>Not Supported By:</strong> iPad, iPod, iPhone, LG, Nexus[chr], Nexus[def], BB10, Win8T[chr], FireHD</p>
-<p><strong>Dunno:</strong> S3[chr], S3[def], Win8M[chr], Win8M[def], Win8MM[def]</p>
+<div class="support"><strong>Supported By:</strong> <div>L820, L900, Win8T[def], Win8MT[def], Win8M[def], Win8MM[def]</div></div>
+<div class="support"><strong>Not Supported By:</strong> <div>iPad, iPod, iPhone, LG, Nexus[chr], Nexus[def], BB10, Win8T[chr], Win8M[chr], FireHD</div></div>
+<p><strong>Dunno:</strong> S3[chr], S3[def]</p>
 
 <canvas class="touch-box" id="mouseenter-events" width="250" height="200">&nbsp</canvas>
 <script>
@@ -274,9 +345,8 @@
 <!-- ============================================================================================= -->
 <h2>MS Pointer Events</h2>
 <p>MS Pointer Events!</p>
-<p><strong>Supported By:</strong> Win8T[def], Win8MT[def], L820</p>
-<p><strong>Not Supported By:</strong> iPad, iPod, iPhone, S3[chr], LG[def], Nexus[chr], Nexus[def], L900, BB10, FireHD, Win8T[chr]</p>
-<p><strong>Dunno:</strong> Win8M[chr], Win8M[def], Win8MM[def]</p>
+<div class="support"><strong>Supported By:</strong> <div>Win8T[def], Win8MT[def], Win8M[def], Win8MM[def], L820</div></div>
+<div class="support"><strong>Not Supported By:</strong> <div>iPad, iPod, iPhone, S3[chr], LG[def], Nexus[chr], Nexus[def], L900, BB10, FireHD, Win8T[chr], Win8M[chr]</div></div>
 
 <canvas class="touch-box" id="ms-pointer" width="250" height="200" style="-ms-touch-action: none;">&nbsp</canvas>
 <script>
@@ -321,9 +391,8 @@
 <!-- ============================================================================================= -->
 <h2>MS Gesture Events</h2>
 <p>MS Gesture Events!</p>
-<p><strong>Supported By:</strong> Win8T[def], Win8MT[def]</p>
-<p><strong>Not Supported By:</strong> iPad, iPod, iPhone, S3[chr], LG[def], Nexus[chr], Nexus[def], L820, L900, BB10, FireHD, Win8T[chr]</p>
-<p><strong>Dunno:</strong> Win8M[chr], Win8M[def], Win8MM[def]</p>
+<div class="support"><strong>Supported By:</strong> <div>L820, Win8T[def], Win8MT[def], Win8M[def], Win8MM[def]</div></div>
+<div class="support"><strong>Not Supported By:</strong> <div>iPad, iPod, iPhone, S3[chr], LG[def], Nexus[chr], Nexus[def], L900, BB10, FireHD, Win8T[chr], Win8M[chr]</div></div>
 
 <canvas class="touch-box" id="ms-gesture" width="250" height="200" style="-ms-touch-action: none;">&nbsp</canvas>
 <script>
@@ -403,12 +472,30 @@
     <h3>Mouse Event</h3>
 
     <ul>
-      <li>clientX/clientY<div class="client"></div></li>
-      <li>layerX/layerY<div class="layer"></div></li>
-      <li>offsetX/offsetY <div class="offset"></div></li>
-      <li>pageX/pageY<div class="page"></div></li>
-      <li>screenX/screenY<div class="screen"></div></li>
-      <li>x/y<div class="pos"></div></li>
+      <li>
+          <h4>clientX/clientY</h4>
+          <div class="client"></div>
+      </li>
+      <li>
+          <h4>layerX/layerY</h4>
+          <div class="layer"></div>
+      </li>
+      <li>
+          <h4>offsetX/offsetY</h4>
+          <div class="offset"></div>
+      </li>
+      <li>
+          <h4>pageX/pageY</h4>
+          <div class="page"></div>
+      </li>
+      <li>
+          <h4>screenX/screenY</h4>
+          <div class="screen"></div>
+      </li>
+      <li>
+          <h4>x/y</h4>
+          <div class="pos"></div>
+      </li>
     </ul>
   </div>
   <div class="touch-event">
@@ -476,6 +563,8 @@
   //Found this nifty function here: http://stackoverflow.com/questions/55677/how-do-i-get-the-coordinates-of-a-mouse-click-on-a-canvas-element
   function relMouseCoords(evt) {
 
+    //Note, this might be problematic on Chrome for Android.
+
     if (Object.prototype.toString.call(evt) == '[object MouseEvent]') {
       $('#touch-display .mouse-event').show();
 
@@ -524,5 +613,15 @@
     window.console.log = function () {
     };
   }
+
+  $(document).ready(function () {
+    $('.support').click(function () {
+      $('div', $(this)).toggle('open');
+    });
+
+    $('.toggle-mouse-event-info').click(function () {
+      $('#touch-display').toggle();
+    });
+  });
 
 </script>

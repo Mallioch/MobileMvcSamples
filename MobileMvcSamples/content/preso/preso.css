@@ -1,0 +1,73 @@
+﻿body {
+  padding-top: 40px;
+}
+
+h1, h2, h3, h4 {
+  text-align: center;
+}
+
+h1, h2, h3, h4 {
+  font-family: Helvetica, Verdana, sans-serif;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+ol li, ul li, p {
+  font-family: Helvetica, Verdana, sans-serif;
+  font-size: 2em;
+  margin: 20px 50px;
+}
+
+p {
+  line-height: 1.6em;
+  margin-top: 40px;
+}
+
+code {
+  color: #175b03;
+  font-size: 1.2em;
+}
+
+pre {
+  background-color: #EEE;
+  border: solid 1px #DDD;
+  font-size: 1.8em;
+  margin: 20px 50px;
+}
+
+
+h1.presentation-title {
+  font-size: 4em;
+  margin-top: 10%;
+}
+
+
+
+
+
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.nav .prev {
+  left: 35px;
+  width: 50px;
+  position: absolute;
+}
+
+.nav .next {
+  position: absolute;
+  right: 35px;
+}
+
+.nav .next a, .nav .prev a {
+  color: #000;
+  font-size: 3em;
+  font-weight: bold;
+  text-decoration: none;
+  top: 0;
+}
