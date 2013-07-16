@@ -377,7 +377,17 @@
 	function msPointerEvent(eventName, func) {
 
 		canvas.addEventListener(eventName, function(evt) {
-			evt.preventDefault();
+		  evt.preventDefault();
+
+		  $('#touch-display .mouse-event').show();
+		  $('.client').html(evt.clientX + ', ' + evt.clientY);
+		  $('.layer').html(evt.layerX + ', ' + evt.layerY);
+		  $('.offset').html(evt.offsetX + ', ' + evt.offsetY);
+		  $('.page').html(evt.pageX + ', ' + evt.pageY);
+		  $('.screen').html(evt.screenX + ', ' + evt.screenY);
+		  $('.pos').html(evt.x + ', ' + evt.y);
+		  $('.target').html(evt.target.offsetLeft + ', ' + evt.target.offsetTop);
+
 
 			outputEvent(evt);
 			if (func)
@@ -498,6 +508,10 @@
           <h4>x/y</h4>
           <div class="pos"></div>
       </li>
+      <li>
+          <h4>target offset x/y</h4>
+          <div class="target"></div>
+      </li>
     </ul>
   </div>
   <div class="touch-event">
@@ -555,17 +569,31 @@
     }, 4000);
   }
 
-  function getPositionFromTouch(touch) {
-    return {
-      y: touch.pageY - touch.target.offsetTop,
-      x: touch.pageX - touch.target.offsetLeft
-    };
-  }
+function getPositionFromTouch(touch) {
+
+  console.log('this is the touch', touch, $('.client'));
+
+  $('#touch-display .mouse-event').show();
+  $('.client').html(touch.clientX + ', ' + touch.clientY);
+  $('.layer').html(touch.layerX + ', ' + touch.layerY);
+  $('.offset').html(touch.offsetX + ', ' + touch.offsetY);
+  $('.page').html(touch.pageX + ', ' + touch.pageY);
+  $('.screen').html(touch.screenX + ', ' + touch.screenY);
+  $('.pos').html(touch.x + ', ' + touch.y);
+  $('.target').html(touch.target.offsetLeft + ', ' + touch.target.offsetTop);
+
+
+  return {
+    y: touch.pageY - touch.target.offsetTop,
+    x: touch.pageX - touch.target.offsetLeft
+  };
+}
 
   //Found this nifty function here: http://stackoverflow.com/questions/55677/how-do-i-get-the-coordinates-of-a-mouse-click-on-a-canvas-element
   function relMouseCoords(evt) {
 
     //Note, this might be problematic on Chrome for Android.
+    console.log('hit here');
 
     if (Object.prototype.toString.call(evt) == '[object MouseEvent]') {
       $('#touch-display .mouse-event').show();
@@ -576,6 +604,7 @@
       $('.page').html(evt.pageX + ', ' + evt.pageY);
       $('.screen').html(evt.screenX + ', ' + evt.screenY);
       $('.pos').html(evt.x + ', ' + evt.y);
+      $('.target').html(evt.target.offsetLeft + ', ' + evt.target.offsetTop);
     }
     else {
     }

@@ -12,14 +12,27 @@
 <pre>
 var domElement = document.getElementById('element');
 
-domElement.addEventListener('gesturestart', function(evt) {
-  //code goes here
+var gesture = new MSGesture();
+gesture.target = domElement;
+
+domElement.addEventListener('MSGestureStart', function(evt) {
+    if (evt.type == "MSPointerDown") {
+      gesture.addPointer(evt.pointerId);
+      return;
+    }
+  
+  //do gesture stuff
 });
+
 </pre>
 
+  <p>The code required to set these gestures up is significanly more than the iOS-specific
+    gesture* events previously mentioned. This is unfortunate.
+  </p>
+
   <div class="nav">
-    <div class="prev"><a href=".html"><</a></div>
-    <div class="next"><a href=".html">></a></div>
+    <div class="prev"><a href="ms-pointer-events.html"><</a></div>
+    <div class="next"><a href="where-are-you.html">></a></div>
   </div>
 
 </body>
