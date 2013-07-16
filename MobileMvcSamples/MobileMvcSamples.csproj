@@ -191,6 +191,8 @@
     <Content Include="content\jquery.fittext.js" />
     <Content Include="content\preso\click-event.html" />
     <Content Include="content\preso\browser-event-behavior.html" />
+    <Content Include="content\preso\fini.html" />
+    <Content Include="content\preso\links.html" />
     <Content Include="content\preso\signature.html" />
     <Content Include="content\preso\simple-sample.html" />
     <Content Include="content\preso\where-are-you.html" />
