@@ -10,6 +10,8 @@
 
 <h2>TouchableCanvasForIE</h2>
 
+<div id="output"></div>
+
 <canvas id="theCanvas" style="border: solid 1px #999; -ms-touch-action: none;" width="1200" height="500">
   <p>You don't support canvas, yo.</p>
 </canvas>
@@ -20,63 +22,69 @@
 
 <script>
 
-  var theCanvas, c, gesture;
+  var theCanvas, c, gesture, output;
 
   window.onload = function () {
-    //alert('foo');
 
+    output = document.getElementById('output');
     theCanvas = document.getElementById('theCanvas');
     c = theCanvas.getContext('2d');
-
-    console.log(theCanvas, c);
-
-    theCanvas.addEventListener('MSPointerDown', function (evt) {
-      evt.preventDefault();
-      drawInput(evt.offsetX, evt.offsetY);
-      //evt.stopPropagation();
-      //outputEventVerbose(evt);
-    });
 
     theCanvas.addEventListener('MSPointerMove', function (evt) {
       evt.preventDefault();
       drawInput(evt.offsetX, evt.offsetY);
-      //evt.stopPropagation();
-      outputEvent(evt);
     });
 
-    //theCanvas.addEventListener('MSPointerUp', function (evt) {
-    //  evt.preventDefault();
-    //  //evt.stopPropagation();
-    //  outputEvent(evt);
-    //});
+    theCanvas.addEventListener('MSPointerUp', function (evt) {
+      evt.preventDefault();
+      totalScale = 1, totalRotation = 0;
+    });
 
-    //theCanvas.addEventListener('MSGestureStart', function (evt) {
-    //  evt.stopPropagation();
-    //  evt.preventDefault();
-    //  outputEventVerbose(evt);
-    //});
+    theCanvas.addEventListener('touchmove', function (evt) {
+      evt.preventDefault();
+      var info = normalizeRotationAndScaleForTouch('touch', evt.rotation, evt.scale);
+      //do stuff
+    });
+
+    theCanvas.addEventListener('touchend', function (evt) {
+      totalScale = 1, totalRotation = 0;
+    });
 
     var eventListener = function (evt) {
-      //outputEvent(evt);
-      //alert('happening');
-
       if (evt.type == "MSPointerDown")  // add pointer on MSPointerDown event
       {
         gesture.addPointer(evt.pointerId);
         return;
       }
+
+      var info = normalizeRotationAndScaleForTouch('pointer', evt.rotation, evt.scale);
+      //do stuff
     }
 
     gesture = new MSGesture();
     gesture.target = theCanvas;
 
-    theCanvas.addEventListener('MSGestureStart', eventListener, false);
-    theCanvas.addEventListener('MSGestureEnd', eventListener, false);
     theCanvas.addEventListener('MSGestureChange', eventListener, false);
-    theCanvas.addEventListener('MSInteriaStart', eventListener, false);
-    theCanvas.addEventListener('MSGestureTap', eventListener, false);
-    theCanvas.addEventListener('MSGestureHold', eventListener, false);
     theCanvas.addEventListener('MSPointerDown', eventListener, false);
+  }
+
+  var totalScale = 1, totalRotation = 0;
+
+  function normalizeRotationAndScaleForTouch(type, rotation, scale) {
+    if (type === 'touch') {
+      totalScale = scale;
+      totalRotation = rotation;
+    }
+    else {
+      totalScale = totalScale * scale;
+      totalRotation = totalRotation + (rotation * 57.2957795);
+    }
+
+    output.innerHTML = 'Scale: ' + totalScale + '. Rotation: ' + totalRotation + ' degrees';
+    return {
+      scale: totalScale,
+      rotation: totalRotation
+    };
   }
 
   function drawInput(x, y) {

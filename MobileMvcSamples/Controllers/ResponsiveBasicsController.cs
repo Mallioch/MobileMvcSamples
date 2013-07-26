@@ -12,5 +12,10 @@ namespace MobileMvcSamples.Controllers
         {
             return View();
         }
+
+        public ActionResult ViewportSample()
+        {
+            return View();
+        }
     }
 }
