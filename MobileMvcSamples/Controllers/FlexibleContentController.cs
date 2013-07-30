@@ -8,6 +8,21 @@ namespace MobileMvcSamples.Controllers
 {
     public class FlexibleContentController : Controller
     {
+        public ActionResult DefaultTextSize()
+        {
+            return View();
+        }
+
+        public ActionResult LongRunningTextWithNoChanges()
+        {
+            return View();
+        }
+
+        public ActionResult CompoundingEms()
+        {
+            return View();
+        }
+
         public ActionResult Text()
         {
             return View();
@@ -53,6 +68,11 @@ namespace MobileMvcSamples.Controllers
             return View();
         }
 
+        public ActionResult TableDetablified4()
+        {
+            return View();
+        }
+
         public ActionResult ScrollingTable()
         {
             return View();
@@ -84,7 +104,17 @@ namespace MobileMvcSamples.Controllers
             return View();
         }
 
+        public ActionResult VideoEmbedding()
+        {
+            return View();
+        }
+
         public ActionResult ResponsiveEmbedding()
+        {
+            return View();
+        }
+
+        public ActionResult ScriptedEmbeddedVideoResize()
         {
             return View();
         }

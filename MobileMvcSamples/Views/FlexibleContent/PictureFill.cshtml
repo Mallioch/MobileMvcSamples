@@ -7,7 +7,7 @@
 <head>
   <meta name="viewport" content="width=device-width" />
   <title>Text</title>
-
+  <script src="~/content/picturefill/picturefill.js"></script>
   <style>
   </style>
 </head>
@@ -15,6 +15,24 @@
   <div class="wrapper">
 
     <p>Picturefill</p>
+
+    <span data-picture data-alt="A giant stone face at The Bayon temple in Angkor Thom, Cambodia">
+        <span data-src="/content/picturefill/horseman-small-low-res.jpg"></span>
+        <span data-src="/content/picturefill/horseman-small.jpg"
+          data-media="(min-resolution: 100dpi)"></span>
+        <span data-src="/content/picturefill/horseman-small.jpg"
+          data-media="(min-width: 320px) and (-webkit-min-device-pixel-ratio: 2.0)"></span>
+        <span data-src="/content/picturefill/horseman-medium.jpg"
+          data-media="(min-width: 400px)"></span>
+        <span data-src="/content/picturefill/horseman-full.jpg"
+          data-media="(min-width: 800px)"></span>
+
+        <noscript>
+          <img src="/content/picturefill/horseman-small.jpg" alt="A giant stone face at The Bayon temple in Angkor Thom, Cambodia">
+        </noscript>
+    </span>
+
+
   </div>
 </body>
 </html>

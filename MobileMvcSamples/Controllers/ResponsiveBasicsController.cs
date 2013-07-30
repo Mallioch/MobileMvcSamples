@@ -17,5 +17,15 @@ namespace MobileMvcSamples.Controllers
         {
             return View();
         }
+
+        public ActionResult PortraitAndLandscapeExperiment()
+        {
+            return View();
+        }
+
+        public ActionResult ResolutionMediaQuery()
+        {
+            return View();
+        }
     }
 }

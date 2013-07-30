@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Script Embedded Video Resize";
+}
+
+<h2>Script-Resized YouTube</h2>
+
+
+<iframe style="width: 420px; height:315px;" src="http://www.youtube.com/embed/Hq2KXudEjkI" frameborder="0" allowfullscreen></iframe>
+
+<h2>Script-Resized Vimeo</h2>
+
+<iframe src="http://player.vimeo.com/video/69553622" style="width: 500px; height: 281px;" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> <p><a href="http://vimeo.com/69553622">KELPE - 'Go Visible' (Video by Mira Loew and David Altweger)</a> from <a href="http://vimeo.com/drutrecordings">Drut</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+
+
+<script>
+  $(document).ready(function () {
+
+// Find all YouTube videos
+var $allVideos = $("iframe[src^='http://www.youtube.com'], iframe[src^='http://player.vimeo.com']"),
+
+    // The element that is fluid width
+    $fluidEl = $("body");
+
+// Figure out and save aspect ratio for each video
+$allVideos.each(function () {
+
+  $(this)
+    .data('aspectRatio', this.height / this.width)
+
+    // and remove the hard coded width/height
+    .removeAttr('height')
+    .removeAttr('width');
+
+});
+
+// When the window is resized
+$(window).resize(function () {
+
+  var newWidth = $fluidEl.width();
+
+  // Resize all videos according to their own aspect ratio
+  $allVideos.each(function () {
+
+    var $el = $(this);
+    $el
+      .width(newWidth)
+      .height(newWidth * $el.data('aspectRatio'));
+
+  });
+
+  // Kick off one resize to fix all videos on page load
+}).resize();
+
+  });
+</script>

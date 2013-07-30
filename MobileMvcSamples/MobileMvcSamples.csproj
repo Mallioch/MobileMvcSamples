@@ -189,6 +189,11 @@
     <Content Include="content\hammer.js" />
     <Content Include="content\jquery-1-9-0.js" />
     <Content Include="content\jquery.fittext.js" />
+    <Content Include="content\picturefill\horseman-full.jpg" />
+    <Content Include="content\picturefill\horseman-medium.jpg" />
+    <Content Include="content\picturefill\horseman-small-low-res.jpg" />
+    <Content Include="content\picturefill\horseman-small.jpg" />
+    <Content Include="content\picturefill\picturefill.js" />
     <Content Include="content\preso\click-event.html" />
     <Content Include="content\preso\browser-event-behavior.html" />
     <Content Include="content\preso\fini.html" />
@@ -206,6 +211,7 @@
     <Content Include="content\preso\preso.js" />
     <Content Include="content\preso\template.html" />
     <Content Include="content\preso\touch-events.html" />
+    <Content Include="content\reset.css" />
     <Content Include="content\responsivebasics\apress-logo.gif" />
     <Content Include="content\responsivebasics\footer_bg.jpg" />
     <Content Include="content\responsivebasics\header.png" />
@@ -380,6 +386,33 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\ResponsiveBasics\ViewportSample.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ResponsiveBasics\PortraitAndLandscapeExperiment.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ResponsiveBasics\ResolutionMediaQuery.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexibleContent\DefaultTextSize.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexibleContent\LongRunningTextWithNoChanges.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexibleContent\CompoundingEms.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexibleContent\TableDetablified4.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexibleContent\VideoEmbedding.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexibleContent\ScriptedEmbeddedVideoResize.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="content\video\sample-video.webm" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

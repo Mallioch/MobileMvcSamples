@@ -1,0 +1,58 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Resolution Media Query</title>
+
+  <style>
+    .no-resolution {
+    }
+    .yes-resolution {
+      display: none;
+    }
+
+    @@media screen and (max-resolution: 1000dpi) {
+      .yes-resolution {
+        display: block;
+      }
+      .no-resolution {
+        display: none;
+      }
+    }
+
+    .no-pixel-ratio {
+    }
+    .yes-pixel-ratio {
+      display: none;
+    }
+
+    @@media screen and (-webkit-max-device-pixel-ratio: 5) {
+      .yes-pixel-ratio {
+        display: block;
+      }
+      .no-pixel-ratio {
+        display: none;
+      }
+    }
+    
+    
+  </style>
+</head>
+<body>
+  <p>Does your device support resolution-based media queries?</p>
+
+  <h2 class="no-resolution">no</h2>
+  <h2 class="yes-resolution">yes</h2>
+
+  <p>Does your device support pixel-ratio-based media queries?</p>
+
+  <h2 class="no-pixel-ratio">no</h2>
+  <h2 class="yes-pixel-ratio">yes</h2>
+        
+</body>
+</html>

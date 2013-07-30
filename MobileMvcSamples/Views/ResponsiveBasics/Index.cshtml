@@ -1,7 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@{
+  Layout = "";
+}
+<!DOCTYPE html>
 <html>
 <head>
   <title>A Responsive APress</title>
+  <meta name="viewport" content="width=device-width" />
 
   <style>
 html, body, div, span, applet, object, iframe,
@@ -385,6 +389,15 @@ body {
     padding: 20px 0 0 0;
   }      
 }
+
+@@media screen and (max-width: 400px) {
+  /*Some css*/
+}
+
+@@media screen and (max-width: 500px) {
+  /*Some css*/
+}
+
 
 @@media screen and (max-width: 425px) {
   .page {

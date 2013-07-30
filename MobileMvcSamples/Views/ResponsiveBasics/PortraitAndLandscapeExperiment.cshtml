@@ -1,0 +1,49 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <title>Portrait and Landscape Experiment</title>
+
+  <style>
+    .smallest, .largest {
+      display: none;
+    }
+
+    @@media screen and (max-width: 425px) {
+      .smallest {
+        display: block;
+      }
+    }
+
+    @@media screen and (max-width: 500px) {
+      .largest {
+        display: block;
+      }
+    }
+    
+  </style>
+</head>
+<body>
+  <p>Browsers behave differently when switching from portrait to landscape orientation. This is 
+    a test page to show that. It has two different media queries. That get triggered at 425px
+    and 500 px.
+  </p>
+
+  <p class="smallest">425 pixel media query active</p>
+  <p class="largest">500 pixel media query active</p>
+  <p id="output"></p>
+
+  <script type="text/javascript">
+    window.addEventListener('resize', function () {
+      var output = document.getElementById('output');
+      output.innerText = 'inner width: ' + window.innerWidth;
+    });
+</script>
+
+</body>
+</html>
