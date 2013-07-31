@@ -12,5 +12,10 @@ namespace MobileMvcSamples.Controllers
         {
             return View();
         }
+
+        public ActionResult QueryDevice()
+        {
+            return View();
+        }
     }
 }

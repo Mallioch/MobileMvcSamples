@@ -1,0 +1,69 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Query Your Device</title>
+</head>
+<body>
+  
+  <p>If any of the values below are missing, I could not figure out that info about your device, which
+    could be because I am not querying correctly or because your device does not support that particular form
+    of query.
+  </p>
+
+  <hr />
+
+  <p class="mq-wide">Width-based media queries (<code>min-width</code>/<code>max-width</code>) think your device is this many pixels wide: </p>  
+  <p class="mq-height">Height-based media queries (<code>min-height</code>/<code>max-height</code>) think your device is this many pixels tall: </p> 
+  <p class="mq-device-aspect-ratio">Device-aspect-ratio media queries (<code>device-aspect-ratio</code>) think your device is </p>
+  <p class="mq-orientation">Orientation media queries (<code>orientation</code>) think you are </p>
+  <p class="mq-resolution-dpi">Resolution media queries for dots-per-inch (<code>min-resolution</code>/<code>max-resolution</code>) think you have a resolution of </p>
+  <p class="mq-resolution-dpr">Resolution media queries for device-pixel-ratio (<code>min-resolution</code>/<code>max-resolution</code>) think you have a device pixel ratio of </p>
+  <p class="mq-w-dpr">Webkit device-pixel-ratio media queries (<code>-webkit-min-device-pixel-ratio</code>/<code>-webkit-max-device-pixel-ratio</code>) think you have a device pixel ratio of </p>
+
+  <style>
+  @for (var i = 100; i < 1100; i++)
+  {
+  <text>@@media (min-width: @Html.Raw(i)px) and (max-width: @Html.Raw(i + 1)px) { .mq-wide:after { content: '@Html.Raw(i)px'; font-weight: bold; } }</text>
+  }
+
+  @for (var i = 100; i < 1100; i++)
+  {
+  <text>@@media (min-height: @Html.Raw(i)px) and (max-height: @Html.Raw(i + 1)px) { .mq-height:after { content: '@Html.Raw(i)px'; font-weight: bold; } }</text>
+  }
+
+  @for (var i = 25; i < 500; i++)
+  {
+  <text>@@media (min-resolution: @Html.Raw(i)dpi) and (max-resolution: @Html.Raw(i + 1)dpi) { .mq-resolution-dpi:after { content: '@Html.Raw(i)dpi'; font-weight: bold; } }</text>
+  }
+
+  @for (var i = 1; i < 11; i++)
+  {
+  <text>@@media (min-resolution: @Html.Raw(i)dppx) and (max-resolution: @Html.Raw(i + 1)dppx) { .mq-resolution-dpr:after { content: '@Html.Raw(i)dppx'; font-weight: bold; } }</text>
+  }
+
+  @for (var i = 1; i < 20; i++)
+  {
+  <text>@@media (-webkit-min-device-pixel-ratio: @Html.Raw(i)) and (-webkit-max-device-pixel-ratio: @Html.Raw(i + 1)) { .mq-w-dpr:after { content: '@Html.Raw(i)'; font-weight: bold; } }</text>
+  }
+
+  @for (var i = 1; i < 20; i++)
+  {
+    for (var j = 1; j < 20; j++)
+    {
+    <text>@@media (device-aspect-ratio: @Html.Raw(i)/@Html.Raw(j)) { .mq-device-aspect-ratio:after { content: '@Html.Raw(i)/@Html.Raw(j)'; font-weight: bold; } }</text>
+    }
+  }
+
+  @@media (orientation: portrait) { .mq-orientation:after { content: 'portrait'; font-weight: bold; } }
+  @@media (orientation: landscape) { .mq-orientation:after { content: 'landscape'; font-weight: bold; } }
+
+  </style>
+
+</body>
+</html>
