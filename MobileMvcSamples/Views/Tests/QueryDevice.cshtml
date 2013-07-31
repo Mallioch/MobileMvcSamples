@@ -8,6 +8,27 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Query Your Device</title>
+
+    <style>
+      @@-webkit-viewport{width:device-width}
+      @@-moz-viewport{width:device-width}
+      @@-ms-viewport{width:device-width}
+      @@-o-viewport{width:device-width}
+      @@viewport{width:device-width}
+
+    </style>
+  <script>
+    if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+      var msViewportStyle = document.createElement("style");
+      msViewportStyle.appendChild(
+          document.createTextNode(
+              "@@-ms-viewport{width:auto!important}"
+        )
+    );
+    document.getElementsByTagName("head")[0].
+        appendChild(msViewportStyle);
+  }
+  </script>
 </head>
 <body>
   
