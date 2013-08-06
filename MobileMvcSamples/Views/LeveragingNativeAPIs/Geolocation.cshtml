@@ -1,0 +1,41 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <title>Geolocation</title>
+  <link href="/content/coveragechart.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<h1>Geolocation</h1>
+
+<p>On page load, this page asked for your current location. The browser has access to 
+  your location but only if you allow it. If you have location turned off on your phone or have browsing privacy
+  turned on, this may not work. Also, this is sometimes not immediate, so plan for a possible
+  delay.
+</p>
+
+<script type="text/javascript">
+window.addEventListener('load', function () {
+
+  var success = function (position) {
+    alert('lat: ' + position.coords.latitude + ', long: ' + position.coords.longitude);
+  };
+
+  var error = function () {
+    alert('It did not work. Do you have this capability turned off?');
+  };
+
+  navigator.geolocation.getCurrentPosition(success, error);
+});
+
+</script>
+
+@Html.DeviceCoverage()
+
+</body>
+</html>

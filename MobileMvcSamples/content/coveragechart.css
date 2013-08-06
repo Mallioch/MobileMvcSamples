@@ -1,0 +1,33 @@
+﻿table.coverage {
+  border: solid 1px #777;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.coverage td {
+  border: solid 1px #777;
+  font-family: Helvetica, Verdana, sans-serif;
+  padding: 5px 7px;
+}
+
+.coverage .browser {
+  background-color: #777;
+  color: #FFF;
+}
+
+.coverage .yes {
+  background-color: #00ff21;
+}
+
+.coverage .no {
+  background-color: #d55757;
+  color: #FFF;
+}
+
+.coverage .unknown {
+  background-color: #DDD;
+}
+
+.coverage .partial {
+  background-color: #ff6a00;
+}

@@ -89,6 +89,11 @@ namespace MobileMvcSamples.Controllers
             return View();
         }
 
+        public ActionResult HighResolutionImages()
+        {
+            return View();
+        }
+
         public ActionResult PictureFill()
         {
             return View();

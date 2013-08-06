@@ -109,18 +109,24 @@
     <Compile Include="Controllers\FlexibleLayoutsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\FlexibleNavigationController.cs" />
+    <Compile Include="Controllers\LeveragingNativeAPIsController.cs" />
+    <Compile Include="Controllers\LeveragingNativeHTMLAndCSSController.cs" />
+    <Compile Include="Controllers\LeveragingNewCapabilitiesController.cs" />
+    <Compile Include="Controllers\LeveragingNewVisualToolsController.cs" />
     <Compile Include="Controllers\ResponsiveBasicsController.cs" />
     <Compile Include="Controllers\TestsController.cs" />
     <Compile Include="Controllers\TouchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\DeviceCoverageHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="content\coveragechart.css" />
     <Content Include="content\footable\footable-0.1.css" />
     <Content Include="content\footable\footable-0.1.js" />
     <Content Include="content\images\avengers_100.jpg" />
@@ -235,6 +241,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\LeveragingNativeHTMLAndCSS\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -416,6 +423,84 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Tests\QueryDevice.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexibleContent\HighResolutionImages.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LeveragingNativeAPIs\Geolocation.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LeveragingNativeAPIs\PhotoAccess.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LeveragingNativeAPIs\NetworkInfo.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LeveragingNativeAPIs\PhoneAndEmail.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LeveragingNativeAPIs\Maps.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LeveragingNewCapabilities\WebSockets.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LeveragingNewCapabilities\ApplicationCache.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LeveragingNewCapabilities\WebWorkers.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LeveragingNewCapabilities\HistoryAPI.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LeveragingNewCapabilities\WebStorage.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LeveragingNewCapabilities\AudioAndVideo.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LeveragingNewCapabilities\BetterSemantics.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LeveragingNewVisualTools\WebFonts.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LeveragingNewVisualTools\Transitions.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LeveragingNewVisualTools\Transformations.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LeveragingNewVisualTools\Animations.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LeveragingNewVisualTools\Gradients.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LeveragingNewVisualTools\Shadows.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LeveragingNewVisualTools\BorderRadius.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LeveragingNewVisualTools\Opacity.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LeveragingNewVisualTools\RGBA.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LeveragingNewVisualTools\GeneratedContent.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LeveragingNewVisualTools\MultipleBackgrounds.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LeveragingNewVisualTools\Canvas.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LeveragingNewVisualTools\SVG.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

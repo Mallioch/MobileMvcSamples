@@ -1,0 +1,52 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>High Resolution Images</title>
+
+  <style>
+
+    .horse-me {
+      background-image: url(/content/picturefill/horseman-small-low-res.jpg);
+      background-repeat: no-repeat;
+      min-height: 264px;
+      min-width: 200px;
+    }
+
+    @@media (min-resolution: 2dppx) {
+      .horse-me {
+        background-image: url(/content/picturefill/horseman-small.jpg);
+      }
+    }
+
+    @@media (-webkit-min-device-pixel-ratio: 2) {
+      .horse-me {
+        background-image: url(/content/picturefill/horseman-small.jpg);
+      }
+    }
+
+    @@media (min-width: 480px) {
+      .horse-me {
+        background-image: url(/content/picturefill/horseman-full.jpg);
+        min-height: 593px;
+        min-width: 449px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <p>The following div has a background image applied to it, high-res for high-res devices,
+    low-res for low-res devices or Windows Phone.
+  </p>
+
+<div class="horse-me">
+</div>
+        
+</body>
+</html>

@@ -1,0 +1,117 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <title>PhotoAccess</title>
+  <link href="/content/coveragechart.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+  <h1>Photo Upload - Note that this sample is utterly incomplete</h1>
+
+  <form action="/leveragingnativeapis/photoaccess" method="post" enctype="multipart/form-data">
+    <input type="file" name="fileData" id="file-input" />
+
+    <input type="submit" value="Post" />
+  </form>
+    <button id="upload">Ajax Upload</button>
+
+  <img id="image-display" style="width: 100%;" />
+  <p>canvas</p>
+  <canvas id="canvas-display" style="width: 100%"></canvas>
+  <p>image</p>
+  <img id="image-after-uploading" style="width: 100%;" />
+
+  @Html.DeviceCoverage()
+
+<script>
+
+  window.addEventListener('load', load);
+  var fileInput, imageDisplay, canvasDisplay, uploadButton, imageData, imageAfterUploading;
+
+  function load() {
+
+    fileInput = document.getElementById('file-input');
+    imageDisplay = document.getElementById('image-display');
+    canvasDisplay = document.getElementById('canvas-display');
+    uploadButton = document.getElementById('upload');
+    imageAfterUploading = document.getElementById('image-after-uploading');
+
+    fileInput.addEventListener('change', fileSelected);
+    uploadButton.addEventListener('click', uploadFile);
+
+    var previouslyUploadedFile = getParameterByName('filename');
+    if (previouslyUploadedFile)
+      imageAfterUploading.src = '/content/' + previouslyUploadedFile;
+  }
+
+  function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+  }
+
+  function fileSelected(evt) {
+    //alert(evt.target.files.length);
+    var file = evt.target.files[0];
+
+    var reader = new FileReader();
+    reader.addEventListener('load', fileRead);
+    reader.readAsDataURL(file);
+
+  }
+
+  function fileRead(evt) {
+    imageDisplay.src = imageData = evt.target.result;
+
+    imageDisplay.onload = function () {
+      console.log('image loaded', imageDisplay, imageDisplay.height, imageDisplay.width);
+
+      canvasDisplay.width = imageDisplay.width;
+      canvasDisplay.height = imageDisplay.height;
+      var context = canvasDisplay.getContext('2d');
+      context.drawImage(imageDisplay, 0, 0);
+    }
+  }
+
+  function uploadFile() {
+
+    var formData = new FormData();
+    formData.append('fileData', imageData);
+
+    var xhr = new XMLHttpRequest();
+    xhr.upload.addEventListener("progress", function (e) {
+      if (e.lengthComputable) {
+        var percentage = Math.round((e.loaded * 100) / e.total);
+        if (percentage == 100) {
+          console.log('finished', e);
+        }
+      }
+    }, false);
+    xhr.onload = function (e) {
+      var result = JSON.parse(e.currentTarget.response);
+      if (result) {
+        alert('success! ' + result);
+        imageAfterUploading.src = '/content/' + result;
+      }
+      else {
+        alert("Turned off the upload feature for the live site yo. Don't want you uploading images to my server!");
+      }
+    };
+    xhr.onerror = function (e) {
+      alert("Turned off the upload feature for the live site yo. Don't want you uploading images to my server!");
+    }
+
+    xhr.open('POST', "/leveragingnativeapis/photoaccess", true);
+    xhr.send(formData);
+  }
+
+</script>
+
+</body>
+</html>

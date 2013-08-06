@@ -31,6 +31,21 @@
   </script>
 </head>
 <body>
+
+  <style>
+    .funk {
+      display: none;
+    }
+
+@@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  .funk {
+    display: block;
+  }
+}
+
+  </style>
+
+  <p class="funk">Funk</p>
   
   <p>If any of the values below are missing, I could not figure out that info about your device, which
     could be because I am not querying correctly or because your device does not support that particular form

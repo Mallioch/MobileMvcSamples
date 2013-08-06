@@ -1,0 +1,60 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>NetworkInfo</title>
+  <link href="/content/coveragechart.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<h1>Network Info</h1>
+
+<p>Sometimes it is good to know if you can connect to the Internet. That's what
+  this api is for. Your current status?
+</p>
+
+<div id="online" style="display: none; font-family: sans-serif; background-color: green; padding: 5px; color: #FFF;">Online</div>
+<div id="offline" style="display: none; font-family: sans-serif; background-color: red; padding: 5px; color: #FFF;">Offline</div>
+
+@Html.DeviceCoverage()
+
+<script>
+
+window.addEventListener('load', load);
+
+var online, offline;
+
+function load() {
+  online = document.getElementById('online');
+  offline = document.getElementById('offline');
+
+  if (navigator.onLine) {
+    showOnline();
+  }
+  else {
+    showOffline();
+  }
+
+  window.addEventListener('online', showOnline);
+  window.addEventListener('offline', showOffline);
+}
+
+function showOnline() {
+  online.style.display = 'inline-block';
+  offline.style.display = 'none';
+}
+
+function showOffline() {
+  online.style.display = 'none';
+  offline.style.display = 'inline-block';
+}
+
+</script>
+
+</body>
+</html>

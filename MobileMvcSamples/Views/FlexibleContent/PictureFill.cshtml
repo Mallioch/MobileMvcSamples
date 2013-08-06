@@ -14,23 +14,28 @@
 <body>
   <div class="wrapper">
 
-    <p>Picturefill</p>
+    <h1>Using Picturefill</h1>
 
-    <span data-picture data-alt="A giant stone face at The Bayon temple in Angkor Thom, Cambodia">
-        <span data-src="/content/picturefill/horseman-small-low-res.jpg"></span>
-        <span data-src="/content/picturefill/horseman-small.jpg"
-          data-media="(min-resolution: 100dpi)"></span>
-        <span data-src="/content/picturefill/horseman-small.jpg"
-          data-media="(min-width: 320px) and (-webkit-min-device-pixel-ratio: 2.0)"></span>
-        <span data-src="/content/picturefill/horseman-medium.jpg"
-          data-media="(min-width: 400px)"></span>
-        <span data-src="/content/picturefill/horseman-full.jpg"
-          data-media="(min-width: 800px)"></span>
+    <p>Picturefill is a polyfill library that gives you the capabilities of the proposed picture
+      element. <a href="https://github.com/scottjehl/picturefill">You can download picturefill
+      from Github</a>.
+    </p>
 
-        <noscript>
-          <img src="/content/picturefill/horseman-small.jpg" alt="A giant stone face at The Bayon temple in Angkor Thom, Cambodia">
-        </noscript>
-    </span>
+<span data-picture data-alt="Me as a horse">
+  <span data-src="/content/picturefill/horseman-small-low-res.jpg"></span>
+  <span data-src="/content/picturefill/horseman-small.jpg"
+    data-media="(min-width: 320px) and (min-resolution: 2dppx)"></span>
+  <span data-src="/content/picturefill/horseman-small.jpg"
+    data-media="(min-width: 320px) and (-webkit-min-device-pixel-ratio: 2)"></span>
+  <span data-src="/content/picturefill/horseman-medium.jpg"
+    data-media="(min-width: 400px)"></span>
+  <span data-src="/content/picturefill/horseman-full.jpg"
+    data-media="(min-width: 800px)"></span>
+
+  <noscript>
+    <img src="/content/picturefill/horseman-small.jpg" alt="Me as a horse">
+  </noscript>
+</span>
 
 
   </div>
