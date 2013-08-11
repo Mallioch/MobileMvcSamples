@@ -126,6 +126,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="content\book-cover.png" />
     <Content Include="content\coveragechart.css" />
     <Content Include="content\footable\footable-0.1.css" />
     <Content Include="content\footable\footable-0.1.js" />

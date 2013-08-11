@@ -1,8 +1,28 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Mobile ASP.NET MVC";
 }
 
 <style>
+  body {
+    background-color: #777;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    box-shadow: 4px 0 30px #000;
+    background-color: #FFF;
+    max-width: 930px;
+    margin: 0 auto;
+    outline: solid 1px #333;
+    padding: 0 15px;
+  }
+
+  h1 {
+    margin-top: 0;
+    padding-top: 20px;
+  }
+
   li {
     margin: 10px 0;
   }
@@ -16,144 +36,155 @@
   }
 </style>
 
-<h2>Contents</h2>
+<div class="container">
 
-<ol>
-    <li>Basics of Responsive Web Design
+  <h1>Mobile ASP.NET MVC</h1>
+
+  <img src="/content/book-cover.png" />
+
+  <h2>Online Code Samples</h2>
+
+
+  <ol>
+      <li>Basics of Responsive Web Design
+        <ol>
+          <li><a href="/responsivebasics/index">Sample responsive site</a></li>
+          <li><a href="/responsivebasics/viewportsample">Viewport sample</a></li>
+          <li><a href="/responsivebasics/portraitandlandscapeexperiment">Portrait and landscape experiment</a></li>
+          <li><a href="/responsivebasics/resolutionmediaquery">Resolution media query</a></li>
+        </ol>
+      </li>
+      <li>CSS Layout Bootcamp
+        <ol>
+          <li><a href="/csslayoutbootcamp/withoutareset">Page without a reset.</a></li>
+          <li><a href="/csslayoutbootcamp/withareset">Page with a reset.</a></li>
+          <li><a href="/csslayoutbootcamp/pagewithasidebar">Page with a sidebar</a></li>
+          <li><a href="/csslayoutbootcamp/pagewithasidebarwithpadding">Page with a sidebar with padding</a></li>
+          <li><a href="/csslayoutbootcamp/pagewithasidebarwithgoodpadding">Page with a sidebar with good padding</a></li>
+          <li><a href="/csslayoutbootcamp/pagewithasidebarwithfauxcolumns">Page with a sidebar with faux columns</a></li>
+        </ol>
+      </li>
+      <li>Flexible Layout
+        <ol>
+          <li><a href="/flexiblelayouts/threecolumnlayoutnomargin">Flexible 3-column layout with no margin (figure 1)</a></li>
+          <li><a href="/flexiblelayouts/threecolumnlayoutwithsomemargin">Flexible 3-column with some margin (figure 2)</a></li>
+          <li><a href="/flexiblelayouts/threecolumnresponsive">3-column responsive (figure 3)</a></li>
+          <li><a href="/flexiblelayouts/threecolumnresponsivewithbordersbroken">3-column responsive with broken borders (figure 4)</a></li>
+          <li><a href="/flexiblelayouts/threecolumnresponsivewithborders">3-column responsive with borders (figure 5)</a></li>
+          <li><a href="/flexiblelayouts/twocolumnresponsive">2-column responsive</a></li>
+          <li><a href="/flexiblelayouts/tencolumnresponsive">10-column responsive using borders</a></li>
+        </ol>
+      </li>
+      <li>Flexible Navigation
+          <ol>
+            <li><a href="/flexiblenavigation/navmovedtobottom">Nav moved to bottom</a></li>
+            <li><a href="/flexiblenavigation/navmovedtobottomnorepeatedmenu">Nav moved to bottom #2</a></li>
+            <li><a href="/flexiblenavigation/navtoselect">Nav to select</a></li>
+            <li><a href="/flexiblenavigation/accordiannav">Accordian Nav</a></li>
+            <li><a href="/flexiblenavigation/flyoutnav">Flyout Nav</a></li>
+          </ol>
+      </li>
+    <li>Flexible Content
       <ol>
-        <li><a href="/responsivebasics/index">Sample responsive site</a></li>
-        <li><a href="/responsivebasics/viewportsample">Viewport sample</a></li>
-        <li><a href="/responsivebasics/portraitandlandscapeexperiment">Portrait and landscape experiment</a></li>
-        <li><a href="/responsivebasics/resolutionmediaquery">Resolution media query</a></li>
+        <li>Flexible text
+          <ol>
+            <li><a href="/flexiblecontent/defaulttextsize">Default text size</a></li>
+            <li><a href="/flexiblecontent/longrunningtextwithnochanges">Long running text with no changes</a></li>
+            <li><a href="/flexiblecontent/compoundingems">Compounding ems</a></li>
+            <li><a href="/flexiblecontent/text">Flexible text with media queries</a></li>
+            <li><a href="/flexiblecontent/textleveragingbody">Flexible text - leveraging body size</a></li>
+            <li><a href="/flexiblecontent/textleveragingrem">Flexible text - using rem</a></li>
+            <li><a href="/flexiblecontent/fittext">Flexible text - FitText</a></li>
+          </ol>
+        </li>
+        <li>Flexible Images
+          <ol>
+            <li><a href="/flexiblecontent/imagecontrolwithcss">Image control with CSS</a></li>
+            <li><a href="/flexiblecontent/highresolutionimages">High Resolution Background Images</a></li>
+            <li><a href="/flexiblecontent/picturefill">Image control with PictureFill</a></li>
+          </ol>
+        </li>
+        <li>Flexible tables
+          <ol>
+            <li><a href="/flexiblecontent/table">Table</a></li>
+            <li><a href="/flexiblecontent/scrollingtable">Scrolling Table</a></li>
+            <li><a href="/flexiblecontent/tabledetablified">Table Detablified</a></li>
+            <li><a href="/flexiblecontent/tabledetablified2">Table Detablified #2</a></li>
+            <li><a href="/flexiblecontent/tabledetablified3">Table Detablified #3</a></li>
+            <li><a href="/flexiblecontent/tabledetablified4">Table Detablified #4</a></li>
+            <li><a href="/flexiblecontent/tablewithzurbresponsivetables">Table with Zurb Responsive Tables</a></li>
+            <li><a href="/flexiblecontent/footable">Footable</a></li>
+          </ol>
+        </li>
+        <li>Flexible Video
+          <ol>
+            <li><a href="/flexiblecontent/video">Video</a></li>
+            <li><a href="/flexiblecontent/responsivevideo">Responsive Video</a></li>
+            <li><a href="/flexiblecontent/videoembedding">Basic Video Embedding</a></li>
+            <li><a href="/flexiblecontent/responsiveembedding">Responsive Embedding</a></li>
+            <li><a href="/flexiblecontent/scriptedembeddedvideoresize">Scripted Embedded Video Resize</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
-    <li>CSS Layout Bootcamp
+    <li>Leveraging Native APIs, HTML5 and CSS3
       <ol>
-        <li><a href="/csslayoutbootcamp/withoutareset">Page without a reset.</a></li>
-        <li><a href="/csslayoutbootcamp/withareset">Page with a reset.</a></li>
-        <li><a href="/csslayoutbootcamp/pagewithasidebar">Page with a sidebar</a></li>
-        <li><a href="/csslayoutbootcamp/pagewithasidebarwithpadding">Page with a sidebar with padding</a></li>
-        <li><a href="/csslayoutbootcamp/pagewithasidebarwithgoodpadding">Page with a sidebar with good padding</a></li>
-        <li><a href="/csslayoutbootcamp/pagewithasidebarwithfauxcolumns">Page with a sidebar with faux columns</a></li>
+        <li>
+          Native APIs
+          <ol>
+            <li><a href="/leveragingnativeapis/geolocation">Geolocation</a></li>
+            <li><a href="/leveragingnativeapis/photoaccess">Photo and Camera Access</a></li>
+            <li><a href="/leveragingnativeapis/networkinfo">Network Info</a></li>
+            <li><a href="/leveragingnativeapis/phoneandemail">Phone Calls and Email</a></li>
+            <li><a href="/leveragingnativeapis/maps">Accessing Maps</a></li>
+          </ol>
+        </li>
+        <li>
+          New Capabilities
+          <ol>
+            <li><a href="/leveragingnewcapabilities/websockets">Websockets</a></li>
+            <li><a href="/leveragingnewcapabilities/webstorage">Web Storage</a></li>
+            <li><a href="/leveragingnewcapabilities/applicationcache">Application Cache</a></li>
+            <li><a href="/leveragingnewcapabilities/webworkers">Web Workers</a></li>
+            <li><a href="/leveragingnewcapabilities/historyapi">History API</a></li>
+            <li><a href="/leveragingnewcapabilities/audioandvideo">Audio and Video</a></li>
+            <li><a href="/leveragingnewcapabilities/bettersemantics">Better Semantics</a></li>
+          </ol>
+        </li>
+        <li>New Visual Tools
+          <ol>
+            <li><a href="/leveragingnewvisualtools/webfonts">Web Fonts</a></li>
+            <li><a href="/leveragingnewvisualtools/transitions">Transitions</a></li>
+            <li><a href="/leveragingnewvisualtools/transformations">Transformations</a></li>
+            <li><a href="/leveragingnewvisualtools/animations">Animations</a></li>
+            <li><a href="/leveragingnewvisualtools/gradients">Gradients</a></li>
+            <li><a href="/leveragingnewvisualtools/shadows">Shadows</a></li>
+            <li><a href="/leveragingnewvisualtools/borderradius">Border Radius</a></li>
+            <li><a href="/leveragingnewvisualtools/opacity">Opacity</a></li>
+            <li><a href="/leveragingnewvisualtools/rgba">RGBA</a></li>
+            <li><a href="/leveragingnewvisualtools/generatedcontent">Generated Content</a></li>
+            <li><a href="/leveragingnewvisualtools/multiplebackgrounds">Multiple Backgrounds</a></li>
+            <li><a href="/leveragingnewvisualtools/canvas">Canvas</a></li>
+            <li><a href="/leveragingnewvisualtools/svg">SVG</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
-    <li>Flexible Layout
+    <li>Touch
       <ol>
-        <li><a href="/flexiblelayouts/threecolumnlayoutnomargin">Flexible 3-column layout with no margin (figure 1)</a></li>
-        <li><a href="/flexiblelayouts/threecolumnlayoutwithsomemargin">Flexible 3-column with some margin (figure 2)</a></li>
-        <li><a href="/flexiblelayouts/threecolumnresponsive">3-column responsive (figure 3)</a></li>
-        <li><a href="/flexiblelayouts/threecolumnresponsivewithbordersbroken">3-column responsive with broken borders (figure 4)</a></li>
-        <li><a href="/flexiblelayouts/threecolumnresponsivewithborders">3-column responsive with borders (figure 5)</a></li>
-        <li><a href="/flexiblelayouts/twocolumnresponsive">2-column responsive</a></li>
-        <li><a href="/flexiblelayouts/tencolumnresponsive">10-column responsive using borders</a></li>
+        <li><a href="/touch/index">Basic Events</a></li>
+        <li><a href="/touch/touchable">Building a Touchable Widget</a></li>
+        <li><a href="/touch/hammer">Hammer</a></li>
       </ol>
     </li>
-    <li>Flexible Navigation
-        <ol>
-          <li><a href="/flexiblenavigation/navmovedtobottom">Nav moved to bottom</a></li>
-          <li><a href="/flexiblenavigation/navmovedtobottomnorepeatedmenu">Nav moved to bottom #2</a></li>
-          <li><a href="/flexiblenavigation/navtoselect">Nav to select</a></li>
-          <li><a href="/flexiblenavigation/accordiannav">Accordian Nav</a></li>
-          <li><a href="/flexiblenavigation/flyoutnav">Flyout Nav</a></li>
-        </ol>
+    <li>Tests
+      <ol>
+        <li><a href="/tests/boxsizing">CSS box-sizing</a></li>
+        <li><a href="/tests/querydevice">Query Your Device</a></li>
+      </ol>
     </li>
-  <li>Flexible Content
-    <ol>
-      <li>Flexible text
-        <ol>
-          <li><a href="/flexiblecontent/defaulttextsize">Default text size</a></li>
-          <li><a href="/flexiblecontent/longrunningtextwithnochanges">Long running text with no changes</a></li>
-          <li><a href="/flexiblecontent/compoundingems">Compounding ems</a></li>
-          <li><a href="/flexiblecontent/text">Flexible text with media queries</a></li>
-          <li><a href="/flexiblecontent/textleveragingbody">Flexible text - leveraging body size</a></li>
-          <li><a href="/flexiblecontent/textleveragingrem">Flexible text - using rem</a></li>
-          <li><a href="/flexiblecontent/fittext">Flexible text - FitText</a></li>
-        </ol>
-      </li>
-      <li>Flexible Images
-        <ol>
-          <li><a href="/flexiblecontent/imagecontrolwithcss">Image control with CSS</a></li>
-          <li><a href="/flexiblecontent/highresolutionimages">High Resolution Background Images</a></li>
-          <li><a href="/flexiblecontent/picturefill">Image control with PictureFill</a></li>
-        </ol>
-      </li>
-      <li>Flexible tables
-        <ol>
-          <li><a href="/flexiblecontent/table">Table</a></li>
-          <li><a href="/flexiblecontent/scrollingtable">Scrolling Table</a></li>
-          <li><a href="/flexiblecontent/tabledetablified">Table Detablified</a></li>
-          <li><a href="/flexiblecontent/tabledetablified2">Table Detablified #2</a></li>
-          <li><a href="/flexiblecontent/tabledetablified3">Table Detablified #3</a></li>
-          <li><a href="/flexiblecontent/tabledetablified4">Table Detablified #4</a></li>
-          <li><a href="/flexiblecontent/tablewithzurbresponsivetables">Table with Zurb Responsive Tables</a></li>
-          <li><a href="/flexiblecontent/footable">Footable</a></li>
-        </ol>
-      </li>
-      <li>Flexible Video
-        <ol>
-          <li><a href="/flexiblecontent/video">Video</a></li>
-          <li><a href="/flexiblecontent/responsivevideo">Responsive Video</a></li>
-          <li><a href="/flexiblecontent/videoembedding">Basic Video Embedding</a></li>
-          <li><a href="/flexiblecontent/responsiveembedding">Responsive Embedding</a></li>
-          <li><a href="/flexiblecontent/scriptedembeddedvideoresize">Scripted Embedded Video Resize</a></li>
-        </ol>
-      </li>
-    </ol>
-  </li>
-  <li>Leveraging Native APIs, HTML5 and CSS3
-    <ol>
-      <li>
-        Native APIs
-        <ol>
-          <li><a href="/leveragingnativeapis/geolocation">Geolocation</a></li>
-          <li><a href="/leveragingnativeapis/photoaccess">Photo and Camera Access</a></li>
-          <li><a href="/leveragingnativeapis/networkinfo">Network Info</a></li>
-          <li><a href="/leveragingnativeapis/phoneandemail">Phone Calls and Email</a></li>
-          <li><a href="/leveragingnativeapis/maps">Accessing Maps</a></li>
-        </ol>
-      </li>
-      <li>
-        New Capabilities
-        <ol>
-          <li><a href="/leveragingnewcapabilities/websockets">Websockets</a></li>
-          <li><a href="/leveragingnewcapabilities/webstorage">Web Storage</a></li>
-          <li><a href="/leveragingnewcapabilities/applicationcache">Application Cache</a></li>
-          <li><a href="/leveragingnewcapabilities/webworkers">Web Workers</a></li>
-          <li><a href="/leveragingnewcapabilities/historyapi">History API</a></li>
-          <li><a href="/leveragingnewcapabilities/audioandvideo">Audio and Video</a></li>
-          <li><a href="/leveragingnewcapabilities/bettersemantics">Better Semantics</a></li>
-        </ol>
-      </li>
-      <li>New Visual Tools
-        <ol>
-          <li><a href="/leveragingnewvisualtools/webfonts">Web Fonts</a></li>
-          <li><a href="/leveragingnewvisualtools/transitions">Transitions</a></li>
-          <li><a href="/leveragingnewvisualtools/transformations">Transformations</a></li>
-          <li><a href="/leveragingnewvisualtools/animations">Animations</a></li>
-          <li><a href="/leveragingnewvisualtools/gradients">Gradients</a></li>
-          <li><a href="/leveragingnewvisualtools/shadows">Shadows</a></li>
-          <li><a href="/leveragingnewvisualtools/borderradius">Border Radius</a></li>
-          <li><a href="/leveragingnewvisualtools/opacity">Opacity</a></li>
-          <li><a href="/leveragingnewvisualtools/rgba">RGBA</a></li>
-          <li><a href="/leveragingnewvisualtools/generatedcontent">Generated Content</a></li>
-          <li><a href="/leveragingnewvisualtools/multiplebackgrounds">Multiple Backgrounds</a></li>
-          <li><a href="/leveragingnewvisualtools/canvas">Canvas</a></li>
-          <li><a href="/leveragingnewvisualtools/svg">SVG</a></li>
-        </ol>
-      </li>
-    </ol>
-  </li>
-  <li>Touch
-    <ol>
-      <li><a href="/touch/index">Basic Events</a></li>
-      <li><a href="/touch/touchable">Building a Touchable Widget</a></li>
-      <li><a href="/touch/hammer">Hammer</a></li>
-    </ol>
-  </li>
-  <li>Tests
-    <ol>
-      <li><a href="/tests/boxsizing">CSS box-sizing</a></li>
-      <li><a href="/tests/querydevice">Query Your Device</a></li>
-    </ol>
-  </li>
-</ol>
+  </ol>
+
+  <div>foo</div>
+
+</div>
