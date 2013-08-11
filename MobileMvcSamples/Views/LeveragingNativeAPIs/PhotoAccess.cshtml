@@ -60,14 +60,27 @@
     //alert(evt.target.files.length);
     var file = evt.target.files[0];
 
+    //if (!FileReader)
+    //  alert('no file reader');
+    //alert(FileReader);
+
     var reader = new FileReader();
-    reader.addEventListener('load', fileRead);
+    //alert(reader.addEventListener);
+    //reader.addEventListener('load', fileRead);
+    reader.onload = fileRead;
+
+    //alert(reader.readAsDataURL);
+    //if (!reader.readAsDataURL)
+    //  alert('no readAsDataUrl');
+
     reader.readAsDataURL(file);
 
   }
 
   function fileRead(evt) {
+    //alert('finished reading');
     imageDisplay.src = imageData = evt.target.result;
+    //alert(imageData.length);
 
     imageDisplay.onload = function () {
       console.log('image loaded', imageDisplay, imageDisplay.height, imageDisplay.width);
