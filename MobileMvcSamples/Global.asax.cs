@@ -20,10 +20,5 @@ namespace MobileMvcSamples
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
-
-        void Application_BeginRequest(object sender, EventArgs e)
-        {
-            Response.Redirect("http://mobilemvcbook.com", true);
-        }
     }
 }
