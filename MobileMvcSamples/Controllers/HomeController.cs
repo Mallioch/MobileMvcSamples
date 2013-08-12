@@ -12,5 +12,13 @@ namespace MobileMvcSamples.Controllers
         {
             return View();
         }
+
+        public enum ChapterStatus
+        {
+            NotStarted,
+            InProgress,
+            InEditing,
+            Finished
+        }
     }
 }
