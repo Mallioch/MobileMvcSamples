@@ -11,8 +11,27 @@
   <link href="/content/coveragechart.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <div>
-        
-    </div>
+  <h1>Web Workers</h1>
+
+  <p id="message"></p>
+
+  <button id="start">Start Web Worker</button>
+
+  <script>
+
+    window.addEventListener('load', function () {
+      var startButton = document.getElementById('start');
+      var message = document.getElementById('message');
+
+      startButton.addEventListener('click', function () {
+        var worker = new Worker('/content/webworkers/webworker.js');
+        worker.postMessage();
+        worker.addEventListener('message', function(event) {  
+          message.innerText = event.data.message;
+        }); 
+      });
+    });
+
+  </script>
 </body>
 </html>
