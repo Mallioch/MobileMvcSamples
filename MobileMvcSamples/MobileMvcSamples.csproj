@@ -143,6 +143,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="content\appcache\calc.js" />
+    <Content Include="content\appcache\test2.css" />
+    <Content Include="content\appcache\test.css" />
     <Content Include="content\book-cover.png" />
     <Content Include="content\coveragechart.css" />
     <Content Include="content\footable\footable-0.1.css" />
@@ -211,7 +214,6 @@
     <Content Include="content\footable\img\sorting_sprite.png" />
     <Content Include="content\footable\img\up.png" />
     <Content Include="content\hammer.js" />
-    <Content Include="content\cache.manifest" />
     <Content Include="content\jquery-1-9-0.js" />
     <Content Include="content\jquery.fittext.js" />
     <Content Include="content\picturefill\horseman-full.jpg" />
@@ -521,6 +523,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\LeveragingNewVisualTools\SVG.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="content\appcache\cache.appcache" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
