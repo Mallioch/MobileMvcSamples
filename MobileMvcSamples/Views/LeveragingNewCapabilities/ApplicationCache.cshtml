@@ -3,15 +3,34 @@
 }
 <!DOCTYPE html>
 
-<html manifest="/content/cache.manifest">
+<html manifest="/content/appcache/cache.appcache">
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>ApplicationCache</title>
-  <link href="/content/coveragechart.css" rel="stylesheet" type="text/css" />
+  <link href="/content/appcache/test.css" rel="stylesheet" type="text/css" />
+  <link href="/content/appcache/test2.css" rel="stylesheet" type="text/css" />
+  <script src="/content/appcache/calc.js" type="text/javascript"></script>
 </head>
 <body>
-    <div>
-        
-    </div>
+  <h1>Offline Web Applications</h1>
+
+  <p>This has been saved to your offline application cache. Whether you are offline or not,
+    you should be able to refresh the page and the following timestamp which was generated
+    when the page was rendered should not change.
+  </p>
+
+  <p><strong>@DateTime.Now.ToLongTimeString()</strong></p>
+
+  <p>If viewed while online, this title of this page will be in a sans-serif font. If offline,
+    it will be in a serif font. This is to demonstrate the NETWORK section of the manifest.
+  </p>
+
+  <p>And just for fun, here is a calculator that you can run offline.</p>
+
+  <p><input type="text" id="first" /> + <input type="text" id="second" /> = 
+    <span id="output" style="font-weight: bold;"></span></p>
+
+  <button id="add">Add</button>
+
 </body>
 </html>
