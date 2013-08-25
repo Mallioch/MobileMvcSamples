@@ -525,7 +525,7 @@
     <Content Include="Views\LeveragingNewVisualTools\SVG.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="content\appcache\cache.appcache" />
+    <None Include="content\appcache\cache.manifest" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
