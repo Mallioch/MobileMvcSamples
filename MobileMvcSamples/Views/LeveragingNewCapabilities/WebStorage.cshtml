@@ -11,8 +11,68 @@
   <link href="/content/coveragechart.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <div>
-        
-    </div>
+  <h1>Web Storage</h1>
+
+  <p>The HTML5 web storage APIs allow you to persist state on the client device.</p>
+
+  <button id="store">Store data</button>
+  <button id="retrieve">Retrieve the data</button>
+
+  <p>This page currently has the following stored:</p>
+  <p><strong>local:</strong> <span id="localStorageTimeDisplay"></span></p>
+  <p><strong>session:</strong> <span id="sessionStorageTimeDisplay"></span></p>
+
+  <script>
+    window.addEventListener('load', function () {
+
+      var store = document.getElementById('store');
+      var retrieve = document.getElementById('retrieve');
+      var localStorageTimeDisplay = document.getElementById('localStorageTimeDisplay');
+      var sessionStorageTimeDisplay = document.getElementById('sessionStorageTimeDisplay');
+
+      store.addEventListener('click', function () {
+        var d = new Date();
+
+        try {
+          localStorage.setItem('localStorageTime', 'set localStorage at ' + d);
+        }
+        catch (err) {
+          alert('local storage problem:' + err.message);
+        }
+
+        try {
+          sessionStorage.setItem('sessionStorageTime', 'set sessionStorage at ' + d);
+        }
+        catch (err) {
+          alert('session storage problem:' + err.message);
+        }
+      });
+
+      retrieve.addEventListener('click', displayStorageData);
+
+      displayStorageData();
+
+      function displayStorageData() {
+        try {
+          localStorageTimeDisplay.innerHTML = localStorage.getItem('localStorageTime');
+        }
+        catch (err) {
+          alert(err);
+        }
+
+        try {
+          sessionStorageTimeDisplay.innerHTML = sessionStorage.getItem('sessionStorageTime');
+        }
+        catch (err) {
+          alert(err);
+        }
+
+        localStorage.removeItem('localStorageTime');
+      }
+
+    });
+
+  </script>
+
 </body>
 </html>
