@@ -211,7 +211,7 @@
     <Content Include="content\footable\img\sorting_sprite.png" />
     <Content Include="content\footable\img\up.png" />
     <Content Include="content\hammer.js" />
-    <None Include="content\cache.manifest" />
+    <Content Include="content\cache.manifest" />
     <Content Include="content\jquery-1-9-0.js" />
     <Content Include="content\jquery.fittext.js" />
     <Content Include="content\picturefill\horseman-full.jpg" />
