@@ -1,0 +1,9 @@
+﻿CACHE MANIFEST
+#version 17
+
+CACHE:
+/content/appcache/test.css
+/content/appcache/calc.js
+
+NETWORK:
+/content/appcache/test2.css
