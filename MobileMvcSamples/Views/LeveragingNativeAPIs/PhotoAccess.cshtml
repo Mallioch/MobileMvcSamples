@@ -21,10 +21,6 @@
     <button id="upload">Ajax Upload</button>
 
   <img id="image-display" style="width: 100%;" />
-  <p>canvas</p>
-  <canvas id="canvas-display" style="width: 100%"></canvas>
-  <p>image</p>
-  <img id="image-after-uploading" style="width: 100%;" />
 
   @Html.DeviceCoverage()
 
@@ -43,10 +39,6 @@
 
     fileInput.addEventListener('change', fileSelected);
     uploadButton.addEventListener('click', uploadFile);
-
-    var previouslyUploadedFile = getParameterByName('filename');
-    if (previouslyUploadedFile)
-      imageAfterUploading.src = '/content/' + previouslyUploadedFile;
   }
 
   function getParameterByName(name) {
@@ -57,39 +49,16 @@
   }
 
   function fileSelected(evt) {
-    //alert(evt.target.files.length);
     var file = evt.target.files[0];
 
-    //if (!FileReader)
-    //  alert('no file reader');
-    //alert(FileReader);
-
     var reader = new FileReader();
-    //alert(reader.addEventListener);
-    //reader.addEventListener('load', fileRead);
     reader.onload = fileRead;
 
-    //alert(reader.readAsDataURL);
-    //if (!reader.readAsDataURL)
-    //  alert('no readAsDataUrl');
-
     reader.readAsDataURL(file);
-
   }
 
   function fileRead(evt) {
-    //alert('finished reading');
     imageDisplay.src = imageData = evt.target.result;
-    //alert(imageData.length);
-
-    imageDisplay.onload = function () {
-      console.log('image loaded', imageDisplay, imageDisplay.height, imageDisplay.width);
-
-      canvasDisplay.width = imageDisplay.width;
-      canvasDisplay.height = imageDisplay.height;
-      var context = canvasDisplay.getContext('2d');
-      context.drawImage(imageDisplay, 0, 0);
-    }
   }
 
   function uploadFile() {
@@ -109,7 +78,6 @@
     xhr.onload = function (e) {
       var result = JSON.parse(e.currentTarget.response);
       if (result) {
-        alert('success! ' + result);
         imageAfterUploading.src = '/content/' + result;
       }
       else {

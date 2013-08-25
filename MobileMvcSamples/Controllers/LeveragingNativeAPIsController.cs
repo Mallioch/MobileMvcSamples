@@ -77,6 +77,7 @@ namespace MobileMvcSamples.Controllers
             string fileName = Guid.NewGuid().ToString() + ".jpg";
             string path = Server.MapPath(@"~/content/" + fileName);
 
+            //If posting the file, this works
             foreach (string file in this.HttpContext.Request.Files)
             {
                 var hpf = Request.Files[file] as HttpPostedFileBase;
@@ -84,8 +85,7 @@ namespace MobileMvcSamples.Controllers
                 return Redirect("/leveragingnativeapis/photoaccess?filename=" + fileName);
             }
 
-            //return Json(false);
-
+            //If sending a base64 encoded string, this works
             fileData = fileData.Replace("data:image/jpeg;base64,", String.Empty);
 
             byte[] filebytes = Convert.FromBase64String(fileData);
