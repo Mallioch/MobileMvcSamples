@@ -9,10 +9,26 @@
     <meta name="viewport" content="width=device-width" />
     <title>WebFonts</title>
   <link href="/content/coveragechart.css" rel="stylesheet" type="text/css" />
+  <style>
+    @@font-face {
+	    font-family: Gentium;
+	    src: url(   '/content/webfonts/web/GentiumPlus-R.woff') format('woff'),
+              url('/content/webfonts/GentiumPlus-R.ttf') format('truetype');
+    }
+
+  </style>
+
 </head>
 <body>
-    <div>
-        
-    </div>
+  <h1>Webfonts</h1>
+
+  <p>If the following two paragraphs look identical, the device you are using does not support web fonts.</p>
+
+  <p style="font-family: sans-serif; font-size: 1.5em;">This paragraph does not have a custom font.</p>
+
+  <p style="font-family: Gentium, sans-serif; font-size: 1.5em;">This paragraph has a custom font.</p>
+
+  @Html.DeviceCoverage()
+
 </body>
 </html>

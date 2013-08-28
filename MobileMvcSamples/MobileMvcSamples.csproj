@@ -244,7 +244,18 @@
     <Content Include="content\responsivebasics\header.png" />
     <Content Include="content\responsivebasics\my-book-cover.png" />
     <Content Include="content\responsivebasics\style.css" />
+    <Content Include="content\svg\building.svg" />
+    <Content Include="content\svg\circle.svg" />
     <Content Include="content\video\sample-video.mp4" />
+    <Content Include="content\webfonts\documentation\DOCUMENTATION.txt" />
+    <Content Include="content\webfonts\FONTLOG.txt" />
+    <Content Include="content\webfonts\GENTIUM-FAQ.txt" />
+    <Content Include="content\webfonts\OFL-FAQ.txt" />
+    <Content Include="content\webfonts\OFL.txt" />
+    <Content Include="content\webfonts\README.txt" />
+    <Content Include="content\webfonts\web\GentiumPlus-webfont-example.css" />
+    <Content Include="content\webfonts\web\GentiumPlus-webfont-example.html" />
+    <Content Include="content\webfonts\web\GentiumPlus-WOFF-metadata.xml" />
     <Content Include="content\webworkers\webworker.js" />
     <Content Include="Global.asax" />
     <Content Include="content\signalr\jquery.signalR-1.1.3.js" />
@@ -527,6 +538,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="content\appcache\cache.appcache" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="content\webfonts\documentation\GentiumPlus-features.odt" />
+    <Content Include="content\webfonts\documentation\GentiumPlus-features.pdf" />
+    <Content Include="content\webfonts\GentiumPlus-I.ttf" />
+    <Content Include="content\webfonts\GentiumPlus-R.ttf" />
+    <Content Include="content\webfonts\web\GentiumPlus-I.woff" />
+    <Content Include="content\webfonts\web\GentiumPlus-R.woff" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

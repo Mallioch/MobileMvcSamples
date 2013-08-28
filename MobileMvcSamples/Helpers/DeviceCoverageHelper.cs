@@ -177,7 +177,7 @@ namespace MobileMvcSamples.Helpers
             sb.Append(EmptyCell);
             sb.Append(EmptyCell);
             sb.Append(EmptyCell);
-            sb.Append(CreateCell(coverage.GalaxyNexus7, "?"));
+            sb.Append(CreateCell(coverage.GalaxyNexus7, "4.2.2"));
             sb.Append("</tr>");
         }
 

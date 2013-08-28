@@ -7,12 +7,51 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>HistoryAPI</title>
+    <title>History API</title>
   <link href="/content/coveragechart.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <div>
-        
-    </div>
+  <h1>History API</h1>
+
+  <p>The history api lets you change the history state of the browser programmatically.
+    This can be pretty handy at times.
+  </p>
+
+  <button id="change">Change the url without adding history</button>
+  <button id="change-and-add">Change the url and add history</button>
+  <button id="hash">Change the hash tag of the url</button>
+
+  <script>
+
+    window.addEventListener('load', load);
+
+    function load() {
+      var changeButton = document.getElementById('change');
+      var changeAndAddHistoryButton = document.getElementById('change-and-add');
+      var hashButton = document.getElementById('hash');
+
+      changeButton.addEventListener('click', function () {
+        console.log('replace');
+        history.replaceState({move: 'replace' }, null, '/leveragingnewcapabilities/historyapi/heylookthisisnew');
+      });
+
+      changeAndAddHistoryButton.addEventListener('click', function () {
+        console.log('push');
+        history.pushState({ move: 'push' }, null, '/leveragingnewcapabilities/historyapi/hitthebackbutton');
+      });
+
+      hashButton.addEventListener('click', function () {
+        console.log('hash');
+        window.location.hash = 'foo';
+      });
+
+      window.addEventListener('popstate', function (evt) {
+        console.log('poppy', evt.state);
+        if (evt.state)
+          console.log('state is popped', evt.state.move);
+      });
+    }
+
+  </script>
 </body>
 </html>

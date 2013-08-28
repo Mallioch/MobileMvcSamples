@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MobileMvcSamples.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,33 @@ namespace MobileMvcSamples.Controllers
     {
         public ActionResult WebFonts()
         {
+            ViewData[DeviceCoverageHelper.DefaultSetName] = new DeviceCoverage
+            {
+                Android_2_1 = DeviceCoverageAmount.No,
+                Android_2_2 = DeviceCoverageAmount.Unknown,
+                Android_2_3 = DeviceCoverageAmount.Unknown,
+                Android_4_1 = DeviceCoverageAmount.Yes,
+                Android_4_1_Chrome = DeviceCoverageAmount.Yes,
+                iOS_4 = DeviceCoverageAmount.Yes,
+                iOS_5 = DeviceCoverageAmount.Unknown,
+                iOS_6 = DeviceCoverageAmount.Yes,
+                iOS_7 = DeviceCoverageAmount.Yes,
+                BlackBerry10 = DeviceCoverageAmount.Unknown,
+                Firefox_Android = DeviceCoverageAmount.Yes,
+                FirefoxOS = DeviceCoverageAmount.Yes,
+                Opera_Classic_Android = DeviceCoverageAmount.Yes,
+                Opera_Webkit_Android = DeviceCoverageAmount.Yes,
+                WindowsPhone7_5 = DeviceCoverageAmount.No,
+                WindowsPhone8 = DeviceCoverageAmount.Unknown,
+                Desktop_Chrome = DeviceCoverageAmount.Yes,
+                Desktop_Firefox = DeviceCoverageAmount.Yes,
+                Desktop_InternetExplorer10 = DeviceCoverageAmount.Yes,
+                Tablet_InternetExplorer10 = DeviceCoverageAmount.Unknown,
+                KindleFire_FirstGen = DeviceCoverageAmount.Yes,
+                KindleFire_HD = DeviceCoverageAmount.Yes,
+                GalaxyNexus7 = DeviceCoverageAmount.Yes
+            };
+
             return View();
         }
 
@@ -70,6 +98,61 @@ namespace MobileMvcSamples.Controllers
 
         public ActionResult SVG()
         {
+            //Inline
+            ViewData[DeviceCoverageHelper.DefaultSetName] = new DeviceCoverage
+            {
+                Android_2_1 = DeviceCoverageAmount.No,
+                Android_2_2 = DeviceCoverageAmount.Unknown,
+                Android_2_3 = DeviceCoverageAmount.Unknown,
+                Android_4_1 = DeviceCoverageAmount.Yes,
+                Android_4_1_Chrome = DeviceCoverageAmount.Yes,
+                iOS_4 = DeviceCoverageAmount.No,
+                iOS_5 = DeviceCoverageAmount.Unknown,
+                iOS_6 = DeviceCoverageAmount.Yes,
+                iOS_7 = DeviceCoverageAmount.Yes,
+                BlackBerry10 = DeviceCoverageAmount.Unknown,
+                Firefox_Android = DeviceCoverageAmount.Yes,
+                FirefoxOS = DeviceCoverageAmount.Yes,
+                Opera_Classic_Android = DeviceCoverageAmount.Yes,
+                Opera_Webkit_Android = DeviceCoverageAmount.Yes,
+                WindowsPhone7_5 = DeviceCoverageAmount.Yes,
+                WindowsPhone8 = DeviceCoverageAmount.Unknown,
+                Desktop_Chrome = DeviceCoverageAmount.Yes,
+                Desktop_Firefox = DeviceCoverageAmount.Yes,
+                Desktop_InternetExplorer10 = DeviceCoverageAmount.Yes,
+                Tablet_InternetExplorer10 = DeviceCoverageAmount.Unknown,
+                KindleFire_FirstGen = DeviceCoverageAmount.No,
+                KindleFire_HD = DeviceCoverageAmount.Yes,
+                GalaxyNexus7 = DeviceCoverageAmount.Yes
+            };
+
+            ViewData["ExternalSVG"] = new DeviceCoverage
+            {
+                Android_2_1 = DeviceCoverageAmount.No,
+                Android_2_2 = DeviceCoverageAmount.Unknown,
+                Android_2_3 = DeviceCoverageAmount.Unknown,
+                Android_4_1 = DeviceCoverageAmount.Yes,
+                Android_4_1_Chrome = DeviceCoverageAmount.Yes,
+                iOS_4 = DeviceCoverageAmount.Yes,
+                iOS_5 = DeviceCoverageAmount.Unknown,
+                iOS_6 = DeviceCoverageAmount.Yes,
+                iOS_7 = DeviceCoverageAmount.Yes,
+                BlackBerry10 = DeviceCoverageAmount.Unknown,
+                Firefox_Android = DeviceCoverageAmount.Yes,
+                FirefoxOS = DeviceCoverageAmount.Yes,
+                Opera_Classic_Android = DeviceCoverageAmount.Yes,
+                Opera_Webkit_Android = DeviceCoverageAmount.Yes,
+                WindowsPhone7_5 = DeviceCoverageAmount.Yes,
+                WindowsPhone8 = DeviceCoverageAmount.Unknown,
+                Desktop_Chrome = DeviceCoverageAmount.Yes,
+                Desktop_Firefox = DeviceCoverageAmount.Yes,
+                Desktop_InternetExplorer10 = DeviceCoverageAmount.Yes,
+                Tablet_InternetExplorer10 = DeviceCoverageAmount.Unknown,
+                KindleFire_FirstGen = DeviceCoverageAmount.No,
+                KindleFire_HD = DeviceCoverageAmount.Yes,
+                GalaxyNexus7 = DeviceCoverageAmount.Yes
+            };
+
             return View();
         }
     }
