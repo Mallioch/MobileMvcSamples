@@ -11,7 +11,7 @@
 </head>
 <body>
 
-  <h1>Photo Upload - Note that this sample is utterly incomplete</h1>
+  <h1>Photo Upload</h1>
 
   <form action="/leveragingnativeapis/photoaccess" method="post" enctype="multipart/form-data">
     <input type="file" name="fileData" id="file-input" />
@@ -71,7 +71,7 @@
       if (e.lengthComputable) {
         var percentage = Math.round((e.loaded * 100) / e.total);
         if (percentage == 100) {
-          console.log('finished', e);
+          //console.log('finished', e);
         }
       }
     }, false);

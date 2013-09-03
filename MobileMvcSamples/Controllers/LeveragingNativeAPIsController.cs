@@ -94,7 +94,7 @@ namespace MobileMvcSamples.Controllers
                                            FileAccess.Write,
                                            FileShare.None))
             {
-                fs.Write(filebytes, 0, filebytes.Length);
+                //fs.Write(filebytes, 0, filebytes.Length);
             }
 
 
