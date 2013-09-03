@@ -6,13 +6,61 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Gradients</title>
+  <meta name="viewport" content="width=device-width" />
+  <title>Gradients</title>
   <link href="/content/coveragechart.css" rel="stylesheet" type="text/css" />
+
+  <style>
+    .linear {
+      border: solid 1px #000;
+      height: 150px;
+      width: 150px;
+
+      background: -moz-linear-gradient(top, rgba(30,87,153,1) 0%, rgba(125,185,232,1) 100%);
+      background: -o-linear-gradient(top, rgba(30,87,153,1) 0%,rgba(125,185,232,1) 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(30,87,153,1)), color-stop(100%,rgba(125,185,232,1)));
+      background: -webkit-linear-gradient(top, rgba(30,87,153,1) 0%,rgba(125,185,232,1) 100%);
+      background: linear-gradient(to bottom, rgba(30,87,153,1) 0%,rgba(125,185,232,1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 );
+    }
+
+    .radial {
+      border: solid 1px #000;
+      height: 150px;
+      width: 150px;
+
+      background: -moz-radial-gradient(center, ellipse cover,  rgba(21,61,107,1) 0%, rgba(137,204,255,0.28) 100%);
+      background: -webkit-gradient(radial, center center, 100, center center, 40, color-stop(0%,rgba(21,61,107,1)), color-stop(100%,rgba(137,204,255,0.28)));
+      background: -webkit-radial-gradient(center, ellipse cover,  rgba(21,61,107,1) 0%,rgba(137,204,255,0.28) 100%);
+      background: -o-radial-gradient(center, ellipse cover,  rgba(21,61,107,1) 0%,rgba(137,204,255,0.28) 100%);
+      background: radial-gradient(ellipse at center,  rgba(21,61,107,1) 0%,rgba(137,204,255,0.28) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#153d6b', endColorstr='#4789ccff',GradientType=1 );*/
+    }
+  </style>
 </head>
 <body>
-    <div>
-        
-    </div>
+  <h1>Gradients</h1>
+
+  <h2>Linear Gradient</h2>
+
+  <div class="linear"></div>
+
+  <h2></h2>
+
+  <div class="radial"></div>
+
+  @Html.DeviceCoverage()
+
+  <p>Android 2.1 and 2.2 have buggy implementations. For both of my sample devices, they used the
+    old-style webkit syntax and the fourth value could not be specified in pixels and the seventh
+    could not be specified as a percentage. Also, in some cases the radial gradient colors will
+    be reversed. This was the case for Galaxy S running Android 2.1 and the first generation of the
+    Kindle Fire. Windows 7.5 does not support radial gradients.
+  </p>
+
+  <p>Also, as you might imagine, the gradients can be drawn differently by different browsers. For
+    radial gradients, some browsers have more of the inner color than the outer.
+  </p>
+
 </body>
 </html>

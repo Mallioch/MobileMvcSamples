@@ -6,13 +6,56 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Canvas</title>
+  <meta name="viewport" content="width=device-width" />
+  <title>Canvas</title>
   <link href="/content/coveragechart.css" rel="stylesheet" type="text/css" />
+  <style>
+    #the-canvas {
+      border: solid 1px #CCC;
+    }
+  </style>
 </head>
 <body>
-    <div>
-        
-    </div>
+  <h1>Canvas</h1>
+
+  <p>The canvas element gives you a drawing surface. Here are a few simple shapes.</p>
+
+  <canvas id="the-canvas">
+  </canvas>
+
+  @Html.DeviceCoverage()
+
+  <script>
+    window.onload = function () {
+
+      var canvas = document.getElementById('the-canvas');
+      var context = canvas.getContext('2d');
+
+      context.beginPath();
+      context.moveTo(10, 10);
+      context.lineTo(50, 10);
+      context.lineTo(60, 20);
+      context.lineTo(5, 80);
+      context.lineTo(30, 30);
+      context.closePath();
+
+      context.strokeStyle = '#000';
+      context.stroke();
+
+      context.fillStyle = '#F00';
+      context.fill();
+
+      context.beginPath();
+      context.arc(100, 100, 35, 0, Math.PI * 2);
+
+      context.fillStyle = '#00F';
+      context.fill();
+
+      context.beginPath();
+      context.fillStyle = '#0F0';
+      context.fillRect(200, 20, 50, 50);
+    }
+  </script>
+
 </body>
 </html>

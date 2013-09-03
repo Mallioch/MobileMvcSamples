@@ -1,18 +1,60 @@
 ﻿@{
     Layout = null;
 }
-
 <!DOCTYPE html>
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Opacity</title>
+  <meta name="viewport" content="width=device-width" />
+  <title>Opacity</title>
   <link href="/content/coveragechart.css" rel="stylesheet" type="text/css" />
+  <style>
+
+    .container {
+      position: relative;
+      height: 150px;
+    }
+
+    .other {
+        background-color: #F00;
+        border: solid 1px #000;
+        padding: 15px;
+        position: absolute;
+        width: 200px;
+        top: 30px;
+        z-index: 1;
+    }
+
+    .main-element {
+        background-color: #FFF;
+        border: solid 1px #000;
+        height: 100px;
+        left: 35px;
+        opacity: .4;
+        position: absolute;
+        top: 0;
+        width: 100px;
+        z-index: 10;
+    }
+  </style>
 </head>
 <body>
-    <div>
-        
+  <h1>Opacity</h1>
+
+  <p>The opacity CSS property allows you to change the opacity of an element (surprise!). 
+    Contrast this CSS property <a href="/leveragingnewvisualtools/rgba">with the RGBA CSS 
+    property</a>.</p>
+  
+  <div class="container">
+    <div class="other">
+        behind
     </div>
+    <div class="main-element">
+        This is a box.
+    </div>
+  </div>
+
+  @Html.DeviceCoverage()
+
 </body>
 </html>

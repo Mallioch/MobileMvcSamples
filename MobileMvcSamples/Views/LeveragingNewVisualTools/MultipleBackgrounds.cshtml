@@ -1,18 +1,36 @@
 ﻿@{
     Layout = null;
 }
-
 <!DOCTYPE html>
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>MultipleBackgrounds</title>
+  <meta name="viewport" content="width=device-width" />
+  <title>Multiple Backgrounds</title>
   <link href="/content/coveragechart.css" rel="stylesheet" type="text/css" />
+  <style>
+    .background-me {
+      background-image: url('/content/svg/circle.svg'), 
+        url('/content/images/bacon_100.jpg'), 
+        url('/content/images/hogan_100.jpg');
+      background-position: top left, bottom right, bottom left;
+      background-repeat: no-repeat;
+
+      border: solid 1px #000;
+      height: 200px;
+      width: 200px;
+    }
+  </style>
 </head>
 <body>
-    <div>
-        
-    </div>
+  <h1>Multiple Backgrounds</h1>
+
+  <p>You can specify multiple backgrounds for an element.</p>
+
+  <div class="background-me">
+
+  </div>
+
+  @Html.DeviceCoverage()
 </body>
 </html>

@@ -6,13 +6,81 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Transformations</title>
+  <meta name="viewport" content="width=device-width" />
+  <title>Transformations</title>
   <link href="/content/coveragechart.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+  div
+  {
+    border: solid 1px #000;
+    float: left;
+    height: 30px;
+    margin: 40px 5px 60px 5px;
+    padding: 30px;
+    width: 60px;
+  }
+
+  .div1
+  {
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+
+  .div2
+  {
+    -moz-transform: skew(-25deg);
+    -webkit-transform: skew(-25deg);
+    -ms-transform: skew(-25deg);
+    -o-transform: skew(-25deg);
+    transform: skew(-25deg);
+  }
+
+  .div3
+  {
+    -moz-transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    -o-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+
+
+  .div4
+  {
+    -moz-transform: rotate(90deg) skew(-25deg) scale(1.2);
+    -webkit-transform: rotate(90deg) skew(-25deg) scale(1.2);
+    -ms-transform: rotate(90deg) skew(-25deg) scale(1.2);
+    -o-transform: rotate(90deg) skew(-25deg) scale(1.2);
+    transform: rotate(90deg) skew(-25deg) scale(1.2);
+  }
+</style>
+
 </head>
 <body>
-    <div>
-        
-    </div>
+  <h1>CSS Transforms</h1>
+
+  <div class="div1">
+      This is a box.
+  </div>
+
+  <div class="div2">
+      This is a box.
+  </div>
+
+  <div class="div3">
+      This is a box.
+  </div>
+
+  <div class="div4">
+      This is a box.
+  </div>
+
+  <p style="clear: both;">&nbsp;</p>
+
+  @Html.DeviceCoverage()
 </body>
 </html>

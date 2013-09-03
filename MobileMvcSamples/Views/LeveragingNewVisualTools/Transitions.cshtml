@@ -9,10 +9,50 @@
     <meta name="viewport" content="width=device-width" />
     <title>Transitions</title>
   <link href="/content/coveragechart.css" rel="stylesheet" type="text/css" />
+  <script src="~/content/jquery-1-9-0.js"></script>
+  <style>
+    .box {
+      border: solid 1px #000;
+      display: inline-block;
+      padding: 25px;
+
+      -webkit-transition: all 1s ease-in-out;
+      -moz-transition: all 1s ease-in-out;
+      -o-transition: all 1s ease-in-out;
+      transition: all 1s ease-in-out;
+    }
+
+    .different {
+      border: solid 5px #F00;
+      background-color: #000;
+      color: #FFF;
+      padding: 50px;
+    }
+
+    #click-me {
+      display: block;
+    }
+  </style>
 </head>
 <body>
-    <div>
-        
-    </div>
+  <h1>CSS Transitions</h1>
+
+  <p>CSS Transitions make it easy to transition from one visual state to another.</p>
+
+  <button id="click-me">click me</button>
+
+  <div class="box">
+    This is a box
+  </div>
+
+  @Html.DeviceCoverage()
+
+  <script>
+    $(document).ready(function () {
+      $('#click-me').click(function () {
+        $('.box').toggleClass('different');
+      });
+    });
+  </script>
 </body>
 </html>
