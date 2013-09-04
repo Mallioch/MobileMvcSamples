@@ -25,7 +25,7 @@
 
       startButton.addEventListener('click', function () {
         var worker = new Worker('/content/webworkers/webworker.js');
-        worker.postMessage();
+        worker.postMessage('');
         worker.addEventListener('message', function(event) {  
           message.innerText = event.data.message;
         }); 
