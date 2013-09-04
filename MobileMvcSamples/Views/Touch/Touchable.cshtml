@@ -80,7 +80,7 @@
 
         carouselDiv.addEventListener('touchend', function (evt) {
           evt.preventDefault();
-          console.log('=================================================');
+          //console.log('=================================================');
           carousel.moving = false;
 
         }, true);
@@ -146,7 +146,7 @@
 
           var diff = carousel.lastX - currentX;
           carousel.current -= diff;
-          console.log('diff', diff, 'carousel.current', carousel.current, 'currentX', currentX);
+          //console.log('diff', diff, 'carousel.current', carousel.current, 'currentX', currentX);
 
           if (carousel.current < -2900)
             carousel.current = -2900;
@@ -163,7 +163,7 @@
 
     function outputEventVerbose(evt) {
 
-      var output = '==================================================\r\n';
+      //var output = '==================================================\r\n';
 
       for (var key in evt) {
 
@@ -175,8 +175,8 @@
         }
       }
 
-      console.log(output);
-      console.log('==================================================\r\n');
+      //console.log(output);
+      //console.log('==================================================\r\n');
     }
 
     function isFunction(object) {
