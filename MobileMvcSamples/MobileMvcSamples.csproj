@@ -120,6 +120,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AdvancedTouchProgrammingController.cs" />
     <Compile Include="Controllers\CSSLayoutBootcampController.cs" />
     <Compile Include="Controllers\FlexibleContentController.cs" />
     <Compile Include="Controllers\FlexibleLayoutsController.cs" />
@@ -143,6 +144,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="content\advancedtouchprogramming\lazy-swipe.js" />
     <Content Include="content\appcache\calc.js" />
     <Content Include="content\appcache\test2.css" />
     <Content Include="content\appcache\test.css" />
@@ -545,6 +547,9 @@
     <Content Include="content\webfonts\GentiumPlus-R.ttf" />
     <Content Include="content\webfonts\web\GentiumPlus-I.woff" />
     <Content Include="content\webfonts\web\GentiumPlus-R.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AdvancedTouchProgramming\ImplementingABasicSwipeGesture.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
