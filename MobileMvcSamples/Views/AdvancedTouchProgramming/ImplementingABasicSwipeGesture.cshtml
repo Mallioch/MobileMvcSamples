@@ -1,0 +1,70 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <title>Implementing a Basic Swipe Gesture</title>
+  <style>
+    #swipable {
+      border: solid 1px #000;
+      color: #AAA;
+      height: 110px;
+      margin: 0 auto;
+      padding-top: 40px;
+      text-align: center;
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Implementing a Basic Swipe Gesture</h1>
+
+  <div id="swipable">
+    Swipe This
+  </div>
+
+  <ol>
+    <li>Attach basic events</li>
+    <li>Determine left or right</li>
+    <li>Limit vertical tolerance</li>
+    <li>Create horizontal minimum</li>
+  </ol>
+
+  <p>Notes</p>
+
+  <ol>
+    <li>https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent</li>
+    <li>https://developer.mozilla.org/en-US/docs/Web/Guide/DOM/Events/Creating_and_triggering_events</li>
+  </ol>
+
+  <script src="~/content/advancedtouchprogramming/lazy-swipe.js"></script>
+
+  <script>
+    window.addEventListener('load', load);
+
+    function load() {
+      swipable = document.getElementById('swipable');
+
+      new CustomTouch.LazySwipe(swipable);
+
+      swipable.addEventListener('swipeleft', left);
+      swipable.addEventListener('swiperight', right);
+    }
+
+    function left() {
+      console.log('left yo');
+    }
+
+    function right() {
+      console.log('right yo');
+    }
+
+
+
+
+  </script>
+</body>
+</html>
