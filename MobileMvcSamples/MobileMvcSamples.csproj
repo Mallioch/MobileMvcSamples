@@ -237,6 +237,31 @@
     <Content Include="content\third-party-libraries\kendo-ui-mobile\kendo.mobile.all.min.css" />
     <Content Include="content\third-party-libraries\kendo-ui-mobile\kendo.mobile.min.js" />
     <Content Include="content\third-party-libraries\sencha-touch\app.js" />
+    <Content Include="content\third-party-libraries\sencha-touch\index.html" />
+    <Content Include="content\third-party-libraries\sencha-touch\resources\css\app.css" />
+    <Content Include="content\third-party-libraries\sencha-touch\resources\icons\Icon%402x.png" />
+    <Content Include="content\third-party-libraries\sencha-touch\resources\icons\icon-spot~ipad.png" />
+    <Content Include="content\third-party-libraries\sencha-touch\resources\icons\Icon.png" />
+    <Content Include="content\third-party-libraries\sencha-touch\resources\icons\Icon~ipad%402x.png" />
+    <Content Include="content\third-party-libraries\sencha-touch\resources\icons\Icon~ipad.png" />
+    <Content Include="content\third-party-libraries\sencha-touch\resources\icons\iTunesArtwork.png" />
+    <Content Include="content\third-party-libraries\sencha-touch\resources\loading\Default%402x.png" />
+    <Content Include="content\third-party-libraries\sencha-touch\resources\loading\Default-Landscape%402x~ipad.png" />
+    <Content Include="content\third-party-libraries\sencha-touch\resources\loading\Default-LandscapeLeft~ipad.png" />
+    <Content Include="content\third-party-libraries\sencha-touch\resources\loading\Default-LandscapeRight~ipad.png" />
+    <Content Include="content\third-party-libraries\sencha-touch\resources\loading\Default-Landscape~ipad.png" />
+    <Content Include="content\third-party-libraries\sencha-touch\resources\loading\Default-Portrait%402x~ipad.png" />
+    <Content Include="content\third-party-libraries\sencha-touch\resources\loading\Default-PortraitUpsideDown~ipad.png" />
+    <Content Include="content\third-party-libraries\sencha-touch\resources\loading\Default-Portrait~ipad.png" />
+    <Content Include="content\third-party-libraries\sencha-touch\resources\loading\Default.png" />
+    <Content Include="content\third-party-libraries\sencha-touch\resources\loading\Default~ipad.png" />
+    <Content Include="content\third-party-libraries\sencha-touch\resources\sass\stylesheets\fonts\pictos\pictos-web.svg" />
+    <Content Include="content\third-party-libraries\sencha-touch\resources\startup\1496x2048.png" />
+    <Content Include="content\third-party-libraries\sencha-touch\resources\startup\1536x2008.png" />
+    <Content Include="content\third-party-libraries\sencha-touch\resources\startup\320x460.jpg" />
+    <Content Include="content\third-party-libraries\sencha-touch\resources\startup\640x920.png" />
+    <Content Include="content\third-party-libraries\sencha-touch\resources\startup\748x1024.png" />
+    <Content Include="content\third-party-libraries\sencha-touch\resources\startup\768x1004.png" />
     <Content Include="content\third-party-libraries\sencha-touch\touch\build.xml" />
     <Content Include="content\third-party-libraries\sencha-touch\touch\file-header.txt" />
     <Content Include="content\third-party-libraries\sencha-touch\touch\license.txt" />
@@ -2439,6 +2464,13 @@
     <Content Include="content\third-party-libraries\sencha-touch\touch\resources\themes\vendor\compass-recipes\tests\recipes\ui\webfont-icons\s.scss" />
     <Content Include="content\third-party-libraries\sencha-touch\touch\resources\themes\vendor\compass-recipes\tests\_tests.scss" />
     <Content Include="content\third-party-libraries\sencha-touch\touch\resources\themes\vendor\compass-recipes\VERSION" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="content\third-party-libraries\sencha-touch\resources\sass\app.scss" />
+    <Content Include="content\third-party-libraries\sencha-touch\resources\sass\config.rb" />
+    <Content Include="content\third-party-libraries\sencha-touch\resources\sass\stylesheets\fonts\pictos\pictos-web.eot" />
+    <Content Include="content\third-party-libraries\sencha-touch\resources\sass\stylesheets\fonts\pictos\pictos-web.ttf" />
+    <Content Include="content\third-party-libraries\sencha-touch\resources\sass\stylesheets\fonts\pictos\pictos-web.woff" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
