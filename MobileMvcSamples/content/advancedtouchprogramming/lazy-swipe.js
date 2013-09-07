@@ -7,10 +7,12 @@ window.CustomTouch.LazySwipe = (function () {
     this.element = element;
     var self = this;
 
+    //These events for firefox and webkit-based browsers
     element.addEventListener('touchstart', function (evt) { self.start.call(self, evt); });
     element.addEventListener('touchmove', function (evt) { self.move.call(self, evt); });
     element.addEventListener('touchend', function (evt) { self.end.call(self, evt); });
 
+    //These events for all browsers that support mouse events
     element.addEventListener('mousedown', function (evt) { self.start.call(self, evt); });
     element.addEventListener('mousemove', function (evt) { self.move.call(self, evt); });
     element.addEventListener('mouseup', function (evt) { self.end.call(self, evt); });
@@ -33,11 +35,9 @@ window.CustomTouch.LazySwipe = (function () {
 
     //If you end to the right of where you started, you swipe right.
     if (currentLocation.x > this.initialLocation.x) {
-      this.element.innerText = 'swiped right #2';
       this.element.dispatchEvent(this.swipeRightEvent);
     } //If you end to the left of where you started, you swipe left.
     else if (currentLocation.x < this.initialLocation.x) {
-      this.element.innerText = 'swiped left #2';
       this.element.dispatchEvent(this.swipeLeftEvent);
     }
   }

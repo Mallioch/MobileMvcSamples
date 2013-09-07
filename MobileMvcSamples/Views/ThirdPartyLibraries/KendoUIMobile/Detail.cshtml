@@ -1,0 +1,56 @@
+﻿@model MobileMvcSamples.Controllers.ThirdPartyLibaries.KendoUIMobileController.DetailViewModel
+@{
+    ViewBag.Title = "Detail";
+}
+
+<div data-role="view" data-title="@Model.Title" id="detail">
+
+  <header data-role="header">
+    <div data-role="navbar">
+      <a class="nav-button km-button km-back" data-align="left" data-role="backbutton" href="" data-transition="slide:right" style=""><span class="km-text">Back</span></a>
+      <span data-role="view-title">@Model.Title</span>
+    </div>
+  </header>
+
+  <ul data-role="listview" data-style="inset" data-type="group" class="km-listview km-listgroupinset">
+    <li class="km-group-container">
+      <div class="">
+        <div class="km-group-title">About @Model.Title</div>
+      </div>
+      <ul>
+        <li>This is the detail page for @Model.Title. It is rockin.</li>
+        <li>
+
+          <div id="scrollview-container">
+            <div data-role="scrollview">
+
+              @foreach (var image in Model.Images)
+              {
+                <img src="@image" class="photo" />
+              }
+
+            </div>
+          </div>
+
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+</div>
+
+<style>
+  .photo {
+    display: inline-block;
+    height: 230px;
+    margin: 20px 20px 7px;
+    width: 230px;
+  }
+
+  #scrollview-container {
+    margin: 0 auto;
+    width: 270px;
+  }
+
+
+</style>

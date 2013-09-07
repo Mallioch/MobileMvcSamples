@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<div data-role="view" data-title="Kendo UI Mobile Demo" id="index">
+  <header data-role="header">
+    <div data-role="navbar">
+      <span data-role="view-title">The Title</span>
+    </div>
+  </header>
+
+  <ul data-role="listview">
+    <li><a data-role="listview-link" class="km-listview-link" href="/thirdpartylibraries/kendouimobile/detail/food">Food</a></li>
+    <li><a data-role="listview-link" class="km-listview-link" href="/thirdpartylibraries/kendouimobile/detail/humor">Humor</a></li>
+  </ul>
+
+</div>
+
+<script>
+  var app = new kendo.mobile.Application();
+</script>

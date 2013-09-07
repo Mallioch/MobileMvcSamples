@@ -44,6 +44,8 @@
 
   <script>
     window.addEventListener('load', load);
+    
+    var swipable;
 
     function load() {
       swipable = document.getElementById('swipable');
@@ -55,11 +57,11 @@
     }
 
     function left() {
-      console.log('left yo');
+      swipable.innerText = 'left you have swiped';
     }
 
     function right() {
-      console.log('right yo');
+      swipable.innerText = 'right you have swiped';
     }
 
 

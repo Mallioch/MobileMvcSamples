@@ -132,6 +132,7 @@
     <Compile Include="Controllers\LeveragingNewVisualToolsController.cs" />
     <Compile Include="Controllers\ResponsiveBasicsController.cs" />
     <Compile Include="Controllers\TestsController.cs" />
+    <Compile Include="Controllers\ThirdPartyLibaries\KendoUIMobileController.cs" />
     <Compile Include="Controllers\TouchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -152,35 +153,20 @@
     <Content Include="content\coveragechart.css" />
     <Content Include="content\footable\footable-0.1.css" />
     <Content Include="content\footable\footable-0.1.js" />
-    <Content Include="content\images\avengers_100.jpg" />
-    <Content Include="content\images\avengers_200.jpg" />
-    <Content Include="content\images\avengers_300.jpg" />
-    <Content Include="content\images\avengers_500.jpg" />
     <Content Include="content\images\bacon_100.jpg" />
     <Content Include="content\images\bacon_200.jpg" />
     <Content Include="content\images\bacon_300.jpg" />
     <Content Include="content\images\bacon_500.jpg" />
     <Content Include="content\images\bookshelf.jpg" />
-    <Content Include="content\images\cod_100.jpg" />
-    <Content Include="content\images\cod_200.jpg" />
-    <Content Include="content\images\cod_300.jpg" />
-    <Content Include="content\images\cod_500.jpg" />
     <Content Include="content\images\css_100.jpg" />
     <Content Include="content\images\css_200.jpg" />
     <Content Include="content\images\css_300.jpg" />
     <Content Include="content\images\css_500.jpg" />
-    <Content Include="content\images\DandD_100.jpg" />
-    <Content Include="content\images\DandD_200.jpg" />
-    <Content Include="content\images\DandD_300.jpg" />
-    <Content Include="content\images\DandD_500.jpg" />
     <Content Include="content\images\dice_100.jpg" />
     <Content Include="content\images\dice_200.jpg" />
     <Content Include="content\images\dice_300.jpg" />
     <Content Include="content\images\dice_500.jpg" />
-    <Content Include="content\images\dragonlance_100.jpg" />
-    <Content Include="content\images\dragonlance_200.jpg" />
-    <Content Include="content\images\dragonlance_300.jpg" />
-    <Content Include="content\images\dragonlance_500.jpg" />
+    <Content Include="content\images\dragonfruit_500.jpg" />
     <Content Include="content\images\fixed-faux-column.jpg" />
     <Content Include="content\images\greek_100.jpg" />
     <Content Include="content\images\greek_200.jpg" />
@@ -194,18 +180,11 @@
     <Content Include="content\images\lolwut_200.jpg" />
     <Content Include="content\images\lolwut_300.jpg" />
     <Content Include="content\images\lolwut_500.jpg" />
-    <Content Include="content\images\marvel_100.jpg" />
-    <Content Include="content\images\marvel_200.jpg" />
-    <Content Include="content\images\marvel_300.jpg" />
-    <Content Include="content\images\marvel_500.jpg" />
+    <Content Include="content\images\meat_500.jpg" />
     <Content Include="content\images\mitt_100.jpg" />
     <Content Include="content\images\mitt_200.jpg" />
     <Content Include="content\images\mitt_300.jpg" />
     <Content Include="content\images\mitt_500.jpg" />
-    <Content Include="content\images\noooooo_100.jpg" />
-    <Content Include="content\images\noooooo_200.jpg" />
-    <Content Include="content\images\noooooo_300.jpg" />
-    <Content Include="content\images\noooooo_500.jpg" />
     <Content Include="content\images\ready_100.jpg" />
     <Content Include="content\images\ready_200.jpg" />
     <Content Include="content\images\ready_300.jpg" />
@@ -248,6 +227,10 @@
     <Content Include="content\responsivebasics\style.css" />
     <Content Include="content\svg\building.svg" />
     <Content Include="content\svg\circle.svg" />
+    <Content Include="content\third-party-libraries\kendo-ui-mobile\images\back.png" />
+    <Content Include="content\third-party-libraries\kendo-ui-mobile\jquery.min.js" />
+    <Content Include="content\third-party-libraries\kendo-ui-mobile\kendo.mobile.all.min.css" />
+    <Content Include="content\third-party-libraries\kendo-ui-mobile\kendo.mobile.min.js" />
     <Content Include="content\video\sample-video.mp4" />
     <Content Include="content\webfonts\documentation\DOCUMENTATION.txt" />
     <Content Include="content\webfonts\FONTLOG.txt" />
@@ -550,6 +533,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\AdvancedTouchProgramming\ImplementingABasicSwipeGesture.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ThirdPartyLibraries\KendoUIMobile\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ThirdPartyLibraries\KendoUIMobile\Detail.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ThirdPartyLibraries\KendoUIMobile\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ThirdPartyLibraries\KendoUIMobile\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="content\third-party-libraries\kendo-ui-mobile\images\KendoUI.ttf" />
+    <Content Include="content\third-party-libraries\kendo-ui-mobile\images\KendoUI.woff" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
