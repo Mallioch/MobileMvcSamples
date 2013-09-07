@@ -132,7 +132,9 @@
     <Compile Include="Controllers\LeveragingNewVisualToolsController.cs" />
     <Compile Include="Controllers\ResponsiveBasicsController.cs" />
     <Compile Include="Controllers\TestsController.cs" />
+    <Compile Include="Controllers\ThirdPartyLibaries\JQueryMobileController.cs" />
     <Compile Include="Controllers\ThirdPartyLibaries\KendoUIMobileController.cs" />
+    <Compile Include="Controllers\ThirdPartyLibaries\SenchaTouchController.cs" />
     <Compile Include="Controllers\TouchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -227,6 +229,9 @@
     <Content Include="content\responsivebasics\style.css" />
     <Content Include="content\svg\building.svg" />
     <Content Include="content\svg\circle.svg" />
+    <Content Include="content\third-party-libraries\jquery-mobile\jquery.js" />
+    <Content Include="content\third-party-libraries\jquery-mobile\jquery.mobile-1.3.2.css" />
+    <Content Include="content\third-party-libraries\jquery-mobile\jquery.mobile-1.3.2.js" />
     <Content Include="content\third-party-libraries\kendo-ui-mobile\images\back.png" />
     <Content Include="content\third-party-libraries\kendo-ui-mobile\jquery.min.js" />
     <Content Include="content\third-party-libraries\kendo-ui-mobile\kendo.mobile.all.min.css" />
@@ -259,6 +264,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="content\third-party-libraries\sencha-touch\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -549,6 +555,27 @@
   <ItemGroup>
     <Content Include="content\third-party-libraries\kendo-ui-mobile\images\KendoUI.ttf" />
     <Content Include="content\third-party-libraries\kendo-ui-mobile\images\KendoUI.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ThirdPartyLibraries\JQueryMobile\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ThirdPartyLibraries\JQueryMobile\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ThirdPartyLibraries\JQueryMobile\Detail.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ThirdPartyLibraries\JQueryMobile\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ThirdPartyLibraries\SenchaTouch\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ThirdPartyLibraries\SenchaTouch\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ThirdPartyLibraries\SenchaTouch\_ViewStart.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

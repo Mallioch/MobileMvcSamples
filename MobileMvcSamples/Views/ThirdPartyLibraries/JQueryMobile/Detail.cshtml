@@ -1,0 +1,31 @@
+﻿@model MobileMvcSamples.Controllers.ThirdPartyLibaries.JQueryMobileController.DetailViewModel
+@{
+    ViewBag.Title = "Detail";
+}
+
+<div data-role="page" class="jqm-demos ui-page ui-body-c ui-page-panel ui-page-active" tabindex="0" style="min-height: 728px;">
+
+	<div class="ui-panel-content-wrap ui-body-c ui-panel-animate ui-panel-content-wrap-closed">
+    <div data-role="header" class="jqm-header ui-header ui-bar-a" role="banner">
+		  <h1 class="ui-title" role="heading" aria-level="1">@Model.Title</h1>
+	  </div>
+
+    <div data-role="content" class="ui-content" role="main">
+
+      <h1>@Model.Title</h1>
+
+      <div data-role="collapsible-set" data-theme="c" data-content-theme="d">
+        @foreach (var image in Model.Images)
+        {
+					<div data-role="collapsible">
+						<h3>@image.Name</h3>
+						<p>@image.Description</p>
+            <img src="@image.Url" style="max-width: 200px;" />
+					</div>          
+        }
+			</div>
+
+    </div>
+
+  </div>
+</div>
