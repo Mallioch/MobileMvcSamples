@@ -1,0 +1,71 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <title>Zurb Foundation</title>
+  <link href="~/content/third-party-libraries/zurbfoundation/css/normalize.css" rel="stylesheet" />
+  <link href="~/content/third-party-libraries/zurbfoundation/css/foundation.css" rel="stylesheet" />
+
+  <style>
+    .header {
+      background-color: #eee;
+    }
+
+    .header p {
+      font-size: 1.3em;
+    }
+
+    .main-content {
+      margin-top: 20px;
+    }
+
+    .image-grid {
+      background-color: #eee;
+      padding-top: 20px;
+    }
+
+    img {
+      border: solid 1px #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="row header">
+    <div class="large-12 columns">
+      <h1>Zurb Foundation</h1>
+
+      <p>Zurb Foundation is a responsive grid-focused framework. This is made with foundation 4.3.1.</p>
+    </div>
+  </div>
+
+  <div class="row main-content">
+    <div class="large-6 columns">
+      <h2>Heading</h2>
+      <p>Foundation 4 was rebuilt from the ground up to be syntactically similar, but not identical, to Foundation 3. Much of what you already know about Foundation still applies, including how to use the Grid, many of the common elements, and how the responsive aspects work (only now the media queries are written opposite because we architected Foundation 4 mobile-first).</p>
+    </div>
+    <div class="large-6 columns">
+      <h2>Heading</h2>
+      <p>Foundation 4 was rebuilt from the ground up to be syntactically similar, but not identical, to Foundation 3. Much of what you already know about Foundation still applies, including how to use the Grid, many of the common elements, and how the responsive aspects work (only now the media queries are written opposite because we architected Foundation 4 mobile-first).</p>
+    </div>
+  </div>
+
+  <ul class="small-block-grid-2 large-block-grid-4 image-grid">
+    <li><img src="~/content/images/dice_200.jpg" /></li>
+    <li><img src="~/content/images/ready_200.jpg" /></li>
+    <li><img src="~/content/images/greek_200.jpg" /></li>
+    <li><img src="~/content/images/bacon_200.jpg" /></li>
+  </ul>
+
+  <script src="~/content/jquery-1-9-0.js"></script>
+  <script src="~/content/third-party-libraries/zurbfoundation/js/foundation.min.js"></script>
+
+  <script>
+    $(document).foundation();
+  </script>
+</body>
+</html>

@@ -133,6 +133,7 @@
     <Compile Include="Controllers\ResponsiveBasicsController.cs" />
     <Compile Include="Controllers\TestsController.cs" />
     <Compile Include="Controllers\ThirdPartyLibaries\BootstrapController.cs" />
+    <Compile Include="Controllers\ThirdPartyLibaries\ZurbFoundationController.cs" />
     <Compile Include="Controllers\ThirdPartyLibaries\JQueryMobileController.cs" />
     <Compile Include="Controllers\ThirdPartyLibaries\KendoUIMobileController.cs" />
     <Compile Include="Controllers\ThirdPartyLibaries\SenchaTouchController.cs" />
@@ -1892,6 +1893,7 @@
     <Folder Include="content\third-party-libraries\sencha-touch\packages\" />
     <Folder Include="content\third-party-libraries\sencha-touch\touch\src\chart\" />
     <Folder Include="content\third-party-libraries\sencha-touch\touch\src\draw\" />
+    <Folder Include="content\third-party-libraries\zurbfoundation\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -2522,6 +2524,9 @@
     <Content Include="content\third-party-libraries\sencha-touch\packager.json" />
     <Content Include="content\third-party-libraries\sencha-touch\packages.config" />
     <Content Include="content\third-party-libraries\sencha-touch\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ThirdPartyLibraries\ZurbFoundation\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
