@@ -1861,6 +1861,29 @@
     <Content Include="content\third-party-libraries\sencha-touch\touch\src\XTemplateCompiler.js" />
     <Content Include="content\third-party-libraries\sencha-touch\touch\src\XTemplateParser.js" />
     <Content Include="content\third-party-libraries\sencha-touch\touch\version.txt" />
+    <Content Include="content\third-party-libraries\zurbfoundation\css\foundation.css" />
+    <Content Include="content\third-party-libraries\zurbfoundation\css\foundation.min.css" />
+    <Content Include="content\third-party-libraries\zurbfoundation\css\normalize.css" />
+    <Content Include="content\third-party-libraries\zurbfoundation\js\foundation.min.js" />
+    <Content Include="content\third-party-libraries\zurbfoundation\js\foundation\foundation.abide.js" />
+    <Content Include="content\third-party-libraries\zurbfoundation\js\foundation\foundation.alerts.js" />
+    <Content Include="content\third-party-libraries\zurbfoundation\js\foundation\foundation.clearing.js" />
+    <Content Include="content\third-party-libraries\zurbfoundation\js\foundation\foundation.cookie.js" />
+    <Content Include="content\third-party-libraries\zurbfoundation\js\foundation\foundation.dropdown.js" />
+    <Content Include="content\third-party-libraries\zurbfoundation\js\foundation\foundation.forms.js" />
+    <Content Include="content\third-party-libraries\zurbfoundation\js\foundation\foundation.interchange.js" />
+    <Content Include="content\third-party-libraries\zurbfoundation\js\foundation\foundation.joyride.js" />
+    <Content Include="content\third-party-libraries\zurbfoundation\js\foundation\foundation.js" />
+    <Content Include="content\third-party-libraries\zurbfoundation\js\foundation\foundation.magellan.js" />
+    <Content Include="content\third-party-libraries\zurbfoundation\js\foundation\foundation.orbit.js" />
+    <Content Include="content\third-party-libraries\zurbfoundation\js\foundation\foundation.placeholder.js" />
+    <Content Include="content\third-party-libraries\zurbfoundation\js\foundation\foundation.reveal.js" />
+    <Content Include="content\third-party-libraries\zurbfoundation\js\foundation\foundation.section.js" />
+    <Content Include="content\third-party-libraries\zurbfoundation\js\foundation\foundation.tooltips.js" />
+    <Content Include="content\third-party-libraries\zurbfoundation\js\foundation\foundation.topbar.js" />
+    <Content Include="content\third-party-libraries\zurbfoundation\js\vendor\custom.modernizr.js" />
+    <Content Include="content\third-party-libraries\zurbfoundation\js\vendor\jquery.js" />
+    <Content Include="content\third-party-libraries\zurbfoundation\js\vendor\zepto.js" />
     <Content Include="content\video\sample-video.mp4" />
     <Content Include="content\webfonts\documentation\DOCUMENTATION.txt" />
     <Content Include="content\webfonts\FONTLOG.txt" />
@@ -1893,7 +1916,7 @@
     <Folder Include="content\third-party-libraries\sencha-touch\packages\" />
     <Folder Include="content\third-party-libraries\sencha-touch\touch\src\chart\" />
     <Folder Include="content\third-party-libraries\sencha-touch\touch\src\draw\" />
-    <Folder Include="content\third-party-libraries\zurbfoundation\" />
+    <Folder Include="content\third-party-libraries\zurbfoundation\img\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
