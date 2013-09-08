@@ -229,6 +229,8 @@
     <Content Include="content\responsivebasics\style.css" />
     <Content Include="content\svg\building.svg" />
     <Content Include="content\svg\circle.svg" />
+    <Content Include="content\third-party-libraries\jquery-mobile\images\ajax-loader.gif" />
+    <Content Include="content\third-party-libraries\jquery-mobile\images\icons-18-white.png" />
     <Content Include="content\third-party-libraries\jquery-mobile\jquery.js" />
     <Content Include="content\third-party-libraries\jquery-mobile\jquery.mobile-1.3.2.css" />
     <Content Include="content\third-party-libraries\jquery-mobile\jquery.mobile-1.3.2.js" />
