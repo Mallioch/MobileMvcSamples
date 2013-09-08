@@ -132,6 +132,7 @@
     <Compile Include="Controllers\LeveragingNewVisualToolsController.cs" />
     <Compile Include="Controllers\ResponsiveBasicsController.cs" />
     <Compile Include="Controllers\TestsController.cs" />
+    <Compile Include="Controllers\ThirdPartyLibaries\BootstrapController.cs" />
     <Compile Include="Controllers\ThirdPartyLibaries\JQueryMobileController.cs" />
     <Compile Include="Controllers\ThirdPartyLibaries\KendoUIMobileController.cs" />
     <Compile Include="Controllers\ThirdPartyLibaries\SenchaTouchController.cs" />
@@ -229,6 +230,13 @@
     <Content Include="content\responsivebasics\style.css" />
     <Content Include="content\svg\building.svg" />
     <Content Include="content\svg\circle.svg" />
+    <Content Include="content\third-party-libraries\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="content\third-party-libraries\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="content\third-party-libraries\bootstrap\css\bootstrap.css" />
+    <Content Include="content\third-party-libraries\bootstrap\css\bootstrap.min.css" />
+    <Content Include="content\third-party-libraries\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="content\third-party-libraries\bootstrap\js\bootstrap.js" />
+    <Content Include="content\third-party-libraries\bootstrap\js\bootstrap.min.js" />
     <Content Include="content\third-party-libraries\jquery-mobile\images\ajax-loader.gif" />
     <Content Include="content\third-party-libraries\jquery-mobile\images\icons-18-white.png" />
     <Content Include="content\third-party-libraries\jquery-mobile\jquery.js" />
@@ -238,7 +246,15 @@
     <Content Include="content\third-party-libraries\kendo-ui-mobile\jquery.min.js" />
     <Content Include="content\third-party-libraries\kendo-ui-mobile\kendo.mobile.all.min.css" />
     <Content Include="content\third-party-libraries\kendo-ui-mobile\kendo.mobile.min.js" />
+    <Content Include="content\third-party-libraries\sencha-touch\.sencha\app\build-impl.xml" />
+    <Content Include="content\third-party-libraries\sencha-touch\.sencha\app\plugin.xml" />
+    <Content Include="content\third-party-libraries\sencha-touch\.sencha\workspace\plugin.xml" />
     <Content Include="content\third-party-libraries\sencha-touch\app.js" />
+    <Content Include="content\third-party-libraries\sencha-touch\app\view\Main.js" />
+    <Content Include="content\third-party-libraries\sencha-touch\build.xml" />
+    <Content Include="content\third-party-libraries\sencha-touch\content\bacon_200.jpg" />
+    <Content Include="content\third-party-libraries\sencha-touch\content\css_200.jpg" />
+    <Content Include="content\third-party-libraries\sencha-touch\content\dice_200.jpg" />
     <Content Include="content\third-party-libraries\sencha-touch\index.html" />
     <Content Include="content\third-party-libraries\sencha-touch\resources\css\app.css" />
     <Content Include="content\third-party-libraries\sencha-touch\resources\icons\Icon%402x.png" />
@@ -268,6 +284,8 @@
     <Content Include="content\third-party-libraries\sencha-touch\touch\file-header.txt" />
     <Content Include="content\third-party-libraries\sencha-touch\touch\license.txt" />
     <Content Include="content\third-party-libraries\sencha-touch\touch\microloader\development.js" />
+    <Content Include="content\third-party-libraries\sencha-touch\touch\microloader\production.js" />
+    <Content Include="content\third-party-libraries\sencha-touch\touch\microloader\testing.js" />
     <Content Include="content\third-party-libraries\sencha-touch\touch\resources\css-debug\base.css" />
     <Content Include="content\third-party-libraries\sencha-touch\touch\resources\css-debug\bb10.css" />
     <Content Include="content\third-party-libraries\sencha-touch\touch\resources\css-debug\sencha-touch.css" />
@@ -1870,6 +1888,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="content\third-party-libraries\sencha-touch\app\profile\" />
+    <Folder Include="content\third-party-libraries\sencha-touch\packages\" />
     <Folder Include="content\third-party-libraries\sencha-touch\touch\src\chart\" />
     <Folder Include="content\third-party-libraries\sencha-touch\touch\src\draw\" />
     <Folder Include="Models\" />
@@ -2473,6 +2493,35 @@
     <Content Include="content\third-party-libraries\sencha-touch\resources\sass\stylesheets\fonts\pictos\pictos-web.eot" />
     <Content Include="content\third-party-libraries\sencha-touch\resources\sass\stylesheets\fonts\pictos\pictos-web.ttf" />
     <Content Include="content\third-party-libraries\sencha-touch\resources\sass\stylesheets\fonts\pictos\pictos-web.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ThirdPartyLibraries\Bootstrap\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="content\third-party-libraries\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="content\third-party-libraries\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="content\third-party-libraries\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="content\third-party-libraries\sencha-touch\.sencha\app\build.properties" />
+    <Content Include="content\third-party-libraries\sencha-touch\.sencha\app\codegen.json" />
+    <Content Include="content\third-party-libraries\sencha-touch\.sencha\app\native.properties" />
+    <Content Include="content\third-party-libraries\sencha-touch\.sencha\app\package.properties" />
+    <Content Include="content\third-party-libraries\sencha-touch\.sencha\app\production.properties" />
+    <Content Include="content\third-party-libraries\sencha-touch\.sencha\app\sencha.cfg" />
+    <Content Include="content\third-party-libraries\sencha-touch\.sencha\app\testing.properties" />
+    <Content Include="content\third-party-libraries\sencha-touch\.sencha\workspace\sencha.cfg" />
+    <Content Include="content\third-party-libraries\sencha-touch\app\controller\Readme.md" />
+    <Content Include="content\third-party-libraries\sencha-touch\app\form\Readme.md" />
+    <Content Include="content\third-party-libraries\sencha-touch\app\model\Readme.md" />
+    <Content Include="content\third-party-libraries\sencha-touch\app\Readme.md" />
+    <Content Include="content\third-party-libraries\sencha-touch\app\store\Readme.md" />
+    <Content Include="content\third-party-libraries\sencha-touch\app\view\Readme.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="content\third-party-libraries\sencha-touch\packager.json" />
+    <Content Include="content\third-party-libraries\sencha-touch\packages.config" />
+    <Content Include="content\third-party-libraries\sencha-touch\Web.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
