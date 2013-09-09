@@ -22,21 +22,6 @@ Ext.Loader.setPath({
 Ext.application({
     name: 'MyApp',
 
-    requires: [
-        'Ext.MessageBox'
-    ],
-
-    views: [
-        'Main'
-    ],
-
-    icon: {
-        '57': 'resources/icons/Icon.png',
-        '72': 'resources/icons/Icon~ipad.png',
-        '114': 'resources/icons/Icon@2x.png',
-        '144': 'resources/icons/Icon~ipad@2x.png'
-    },
-
     isIconPrecomposed: true,
 
     startupImage: {
@@ -49,115 +34,108 @@ Ext.application({
     },
 
     launch: function() {
-        // Destroy the #appLoadingIndicator element
-        Ext.fly('appLoadingIndicator').destroy();
+      // Destroy the #appLoadingIndicator element
+      Ext.fly('appLoadingIndicator').destroy();
 
-        Ext.create('Ext.tab.Panel', {
-          fullscreen: true,
-          tabBarPosition: 'bottom',
+      //This creates the tab panel. The number of items is determined below.
+      Ext.create('Ext.tab.Panel', {
+        fullscreen: true,
+        tabBarPosition: 'bottom',
 
-          items: [
-            {
-              title: 'Welcome',
-              iconCls: 'home',
+        //There are three things in this array, so there are three elements in the tab bar.
+        items: [
+          {
+            title: 'Welcome',
+            iconCls: 'home',
 
-              styleHtmlContent: true,
-              scrollable: true,
+            styleHtmlContent: true,
+            scrollable: true,
 
-              items: {
-                docked: 'top',
-                xtype: 'titlebar',
-                title: 'Sencha Touch Demo'
-              },
-
-              html: [
-                  "This is a simple Sencha Touch demo. It was created with Sencha Touch 2."
-              ].join("")
+            items: {
+              docked: 'top',
+              xtype: 'titlebar',
+              title: 'Sencha Touch Demo'
             },
-              {
-                xtype: 'nestedlist',
-                title: 'Blog',
-                iconCls: 'star',
-                displayField: 'title',
 
-                store: {
-                  type: 'tree',
+            html: [
+                "This is a simple Sencha Touch demo. It was created with Sencha Touch 2."
+            ].join("")
+          },
 
-                  fields: [
-                      'title', 'link', 'author', 'contentSnippet', 'content',
-                      { name: 'leaf', defaultValue: true }
-                  ],
+          //The blog page
+          {
+            xtype: 'nestedlist',
+            title: 'Blog',
+            iconCls: 'star',
+            displayField: 'title',
 
-                  root: {
-                    leaf: false
-                  },
+            store: {
+              type: 'tree',
 
-                  proxy: {
-                    type: 'jsonp',
-                    url: 'https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://feeds.feedburner.com/ericsowell',
-                    reader: {
-                      type: 'json',
-                      rootProperty: 'responseData.feed.entries'
-                    }
-                  }
-                }
+              fields: [
+                  'title', 'link', 'author', 'contentSnippet', 'content',
+                  { name: 'leaf', defaultValue: true }
+              ],
+
+              root: {
+                leaf: false
               },
-              {
-                title: 'Gallery',
-                iconCls: 'home',
 
-                styleHtmlContent: false,
-                scrollable: false,
+              proxy: {
+                type: 'jsonp',
+                url: 'https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://feeds.feedburner.com/ericsowell',
+                reader: {
+                  type: 'json',
+                  rootProperty: 'responseData.feed.entries'
+                }
+              }
+            }
+          },
 
-                layout: {
-                  type: 'hbox',
-                  pack: 'center'
-                },
+          //The gallery page. The actual carousel is a child, setup below.
+          {
+            title: 'Gallery',
+            iconCls: 'home',
+
+            styleHtmlContent: false,
+            scrollable: false,
+
+            layout: {
+              type: 'hbox',
+              pack: 'center'
+            },
+
+            defaults: {
+              height: 200,
+              width: 200
+            },
+
+            items: [                  
+              Ext.create('Ext.Carousel', {
+                fullscreen: false,
 
                 defaults: {
+                  styleHtmlContent: false,
                   height: 200,
                   width: 200
                 },
 
-                items: [                  
-                  Ext.create('Ext.Carousel', {
-                  fullscreen: false,
-
-                  defaults: {
-                    styleHtmlContent: false,
-                    height: 200,
-                    width: 200
-                  },
-
-                  items: [
-                      {
-                        html: '<img src="/content/bacon_200.jpg" />',
-                      },
-                      {
-                        html: '<img src="/content/css_200.jpg" />',
-                      },
-                      {
-                        html: '<img src="/content/dice_200.jpg" />',
-                      }
+                items: [
+                    {
+                      html: '<img src="/content/bacon_200.jpg" />',
+                    },
+                    {
+                      html: '<img src="/content/css_200.jpg" />',
+                    },
+                    {
+                      html: '<img src="/content/dice_200.jpg" />',
+                    }
                       
                   ]
-                  })
-                  ]
-,
-              }
-          ]
-        });
-    },
-
-    onUpdated: function() {
-        Ext.Msg.confirm(
-            "Application Update",
-            "This application has just successfully been updated to the latest version. Reload now?",
-            function(buttonId) {
-                if (buttonId === 'yes') {
-                    window.location.reload();
-                }
+                })
+              ]
             }
-        );
+          ]
+        });//End of Ext.tab.Panel
     }
 });

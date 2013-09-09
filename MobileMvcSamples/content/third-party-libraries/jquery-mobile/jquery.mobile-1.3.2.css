@@ -765,7 +765,7 @@ a.ui-link-inherit {
 .ui-icon-searchfield:after {
 	background: 						#666 /*{global-icon-color}*/;
 	background: 						rgba(0,0,0,.4) /*{global-icon-disc}*/;
-	background-image: url(images/icons-18-white.png) /*{global-icon-set}*/;
+	background-image: url(/content/third-party-libraries/jquery-mobile/images/icons-18-white.png) /*{global-icon-set}*/;
 	background-repeat: no-repeat;
 	-webkit-border-radius: 				9px;
 	border-radius: 						9px;
