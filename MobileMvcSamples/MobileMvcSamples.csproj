@@ -149,6 +149,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="content\advancedtouchprogramming\custom-event-polyfill.js" />
     <Content Include="content\advancedtouchprogramming\lazy-swipe.js" />
     <Content Include="content\appcache\calc.js" />
     <Content Include="content\appcache\test2.css" />
@@ -170,6 +171,7 @@
     <Content Include="content\images\dice_200.jpg" />
     <Content Include="content\images\dice_300.jpg" />
     <Content Include="content\images\dice_500.jpg" />
+    <Content Include="content\images\dragonfruit_100.jpg" />
     <Content Include="content\images\dragonfruit_500.jpg" />
     <Content Include="content\images\fixed-faux-column.jpg" />
     <Content Include="content\images\greek_100.jpg" />
@@ -184,6 +186,7 @@
     <Content Include="content\images\lolwut_200.jpg" />
     <Content Include="content\images\lolwut_300.jpg" />
     <Content Include="content\images\lolwut_500.jpg" />
+    <Content Include="content\images\meat_100.jpg" />
     <Content Include="content\images\meat_500.jpg" />
     <Content Include="content\images\mitt_100.jpg" />
     <Content Include="content\images\mitt_200.jpg" />
@@ -2550,6 +2553,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\ThirdPartyLibraries\ZurbFoundation\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AdvancedTouchProgramming\CreatingASwipeableImageWidget.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
