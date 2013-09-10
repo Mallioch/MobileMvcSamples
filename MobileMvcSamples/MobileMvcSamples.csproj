@@ -151,6 +151,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="content\advancedtouchprogramming\custom-event-polyfill.js" />
     <Content Include="content\advancedtouchprogramming\lazy-swipe.js" />
+    <Content Include="content\advancedtouchprogramming\turnable-button.png" />
     <Content Include="content\appcache\calc.js" />
     <Content Include="content\appcache\test2.css" />
     <Content Include="content\appcache\test.css" />
