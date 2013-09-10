@@ -1,0 +1,60 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Rotating</title>
+
+  <style>
+    .container {
+      background-color: #EEE;
+      height: 100%;
+      min-height: 200px;
+      width: 100%;
+    }
+
+    #button {
+      display: block;
+      margin: auto auto;
+      width: 150px;
+
+      /*-webkit-transform: rotate(90deg);*/
+    }
+  </style>
+</head>
+<body>
+  <h1>Rotating</h1>
+  <div class="container">
+    <img src="~/content/advancedtouchprogramming/turnable-button.png" id="button" />
+  </div>
+
+<script>
+
+  window.addEventListener('load', load);
+
+  function load() {
+    var button = document.getElementById('button');
+
+    button.addEventListener('touchstart', function (evt) {
+      evt.preventDefault();
+    });
+
+    button.addEventListener('touchmove', move);
+  }
+
+  function move(evt) {
+    console.log(evt.rotation);
+    button.style.webkitTransform = 'rotate(' + evt.rotation + 'deg)';
+
+    
+  }
+
+
+
+</script>
+</body>
+</html>
