@@ -41,103 +41,16 @@
       var pincher = new window.Pincher(box);
     }
 
-    function start(evt) {
-      //evt.preventDefault();
-      //console.log('start', evt.touches.length);
-
-      //if (evt.touches.length === 1)
-      //  moveStarted = true;
-      //else {
-      //  resizeStarted = true;
-      //  moveStarted = false; //If two touches, resizing
-      //}
-
-    }
-
-    function move(evt) {
-      if (moveStarted) {
-
-        //if (!offset) {
-        //  offset = getPosition(evt);
-        //  console.log('new offset', offset.x, offset.y);
-        //}
-        //box.style.left = (evt.touches[0].pageX - offset.x) + 'px';
-        //box.style.top = (evt.touches[0].pageY - offset.y) +  'px';
-      }
-      else if (resizeStarted && evt.touches.length > 1) {
-        //if (!originalDistance) {
-        //  var firstLength = Math.abs(evt.touches[0].pageX - evt.touches[1].pageX);
-        //  var secondLength = Math.abs(evt.touches[0].pageY - evt.touches[1].pageY);
-
-        //  originalDistance = Math.sqrt((firstLength * firstLength) + (secondLength * secondLength));
-
-        //  console.log('calcing', originalDistance);
-        //}
-        //else {
-        //  var firstLength = Math.abs(evt.touches[0].pageX - evt.touches[1].pageX);
-        //  var secondLength = Math.abs(evt.touches[0].pageY - evt.touches[1].pageY);
-
-        //  var newDistance = Math.sqrt((firstLength * firstLength) + (secondLength * secondLength));
-        //  transformValue = newDistance / originalDistance;
-        //  if (box.transformValue) {
-        //    console.log('new value', transformValue, box.transformValue);
-        //    transformValue = box.transformValue * transformValue;
-        //  }
-
-        //  box.style.webkitTransform = 'scale(' + transformValue + ')';
-        //}
-      }
-    }
-
-    function end(evt) {
-      if (evt.touches.length < 2) {
-        //moveStarted = false;
-        offset = null;
-        originalDistance = null;
-
-        if (transformValue) {
-          box.transformValue = transformValue;
-          transformValue = null;
-          //console.log('saving transform value', box.transformValue);
-        }
-      }
-    }
-
-    //function getPosition(evt) {
-
-    //  var pageX, pageY;
-    //  if (evt.touches) { //If this is a touch event
-    //    pageX = evt.changedTouches[0].pageX;
-    //    pageY = evt.changedTouches[0].pageY;
-    //  }
-    //  else { //If this is a mouse or pointer event
-    //    pageX = evt.pageX;
-    //    pageY = evt.pageY;
-    //  }
-
-    //  return {
-    //    y: pageY - evt.target.offsetTop,
-    //    x: pageX - evt.target.offsetLeft
-    //  };
-    //}
-
-    //function getOffsets(element, offsets) {
-    //  offsets = offsets || { left: element.offsetLeft, top: element.offsetTop };
-    //  if (element.parentNode) {
-    //    console.log('offset for parent', element.parentNode.offsetLeft, element.parentNode.offsetTop);
-    //    offsets.left += element.parentNode.offsetLeft || 0;
-    //    offsets.top += element.parentNode.offsetTop || 0;
-    //    offsets = getOffsets(element.parentNode, offsets);
-    //  }
-    //  return offsets;
-    //}
-
     window.Pincher = (function () {
 
       var pincher = function (element) {
         this.element = element;
-        this.touches = {};
-        this.touchCount = 0;
+        this.touchInfo = {
+          touchLookup: {},
+          touchArray: []
+        };
+        //this.touches = {};
+        //this.touchCount = 0;
         this.mode = 'none'; //move, resize are other modes
 
         var self = this;
@@ -145,25 +58,24 @@
         this.element.addEventListener('touchstart', function (evt) { self.start.call(self, evt) });
         this.element.addEventListener('touchmove', function (evt) { self.change.call(self, evt) });
         this.element.addEventListener('touchend', function (evt) { self.end.call(self, evt) });
+
+        this.element.addEventListener('MSPointerDown', function (evt) { self.start.call(self, evt) });
+        this.element.addEventListener('MSPointerMove', function (evt) { self.change.call(self, evt) });
+        this.element.addEventListener('MSPointerUp', function (evt) { self.end.call(self, evt) });
       }
 
       pincher.prototype.start = function (evt) {
         evt.preventDefault();
         this.registerTouch(evt);
         this.setMode();
-
-        //console.log('this', this.mode, this);
-        //console.log(evt);
       }
 
       pincher.prototype.change = function (evt) {
 
         if (this.mode === 'move') {
-          //console.log('moving');
           this.move(evt);
         }
         else if (this.mode === 'resize') {
-          //console.log('distance', this.originalDistanceBetweenTouchPoints);
           this.resize(evt);
         }
 
@@ -172,16 +84,19 @@
       pincher.prototype.resize = function (evt) {
         if (!this.originalDistanceBetweenTouchPoints) {
           console.log('resetting originalDistanceBetweenTouchPoints');
-          var firstLength = Math.abs(evt.touches[0].pageX - evt.touches[1].pageX);
-          var secondLength = Math.abs(evt.touches[0].pageY - evt.touches[1].pageY);
+          var firstLength = Math.abs(this.touchInfo.touchArray[0].pageX - this.touchInfo.touchArray[1].pageX);
+          var secondLength = Math.abs(this.touchInfo.touchArray[0].pageY - this.touchInfo.touchArray[1].pageY);
 
           this.originalDistanceBetweenTouchPoints = Math.sqrt((firstLength * firstLength) + (secondLength * secondLength));
 
           //console.log('calcing', this.originalDistanceBetweenTouchPoints);
         }
         else {
-          var firstLength = Math.abs(evt.touches[0].pageX - evt.touches[1].pageX);
-          var secondLength = Math.abs(evt.touches[0].pageY - evt.touches[1].pageY);
+          //var firstLength = Math.abs(evt.touches[0].pageX - evt.touches[1].pageX);
+          //var secondLength = Math.abs(evt.touches[0].pageY - evt.touches[1].pageY);
+
+          var firstLength = Math.abs(this.touchInfo.touchArray[0].pageX - this.touchInfo.touchArray[1].pageX);
+          var secondLength = Math.abs(this.touchInfo.touchArray[0].pageY - this.touchInfo.touchArray[1].pageY);
 
           var newDistance = Math.sqrt((firstLength * firstLength) + (secondLength * secondLength));
           this.activeTransformValue = newDistance / this.originalDistanceBetweenTouchPoints;
@@ -198,21 +113,17 @@
         if (!this.startingOffset)
           this.startingOffset = this.getPosition(evt);
 
-        this.element.style.left = (evt.touches[0].pageX - this.startingOffset.x) + 'px';
-        this.element.style.top = (evt.touches[0].pageY - this.startingOffset.y) + 'px';
+        //console.log('move info', this.startingOffset, this.touchInfo.touchArray[0]);
+        outputEventVerbose(this.touchInfo.touchArray[0]);
+
+        this.element.style.left = (this.touchInfo.touchArray[0].pageX - this.startingOffset.x) + 'px';
+        this.element.style.top = (this.touchInfo.touchArray[0].pageY - this.startingOffset.y) + 'px';
       }
 
       pincher.prototype.end = function (evt) {
 
         //reset the events array. Avoids the lookup annoyance.
-        this.touches = {};
-        this.touchCount = 0;
-
-        for (var i = 0; i < evt.touches.length; i++) {
-          var touch = evt.touches[i];
-          this.touches[touch.identifier] = touch;
-          this.touchCount++;
-        }
+        this.removeDeadTouches(evt);
 
         //set state
         this.setMode();
@@ -222,31 +133,67 @@
           this.currentTransformValue = this.activeTransformValue;
         }
 
-        if (this.touchCount < 2)
+        if (this.touchInfo.touchArray.length < 2)
           this.originalDistanceBetweenTouchPoints = null;
 
       }
 
+      pincher.prototype.removeDeadTouches = function (evt) {
+
+        if (evt.touches) { //touch events
+          var ids = '', i = 0;
+          for (i; i < evt.touches.length; i++) {
+            var touch = evt.touches[i];
+            if (ids.length > 0)
+              ids += '|';
+            ids += touch.identifier;
+          }
+
+          for (var key in this.touchInfo.touchLookup) {
+            if (ids.indexOf(key) === -1) { //need to remove the touch
+              this.touchInfo.touchArray.splice(this.touchInfo.touchLookup[key].indexInArray);
+              delete this.touchInfo.touchLookup[key];
+            }
+          }
+        }
+        else { //mouse and pointer events
+          this.touchInfo.touchArray = [];
+          this.touchInfo.touchLookup = {};
+        }
+
+      }
+
       pincher.prototype.registerTouch = function (evt) {
-        if (evt.touches) {
-          this.touchCount = 0;
+        if (evt.touches) { //touch events
           for (var i = 0; i < evt.touches.length; i++) {
             var touch = evt.touches[i];
-            this.touches[touch.identifier] = touch;
-            this.touchCount++;
+
+            if (!this.touchInfo.touchLookup[touch.identifier]) {
+              this.touchInfo.touchArray.push(touch);
+              this.touchInfo.touchLookup[touch.identifier] = touch;
+              touch.indexInArray = this.touchInfo.length - 1;
+            }
           }
+        }
+        else { //mouse or pointer events
+          //TODO: thing
+          this.touchInfo.touchArray.push(evt);
+          this.touchInfo.touchLookup[0] = evt;
+          evt.indexInArray = 0;
         }
       }
 
       pincher.prototype.setMode = function () {
         this.startingOffset = null;
 
-        if (this.touchCount === 1)
+        if (this.touchInfo.touchArray.length === 1)
           this.mode = 'move';
-        else if (this.touchCount === 2)
+        else if (this.touchInfo.touchArray.length === 2)
           this.mode = 'resize';
         else
           this.mode = 'none';
+
+        console.log('set mode to', this.mode, this.touchInfo.touchArray.length);
       }
 
       pincher.prototype.getPosition = function(evt) {
@@ -271,7 +218,6 @@
       return pincher;
     })();
 
-    //console.log(window.Pincher);
 
     //PROBLEMS TO SOLVE
 
@@ -283,6 +229,35 @@
     //Notes
     //
     //1. To disable pinch and zoom for older Android, need to use viewport
+
+
+    function outputEvent(evt) {
+      console.log(evt.type, ' pointerId: ', evt.pointerId, ' { x: ' + evt.offsetX + ', y: ' + evt.offsetY + ' }');
+    }
+
+    function outputEventVerbose(evt) {
+
+      var output = '==================================================\r\n';
+
+      for (var key in evt) {
+
+        if (isFunction(evt[key])) {
+          output += key + ': [function]\r\n';
+        }
+        else {
+          output += key + ': ' + evt[key] + '\r\n';
+        }
+      }
+
+      console.log(output);
+      console.log('==================================================\r\n');
+    }
+
+    function isFunction(object) {
+      //return object && getClass.call(object) == '[object Function]';
+      return typeof (object) == "function";
+    }
+
 
   </script>
 
