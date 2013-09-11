@@ -2561,6 +2561,9 @@
   <ItemGroup>
     <Content Include="Views\AdvancedTouchProgramming\Rotating.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AdvancedTouchProgramming\Pinch.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -31,26 +31,57 @@
   <div class="container">
     <img src="~/content/advancedtouchprogramming/turnable-button.png" id="button" />
   </div>
+  <div id="display"></div>
 
 <script>
 
   window.addEventListener('load', load);
 
+  var display, originalSlope;
+
   function load() {
     var button = document.getElementById('button');
+    display = document.getElementById('display');
 
     button.addEventListener('touchstart', function (evt) {
       evt.preventDefault();
     });
 
     button.addEventListener('touchmove', move);
+    button.addEventListener('touchend', end);
   }
 
   function move(evt) {
-    console.log(evt.rotation);
-    button.style.webkitTransform = 'rotate(' + evt.rotation + 'deg)';
+    //console.log(evt);
+    //display.innerHTML = 'rotation: ' + evt.rotation + '; rotation angle: ' + evt.touches[0].webkitRotationAngle;
+    //button.style.webkitTransform = 'rotate(' + evt.rotation + 'deg)';
 
+    if (evt.changedTouches.length > 1) {
+
+      var slope = evt.changedTouches[0].pageY - evt.changedTouches[1].pageY / evt.changedTouches[0].pageX - evt.changedTouches[1].pageX;
+      if (!originalSlope) {
+        originalSlope = slope;
+        console.log('reset original slope');
+      }
+
+      var message = 'x: ' + evt.changedTouches[0].pageX + '; y: ' + evt.changedTouches[0].pageY;
+      message += ' -- x: ' + evt.changedTouches[1].pageX + '; y: ' + evt.changedTouches[1].pageY;
+      message += ' -- slope: ' + slope;
+      if (originalSlope)
+        message += ' -- rotation calc: ' + (originalSlope - slope);
+
+      if (evt.rotation) {
+        message += ' -- rotation: ' + evt.rotation;
+      }
+
+      display.innerHTML = message;
+    }
     
+  }
+
+  function end(evt) {
+    if (evt.touches.length == 0)
+      alert('done');
   }
 
 

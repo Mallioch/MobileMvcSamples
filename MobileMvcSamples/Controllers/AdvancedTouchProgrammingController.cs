@@ -22,5 +22,10 @@ namespace MobileMvcSamples.Controllers
         {
             return View();
         }
+
+        public ActionResult Pinch()
+        {
+            return View();
+        }
     }
 }
