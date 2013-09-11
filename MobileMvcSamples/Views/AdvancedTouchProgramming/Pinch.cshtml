@@ -11,7 +11,6 @@
 
   <style>
     #the-box {
-      background-color: red;
       height: 200px;
       margin: 20px 0 0 20px;
       width: 200px;
@@ -21,269 +20,31 @@
   </style>
 </head>
 <body>
-  <h1>Pinch</h1>
+@*  <p id="display">Pinch</p>
+  <p id="display2">display 2</p>*@
 
-  <div id="the-box">
+@*  <div id="the-box" style="">
 
-  </div>
+  </div>*@
+  <img src="~/content/images/hogan_500.jpg" id="the-box" />
+
+
+  <script src="/content/advancedtouchprogramming/pincher.js?cachebust=@Guid.NewGuid().ToString()"></script>
 
   <script>
     window.addEventListener('load', load);
 
     //var box, moveStarted, resizeStarted, offset, originalDistance, transformValue;
+    //var display, display2;
 
     function load() {
+      console.log('loaded');
       var box = document.getElementById('the-box');
+      //display = document.getElementById('display');
+      //display2 = document.getElementById('display2');
 
       var pincher = new window.Pincher(box);
     }
-
-    window.Pincher = (function () {
-
-      var pincher = function (element) {
-        this.element = element;
-        this.touchInfo = {
-          touchLookup: {},
-          touchArray: []
-        };
-        this.mode = 'none'; //move, resize are other modes
-
-        var self = this;
-
-        this.element.addEventListener('touchstart', function (evt) { self.start.call(self, evt) });
-        this.element.addEventListener('touchmove', function (evt) { self.change.call(self, evt) });
-        this.element.addEventListener('touchend', function (evt) { self.end.call(self, evt) });
-
-        this.element.addEventListener('MSPointerDown', function (evt) { self.start.call(self, evt) });
-        this.element.addEventListener('MSPointerMove', function (evt) { self.change.call(self, evt) });
-        this.element.addEventListener('MSPointerUp', function (evt) { self.end.call(self, evt) });
-      }
-
-      pincher.prototype.start = function (evt) {
-        //console.log('start ' + evt.pageX + ' - ' + evt.pageY);
-        //outputEventVerbose(evt);
-
-        evt.preventDefault();
-        this.registerTouch(evt);
-        this.setMode();
-      }
-
-      pincher.prototype.change = function (evt) {
-        this.updateTouchEvent(evt);
-
-        if (this.mode === 'move') {
-          this.move(evt);
-        }
-        else if (this.mode === 'resize') {
-          this.resize(evt);
-        }
-
-      }
-
-      pincher.prototype.resize = function (evt) {
-        if (!this.originalDistanceBetweenTouchPoints) {
-          //console.log('resetting originalDistanceBetweenTouchPoints');
-          var firstLength = Math.abs(this.touchInfo.touchArray[0].pageX - this.touchInfo.touchArray[1].pageX);
-          var secondLength = Math.abs(this.touchInfo.touchArray[0].pageY - this.touchInfo.touchArray[1].pageY);
-
-          this.originalDistanceBetweenTouchPoints = Math.sqrt((firstLength * firstLength) + (secondLength * secondLength));
-
-          //console.log('calcing', this.originalDistanceBetweenTouchPoints);
-        }
-        else {
-          //var firstLength = Math.abs(evt.touches[0].pageX - evt.touches[1].pageX);
-          //var secondLength = Math.abs(evt.touches[0].pageY - evt.touches[1].pageY);
-
-          var firstLength = Math.abs(this.touchInfo.touchArray[0].pageX - this.touchInfo.touchArray[1].pageX);
-          var secondLength = Math.abs(this.touchInfo.touchArray[0].pageY - this.touchInfo.touchArray[1].pageY);
-
-          var newDistance = Math.sqrt((firstLength * firstLength) + (secondLength * secondLength));
-          //console.log('newDistance ' + newDistance + '; original distance ' + this.originalDistanceBetweenTouchPoints + '; foo: ' + parseFloat(newDistance) / parseFloat(this.originalDistanceBetweenTouchPoints));
-          this.activeTransformValue = newDistance / this.originalDistanceBetweenTouchPoints;
-          //console.log('activeTransformValue ' + this.activeTransformValue);
-
-          if (this.currentTransformValue) {
-            this.activeTransformValue = this.currentTransformValue * this.activeTransformValue;
-          }
-
-
-
-          //console.log('resize - active transform value: ' + this.activeTransformValue + '; currentTransformValue: ' + this.currentTransformValue);
-
-          this.element.style.webkitTransform = 'scale(' + this.activeTransformValue + ')';
-          this.element.style.transform = 'scale(' + this.activeTransformValue + ')';
-        }
-      }
-
-      pincher.prototype.move = function (evt) {
-        if (!this.startingOffset)
-          this.startingOffset = this.getPosition(evt);
-
-        //console.log('move info', this.startingOffset, this.touchInfo.touchArray[0]);
-        //outputEventVerbose(this.touchInfo.touchArray[0]);
-        //console.log(this.touchInfo.touchArray[0].pageX + ' - ' + this.touchInfo.touchArray[0].pageY);
-
-        this.element.style.left = (this.touchInfo.touchArray[0].pageX - this.startingOffset.x) + 'px';
-        this.element.style.top = (this.touchInfo.touchArray[0].pageY - this.startingOffset.y) + 'px';
-        //this.element.style.left = (evt.pageX - this.startingOffset.x) + 'px';
-        //this.element.style.top = (evt.pageY - this.startingOffset.y) + 'px';
-
-      }
-
-      pincher.prototype.end = function (evt) {
-
-        //reset the events array. Avoids the lookup annoyance.
-        this.removeDeadTouches(evt);
-
-        //set state
-        this.setMode();
-
-        //After a resize finishes, we need to remember the transform value so we can start from there next time.
-        if (this.activeTransformValue) {
-          this.currentTransformValue = this.activeTransformValue;
-        }
-
-        if (this.touchInfo.touchArray.length < 2)
-          this.originalDistanceBetweenTouchPoints = null;
-
-      }
-
-      pincher.prototype.updateTouchEvent = function (evt) {
-        //This is only for pointer events
-        if (evt.touches)
-          return;
-
-        var touch = this.touchInfo.touchLookup[evt.pointerId];
-        touch.pageX = evt.pageX;
-        touch.pageY = evt.pageY;
-      }
-
-      pincher.prototype.removeDeadTouches = function (evt) {
-
-        if (evt.touches) { //touch events
-          var ids = '', i = 0;
-          for (i; i < evt.touches.length; i++) {
-            var touch = evt.touches[i];
-            if (ids.length > 0)
-              ids += '|';
-            ids += touch.identifier;
-          }
-
-          for (var key in this.touchInfo.touchLookup) {
-            if (ids.indexOf(key) === -1) { //need to remove the touch
-              this.touchInfo.touchArray.splice(this.touchInfo.touchLookup[key].indexInArray);
-              delete this.touchInfo.touchLookup[key];
-            }
-          }
-        }
-        else { //mouse and pointer events
-          var touch = this.touchInfo.touchLookup[evt.pointerId];
-          this.touchInfo.touchArray.splice(touch.indexInArray);
-          delete this.touchInfo.touchLookup[touch.identifier];
-          //console.log('dead touches removed: remaining is ' + this.touchInfo.touchArray.length);
-        }
-
-      }
-
-      pincher.prototype.registerTouch = function (evt) {
-        if (evt.touches) { //touch events
-          for (var i = 0; i < evt.touches.length; i++) {
-            var touch = evt.touches[i];
-
-            if (!this.touchInfo.touchLookup[touch.identifier]) {
-              this.touchInfo.touchArray.push(touch);
-              this.touchInfo.touchLookup[touch.identifier] = touch;
-              touch.indexInArray = this.touchInfo.touchArray.length - 1;
-            }
-          }
-        }
-        else { //pointer events
-          var touch = {
-            pageX: evt.pageX,
-            pageY: evt.pageY,
-            identifier: evt.pointerId
-          };
-          this.touchInfo.touchArray.push(touch);
-          this.touchInfo.touchLookup[touch.identifier] = touch;
-          touch.indexInArray = this.touchInfo.touchArray.length - 1;
-        }
-      }
-
-      pincher.prototype.setMode = function () {
-        this.startingOffset = null;
-
-        if (this.touchInfo.touchArray.length === 1)
-          this.mode = 'move';
-        else if (this.touchInfo.touchArray.length === 2)
-          this.mode = 'resize';
-        else
-          this.mode = 'none';
-
-        //console.log('set mode to', this.mode, this.touchInfo.touchArray.length);
-      }
-
-      pincher.prototype.getPosition = function(evt) {
-
-        var pageX, pageY;
-        if (evt.touches) { //If this is a touch event
-          pageX = evt.changedTouches[0].pageX;
-          pageY = evt.changedTouches[0].pageY;
-        }
-        else { //If this is a mouse or pointer event
-          pageX = evt.pageX;
-          pageY = evt.pageY;
-        }
-
-        return {
-          y: pageY - evt.target.offsetTop,
-          x: pageX - evt.target.offsetLeft
-        };
-      }
-
-
-      return pincher;
-    })();
-
-
-    //PROBLEMS TO SOLVE
-
-    //1. Multi-touch - normalize between approaches. Disparate touch collections
-    //2. There are different modes. Handle this.
-
-
-
-    //Notes
-    //
-    //1. To disable pinch and zoom for older Android, need to use viewport
-
-
-    function outputEvent(evt) {
-      //console.log(evt.type, ' pointerId: ', evt.pointerId, ' { x: ' + evt.offsetX + ', y: ' + evt.offsetY + ' }');
-    }
-
-    function outputEventVerbose(evt) {
-
-      var output = '==================================================\r\n';
-
-      for (var key in evt) {
-
-        if (isFunction(evt[key])) {
-          output += key + ': [function]\r\n';
-        }
-        else {
-          output += key + ': ' + evt[key] + '\r\n';
-        }
-      }
-
-      //console.log(output);
-      //console.log('==================================================\r\n');
-    }
-
-    function isFunction(object) {
-      //return object && getClass.call(object) == '[object Function]';
-      return typeof (object) == "function";
-    }
-
 
   </script>
 
