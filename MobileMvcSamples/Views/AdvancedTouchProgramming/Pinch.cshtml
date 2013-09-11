@@ -16,6 +16,7 @@
       margin: 20px 0 0 20px;
       width: 200px;
       position: absolute;
+      -ms-touch-action: none;
     }
   </style>
 </head>
@@ -34,10 +35,6 @@
     function load() {
       var box = document.getElementById('the-box');
 
-      //box.addEventListener('touchstart', start);
-      //box.addEventListener('touchmove', move);
-      //box.addEventListener('touchend', end);
-
       var pincher = new window.Pincher(box);
     }
 
@@ -49,8 +46,6 @@
           touchLookup: {},
           touchArray: []
         };
-        //this.touches = {};
-        //this.touchCount = 0;
         this.mode = 'none'; //move, resize are other modes
 
         var self = this;
@@ -65,12 +60,16 @@
       }
 
       pincher.prototype.start = function (evt) {
+        //console.log('start ' + evt.pageX + ' - ' + evt.pageY);
+        //outputEventVerbose(evt);
+
         evt.preventDefault();
         this.registerTouch(evt);
         this.setMode();
       }
 
       pincher.prototype.change = function (evt) {
+        this.updateTouchEvent(evt);
 
         if (this.mode === 'move') {
           this.move(evt);
@@ -83,7 +82,7 @@
 
       pincher.prototype.resize = function (evt) {
         if (!this.originalDistanceBetweenTouchPoints) {
-          console.log('resetting originalDistanceBetweenTouchPoints');
+          //console.log('resetting originalDistanceBetweenTouchPoints');
           var firstLength = Math.abs(this.touchInfo.touchArray[0].pageX - this.touchInfo.touchArray[1].pageX);
           var secondLength = Math.abs(this.touchInfo.touchArray[0].pageY - this.touchInfo.touchArray[1].pageY);
 
@@ -99,13 +98,20 @@
           var secondLength = Math.abs(this.touchInfo.touchArray[0].pageY - this.touchInfo.touchArray[1].pageY);
 
           var newDistance = Math.sqrt((firstLength * firstLength) + (secondLength * secondLength));
+          //console.log('newDistance ' + newDistance + '; original distance ' + this.originalDistanceBetweenTouchPoints + '; foo: ' + parseFloat(newDistance) / parseFloat(this.originalDistanceBetweenTouchPoints));
           this.activeTransformValue = newDistance / this.originalDistanceBetweenTouchPoints;
+          //console.log('activeTransformValue ' + this.activeTransformValue);
 
           if (this.currentTransformValue) {
             this.activeTransformValue = this.currentTransformValue * this.activeTransformValue;
           }
 
+
+
+          //console.log('resize - active transform value: ' + this.activeTransformValue + '; currentTransformValue: ' + this.currentTransformValue);
+
           this.element.style.webkitTransform = 'scale(' + this.activeTransformValue + ')';
+          this.element.style.transform = 'scale(' + this.activeTransformValue + ')';
         }
       }
 
@@ -114,10 +120,14 @@
           this.startingOffset = this.getPosition(evt);
 
         //console.log('move info', this.startingOffset, this.touchInfo.touchArray[0]);
-        outputEventVerbose(this.touchInfo.touchArray[0]);
+        //outputEventVerbose(this.touchInfo.touchArray[0]);
+        //console.log(this.touchInfo.touchArray[0].pageX + ' - ' + this.touchInfo.touchArray[0].pageY);
 
         this.element.style.left = (this.touchInfo.touchArray[0].pageX - this.startingOffset.x) + 'px';
         this.element.style.top = (this.touchInfo.touchArray[0].pageY - this.startingOffset.y) + 'px';
+        //this.element.style.left = (evt.pageX - this.startingOffset.x) + 'px';
+        //this.element.style.top = (evt.pageY - this.startingOffset.y) + 'px';
+
       }
 
       pincher.prototype.end = function (evt) {
@@ -136,6 +146,16 @@
         if (this.touchInfo.touchArray.length < 2)
           this.originalDistanceBetweenTouchPoints = null;
 
+      }
+
+      pincher.prototype.updateTouchEvent = function (evt) {
+        //This is only for pointer events
+        if (evt.touches)
+          return;
+
+        var touch = this.touchInfo.touchLookup[evt.pointerId];
+        touch.pageX = evt.pageX;
+        touch.pageY = evt.pageY;
       }
 
       pincher.prototype.removeDeadTouches = function (evt) {
@@ -157,8 +177,10 @@
           }
         }
         else { //mouse and pointer events
-          this.touchInfo.touchArray = [];
-          this.touchInfo.touchLookup = {};
+          var touch = this.touchInfo.touchLookup[evt.pointerId];
+          this.touchInfo.touchArray.splice(touch.indexInArray);
+          delete this.touchInfo.touchLookup[touch.identifier];
+          //console.log('dead touches removed: remaining is ' + this.touchInfo.touchArray.length);
         }
 
       }
@@ -171,15 +193,19 @@
             if (!this.touchInfo.touchLookup[touch.identifier]) {
               this.touchInfo.touchArray.push(touch);
               this.touchInfo.touchLookup[touch.identifier] = touch;
-              touch.indexInArray = this.touchInfo.length - 1;
+              touch.indexInArray = this.touchInfo.touchArray.length - 1;
             }
           }
         }
-        else { //mouse or pointer events
-          //TODO: thing
-          this.touchInfo.touchArray.push(evt);
-          this.touchInfo.touchLookup[0] = evt;
-          evt.indexInArray = 0;
+        else { //pointer events
+          var touch = {
+            pageX: evt.pageX,
+            pageY: evt.pageY,
+            identifier: evt.pointerId
+          };
+          this.touchInfo.touchArray.push(touch);
+          this.touchInfo.touchLookup[touch.identifier] = touch;
+          touch.indexInArray = this.touchInfo.touchArray.length - 1;
         }
       }
 
@@ -193,7 +219,7 @@
         else
           this.mode = 'none';
 
-        console.log('set mode to', this.mode, this.touchInfo.touchArray.length);
+        //console.log('set mode to', this.mode, this.touchInfo.touchArray.length);
       }
 
       pincher.prototype.getPosition = function(evt) {
@@ -232,7 +258,7 @@
 
 
     function outputEvent(evt) {
-      console.log(evt.type, ' pointerId: ', evt.pointerId, ' { x: ' + evt.offsetX + ', y: ' + evt.offsetY + ' }');
+      //console.log(evt.type, ' pointerId: ', evt.pointerId, ' { x: ' + evt.offsetX + ', y: ' + evt.offsetY + ' }');
     }
 
     function outputEventVerbose(evt) {
@@ -249,8 +275,8 @@
         }
       }
 
-      console.log(output);
-      console.log('==================================================\r\n');
+      //console.log(output);
+      //console.log('==================================================\r\n');
     }
 
     function isFunction(object) {
