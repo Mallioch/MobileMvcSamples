@@ -6,51 +6,39 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Pinch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <title>Pinch</title>
 
   <style>
-    #the-box, #the-box-2 {
+    #the-box {
       height: 200px;
-      margin: 20px 0 0 20px;
+      margin: 0;
       width: 200px;
       position: absolute;
       -ms-touch-action: none;
     }
-
-    #the-box-2 {
-      background-color: blue;
-      top: 250px;
-    }
   </style>
 </head>
 <body>
-@*  <p id="display">Pinch</p>
-  <p id="display2">display 2</p>*@
 
-@*  <div id="the-box-2">
+  <h1>Move, Resize and Rotate</h1>
 
-  </div>*@
-  <img src="~/content/images/dragonfruit_500.jpg" id="the-box" />
+  <p>The following example should work on devices and operating systems that support multi-touch, 
+    including Android 4+, iOS 4+, Windows Phone 8, Internet Explorer 10 on a multi-touch monitor,
+    Opera on Android, Firefox on Android, and Firefox OS.
+  </p>
 
+  <img src="/content/images/dragonfruit_500.jpg" id="the-box" />
 
   <script src="/content/advancedtouchprogramming/pincher.js?cachebust=@Guid.NewGuid().ToString()"></script>
-
   <script>
     window.addEventListener('load', load);
 
-    //var box, moveStarted, resizeStarted, offset, originalDistance, transformValue;
-    //var display, display2;
-
     function load() {
       var box = document.getElementById('the-box');
-      //display = document.getElementById('display');
-      //display2 = document.getElementById('display2');
 
       var pincher = new window.Pincher(box);
-      //var pincher2 = new window.Pincher(document.getElementById('the-box-2'));
     }
-
   </script>
 
 </body>

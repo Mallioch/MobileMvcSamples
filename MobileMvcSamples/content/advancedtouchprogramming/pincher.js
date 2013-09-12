@@ -40,10 +40,10 @@
 
   pincher.prototype.resize = function (evt) {
     if (!this.originalDistanceBetweenTouchPoints) {
-      this.beginTransform();
+      this.beginTransform(); //set our beginning state so we can begin
     }
     else {
-      this.continueTransform();
+      this.continueTransform(); //apply next change
     }
   }
 
@@ -103,7 +103,7 @@
     if (!this.startingOffset)
       this.startingOffset = this.getPosition(evt);
 
-    //move already assumes a single touch, so the zero-based works.
+    //move already assumes a single touch, so the zero-based indexing works.
     this.element.style.left = (this.touchInfo.touchArray[0].pageX - this.startingOffset.x) + 'px';
     this.element.style.top = (this.touchInfo.touchArray[0].pageY - this.startingOffset.y) + 'px';
   }
@@ -129,13 +129,12 @@
       touch.pageY = evt.pageY;
     }
     else {
-      for (i; i < evt.touches.length; i++) {
+      for (i; i < evt.changedTouches.length; i++) {
         touch = evt.changedTouches[i];
         this.touchInfo.touchLookup[touch.identifier].pageX = touch.pageX;
         this.touchInfo.touchLookup[touch.identifier].pageY = touch.pageY;
       }
     }
-
   }
 
   pincher.prototype.removeDeadTouches = function (evt) {
@@ -218,35 +217,15 @@
 
   pincher.prototype.getPosition = function (evt) {
 
-    var pageX, pageY;
-    if (evt.touches) { //If this is a touch event
-      pageX = evt.changedTouches[0].pageX;
-      pageY = evt.changedTouches[0].pageY;
-    }
-    else { //If this is a pointer event
-      pageX = evt.pageX;
-      pageY = evt.pageY;
-    }
+    var pageX = this.touchInfo.touchArray[0].pageX;
+    var pageY = this.touchInfo.touchArray[0].pageY;
 
     //This will get us the x/y position within the element.
     return {
-      y: pageY - evt.target.offsetTop,
-      x: pageX - evt.target.offsetLeft
+      y: pageY - this.element.offsetTop,
+      x: pageX - this.element.offsetLeft
     };
   }
 
   return pincher;
 })();
-
-
-//PROBLEMS TO SOLVE
-
-//1. Multi-touch - normalize between approaches. Disparate touch collections
-//2. There are different modes. Handle this.
-//3. Touch objects are not persistent for IE or Android
-
-
-
-//Notes
-//
-//1. To disable pinch and zoom for older Android, need to use viewport
