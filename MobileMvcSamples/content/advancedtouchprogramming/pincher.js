@@ -2,13 +2,14 @@
 
   var pincher = function (element) {
     this.element = element;
+
+    //This is where we will store info about all of the active touches
     this.touchInfo = {
       touchLookup: {},
       touchArray: []
     };
-    this.mode = 'none'; //move, resize are other modes
-    this.currentAngle = 0;
 
+    this.mode = 'none'; //move, resize are other modes
     var self = this;
 
     this.element.addEventListener('touchstart', function (evt) { self.start.call(self, evt) });
@@ -27,7 +28,6 @@
   }
 
   pincher.prototype.change = function (evt) {
-    this.changeCount = this.changeCount || 0;
     this.updateTouchEvent(evt);
 
     if (this.mode === 'move') {
@@ -35,72 +35,75 @@
     }
     else if (this.mode === 'resize') {
       this.resize(evt);
-      this.resizeCount = this.resizeCount || 0;
-      this.resizeCount++;
     }
-    else {
-      alert('fail');
-    }
-
-    this.changeCount++;
   }
 
   pincher.prototype.resize = function (evt) {
     if (!this.originalDistanceBetweenTouchPoints) {
-      var firstLength = Math.abs(this.touchInfo.touchArray[0].pageX - this.touchInfo.touchArray[1].pageX);
-      var secondLength = Math.abs(this.touchInfo.touchArray[0].pageY - this.touchInfo.touchArray[1].pageY);
-
-      this.originalDistanceBetweenTouchPoints = Math.sqrt((firstLength * firstLength) + (secondLength * secondLength));
-
-      this.startPoint0 = { x: this.touchInfo.touchArray[0].pageX, y: this.touchInfo.touchArray[0].pageY };
-      this.startPoint1 = { x: this.touchInfo.touchArray[1].pageX, y: this.touchInfo.touchArray[1].pageY };
-
-      if (!this.initialAngle) {
-        var xDelta = this.startPoint1.x - this.startPoint0.x;
-        var yDelta = this.startPoint1.y - this.startPoint0.y;
-
-        this.initialAngle = Math.atan2(xDelta, yDelta);
-      }
+      this.beginTransform();
     }
     else {
-      //calc rotation change
-      var touch0 = this.touchInfo.touchArray[0];
-      var touch1 = this.touchInfo.touchArray[1];
-
-      var xDelta = touch1.pageX - touch0.pageX;
-      var yDelta = touch1.pageY - touch0.pageY;
-
-      var newAngle = Math.atan2(xDelta, yDelta);
-
-      var rotationAmount = this.initialAngle - newAngle;
-
-        
-      //calc size transform
-      var firstLength = Math.abs(this.touchInfo.touchArray[0].pageX - this.touchInfo.touchArray[1].pageX);
-      var secondLength = Math.abs(this.touchInfo.touchArray[0].pageY - this.touchInfo.touchArray[1].pageY);
-
-      var newDistance = Math.sqrt((firstLength * firstLength) + (secondLength * secondLength));
-      this.activeTransformValue = newDistance / this.originalDistanceBetweenTouchPoints;
-
-      if (this.currentTransformValue) {
-        this.activeTransformValue = this.currentTransformValue * this.activeTransformValue;
-      }
-
-
-      //apply to element style
-      this.element.style.webkitTransform = 'scale(' + this.activeTransformValue + ')';
-      this.element.style.transform = 'scale(' + this.activeTransformValue + ')';
-
-      this.element.style.webkitTransform += ' rotate(' + rotationAmount + 'rad)';
-      this.element.style.transform += ' rotate(' + rotationAmount + 'rad)';
-
+      this.continueTransform();
     }
+  }
+
+  pincher.prototype.beginTransform = function () {
+
+    //setup initial values for resize
+    var firstLength = Math.abs(this.touchInfo.touchArray[0].pageX - this.touchInfo.touchArray[1].pageX);
+    var secondLength = Math.abs(this.touchInfo.touchArray[0].pageY - this.touchInfo.touchArray[1].pageY);
+
+    this.originalDistanceBetweenTouchPoints = Math.sqrt((firstLength * firstLength) + (secondLength * secondLength));
+
+    //setup initial values for rotation
+    this.startPoint0 = { x: this.touchInfo.touchArray[0].pageX, y: this.touchInfo.touchArray[0].pageY };
+    this.startPoint1 = { x: this.touchInfo.touchArray[1].pageX, y: this.touchInfo.touchArray[1].pageY };
+
+    var xDelta = this.startPoint1.x - this.startPoint0.x;
+    var yDelta = this.startPoint1.y - this.startPoint0.y;
+
+    this.initialAngle = Math.atan2(xDelta, yDelta);
+  }
+
+  pincher.prototype.continueTransform = function () {
+    //calc rotation change
+    var touch0 = this.touchInfo.touchArray[0];
+    var touch1 = this.touchInfo.touchArray[1];
+
+    var xDelta = touch1.pageX - touch0.pageX;
+    var yDelta = touch1.pageY - touch0.pageY;
+
+    var newAngle = Math.atan2(xDelta, yDelta);
+
+    var rotationAmount = this.initialAngle - newAngle;
+
+
+    //calc size transform
+    var firstLength = Math.abs(this.touchInfo.touchArray[0].pageX - this.touchInfo.touchArray[1].pageX);
+    var secondLength = Math.abs(this.touchInfo.touchArray[0].pageY - this.touchInfo.touchArray[1].pageY);
+
+    var newDistance = Math.sqrt((firstLength * firstLength) + (secondLength * secondLength));
+    this.activeTransformValue = newDistance / this.originalDistanceBetweenTouchPoints;
+
+    //A new currentTransformValue will be set when the transform ends.
+    if (this.currentTransformValue) {
+      this.activeTransformValue = this.currentTransformValue * this.activeTransformValue;
+    }
+
+
+    //apply to element style
+    this.element.style.webkitTransform = 'scale(' + this.activeTransformValue + ')';
+    this.element.style.transform = 'scale(' + this.activeTransformValue + ')';
+
+    this.element.style.webkitTransform += ' rotate(' + rotationAmount + 'rad)';
+    this.element.style.transform += ' rotate(' + rotationAmount + 'rad)';
   }
 
   pincher.prototype.move = function (evt) {
     if (!this.startingOffset)
       this.startingOffset = this.getPosition(evt);
 
+    //move already assumes a single touch, so the zero-based works.
     this.element.style.left = (this.touchInfo.touchArray[0].pageX - this.startingOffset.x) + 'px';
     this.element.style.top = (this.touchInfo.touchArray[0].pageY - this.startingOffset.y) + 'px';
   }
@@ -110,14 +113,11 @@
 
     this.setMode();
 
-    //After a resize finishes, we need to remember the transform value so we can start from there next time.
-    //TODO: Can we put this elsewhere?
-    if (this.activeTransformValue) {
+    //If one of the two touches has ended, need to prep for the next time two touch and can resize and rotate.
+    if (this.touchInfo.touchArray.length < 2) {
+      this.originalDistanceBetweenTouchPoints = null;
       this.currentTransformValue = this.activeTransformValue;
     }
-
-    if (this.touchInfo.touchArray.length < 2)
-      this.originalDistanceBetweenTouchPoints = null;
   }
 
   pincher.prototype.updateTouchEvent = function (evt) {
@@ -130,7 +130,7 @@
     }
     else {
       for (i; i < evt.touches.length; i++) {
-        touch = evt.touches[i];
+        touch = evt.changedTouches[i];
         this.touchInfo.touchLookup[touch.identifier].pageX = touch.pageX;
         this.touchInfo.touchLookup[touch.identifier].pageY = touch.pageY;
       }
@@ -141,6 +141,8 @@
   pincher.prototype.removeDeadTouches = function (evt) {
 
     if (evt.touches) { //touch events
+      //for touch events its hard to tell which touch ended, so we'll just remove ones from our state that
+      //  are no longer in the touches array.
       var ids = '', i = 0;
       for (i; i < evt.touches.length; i++) {
         var touch = evt.touches[i];
@@ -168,16 +170,20 @@
     //It is in this method that we normalize the touch model between the different implementations
 
     if (evt.touches) { //touch events
+      //find all the touches in the touch array that haven't been registered and do so.
       for (var i = 0; i < evt.touches.length; i++) {
         var evtTouch = evt.touches[i];
 
         if (!this.touchInfo.touchLookup[evtTouch.identifier]) {
+          //Instead of storing the actual touch object, we just store what we need. The actual object
+          //  isn't persisted in non-iOS webkit so this normalizes more with that pattern.
           var touch = {
             identifier: evtTouch.identifier,
             pageX: evtTouch.pageX,
             pageY: evtTouch.pageY
           };
 
+          //Lookups for the touches
           this.touchInfo.touchArray.push(touch);
           this.touchInfo.touchLookup[touch.identifier] = touch;
           touch.indexInArray = this.touchInfo.touchArray.length - 1;
@@ -185,6 +191,8 @@
       }
     }
     else { //pointer events
+      //pointer events are normally collected in a group but we need to do that so we know how many touches
+      //  there are.
       var touch = {
         pageX: evt.pageX,
         pageY: evt.pageY,
@@ -197,6 +205,7 @@
   }
 
   pincher.prototype.setMode = function () {
+    // we need to reset this so on the the next move can have an starting offset.
     this.startingOffset = null;
 
     if (this.touchInfo.touchArray.length === 1)
@@ -214,11 +223,12 @@
       pageX = evt.changedTouches[0].pageX;
       pageY = evt.changedTouches[0].pageY;
     }
-    else { //If this is a mouse or pointer event
+    else { //If this is a pointer event
       pageX = evt.pageX;
       pageY = evt.pageY;
     }
 
+    //This will get us the x/y position within the element.
     return {
       y: pageY - evt.target.offsetTop,
       x: pageX - evt.target.offsetLeft

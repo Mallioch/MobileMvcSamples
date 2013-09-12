@@ -6,16 +6,21 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <title>Pinch</title>
 
   <style>
-    #the-box {
+    #the-box, #the-box-2 {
       height: 200px;
       margin: 20px 0 0 20px;
       width: 200px;
       position: absolute;
       -ms-touch-action: none;
+    }
+
+    #the-box-2 {
+      background-color: blue;
+      top: 250px;
     }
   </style>
 </head>
@@ -23,9 +28,9 @@
 @*  <p id="display">Pinch</p>
   <p id="display2">display 2</p>*@
 
-@*  <div id="the-box" style="">
+  <div id="the-box-2">
 
-  </div>*@
+  </div>
   <img src="~/content/images/hogan_500.jpg" id="the-box" />
 
 
@@ -38,12 +43,12 @@
     //var display, display2;
 
     function load() {
-      console.log('loaded');
       var box = document.getElementById('the-box');
       //display = document.getElementById('display');
       //display2 = document.getElementById('display2');
 
       var pincher = new window.Pincher(box);
+      var pincher2 = new window.Pincher(document.getElementById('the-box-2'));
     }
 
   </script>
