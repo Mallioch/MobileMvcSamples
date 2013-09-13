@@ -39,7 +39,7 @@
   }
 
   pincher.prototype.resize = function (evt) {
-    if (!this.originalDistanceBetweenTouchPoints) {
+    if (!this.startingPointSet) {
       this.beginTransform(); //set our beginning state so we can begin
     }
     else {
@@ -63,6 +63,8 @@
     var yDelta = this.startPoint1.y - this.startPoint0.y;
 
     this.initialAngle = Math.atan2(xDelta, yDelta);
+
+    this.startingPointSet = true;
   }
 
   pincher.prototype.continueTransform = function () {
@@ -115,6 +117,7 @@
 
     //If one of the two touches has ended, need to prep for the next time two touch and can resize and rotate.
     if (this.touchInfo.touchArray.length < 2) {
+      this.startingPointSet = false;
       this.originalDistanceBetweenTouchPoints = null;
       this.currentTransformValue = this.activeTransformValue;
     }
@@ -123,17 +126,17 @@
   pincher.prototype.updateTouchEvent = function (evt) {
     var touch, i = 0;
 
-    if (evt.pointerId) {
-      touch = this.touchInfo.touchLookup[evt.pointerId];
-      touch.pageX = evt.pageX;
-      touch.pageY = evt.pageY;
-    }
-    else {
+    if (evt.touches) {
       for (i; i < evt.changedTouches.length; i++) {
         touch = evt.changedTouches[i];
         this.touchInfo.touchLookup[touch.identifier].pageX = touch.pageX;
         this.touchInfo.touchLookup[touch.identifier].pageY = touch.pageY;
       }
+    }
+    else {
+      touch = this.touchInfo.touchLookup[evt.pointerId];
+      touch.pageX = evt.pageX;
+      touch.pageY = evt.pageY;
     }
   }
 

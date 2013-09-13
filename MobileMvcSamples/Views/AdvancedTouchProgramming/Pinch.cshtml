@@ -10,7 +10,7 @@
   <title>Pinch</title>
 
   <style>
-    #the-box {
+    #the-picture {
       height: 200px;
       margin: 0;
       width: 200px;
@@ -28,16 +28,16 @@
     Opera on Android, Firefox on Android, and Firefox OS.
   </p>
 
-  <img src="/content/images/dragonfruit_500.jpg" id="the-box" />
+  <img src="/content/images/dragonfruit_500.jpg" id="the-picture" />
 
   <script src="/content/advancedtouchprogramming/pincher.js?cachebust=@Guid.NewGuid().ToString()"></script>
   <script>
     window.addEventListener('load', load);
 
     function load() {
-      var box = document.getElementById('the-box');
+      var picture = document.getElementById('the-picture');
 
-      var pincher = new window.Pincher(box);
+      var pincher = new window.Pincher(picture);
     }
   </script>
 
