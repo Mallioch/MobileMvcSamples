@@ -133,6 +133,7 @@
     <Compile Include="Controllers\ResponsiveBasicsController.cs" />
     <Compile Include="Controllers\TestsController.cs" />
     <Compile Include="Controllers\ThirdPartyLibaries\BootstrapController.cs" />
+    <Compile Include="Controllers\ThirdPartyLibaries\SmallerLibrariesController.cs" />
     <Compile Include="Controllers\ThirdPartyLibaries\ZurbFoundationController.cs" />
     <Compile Include="Controllers\ThirdPartyLibaries\JQueryMobileController.cs" />
     <Compile Include="Controllers\ThirdPartyLibaries\KendoUIMobileController.cs" />
@@ -243,6 +244,9 @@
     <Content Include="content\third-party-libraries\bootstrap\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="content\third-party-libraries\bootstrap\js\bootstrap.js" />
     <Content Include="content\third-party-libraries\bootstrap\js\bootstrap.min.js" />
+    <Content Include="content\third-party-libraries\enquire\enquire.js" />
+    <Content Include="content\third-party-libraries\fittext\jquery.fittext.js" />
+    <Content Include="content\third-party-libraries\flowtype\flowtype.js" />
     <Content Include="content\third-party-libraries\jquery-mobile\images\ajax-loader.gif" />
     <Content Include="content\third-party-libraries\jquery-mobile\images\icons-18-white.png" />
     <Content Include="content\third-party-libraries\jquery-mobile\jquery.js" />
@@ -252,6 +256,8 @@
     <Content Include="content\third-party-libraries\kendo-ui-mobile\jquery.min.js" />
     <Content Include="content\third-party-libraries\kendo-ui-mobile\kendo.mobile.all.min.css" />
     <Content Include="content\third-party-libraries\kendo-ui-mobile\kendo.mobile.min.js" />
+    <Content Include="content\third-party-libraries\respond\respond.js" />
+    <Content Include="content\third-party-libraries\respond\test.css" />
     <Content Include="content\third-party-libraries\sencha-touch\.sencha\app\build-impl.xml" />
     <Content Include="content\third-party-libraries\sencha-touch\.sencha\app\plugin.xml" />
     <Content Include="content\third-party-libraries\sencha-touch\.sencha\workspace\plugin.xml" />
@@ -2564,6 +2570,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\AdvancedTouchProgramming\Pinch.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ThirdPartyLibraries\SmallerLibraries\FitText.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ThirdPartyLibraries\SmallerLibraries\FlowType.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ThirdPartyLibraries\SmallerLibraries\Enquire.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ThirdPartyLibraries\SmallerLibraries\Respond.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

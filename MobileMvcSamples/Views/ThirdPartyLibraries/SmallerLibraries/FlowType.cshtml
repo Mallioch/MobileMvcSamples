@@ -1,0 +1,31 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <title>FlowType</title>
+</head>
+<body>
+  <h1>FlowType</h1>
+
+  <div class="main-content">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nibh elit, consectetur sed odio in, mollis porta urna. Ut ante odio, mollis et orci at, congue pulvinar massa. Nunc vel nisl eu velit gravida viverra et sed enim. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam eu tempus quam, at porta est. Donec vehicula sed nibh id tincidunt. Donec nec velit et lacus imperdiet suscipit in eu sapien. Sed placerat neque eu mattis sodales. Aliquam erat volutpat. Nullam quis lacus quis odio tristique hendrerit ut vitae nibh. Nunc odio eros, gravida sit amet aliquam vitae, interdum ut arcu.</p>
+    <p>Proin lacinia ut mi vel iaculis. Aliquam vel adipiscing ipsum, eget faucibus diam. Proin porta erat non tempus sagittis. Curabitur cursus facilisis orci eu convallis. Nulla id purus at arcu gravida molestie eu eu risus. Etiam commodo est vitae dolor scelerisque congue. Fusce ac justo vitae orci adipiscing egestas non sodales est. Cras ac lobortis nibh. Integer nibh tellus, condimentum eget pellentesque vel, tincidunt ac felis. Maecenas eleifend lectus nulla, eget eleifend neque dignissim nec. Cras ultrices, ipsum sed aliquam ornare, sem nisi congue purus, vitae congue diam nisl molestie orci. Nam sodales sem et justo consectetur fermentum. Suspendisse dictum, nibh quis commodo porttitor, leo tellus sagittis mauris, lacinia pellentesque lectus orci nec neque. Aenean quam metus, pretium nec congue non, egestas pharetra erat. Pellentesque facilisis leo id turpis accumsan ultricies. Mauris est libero, aliquet id tempor eget, pulvinar id arcu.</p>
+  </div>
+
+  <script src="/content/jquery-1-9-0.js"></script>
+  <script src="/content/third-party-libraries/flowtype/flowtype.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.main-content').flowtype({
+        minimum: 500,
+        maximum: 1200
+      });
+    });
+  </script>
+</body>
+</html>

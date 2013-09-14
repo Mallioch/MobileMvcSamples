@@ -1,0 +1,28 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <title>FitText</title>
+</head>
+<body>
+  <h1>FitText</h1>
+
+  <p>This page uses FitText to resize the header text just above this. Change your browser
+    size and see how it responds.
+  </p>
+
+  <script src="/content/jquery-1-9-0.js"></script>
+  <script src="/content/third-party-libraries/fittext/jquery.fittext.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $('h1').fitText();
+    });
+  </script>
+</body>
+</html>
