@@ -1,0 +1,120 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <title>Swipeview</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <link href="/content/third-party-libraries/swipeview/style.css" rel="stylesheet" />
+  <script src="/content/third-party-libraries/swipeview/swipeview.js"></script>
+</head>
+<body>
+	<div id="wrapper"></div>
+	<ul id="nav">
+		<li id="prev" onclick="gallery.prev()">-</li>
+		<li class="selected" onclick="gallery.goToPage(0)"></li>
+		<li onclick="gallery.goToPage(1)"></li>
+		<li onclick="gallery.goToPage(2)"></li>
+		<li onclick="gallery.goToPage(3)"></li>
+		<li onclick="gallery.goToPage(4)"></li>
+		<li id="next" onclick="gallery.next()">+</li>
+	</ul>
+<script type="text/javascript">
+  document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
+  var gallery,
+    el,
+    i,
+    page,
+    dots = document.querySelectorAll('#nav li'),
+    slides = [
+      {
+        img: '/content/images/ready_300.jpg',
+        width: 300,
+        height: 300,
+        desc: '"Ready Player One", a great book'
+      },
+      {
+        img: '/content/images/greek_300.jpg',
+        width: 300,
+        height: 300,
+        desc: 'Greek manuscript'
+      },
+      {
+        img: '/content/images/dice_300.jpg',
+        width: 300,
+        height: 300,
+        desc: 'Dice!'
+      },
+      {
+        img: '/content/images/bacon_300.jpg',
+        width: 300,
+        height: 300,
+        desc: 'Bacon!'
+      },
+      {
+        img: '/content/images/css_300.jpg',
+        width: 300,
+        height: 300,
+        desc: 'CSS!'
+      }
+    ];
+
+  gallery = new SwipeView('#wrapper', { numberOfPages: slides.length });
+
+  // Load initial data
+  for (i = 0; i < 3; i++) {
+    page = i == 0 ? slides.length - 1 : i - 1;
+    el = document.createElement('img');
+    el.className = 'loading';
+    el.src = slides[page].img;
+    el.width = slides[page].width;
+    el.height = slides[page].height;
+    el.onload = function () { this.className = ''; }
+    gallery.masterPages[i].appendChild(el);
+
+    el = document.createElement('span');
+    el.innerHTML = slides[page].desc;
+    gallery.masterPages[i].appendChild(el)
+  }
+
+  gallery.onFlip(function () {
+    var el,
+      upcoming,
+      i;
+
+    for (i = 0; i < 3; i++) {
+      upcoming = gallery.masterPages[i].dataset.upcomingPageIndex;
+
+      if (upcoming != gallery.masterPages[i].dataset.pageIndex) {
+        el = gallery.masterPages[i].querySelector('img');
+        el.className = 'loading';
+        el.src = slides[upcoming].img;
+        el.width = slides[upcoming].width;
+        el.height = slides[upcoming].height;
+
+        el = gallery.masterPages[i].querySelector('span');
+        el.innerHTML = slides[upcoming].desc;
+      }
+    }
+
+    document.querySelector('#nav .selected').className = '';
+    dots[gallery.pageIndex + 1].className = 'selected';
+  });
+
+  gallery.onMoveOut(function () {
+    gallery.masterPages[gallery.currentMasterPage].className = gallery.masterPages[gallery.currentMasterPage].className.replace(/(^|\s)swipeview-active(\s|$)/, '');
+  });
+
+  gallery.onMoveIn(function () {
+    var className = gallery.masterPages[gallery.currentMasterPage].className;
+    /(^|\s)swipeview-active(\s|$)/.test(className) || (gallery.masterPages[gallery.currentMasterPage].className = !className ? 'swipeview-active' : className + ' swipeview-active');
+  });
+
+</script>
+</body>
+</html>

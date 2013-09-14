@@ -1872,6 +1872,8 @@
     <Content Include="content\third-party-libraries\sencha-touch\touch\src\XTemplateCompiler.js" />
     <Content Include="content\third-party-libraries\sencha-touch\touch\src\XTemplateParser.js" />
     <Content Include="content\third-party-libraries\sencha-touch\touch\version.txt" />
+    <Content Include="content\third-party-libraries\swipeview\style.css" />
+    <Content Include="content\third-party-libraries\swipeview\swipeview.js" />
     <Content Include="content\third-party-libraries\zurbfoundation\css\foundation.css" />
     <Content Include="content\third-party-libraries\zurbfoundation\css\foundation.min.css" />
     <Content Include="content\third-party-libraries\zurbfoundation\css\normalize.css" />
@@ -2582,6 +2584,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\ThirdPartyLibraries\SmallerLibraries\Respond.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ThirdPartyLibraries\SmallerLibraries\Swipeview.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

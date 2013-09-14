@@ -33,5 +33,10 @@ namespace MobileMvcSamples.Controllers.ThirdPartyLibaries
         {
             return View(@"~\Views\ThirdPartyLibraries\SmallerLibraries\Respond.cshtml");
         }
+
+        public ActionResult Swipeview()
+        {
+            return View(@"~\Views\ThirdPartyLibraries\SmallerLibraries\SwipeView.cshtml");
+        }
     }
 }
