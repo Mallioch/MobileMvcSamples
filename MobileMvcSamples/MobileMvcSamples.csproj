@@ -235,6 +235,7 @@
     <Content Include="content\responsivebasics\header.png" />
     <Content Include="content\responsivebasics\my-book-cover.png" />
     <Content Include="content\responsivebasics\style.css" />
+    <Content Include="content\standard-styles.css" />
     <Content Include="content\svg\building.svg" />
     <Content Include="content\svg\circle.svg" />
     <Content Include="content\third-party-libraries\bootstrap\css\bootstrap-theme.css" />
