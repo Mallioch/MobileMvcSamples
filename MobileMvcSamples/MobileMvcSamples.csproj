@@ -247,6 +247,7 @@
     <Content Include="content\third-party-libraries\enquire\enquire.js" />
     <Content Include="content\third-party-libraries\fittext\jquery.fittext.js" />
     <Content Include="content\third-party-libraries\flowtype\flowtype.js" />
+    <Content Include="content\third-party-libraries\hammer\hammer.js" />
     <Content Include="content\third-party-libraries\jquery-mobile\images\ajax-loader.gif" />
     <Content Include="content\third-party-libraries\jquery-mobile\images\icons-18-white.png" />
     <Content Include="content\third-party-libraries\jquery-mobile\jquery.js" />
@@ -256,6 +257,7 @@
     <Content Include="content\third-party-libraries\kendo-ui-mobile\jquery.min.js" />
     <Content Include="content\third-party-libraries\kendo-ui-mobile\kendo.mobile.all.min.css" />
     <Content Include="content\third-party-libraries\kendo-ui-mobile\kendo.mobile.min.js" />
+    <Content Include="content\third-party-libraries\pointer-polyfill\hand.js" />
     <Content Include="content\third-party-libraries\respond\respond.js" />
     <Content Include="content\third-party-libraries\respond\test.css" />
     <Content Include="content\third-party-libraries\sencha-touch\.sencha\app\build-impl.xml" />
@@ -2587,6 +2589,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\ThirdPartyLibraries\SmallerLibraries\Swipeview.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ThirdPartyLibraries\SmallerLibraries\Hammer.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ThirdPartyLibraries\SmallerLibraries\PointerPolyfill.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexibleContent\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_ChapterContentsLayout.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

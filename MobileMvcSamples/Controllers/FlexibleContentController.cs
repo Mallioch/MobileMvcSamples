@@ -8,6 +8,11 @@ namespace MobileMvcSamples.Controllers
 {
     public class FlexibleContentController : Controller
     {
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         public ActionResult DefaultTextSize()
         {
             return View();

@@ -1,0 +1,51 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <title>Hammer.js</title>
+  <style>
+    #touch-me {
+      background-color: #EEE;
+      border: solid 1px #CCC;
+      font-weight: bold;
+      height: 100px;
+      padding-top: 60px;
+      text-align: center;
+      width: 280px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hammer.js</h1>
+
+  <div id="touch-me">
+    Swipe or tap this.
+  </div>
+
+  <script src="/content/jquery-1-9-0.js"></script>
+  <script src="/content/third-party-libraries/hammer/hammer.js"></script>
+
+  <script>
+
+    $(document).ready(function () {
+      $('#touch-me').hammer().on('tap', function () {
+        $('#touch-me').text('tapped');
+      });
+
+      $('#touch-me').hammer().on('swipeleft', function () {
+        $('#touch-me').text('swiped left');
+      });
+
+      $('#touch-me').hammer().on('swiperight', function () {
+        $('#touch-me').text('swiped right');
+      });
+    });
+
+  </script>
+</body>
+</html>

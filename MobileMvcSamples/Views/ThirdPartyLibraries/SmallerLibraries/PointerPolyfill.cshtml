@@ -1,0 +1,44 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <title>Pointer Polyfill</title>
+  <style>
+    #tap-me {
+      background-color: #EEE;
+      border: solid 1px #CCC;
+      font-weight: bold;
+      height: 100px;
+      padding: 40px 10px 0 10px;
+      text-align: center;
+      width: 280px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Pointer Polyfill</h1>
+
+  <div id="tap-me">
+    Tap me.
+  </div>
+  <script src="/content/third-party-libraries/pointer-polyfill/hand.js"></script>
+  <script>
+window.addEventListener('load', load);
+
+function load() {
+      
+  var tapMe = document.getElementById('tap-me');
+
+  tapMe.addEventListener('pointerdown', function () {
+    tapMe.innerHTML = 'You have tapped using the pointerdown event. Your browser supports pointer events, either through polyfill or natively.';
+  });
+}
+  </script>
+
+</body>
+</html>

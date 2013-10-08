@@ -22,89 +22,6 @@
   }
 }
 
-<style>
-  .status {
-    display: inline-block;
-    font-family: monospace;
-    font-weight: bold;
-    border: solid 1px #ccc;
-    padding: 5px 10px;
-  }
-
-  .not-started {
-    background-color: #ff8a8a;
-  }
-
-  .finished {
-    background-color: #58c12e;
-  }
-
-  .editing {
-    background-color: #32a8fe;
-  }
-
-  .in-progress {
-    background-color: #ffee8f;
-  }
-
-  body {
-    background-color: #777;
-    font-size: 1.2em;
-    margin: 0;
-    padding: 0;
-  }
-
-  .container {
-    box-shadow: 4px 0 30px #000;
-    background-color: #FFF;
-    max-width: 930px;
-    margin: 0 auto;
-    outline: solid 1px #333;
-    padding: 0 15px 15px 15px;
-  }
-
-  h1 {
-    margin-top: 0;
-    padding-top: 20px;
-  }
-
-  li {
-    margin: 10px 0;
-  }
-
-  ol ol li {
-    list-style-type: lower-roman;
-  }
-
-  ol ol ol li {
-    list-style-type: lower-alpha;
-  }
-
-  p, li, h4 {
-    font-family: Georgia, serif;
-  }
-
-  p {
-    line-height: 1.4em;
-    margin: 0 0 1em 0;
-  }
-
-  h1, h2, h3 {
-    font-family: Helvetica, Verdana, sans-serif;
-  }
-
-  h3 {
-    margin: 40px 0 5px 0;
-  }
-
-  .callout {
-    border: solid 1px #ffd800;
-    background-color: #ffee93;
-    padding: 15px;
-  }
-
-</style>
-
 <div class="container">
 
   <h1>Mobile ASP.NET MVC</h1>
@@ -209,7 +126,7 @@
     <li><a href="/flexiblenavigation/flyoutnav">Flyout Nav</a></li>
   </ol>
 
-  <h3>Chapter 5: Flexible Content</h3>
+  <h3><a href="/flexiblecontent">Chapter 5: Flexible Content</a></h3>
 
   @Status(HomeController.ChapterStatus.InEditing)
 
@@ -217,48 +134,7 @@
     to show our content. So here we discuss having flexible text, images, tables and video.
   </p>
 
-  <h4>Samples</h4>
-  <ol>
-    <li>Flexible text
-      <ol>
-        <li><a href="/flexiblecontent/defaulttextsize">Default text size</a></li>
-        <li><a href="/flexiblecontent/longrunningtextwithnochanges">Long running text with no changes</a></li>
-        <li><a href="/flexiblecontent/compoundingems">Compounding ems</a></li>
-        <li><a href="/flexiblecontent/text">Flexible text with media queries</a></li>
-        <li><a href="/flexiblecontent/textleveragingbody">Flexible text - leveraging body size</a></li>
-        <li><a href="/flexiblecontent/textleveragingrem">Flexible text - using rem</a></li>
-        <li><a href="/flexiblecontent/fittext">Flexible text - FitText</a></li>
-      </ol>
-    </li>
-    <li>Flexible Images
-      <ol>
-        <li><a href="/flexiblecontent/imagecontrolwithcss">Image control with CSS</a></li>
-        <li><a href="/flexiblecontent/highresolutionimages">High Resolution Background Images</a></li>
-        <li><a href="/flexiblecontent/picturefill">Image control with PictureFill</a></li>
-      </ol>
-    </li>
-    <li>Flexible tables
-      <ol>
-        <li><a href="/flexiblecontent/table">Table</a></li>
-        <li><a href="/flexiblecontent/scrollingtable">Scrolling Table</a></li>
-        <li><a href="/flexiblecontent/tabledetablified">Table Detablified</a></li>
-        <li><a href="/flexiblecontent/tabledetablified2">Table Detablified #2</a></li>
-        <li><a href="/flexiblecontent/tabledetablified3">Table Detablified #3</a></li>
-        <li><a href="/flexiblecontent/tabledetablified4">Table Detablified #4</a></li>
-        <li><a href="/flexiblecontent/tablewithzurbresponsivetables">Table with Zurb Responsive Tables</a></li>
-        <li><a href="/flexiblecontent/footable">Footable</a></li>
-      </ol>
-    </li>
-    <li>Flexible Video
-      <ol>
-        <li><a href="/flexiblecontent/video">Video</a></li>
-        <li><a href="/flexiblecontent/responsivevideo">Responsive Video</a></li>
-        <li><a href="/flexiblecontent/videoembedding">Basic Video Embedding</a></li>
-        <li><a href="/flexiblecontent/responsiveembedding">Responsive Embedding</a></li>
-        <li><a href="/flexiblecontent/scriptedembeddedvideoresize">Scripted Embedded Video Resize</a></li>
-      </ol>
-    </li>
-  </ol>
+  <p><a href="/flexiblecontent">View Samples</a></p>
 
   <h3>Chapter 6: Displays Modes, View Engines and HTML Helpers</h3>
 
@@ -386,8 +262,8 @@
       User Interface Libraries
       <ol>
         <li><a href="/thirdpartylibraries/smallerlibraries/swipeview">Swipeview</a></li>
-        <li><a href="/thirdpartylibraries/smallerlibraries/swipe">Swipe</a></li>
         <li><a href="/thirdpartylibraries/smallerlibraries/hammer">Hammer</a></li>
+        <li><a href="/thirdpartylibraries/smallerlibraries/pointerpolyfill">Pointer-Event Polyfilling</a></li>
       </ol>
     </li>
     <li>

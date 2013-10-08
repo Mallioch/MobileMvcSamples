@@ -38,5 +38,15 @@ namespace MobileMvcSamples.Controllers.ThirdPartyLibaries
         {
             return View(@"~\Views\ThirdPartyLibraries\SmallerLibraries\SwipeView.cshtml");
         }
+
+        public ActionResult Hammer()
+        {
+            return View(@"~\Views\ThirdPartyLibraries\SmallerLibraries\Hammer.cshtml");
+        }
+
+        public ActionResult PointerPolyfill()
+        {
+            return View(@"~\Views\ThirdPartyLibraries\SmallerLibraries\PointerPolyfill.cshtml");
+        }
     }
 }
