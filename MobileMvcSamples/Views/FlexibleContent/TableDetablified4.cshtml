@@ -1,5 +1,6 @@
 ﻿@{
     ViewBag.Title = "Table";
+    Layout = @"~\Views\Shared\_PlainLayout.cshtml";
 }
 
 <style type="text/css">
@@ -31,7 +32,7 @@ div, span, li, td {
 }
 
 td {
-  border: solid 1px #CCC;
+  outline: solid 1px #CCC;
   padding: 3px 8px;
 }
 
@@ -64,6 +65,7 @@ thead td {
 
   td:before {
     content: attr(data-title) ': ';
+    font-weight: bold;
     position: absolute;
     left: 0;
     padding-left: 10px;
