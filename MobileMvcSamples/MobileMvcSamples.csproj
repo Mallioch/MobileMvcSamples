@@ -2620,10 +2620,10 @@
     <Content Include="Views\FlexibleNavigation\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\FlexibleLayouts\_Layout.cshtml" />
+    <Content Include="Views\FlexibleLayouts\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\FlexibleLayouts\Index.cshtml" />
+    <Content Include="Views\CSSLayoutBootcamp\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -8,6 +8,11 @@ namespace MobileMvcSamples.Controllers
 {
     public class CSSLayoutBootcampController : Controller
     {
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         public ActionResult WithoutAReset()
         {
             return View();
