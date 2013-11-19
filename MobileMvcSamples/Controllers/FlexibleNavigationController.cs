@@ -8,6 +8,11 @@ namespace MobileMvcSamples.Controllers
 {
     public class FlexibleNavigationController : Controller
     {
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         public ActionResult NavMovedToBottom()
         {
             return View();

@@ -1955,9 +1955,6 @@
     <Content Include="Views\FlexibleNavigation\NavMovedToBottom.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\FlexibleNavigation\_Layout.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\FlexibleNavigation\NavMovedToBottomNoRepeatedMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -2612,9 +2609,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_PlainLayout.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\FlexibleNavigation\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\FlexibleNavigation\Index.cshtml" />
