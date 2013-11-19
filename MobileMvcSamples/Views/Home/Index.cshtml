@@ -1,64 +1,61 @@
 ﻿@using MobileMvcSamples.Controllers
 @{
-    ViewBag.Title = "Mobile ASP.NET MVC";
+  ViewBag.Title = "Mobile ASP.NET MVC";
 }
-    
-@helper Status(HomeController.ChapterStatus status)
-{
-  switch (status)
-  {
-    case HomeController.ChapterStatus.NotStarted:
-      <div class="status not-started">Status: Not started!</div>
-      break;
-    case HomeController.ChapterStatus.Finished:
-      <div class="status finished">Status: Finished!</div>
-      break;
-    case HomeController.ChapterStatus.InEditing:
-      <div class="status editing">Status: In Editing</div>
-      break;
-    case HomeController.ChapterStatus.InProgress:
-      <div class="status in-progress">Status: In Progress</div>
-      break;
-  }
-}
+
+<div class="header major-section">
+  <div class="section-content">
+    <h1>Mobile ASP.NET MVC</h1>
+    <h2>by Eric B. Sowell</h2>
+  </div>
+</div>
 
 <div class="container">
 
-  <h1>Mobile ASP.NET MVC</h1>
-  <h2>by Eric B. Sowell</h2>
-
-  <img src="/content/book-cover.png" />
-
-  <p>Welcome! This is online home for my book, <i>Mobile ASP.NET MVC</i>, which will be published
+  <img src="/content/book-cover.png" class="book-cover" />
+  <p>
+    Welcome! This is online home for my book, <i>Mobile ASP.NET MVC 5</i>, which will be published
     by Apress in Fall of 2013. I&rsquo;ll keep this page up-to-date so you can know my progress and I
-    would appreciate any feedback that you have. You can email me at 
-    <a href="mailto:eric.sowell@gmail.com">eric.sowell@gmail.com</a>, hit me up on twitter 
+    would appreciate any feedback that you have. You can email me at
+    <a href="mailto:eric.sowell@gmail.com">eric.sowell@gmail.com</a>, hit me up on twitter
     <a href="http://twitter.com/mallioch">@@mallioch</a> or find me
-      at my website, <a href="http://ericsowell.com">http://ericsowell.com.</a>
+    at my website, <a href="http://ericsowell.com">http://ericsowell.com.</a>
   </p>
 
-  <p class="callout">If you haven&rsquo;t bought the book (why not?), you can buy it 
+  <p class="callout">
+    If you haven&rsquo;t bought the book (why not?), you can buy it
     <a href="http://www.apress.com/9781430250562">on the Apress website</a> (you can get the alpha
-    version now) or <a href="http://www.amazon.com/gp/product/1430250569/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=1430250569&linkCode=as2&tag=thecodhum-20">pre-order it on Amazon</a>.</p>
+    version now) or <a href="http://www.amazon.com/gp/product/1430250569/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=1430250569&linkCode=as2&tag=thecodhum-20">pre-order it on Amazon</a>.
+  </p>
 
-  <p>This site is primarily for all of my samples in the book that are
+  <p>
+    This site is primarily for all of my samples in the book that are
     meant to be tested in the browser. Not every chapter has these, so to get all of the samples,
-    including these, <a href="https://github.com/Mallioch/MobileMvcSamples">you can get the source 
-    code from the Github repository here</a>. Note that <em>some of these samples are not finished</em>,
+    including these, <a href="https://github.com/Mallioch/MobileMvcSamples">
+      you can get the source
+      code from the Github repository here
+    </a>. Note that <em>some of these samples are not finished</em>,
     though they will all be finished by the time I have written the rough draft of all the chapters.
   </p>
 
-  <p>Note that most of the sub-pages have no styling. This is on purpose since most of the pages are
+  <p>
+    Note that most of the sub-pages have no styling. This is on purpose since most of the pages are
     meant to be bare examples.
   </p>
+</div>
 
-  <h2>Chapters</h2>
+<div class="major-section">
+  <div class="section-content">
+    <h2>Chapters</h2>
+  </div>
+</div>
+
+<div class="container">
 
   <h3>Chapter 1: The Basics of Responsive Web Design</h3>
 
-  @Status(HomeController.ChapterStatus.Finished)
-
-  <p>In this chapter I discuss the basics of Responsive Web Design, which I think is the right place
+  <p>
+    In this chapter I discuss the basics of Responsive Web Design, which I think is the right place
     to start when starting a new mobile website these days. This chapter is the overview, chapters
     three through five are the deep dive into the approach.
   </p>
@@ -73,9 +70,8 @@
 
   <h3>Chapter 2: CSS Layout Bootcamp</h3>
 
-  @Status(HomeController.ChapterStatus.Finished)
-
-  <p>Chapter 2 is for all those developers who find layout in CSS hard unless they use tables. It's
+  <p>
+    Chapter 2 is for all those developers who find layout in CSS hard unless they use tables. It's
     not so bad, once you know the rules.
   </p>
 
@@ -92,17 +88,15 @@
 
   <h3>Chapter 3: Flexible Layouts</h3>
 
-  @Status(HomeController.ChapterStatus.Finished)
-
-  <p>Now that chapter 2 has equipped you to create layouts in CSS, this chapter shows you how to make
+  <p>
+    Now that chapter 2 has equipped you to create layouts in CSS, this chapter shows you how to make
     layouts that flex and reshape based on context.
   </p>
 
   <h3>Chapter 4: Flexible Navigation</h3>
 
-  @Status(HomeController.ChapterStatus.Finished)
-
-  <p>Flexible navigation is a special case of flexible layouts but is an important one. We go through
+  <p>
+    Flexible navigation is a special case of flexible layouts but is an important one. We go through
     a number of ways of solving layout problems in responsive scenarios.
   </p>
 
@@ -117,9 +111,8 @@
 
   <h3><a href="/flexiblecontent">Chapter 5: Flexible Content</a></h3>
 
-  @Status(HomeController.ChapterStatus.Finished)
-
-  <p>Flexible layouts are useless if your content can&rsquo;t adapt. After all, our websites exist
+  <p>
+    Flexible layouts are useless if your content can&rsquo;t adapt. After all, our websites exist
     to show our content. So here we discuss having flexible text, images, tables and video.
   </p>
 
@@ -127,33 +120,29 @@
 
   <h3>Chapter 6: Displays Modes, View Engines and HTML Helpers</h3>
 
-  @Status(HomeController.ChapterStatus.Finished)
-
-  <p>In this chapter we dive into ASP.NET MVC, discussing its ways of rendering markup and
+  <p>
+    In this chapter we dive into ASP.NET MVC, discussing its ways of rendering markup and
     how we can leverage those to provide the flexibility we need for mobile.
   </p>
 
   <h3>Chapter 7: Device and Feature Detection</h3>
 
-  @Status(HomeController.ChapterStatus.InEditing)
-
-  <p>Sometimes it is crucial to know something about the device visiting the page or its capabilities.
+  <p>
+    Sometimes it is crucial to know something about the device visiting the page or its capabilities.
     Here we discuss strategies for doing this.
   </p>
 
   <h3>Chapter 8: Mobile performance</h3>
 
-  @Status(HomeController.ChapterStatus.InEditing)
-
-  <p>Performance is particularly important for mobile so we have a discussion of various important
+  <p>
+    Performance is particularly important for mobile so we have a discussion of various important
     techniques for making your mobile websites perform better.
   </p>
 
   <h3>Chapter 9: Native APIs, HTML5 and CSS3 on Mobile Today</h3>
 
-  @Status(HomeController.ChapterStatus.InEditing)
-
-  <p>A chapter exploring what works well on mobile devices today. Despite being a bit buggy, mobile
+  <p>
+    A chapter exploring what works well on mobile devices today. Despite being a bit buggy, mobile
     browsers are surpisingly capable.
   </p>
 
@@ -181,7 +170,8 @@
         <li><a href="/leveragingnewcapabilities/bettersemantics">Better Semantics</a></li>
       </ol>
     </li>
-    <li>New Visual Tools
+    <li>
+      New Visual Tools
       <ol>
         <li><a href="/leveragingnewvisualtools/webfonts">Web Fonts</a></li>
         <li><a href="/leveragingnewvisualtools/transitions">Transitions</a></li>
@@ -201,35 +191,31 @@
 
   <h3>Chapter 10: Programming for Touch</h3>
 
-  @Status(HomeController.ChapterStatus.InEditing)
-
-  <p>One of the great things about mobile browsers is that all the modern ones have nice
+  <p>
+    One of the great things about mobile browsers is that all the modern ones have nice
     touch APIs. In this chapter I discuss the basic APIs, give a few samples and show
     how to program for the various touch programming models.
   </p>
 
   <h3>Chapter 11: Advanced Touch Programming</h3>
 
-  @Status(HomeController.ChapterStatus.InEditing)
-
-  <p>This chapter will include more samples of touch programming
+  <p>
+    This chapter will include more samples of touch programming
     and go through more concepts around making a better touch experience.
   </p>
 
-  
+
   <ol>
     <li><a href="/advancedtouchprogramming/implementingabasicswipegesture">Implementing a swipe gesture</a></li>
     <li><a href="/advancedtouchprogramming/creatingaswipeableimagewidget">Creating a swipeable image widget</a></li>
-    <!--li><a href="/advancedtouchprogramming/rotating">Rotating</a></li-->
     <li><a href="/advancedtouchprogramming/pinch">Pinch and Zoom</a></li>
   </ol>
-  
+
 
   <h3>Chapter 12: Third party libraries</h3>
 
-  @Status(HomeController.ChapterStatus.InProgress)
-
-  <p>This book is primarily about the core skills and techniques to do mobile development. But
+  <p>
+    This book is primarily about the core skills and techniques to do mobile development. But
     sometimes it's good to use a library instead of coding something yourself, so we discuss
     a number of different libraries to use when making mobile websites, what they are good
     for and in some cases the drawbacks to using them.
@@ -265,7 +251,14 @@
     </li>
   </ol>
 
+</div>
 
 
-
+<div class="footer major-section">
+  <div class="section-content">
+    <p>
+      This website is owned by <a href="http://ericsowell.com/">Eric Sowell</a>. For questions or comments, there
+      are <a href="http://ericsowell.com/contact">a few ways to contact Eric here</a>.
+    </p>
+  </div>
 </div>
