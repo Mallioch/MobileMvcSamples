@@ -8,6 +8,11 @@ namespace MobileMvcSamples.Controllers
 {
     public class LeveragingNativeAPIsController : Controller
     {
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         public ActionResult Geolocation()
         {
             ViewData[DeviceCoverageHelper.DefaultSetName] = new DeviceCoverage
