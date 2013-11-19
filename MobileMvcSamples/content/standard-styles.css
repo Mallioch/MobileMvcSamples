@@ -33,6 +33,29 @@
 }
 
 /* =========== HEADER =========== */
+
+.home .link-to-home {
+  display: none;
+}
+
+.link-to-home {
+  background-color: #000;
+}
+
+  .link-to-home .link-container {
+    border-top: solid 15px #000;
+    max-width: 50em;
+    margin: 0 auto 0 auto;
+  }
+
+  .link-to-home a {
+    color: #FBD10D;
+    font-family: Helvetica, Verdana, sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: .8em;
+  }
+
 .header {
   border-top: solid 15px #000;
 }
@@ -85,6 +108,7 @@ h2 {
 h3 {
   font-size: 1.2em;
   font-weight: bold;
+  line-height: 1.5em;
 }
 
 h3 a {
@@ -98,11 +122,16 @@ h4 {
   font-weight: bold;
 }
 
-ol li {
-  line-height: 2em;
+ol {
+  list-style-type: decimal;
 }
 
-ol ol {
+ol li {
+  line-height: 2em;
+  margin-left: 2.5em;
+}
+
+/*ol ol {
   margin-left: 15px;
 }
 
@@ -115,7 +144,7 @@ ol ol li {
 
 ol ol ol li {
   list-style-type: lower-alpha;
-}
+}*/
 
 p, li, h4 {
   font-family: Georgia, serif;
