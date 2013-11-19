@@ -8,6 +8,11 @@ namespace MobileMvcSamples.Controllers
 {
     public class FlexibleLayoutsController : Controller
     {
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         public ActionResult ThreeColumnLayoutNoMargin()
         {
             return View();

@@ -157,7 +157,6 @@
     <Content Include="content\appcache\calc.js" />
     <Content Include="content\appcache\test2.css" />
     <Content Include="content\appcache\test.css" />
-    <Content Include="content\book-cover.png" />
     <Content Include="content\coveragechart.css" />
     <Content Include="content\footable\footable-0.1.css" />
     <Content Include="content\footable\footable-0.1.js" />
@@ -207,6 +206,7 @@
     <Content Include="content\hammer.js" />
     <Content Include="content\jquery-1-9-0.js" />
     <Content Include="content\jquery.fittext.js" />
+    <Content Include="content\book-cover.png" />
     <Content Include="content\picturefill\horseman-full.jpg" />
     <Content Include="content\picturefill\horseman-medium.jpg" />
     <Content Include="content\picturefill\horseman-small-low-res.jpg" />
@@ -231,10 +231,14 @@
     <Content Include="content\preso\touch-events.html" />
     <Content Include="content\reset.css" />
     <Content Include="content\responsivebasics\apress-logo.gif" />
+    <Content Include="content\responsivebasics\dashboards-for-excel.png" />
     <Content Include="content\responsivebasics\footer_bg.jpg" />
     <Content Include="content\responsivebasics\header.png" />
     <Content Include="content\responsivebasics\my-book-cover.png" />
+    <Content Include="content\responsivebasics\pro-asp-net.png" />
+    <Content Include="content\responsivebasics\sql-server-internals.png" />
     <Content Include="content\responsivebasics\style.css" />
+    <Content Include="content\responsivebasics\windows-8-apps.png" />
     <Content Include="content\standard-styles.css" />
     <Content Include="content\svg\building.svg" />
     <Content Include="content\svg\circle.svg" />
@@ -2609,6 +2613,18 @@
   <ItemGroup>
     <Content Include="Views\Shared\_PlainLayout.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexibleNavigation\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexibleNavigation\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexibleLayouts\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexibleLayouts\Index.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -2627,7 +2643,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:61985/</IISUrl>
+          <IISUrl>http://localhost:3678</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
