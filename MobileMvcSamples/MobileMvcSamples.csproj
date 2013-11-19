@@ -2000,7 +2000,7 @@
     <Content Include="Views\FlexibleContent\TableDetablified2.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Touch\Index.cshtml" />
+    <Content Include="Views\Touch\IndexOld.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\FlexibleContent\TableDetablified3.cshtml" />
@@ -2621,6 +2621,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\LeveragingNativeAPIs\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AdvancedTouchProgramming\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Touch\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Touch\Signature.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

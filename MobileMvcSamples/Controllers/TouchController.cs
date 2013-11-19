@@ -14,6 +14,16 @@ namespace MobileMvcSamples.Controllers
             return View();
         }
 
+        public ActionResult Signature()
+        {
+            return View();
+        }
+
+
+
+
+
+
         public ActionResult Touchable()
         {
             return View();

@@ -8,6 +8,11 @@ namespace MobileMvcSamples.Controllers
 {
     public class AdvancedTouchProgrammingController : Controller
     {
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         public ActionResult ImplementingABasicSwipeGesture()
         {
             return View();
