@@ -1,5 +1,4 @@
-﻿
-body {
+﻿body {
   background-color: #FFF;
   font-size: 1.2em;
   margin: 0;
@@ -123,7 +122,7 @@ p, li, h4 {
 }
 
 p {
-  line-height: 1.4em;
+  line-height: 1.5em;
   margin: 0 0 1em 0;
 }
 
@@ -135,8 +134,39 @@ h3 {
   margin: 40px 0 5px 0;
 }
 
+
+/* ============ OTHER =========== */
+
+.book-cover {
+  float: right;
+}
+
 .callout {
-  border: solid 1px #ffd800;
-  background-color: #ffee93;
+  border: solid 2px #CF171A;
+  border-top: solid 15px #CF171A;
+  border-bottom: solid 15px #CF171A;
+  color: #000;
+  font-family: Helvetica, Verdana, Arial, sans-serif;
   padding: 15px;
+}
+
+  .callout a {
+    color: #000;
+  }
+
+.samples-link {
+  border: solid 1px #CF171A;
+  border-top: solid 5px #CF171A;
+  border-bottom: solid 5px #CF171A;
+  display: inline-block;
+  padding: 0px 8px;
+}
+
+.samples-link a {
+  color: #000;
+  font-family: Helvetica, Verdana, Arial, sans-serif;
+  font-size: .9em;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
 }
