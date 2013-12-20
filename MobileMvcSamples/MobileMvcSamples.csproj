@@ -239,6 +239,7 @@
     <Content Include="content\responsivebasics\sql-server-internals.png" />
     <Content Include="content\responsivebasics\style.css" />
     <Content Include="content\responsivebasics\windows-8-apps.png" />
+    <Content Include="content\source-code-zip.jpg" />
     <Content Include="content\standard-styles.css" />
     <Content Include="content\svg\building.svg" />
     <Content Include="content\svg\circle.svg" />
