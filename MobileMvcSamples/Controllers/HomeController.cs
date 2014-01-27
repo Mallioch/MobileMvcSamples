@@ -13,12 +13,10 @@ namespace MobileMvcSamples.Controllers
             return View();
         }
 
-        public enum ChapterStatus
+        public ActionResult Errata()
         {
-            NotStarted,
-            InProgress,
-            InEditing,
-            Finished
+            return View();
         }
+
     }
 }

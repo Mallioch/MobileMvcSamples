@@ -5,6 +5,10 @@
   padding: 0;
 }
 
+strong {
+  font-weight: bold;
+}
+
 /* ====== BASIC CONTAINERS ====== */
 .container {
   max-width: 50em;
