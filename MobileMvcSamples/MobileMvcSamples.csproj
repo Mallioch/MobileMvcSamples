@@ -2637,6 +2637,9 @@
   <ItemGroup>
     <Content Include="Views\Home\Errata.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="content\DisplayModesAndViewEngineSamples.zip" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
